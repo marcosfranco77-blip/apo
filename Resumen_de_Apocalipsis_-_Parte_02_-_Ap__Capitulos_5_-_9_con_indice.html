@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis · Parte 02 · Capítulos 5–9</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* STARFIELD */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 8%,  rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 28% 22%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 5%,  rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 18%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 9%,  rgba(201,168,76,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5%  45%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 38%, rgba(201,168,76,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 72%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 33% 88%, rgba(201,168,76,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 95%, rgba(255,255,255,.5) 0%, transparent 100%);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%,100% { opacity:.7; } 50% { opacity:1; }
+}
+
+.section { animation: fadeUp .7s ease both; }
+.section:nth-child(1)  { animation-delay: .00s; }
+.section:nth-child(2)  { animation-delay: .08s; }
+.section:nth-child(3)  { animation-delay: .16s; }
+.section:nth-child(4)  { animation-delay: .24s; }
+.section:nth-child(5)  { animation-delay: .32s; }
+.section:nth-child(6)  { animation-delay: .40s; }
+.section:nth-child(7)  { animation-delay: .48s; }
+.section:nth-child(8)  { animation-delay: .56s; }
+.section:nth-child(9)  { animation-delay: .64s; }
+.section:nth-child(10) { animation-delay: .72s; }
+.section:nth-child(11) { animation-delay: .80s; }
+.section:nth-child(12) { animation-delay: .88s; }
+.section:nth-child(13) { animation-delay: .96s; }
+.section:nth-child(14) { animation-delay:1.04s; }
+.section:nth-child(15) { animation-delay:1.12s; }
+
+/* HEADER */
+header {
+  position: relative;
+  z-index: 1;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,26,26,.35) 0%, rgba(10,8,6,0) 70%),
+              linear-gradient(180deg, var(--dark) 0%, var(--deep) 100%);
+  border-bottom: 1px solid rgba(201,168,76,.2);
+  padding: 60px 40px 50px;
+  text-align: center;
+}
+
+.header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.header-ornament::before,
+.header-ornament::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim));
+}
+.header-ornament::after {
+  background: linear-gradient(90deg, var(--gold-dim), transparent);
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 30px rgba(201,168,76,.25);
+}
+
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.meta-item {
+  text-align: center;
+}
+.meta-label {
+  font-family: var(--f-heading);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.meta-value {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* MAIN LAYOUT */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 50px 32px 80px;
+}
+
+/* SECTION */
+.section {
+  margin-bottom: 56px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+}
+
+.section-number {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-family: var(--f-heading);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: .3px;
+}
+
+/* CARDS GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 780px) {
+  .cards { grid-template-columns: 1fr; }
+  header { padding: 40px 20px 36px; }
+  main { padding: 32px 16px 60px; }
+  .meta-row { gap: 20px; }
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover {
+  border-left-color: var(--gold);
+  transform: translateX(3px);
+}
+.card.full { grid-column: 1 / -1; }
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(201,168,76,.1);
+}
+
+/* BULLET LIST */
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bullet-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+
+.bullet-icon {
+  font-size: 15px;
+  line-height: 1.6;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.bullet-content {}
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* SCRIPTURE BOX */
+.scripture-box {
+  position: relative;
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 32px;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+.scripture-box::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold-dim), transparent);
+}
+.timeline-item {
+  position: relative;
+  padding: 10px 14px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 14px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(201,168,76,.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 3px;
+}
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+}
+
+/* INFO PANEL (sky) */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* TABLE */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(201,168,76,.15);
+}
+.styled-table td {
+  font-size: 16px;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+}
+.styled-table tr:last-child td { border-bottom: none; }
+
+/* HIGHLIGHT */
+.hl { color: var(--gold-light); font-weight: 600; }
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 50px 0 40px;
+  color: var(--gold-dim);
+  font-size: 18px;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.3), transparent);
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+}
+.summary-box p {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.85;
+}
+
+/* FOOTNOTE */
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(201,168,76,.1);
+  padding: 28px 40px;
+  text-align: center;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+footer a { color: var(--gold-dim); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+/* HORSE COLOR BADGES */
+.horse-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-family: var(--f-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 6px;
+}
+.horse-white  { background: rgba(220,220,220,.12); color: #ddd; border: 1px solid rgba(220,220,220,.3); }
+.horse-red    { background: rgba(192,57,43,.15); color: #e74c3c; border: 1px solid rgba(192,57,43,.4); }
+.horse-black  { background: rgba(30,20,10,.5); color: #aaa; border: 1px solid rgba(150,150,150,.3); }
+.horse-pale   { background: rgba(74,168,120,.08); color: #7ec8a0; border: 1px solid rgba(74,168,120,.3); }
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+.toc-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.06);
+}
+.toc-item.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.1);
+}
+.toc-num {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: var(--f-heading);
+  color: var(--crimson-light);
+  padding-top: 1px;
+  min-width: 22px;
+}
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: none;
+  color: var(--gold);
+  border-radius: 0 6px 6px 0;
+  width: 22px;
+  height: 54px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+}
+
+/* PAGE WRAP — desplaza el contenido cuando el índice está abierto */
+.page-wrap {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-open .page-wrap {
+  margin-left: 270px;
+}
+body.toc-closed .page-wrap {
+  margin-left: 0;
+}
+@media (max-width: 900px) {
+  body.toc-open .page-wrap { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#sec-I" class="toc-item"><span class="toc-num">I</span><span class="toc-title">Estructura General del Libro de Apocalipsis</span></a>
+<a href="#sec-II" class="toc-item"><span class="toc-num">II</span><span class="toc-title">El Inicio de la Tribulación — El Pacto del Anticristo</span></a>
+<a href="#sec-III" class="toc-item"><span class="toc-num">III</span><span class="toc-title">El Rollo y el Cordero — Apocalipsis Capítulo 5</span></a>
+<a href="#sec-IV" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">Quién es el Anticristo</span></a>
+<a href="#sec-V" class="toc-item"><span class="toc-num">V</span><span class="toc-title">Los Cuatro Primeros Sellos — Los Cuatro Jinetes</span></a>
+<a href="#sec-VI" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">Quinto Sello — Santos y Mártires de la Tribulación</span></a>
+<a href="#sec-VII" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">Sexto Sello — Calamidades Sobrenaturales</span></a>
+<a href="#sec-VIII" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">Los 144,000 Sellados — Capítulo 7</span></a>
+<a href="#sec-IX" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">La Gran Multitud Vestida de Ropas Blancas</span></a>
+<a href="#sec-X" class="toc-item"><span class="toc-num">X</span><span class="toc-title">El Séptimo Sello — Preludio a las 7 Trompetas</span></a>
+<a href="#sec-XI" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">Las Primeras Cuatro Trompetas — Devastación de la Tierra</span></a>
+<a href="#sec-XII" class="toc-item"><span class="toc-num">XII</span><span class="toc-title">Advertencia antes de las Últimas Tres Trompetas — Los Ayes</span></a>
+<a href="#sec-XIII" class="toc-item"><span class="toc-num">XIII</span><span class="toc-title">Quinta Trompeta (Primer Ay) — Las Langostas del Abismo</span></a>
+<a href="#sec-XIV" class="toc-item"><span class="toc-num">XIV</span><span class="toc-title">Sexta Trompeta (Segundo Ay) — El Ejército de 200 Millones</span></a>
+<a href="#sec-XV" class="toc-item"><span class="toc-num">XV</span><span class="toc-title">Situación al Final de la Primera Mitad — Hacia el Mid-Trib</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+
+<div class="page-wrap">
+<div class="starfield" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════ HEADER ═══════════════════════════════════ -->
+<header>
+  <div class="header-ornament">Verse by Verse Ministry International</div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 02 · Capítulos 5 – 9</h2>
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="meta-label">Capítulos cubiertos</span>
+      <span class="meta-value">Apocalipsis 5 – 9</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Páginas cubiertas</span>
+      <span class="meta-value">53 páginas</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Período histórico principal</span>
+      <span class="meta-value">Primera Mitad de la Tribulación · 3½ años</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════ I. ESTRUCTURA GENERAL DEL LIBRO ═══════ -->
+<section class="section" id="sec-I">
+  <div class="section-header">
+    <div class="section-number">I</div>
+    <h2 class="section-title">Estructura General del Libro de Apocalipsis</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Las Tres Grandes Secciones de la Tribulación</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-period">Primera Mitad · Apocalipsis 6–9 · 3½ años</span>
+          <span class="timeline-desc">7 Sellos, 6 Trompetas, 2 juicios Ay (trompetas 5 y 6). Muere ¼ de la tierra (sello 4) y ⅓ de los hombres (trompeta 6). Los 144,000 son sellados y evangelizan el mundo.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Mitad de la Tribulación · Apocalipsis 10–15 · Punto en el tiempo</span>
+          <span class="timeline-desc">Satanás expulsado del cielo. Anticristo muere y resucita. Abominación desoladora. Marca de la Bestia 666. Los 2 Testigos son asesinados. 144,000 mártires aparecen en el cielo.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Segunda Mitad (Gran Tribulación) · Apocalipsis 16–19 · 3½ años</span>
+          <span class="timeline-desc">Trompeta 7 / Tercer Ay. Juicios de las 7 Copas. Guerra de Armagedón. Segunda venida de Cristo.</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Después de la Tribulación (Cap. 20–22)</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Capítulos 20–22</span><span class="bullet-desc">Derrota definitiva de Satanás, el Milenio, el Nuevo Cielo y la Nueva Tierra, y la Nueva Jerusalén.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Relación de los Juicios</span><span class="bullet-desc">Los 7 Sellos contienen a las 7 Trompetas. La 7ª Trompeta contiene las 7 Copas. Son juicios anidados como muñecas rusas (matrioskas), no secuencias independientes.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Nota de Cronología</span><span class="bullet-desc">El libro no está escrito en orden estrictamente cronológico, sino por escenas simultáneas. Hay que buscar pistas en el texto para identificar eventos paralelos.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ II. EL INICIO DE LA TRIBULACIÓN ═══════ -->
+<section class="section" id="sec-II">
+  <div class="section-header">
+    <div class="section-number">II</div>
+    <h2 class="section-title">El Inicio de la Tribulación — El Pacto del Anticristo</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Gran y Terrible Día del Señor</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Destinatarios</span><span class="bullet-desc">No es para la Iglesia, sino para todos los que quedaron en la tierra después de que la Iglesia fue removida en el Rapto.</span></div></li>
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">Evento iniciador</span><span class="bullet-desc">Según Daniel, los 7 años inician cuando el Anticristo firma un <span class="hl">convenio con Israel</span>, permitiéndoles construir el Templo y reiniciar los sacrificios.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">Ubicación en Apocalipsis</span><span class="bullet-desc">La firma del pacto no se menciona explícitamente en Apocalipsis, pero todo lo que la rodea sí. Ocurrió en algún lugar entre los capítulos 5 y 6.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Daniel 9:27 — El Pacto Profético</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Daniel 9:27</span>
+        <span class="scripture-text">Y por otra semana confirmará el pacto con muchos; a la mitad de la semana hará cesar el sacrificio y la ofrenda. Después con la muchedumbre de las abominaciones vendrá el desolador, hasta que venga la consumación, y lo que está determinado se derrame sobre el desolador.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ III. EL ROLLO Y EL CORDERO (CAP. 5) ═══════ -->
+<section class="section" id="sec-III">
+  <div class="section-header">
+    <div class="section-number">III</div>
+    <h2 class="section-title">El Rollo y el Cordero — Apocalipsis Capítulo 5</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Descripción del Rollo</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Escrito por dentro y por fuera</span><span class="bullet-desc">Método israelita para los títulos de propiedad de tierras. Se escribía por un lado, se sellaba con cera; al transferirse la tierra, se escribía al reverso.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Contenido dual</span><span class="bullet-desc">Un lado contiene las <span class="hl">promesas de la Tierra Prometida</span>; el otro, el endoso del contrato correspondiente a esas tierras cedidas a los gentiles.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los 7 Sellos</span><span class="bullet-desc">Cristo los va rompiendo uno por uno, desatando eventos en el cielo y en la tierra. Dios tiene el control total de todo lo que sucede.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El único digno</span><span class="bullet-desc">Normalmente se abría en presencia de un juez. El único digno es el Cordero inmolado, quien reclama las tierras de regreso pues pagó el precio de su recuperación.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La Adoración del Cordero (Ap. 5:6–14)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 5:9</span>
+        <span class="scripture-text">Digno eres de tomar el libro y de abrir sus sellos; porque tú fuiste inmolado, y con tu sangre nos has redimido para Dios, de todo linaje y lengua y pueblo y nación.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Siete cuernos y siete ojos</span><span class="bullet-desc">Los siete espíritus de Dios enviados por toda la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Millones de millones</span><span class="bullet-desc">La voz de ángeles, seres vivientes y ancianos alrededor del trono, aclamando al Cordero con poder, riquezas, sabiduría, fortaleza, honra, gloria y alabanza.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ IV. EL ANTICRISTO — IDENTIDAD ═══════ -->
+<section class="section" id="sec-IV">
+  <div class="section-header">
+    <div class="section-number">IV</div>
+    <h2 class="section-title">Quién es el Anticristo</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Su Origen y Naturaleza</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Origen gentil</span><span class="bullet-desc">Viene del mismo pueblo que destruyó el Templo en el año 70 d.C. — los romanos (Dn. 9:26). No es judío, pues fueron los romanos, no los judíos, quienes lo destruyeron.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Probablemente europeo o del Medio Oriente</span><span class="bullet-desc">Su carrera pública inicia cuando Jesús rompe el primer sello.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">1 Juan 2:22</span><span class="bullet-desc">El anticristo es aquel que niega que Jesús es el Cristo, negando al Padre y al Hijo.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Quién Lo Detiene (Hasta el Rapto)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">2 Tesalonicenses 2:6–8</span>
+        <span class="scripture-text">Y ahora vosotros sabéis lo que lo detiene… Ya está en acción el misterio de la iniquidad; sólo que hay quien al presente lo detiene, hasta que él a su vez sea quitado de en medio. Y entonces se manifestará aquel impío.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Espíritu Santo y la Iglesia</span><span class="bullet-desc">Mientras el Espíritu Santo y la Iglesia estén en la tierra, el mundo no puede ser engañado con un falso Cristo. Al ser removidos en el Rapto, nada se opone al Anticristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Espíritu del Anticristo</span><span class="bullet-desc">Ya opera en el no creyente para no reconocer a Cristo. Ha habido muchos anticristos, pero el Anticristo definitivo solo se revela al romperse el primer sello. (1 Jn. 4:3)</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">El Anticristo en el Templo (2 Ts. 2:3–4)</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">2 Tesalonicenses 2:3–4</span>
+        <span class="scripture-text">No vendrá sin que antes venga la apostasía y se manifieste el hombre de pecado, el hijo de perdición, el cual se opone y se levanta contra todo lo que se llama Dios o es objeto de culto; tanto, que se sienta en el templo de Dios como Dios, haciéndose pasar por Dios.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ V. LOS CUATRO CABALLOS (SELLOS 1–4) ═══════ -->
+<section class="section" id="sec-V">
+  <div class="section-header">
+    <div class="section-number">V</div>
+    <h2 class="section-title">Los Cuatro Primeros Sellos — Los Cuatro Jinetes</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Principio Interpretativo</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un solo jinete</span><span class="bullet-desc">Los 4 caballos están conectados entre sí bajo un mismo jinete: el Anticristo levantando su poder progresivamente. Los caballos son simbólicos y significan que recorren toda la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Causa y efecto</span><span class="bullet-desc">Cada caballo es consecuencia del anterior. Este modelo es iniciado por <span class="hl">Cristo al romper cada sello</span> — no por el Anticristo. Jesús es quien propulsa el avance. (Ver también Zac. 6:1–8)</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Analogía histórica</span><span class="bullet-desc">Este modelo se vio con Hitler, pero el Anticristo es de mayor magnitud y es el último.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Primer Sello — Caballo Blanco <span class="horse-badge horse-white">Blanco</span></div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 6:1–2</span>
+        <span class="scripture-text">Vi un caballo blanco; y el que lo montaba tenía un arco; y le fue dada una corona, y salió venciendo, y para vencer.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Arco sin flechas</span><span class="bullet-desc">Amenaza de guerra sin guerra real. Como una pistola sin balas: intimidación y coerción.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Corona (stefanos)</span><span class="bullet-desc">Corona ganada, no heredada. Un líder que obtuvo poder por sus propios medios, posiblemente con algún poderío militar. Logra el tratado de paz en el Medio Oriente, lo que le da poder y reconocimiento mundial.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Segundo Sello — Caballo Rojo <span class="horse-badge horse-red">Rojo</span></div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 6:3–4</span>
+        <span class="scripture-text">Salió otro caballo, de color rojizo. Al que lo montaba le fue dado poder para quitar la paz de la tierra y hacer que se mataran unos a otros. Y se le dio una espada muy grande.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Espada</span><span class="bullet-desc">Arma de guerra real, muy diferente al arco sin flechas. Ahora viene la guerra verdadera.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Rojo — sangre</span><span class="bullet-desc">Simboliza guerra y derramamiento de sangre. El poder del Anticristo llega al punto de quitar la paz de la tierra. Guerras mundiales, con tecnología moderna: nuclear, IA, guerra cognitiva.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Guerra Cognitiva</span><span class="bullet-desc">"Incluye actividades para afectar actitudes y comportamientos, al influir, proteger o interrumpir la cognición a nivel individual, grupal o poblacional." (NATO)</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Tercer Sello — Caballo Negro <span class="horse-badge horse-black">Negro</span></div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 6:5–6</span>
+        <span class="scripture-text">Vi un caballo negro. El que lo montaba tenía una balanza en la mano. Dos libras de trigo por un denario y seis libras de cebada por un denario, pero no dañes el aceite ni el vino.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Balanza</span><span class="bullet-desc">Simboliza precios de mercado. Hiperinflación extrema: un rollo de pan podría costar $60, provocando motines, robos y hambrunas.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Negro</span><span class="bullet-desc">Muerte como resultado de la guerra y la hambruna.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Aceite y vino</span><span class="bullet-desc">Posiblemente representan a Israel (olivas y uvas): la super-inflación y la guerra no tocarán a Israel hasta cierto punto. El mundo se moldea para finalmente unificarse contra Israel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Nota</span><span class="bullet-desc">El costo de los productos viene determinado desde el centro del trono de Dios.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Cuarto Sello — Caballo Verde Amarillento <span class="horse-badge horse-pale">Pálido</span></div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 6:7–8</span>
+        <span class="scripture-text">He aquí un caballo amarillo, y el que lo montaba tenía por nombre Muerte, y el Hades le seguía; y le fue dada potestad sobre la cuarta parte de la tierra, para matar con espada, con hambre, con mortandad, y con las fieras de la tierra.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Color "Chlóros"</span><span class="bullet-desc">Amarillo-verdoso en griego: el color de un cuerpo días después de la muerte.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La cuarta parte</span><span class="bullet-desc">22 millones muertos en la 1ª GM; 66 millones en la 2ª GM; se proyectan 2 billones en la 3ª. Han aumentado en severidad como dolores de parto.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Hades</span><span class="bullet-desc">El infierno sigue a la muerte del no creyente. El resultado final es: muerte seguida por el infierno.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ VI. QUINTO SELLO — MÁRTIRES ═══════ -->
+<section class="section" id="sec-VI">
+  <div class="section-header">
+    <div class="section-number">VI</div>
+    <h2 class="section-title">Quinto Sello — Santos y Mártires de la Tribulación</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Los Mártires bajo el Altar</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 6:9–11</span>
+        <span class="scripture-text">Vi bajo el altar las almas de los que habían sido muertos por causa de la palabra de Dios y por el testimonio que tenían… y se les dijo que descansasen todavía un poco de tiempo, hasta que se completara el número de sus consiervos y sus hermanos, que también habían de ser muertos como ellos.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Quiénes son</span><span class="bullet-desc">Espíritus sin cuerpo — almas que creyeron y murieron después del Rapto. No recibieron cuerpo en la resurrección de la Iglesia, por lo que murieron en la Tribulación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">No son los santos de la Iglesia</span><span class="bullet-desc">La Iglesia ya fue llevada al cielo con cuerpo. Estos son los primeros mártires del Apocalipsis, pero no los últimos.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Características del Sello 5</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Rompe el patrón</span><span class="bullet-desc">No hay "ven y mira". Sucede en el cielo, no en la tierra. Representa los 7 años completos, no un momento puntual.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Estilo de vida del creyente</span><span class="bullet-desc">Ser cristiano durante la Tribulación es extremadamente peligroso. La gran mayoría serán mártires. La muerte para el creyente será mejor que permanecer vivo durante la Tribulación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Contraste clave</span><span class="bullet-desc">Sello 4: el Hades sigue a la muerte del no creyente. Sello 5: el Trono del Cielo sigue a la muerte del creyente. El sello 5 balancea al sello 4.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Causalidad</span><span class="bullet-desc">Causa directa: Jesús abriendo los sellos. Causa indirecta: el Anticristo.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Daniel sobre los Santos de la Tribulación</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Daniel 7:25–27</span>
+        <span class="scripture-text">Y hablará palabras contra el Altísimo, y a los santos del Altísimo quebrantará, y pensará en cambiar los tiempos y la ley; y serán entregados en su mano hasta tiempo, y tiempos, y medio tiempo. Pero se sentará el Juez, y le quitarán su dominio para que sea destruido y arruinado hasta el fin.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ VII. SEXTO SELLO ═══════ -->
+<section class="section" id="sec-VII">
+  <div class="section-header">
+    <div class="section-number">VII</div>
+    <h2 class="section-title">Sexto Sello — Calamidades Sobrenaturales</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Los Fenómenos del Sello 6</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 6:12–14</span>
+        <span class="scripture-text">Hubo un gran terremoto; y el sol se puso negro como tela de cilicio, y la luna se volvió toda como sangre; y las estrellas del cielo cayeron sobre la tierra… Y el cielo se desvaneció como un pergamino que se enrolla; y todo monte y toda isla se removió de su lugar.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Inequívocamente sobrenatural</span><span class="bullet-desc">Los primeros 5 sellos podían atribuirse a acciones humanas. Este sello los descarta completamente. Las leyes de la física serán rotas.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Consecuencias físicas</span><span class="bullet-desc">Si el sol no brilla: temperatura bajo cero, huracanes, terremotos, volcanes. La gente buscaría calor bajo tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Estrellas cayendo</span><span class="bullet-desc">Probablemente lluvia de meteoros (no ángeles, por el contexto de cuerpos celestiales).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Reacción de la Humanidad (Ap. 6:15–17)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 6:16–17</span>
+        <span class="scripture-text">Y decían a los montes y a las peñas: Caed sobre nosotros, y escondednos del rostro de aquel que está sentado sobre el trono, y de la ira del Cordero; porque el gran día de su ira ha llegado; ¿y quién podrá sostenerse en pie?</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Reconocimiento tardío</span><span class="bullet-desc">A este punto, la gente finalmente reconoce que los eventos vienen directamente del trono de Dios. Aun así, no se arrepienten sino que se quejan de Él.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">¿Quién evangelizó?</span><span class="bullet-desc">Si la Iglesia ya no está en la tierra, ¿quién les abrió el conocimiento sobre Dios y Jesús? El Cap. 7 responde parcialmente; el Cap. 11 lo explica completamente.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ VIII. LOS 144,000 SELLADOS ═══════ -->
+<section class="section" id="sec-VIII">
+  <div class="section-header">
+    <div class="section-number">VIII</div>
+    <h2 class="section-title">Los 144,000 Sellados — Capítulo 7</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Sellado — Contexto Narrativo</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">No es cronológico</span><span class="bullet-desc">El Cap. 7 es un paréntesis que describe eventos que sucedieron en segundo plano (background) durante los primeros sellos. Ap. 7:1–2 describe eventos simultáneos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los 4 ángeles</span><span class="bullet-desc">Detienen los 4 vientos de la tierra (juicio de devastación: sin viento no hay lluvia, agua estancada, hambrunas), permitiendo que algunos sean sellados primero.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El sello</span><span class="bullet-desc">El Espíritu Santo marcando a los salvos. En sus frentes, indicando que no recibirán la Marca de la Bestia. (2 Co. 1:21–22)</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Los 144,000 — Quiénes Son</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Todos son judíos</span><span class="bullet-desc">12,000 de cada tribu de Israel. Las salvaciones son evidencia de que el Espíritu Santo regresó a la tierra. Ninguno era creyente antes del Rapto.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Dan excluido</span><span class="bullet-desc">José reemplaza a Dan (dividido en Manasés y Efraín). Dan fue excluido posiblemente por introducir la idolatría en Israel. Esto no significa que los de Dan no serán salvos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Hombres vírgenes</span><span class="bullet-desc">Según Ap. 14, todos eran varones vírgenes.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Sin evangelismo humano</span><span class="bullet-desc">Nadie los evangelizó. Como la conversión de Pablo, Dios es el autor de su fe. Demuestra que la salvación es una obra soberana de Dios.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Significado del Número 12 × 12 = 144,000</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El 12 en la Biblia</span><span class="bullet-desc">Representa el gobierno de Dios a través de líderes humanos. Es el comienzo de la nueva casa de Dios en la tierra. Similitud con los 12 apóstoles elegidos por Jesús.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La tradición judía de salvación</span><span class="bullet-desc">Los patriarcas, profetas, apóstoles y Jesús son todos judíos. El Antiguo y Nuevo Pacto, la Palabra, el servicio en el templo: todo lo relacionado con la salvación ha llegado a la humanidad a través del pueblo judío.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Semilla evangelística</span><span class="bullet-desc">Los 144,000 lideran una ola evangelística mundial durante la Tribulación. Este verso representa el evangelismo a través de toda la Tribulación.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ IX. GRAN MULTITUD EN EL CIELO ═══════ -->
+<section class="section" id="sec-IX">
+  <div class="section-header">
+    <div class="section-number">IX</div>
+    <h2 class="section-title">La Gran Multitud Vestida de Ropas Blancas</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Quiénes Son (Ap. 7:9–17)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 7:13–14</span>
+        <span class="scripture-text">Estos son los que han salido de la gran tribulación, y han lavado sus ropas, y las han emblanquecido en la sangre del Cordero.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Resultado del evangelismo</span><span class="bullet-desc">El "después" en griego indica causa y efecto: son el fruto del ministerio de los 144,000. Multitudes incontables de todas las naciones, ahora en el cielo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">No son los 144,000</span><span class="bullet-desc">Porque vienen de todas las naciones, no solo de Israel.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Lo Que Confirman</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ser creyente es mortal</span><span class="bullet-desc">Ser cristiano durante la Tribulación es extremadamente peligroso. La gran mayoría serán mártires.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La muerte es mejor</span><span class="bullet-desc">Para cualquier creyente, la muerte durante la Tribulación es infinitamente mejor que vivir a través de ella. La gloria que les espera supera cualquier sufrimiento.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Recompensa eterna</span><span class="bullet-desc">El Cordero los pastoreará y los guiará a fuentes de aguas de vida. Dios enjugará toda lágrima. Ya no habrá hambre, sed, ni calor. (Ap. 7:16–17)</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Mateo 24:14</span><span class="bullet-desc">Este evangelio del reino será predicado en todo el mundo, para testimonio a todas las naciones; y entonces vendrá el fin.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ X. SÉPTIMO SELLO Y LAS TROMPETAS ═══════ -->
+<section class="section" id="sec-X">
+  <div class="section-header">
+    <div class="section-number">X</div>
+    <h2 class="section-title">El Séptimo Sello — Preludio a las 7 Trompetas</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Silencio y el Incensario (Ap. 8:1–5)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 8:1</span>
+        <span class="scripture-text">Cuando abrió el séptimo sello, se hizo silencio en el cielo como por media hora.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">30 minutos de silencio</span><span class="bullet-desc">Intensidad profunda. Entre más largo el silencio, más dolorosa la serie de juicios. Predice la magnitud de los dolores de parto que precederán el nacimiento de la nueva era con la venida de Cristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Las oraciones de los santos</span><span class="bullet-desc">Un ángel añade incienso a las oraciones de todos los santos sobre el altar. Hay creyentes en la tierra pidiendo protección, defensa y alivio.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Fuego arrojado</span><span class="bullet-desc">El ángel llena el incensario con fuego del altar y lo arroja a la tierra: truenos, voces, relámpagos y terremoto — preludio a las trompetas.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Estructura de los Juicios Anidados</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">7 Sellos</span><span class="bullet-desc">El 7º sello contiene las 7 trompetas.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">7 Trompetas</span><span class="bullet-desc">Las primeras 6 trompetas suceden en la primera mitad de la Tribulación. La 7ª trompeta contiene las 7 copas.</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">7 Copas</span><span class="bullet-desc">Corresponden a la Gran Tribulación (segunda mitad). Son los juicios más intensos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Las trompetas</span><span class="bullet-desc">Son signo de advertencia. El Señor advierte a la tierra que el final se acerca. Primeras 4: devastación física de la tierra. Últimas 3: impacto terrible sobre las personas ("juicios Ay").</span></div></li>
+      </ul>
+      <div style="margin-top:12px;" class="info-panel">
+        <span class="info-panel-title">Ubicación temporal de los sellos y trompetas</span>
+        <span class="bullet-desc">Los sellos y las primeras 6 trompetas suceden durante la primera mitad de la Tribulación — antes de que el Anticristo sea poseído por Satanás y se siente en el Templo deteniendo los sacrificios.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ XI. LAS PRIMERAS 4 TROMPETAS ═══════ -->
+<section class="section" id="sec-XI">
+  <div class="section-header">
+    <div class="section-number">XI</div>
+    <h2 class="section-title">Las Primeras Cuatro Trompetas — Devastación de la Tierra</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Paralelo con las Plagas de Egipto</div>
+      <table class="styled-table">
+        <thead>
+          <tr><th>Aspecto</th><th>Éxodo (Egipto)</th><th>Tribulación</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Condición inicial</td><td>Esclavitud bajo una nación extranjera</td><td>Esclavitud bajo incredulidad, el enemigo y el pecado</td></tr>
+          <tr><td>Método de liberación</td><td>Llevados a la libertad a través de juicios sobrenaturales</td><td>Llevados a la fe a través de juicios sobrenaturales</td></tr>
+          <tr><td>Pacto/Ley</td><td>Entran en pacto bajo la ley (Moisés) → tierra prometida</td><td>Regresados a la ley → preparados para recibir lo que está por venir</td></tr>
+          <tr><td>Líder final</td><td>Josué (Yeshua) a la Tierra Prometida</td><td>Jesús (Yeshua) al Reino</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Primera Trompeta — Granizo y Fuego</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 8:7</span>
+        <span class="scripture-text">Hubo granizo y fuego mezclados con sangre, que fueron lanzados sobre la tierra; y la tercera parte de los árboles se quemó, y se quemó toda la hierba verde.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Paralelo con Egipto</span><span class="bullet-desc">Semejante al juicio de granizo y fuego de Éxodo 9:23–24, pero a mayor magnitud.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un tercio contiguo</span><span class="bullet-desc">La destrucción probablemente afecta un tercio geográficamente contiguo de la tierra, no distribuido uniformemente. Este patrón continúa en la siguiente trompeta.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Segunda Trompeta — El Mar en Sangre</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 8:8–9</span>
+        <span class="scripture-text">Como una gran montaña ardiendo en fuego fue precipitada en el mar; y la tercera parte del mar se convirtió en sangre. Y murió la tercera parte de los seres vivientes que estaban en el mar, y la tercera parte de las naves fue destruida.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Gran montaña</span><span class="bullet-desc">Podría ser meteoro, volcán o evento sobrenatural. Ninguno convierte el agua en sangre naturalmente.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Por qué contiguo</span><span class="bullet-desc">Sangre concentrada mata peces y hunde barcos (cambia la flotabilidad). Diluida en toda el agua no produciría esos efectos específicos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Conclusión geopolítica</span><span class="bullet-desc">El Señor estrecha el enfoque hacia el escenario final: la porción entre Jerusalén y Babilonia. Al final de los 7 años, solo esa área será la zona de la última batalla.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Tercera Trompeta — Ajenjo</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 8:10–11</span>
+        <span class="scripture-text">Cayó del cielo una gran estrella, ardiendo como una antorcha, y cayó sobre la tercera parte de los ríos, y sobre las fuentes de las aguas. Y el nombre de la estrella es Ajenjo… y muchos hombres murieron a causa de esas aguas, porque se hicieron amargas.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Estrella = Ángel caído</span><span class="bullet-desc">Los nombres de los ángeles de Dios terminan en "EL" (Michael, Gabriel, etc.). "Ajenjo" no. Podría ser un ángel demoníaco destinado para este propósito.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Sobrenatural planetario</span><span class="bullet-desc">El tercio de ríos y manantiales no está en un solo lugar geográfico, por eso requiere una acción sobrenatural que afecta el planeta entero pero solo en un tercio.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Cuarta Trompeta — Oscuridad Cósmica</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 8:12</span>
+        <span class="scripture-text">Fue herida la tercera parte del sol, y la tercera parte de la luna, y la tercera parte de las estrellas, para que se oscureciese la tercera parte de ellos, y no hubiese luz en la tercera parte del día, y asimismo de la noche.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Astronómicamente correcto</span><span class="bullet-desc">Cuando el sol no brilla en un lado de la tierra, la luna tampoco puede reflejar luz al otro lado. Esto es consistente con el sistema solar, aunque la Biblia fue escrita antes de que se conociera.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Consecuencias de ⅓ menos energía</span><span class="bullet-desc">Dramática disminución de temperatura, aguas congeladas, muerte de ganado y cultivos, más muertes por frío — añadiéndose a las ya producidas por juicios anteriores.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">Balance de Situación a esta Punto (Trompeta 4)</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">¼ de la población muerta</span><span class="bullet-desc">Por hambrunas, pestilencias y guerra (sello 4).</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">⅓ de la hierba y árboles quemados</span><span class="bullet-desc">Trompeta 1.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">⅓ del mar en sangre</span><span class="bullet-desc">⅓ de barcos y seres vivientes marinos muertos. Trompeta 2.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">⅓ de ríos y manantiales contaminados</span><span class="bullet-desc">Trompeta 3.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La tierra: inhabitable</span><span class="bullet-desc">Los sobrevivientes a este punto han soportado períodos sumamente difíciles. La vida en la tierra se asemeja a un pequeño infierno — lo que produce una audiencia más receptiva al evangelio. Mientras tanto, los 144,000 continúan predicando.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">¿Dónde Están los Estados Unidos y América?</div>
+      <div class="info-panel">
+        <span class="info-panel-title">Hipótesis geográfica (asumpción del autor)</span>
+        <span class="bullet-desc">El continente americano corresponde a aproximadamente "un tercio" de la tierra total y está diametralmente opuesto a Israel. El Océano Pacífico representa "un tercio" del resto de los mares, opuesto al Medio Oriente. Esto sugiere que la destrucción podría iniciar en este lado y progresar hacia el escenario final en el Medio Oriente. <strong>Nota:</strong> Al final, no importa dónde inicia — el enfoque final siempre será el Medio Oriente.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ XII. ADVERTENCIA Y TROMPETAS AY ═══════ -->
+<section class="section" id="sec-XII">
+  <div class="section-header">
+    <div class="section-number">XII</div>
+    <h2 class="section-title">Advertencia antes de las Últimas Tres Trompetas — Los Ayes</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Ángel-Águila Anunciador (Ap. 8:13)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 8:13</span>
+        <span class="scripture-text">¡Ay, ay, ay, de los que moran en la tierra, a causa de los otros toques de trompeta que están para sonar los tres ángeles!</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un águila en el espacio</span><span class="bullet-desc">En el original griego: una águila o ave de rapiña volando en medio del cielo, anunciando lo que viene sobre el cuerpo físico de los moradores — no sobre la tierra física como las primeras 4 trompetas.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ay (Woe)</span><span class="bullet-desc">Conectado en la Biblia con condenación eterna. Son juicios preludio de lo que será el infierno. (Ap. 8:13; 9:12; 11:14; 12:12)</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Correspondencia de los Tres Ayes</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">Primer Ay</span><span class="bullet-desc">Trompeta 5 — Langostas demoníacas del abismo. Tormento físico de 5 meses sin poder morir.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">Segundo Ay</span><span class="bullet-desc">Trompeta 6 — El ejército de 200 millones. Muerte de ⅓ de los hombres.</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">Tercer Ay</span><span class="bullet-desc">Trompeta 7 — Contiene los juicios de las 7 Copas (la Gran Tribulación completa).</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ XIII. QUINTA TROMPETA ═══════ -->
+<section class="section" id="sec-XIII">
+  <div class="section-header">
+    <div class="section-number">XIII</div>
+    <h2 class="section-title">Quinta Trompeta (Primer Ay) — Las Langostas del Abismo</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Pozo del Abismo — Cosmología Bíblica</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La estrella caída</span><span class="bullet-desc">Un ángel caído (posiblemente Satanás o Abadón/Apolión — "el destructor") recibe la llave del pozo del abismo y lo abre.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Sheol y sus secciones</span><span class="bullet-desc">Tiene dos partes separadas por una sima infranqueable (Lc. 16:26): el Seno de Abraham (lugar agradable — ahora vacío desde la resurrección de Cristo) y el Sheol de tormento. Además hay una prisión específica para ángeles desobedientes.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los ángeles encarcelados</span><span class="bullet-desc">Ángeles extremadamente desobedientes desde la época de Noé — tuvieron relaciones con mujeres humanas, engendrando gigantes que corrompieron la raza humana. Como consecuencia, fueron encarcelados. (2 Ped. 2:4)</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El humo del abismo</span><span class="bullet-desc">Sale humo que oscurece el sol y el aire — comprobando que el infierno está debajo de la tierra. La lava y el humo de los volcanes posiblemente tienen relación. La ciencia no entiende las profundidades de la tierra más allá de 2–3 millas.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Tormento de 5 Meses (Ap. 9:3–11)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 9:5–6</span>
+        <span class="scripture-text">Les fue dado, no que los matasen, sino que los atormentasen cinco meses… Y en aquellos días los hombres buscarán la muerte, pero no la hallarán; y ansiarán morir, pero la muerte huirá de ellos.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Instrucciones específicas</span><span class="bullet-desc">No dañar la vegetación. Solo a los hombres sin el sello de Dios en sus frentes. Los 144,000 y los creyentes quedan protegidos. (2 Ped. 2:9)</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Tormento como de escorpión</span><span class="bullet-desc">El veneno del escorpión es tan tóxico que se usa en quimioterapia. Esto dura 5 meses — efecto psicológico devastador. El suicidio no será posible.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El número 5 = Gracia</span><span class="bullet-desc">Dios permite que experimenten el infierno temporalmente en vez de morir e ir al infierno eterno. Es una forma de gracia: una muestra de lo que el infierno será, mientras aún están a tiempo de evitarlo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Único momento en la historia</span><span class="bullet-desc">Desde el Jardín del Edén hasta ahora, este será el único momento en que la muerte física es imposible.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Descripción de las "Langostas" (Ap. 9:7–11) — No Son Helicópteros</div>
+      <div class="info-panel" style="margin-bottom:14px;">
+        <span class="info-panel-title">Interpretaciones Populares Equivocadas</span>
+        <span class="bullet-desc">Se intenta asociar estas criaturas con helicópteros militares. Sin embargo: los helicópteros no vienen del centro de la tierra; no pueden atormentar sin matar por 5 meses; el balance de la situación hace inconcebible que equipos mecánicos funcionen (sin gasolina, bases destruidas, satélites sin operar, no hay pilotos). Se trata de seres demoníacos sobrenaturales.</span>
+      </div>
+      <table class="styled-table">
+        <thead><tr><th>Característica</th><th>Descripción</th><th>Significado</th></tr></thead>
+        <tbody>
+          <tr><td>Como caballos</td><td>Preparados para la guerra</td><td>Poder y velocidad devastadores</td></tr>
+          <tr><td>Coronas de oro</td><td>En sus cabezas</td><td>Autoridad en el mundo demoníaco</td></tr>
+          <tr><td>Caras humanas</td><td>Inteligencia dirigida</td><td>No son fuerzas ciegas sino inteligentes</td></tr>
+          <tr><td>Cabello de mujer</td><td>—</td><td>Descripción simbólica del aspecto</td></tr>
+          <tr><td>Dientes de león</td><td>Fuerza devastadora</td><td>Capacidad de destrucción</td></tr>
+          <tr><td>Corazas de hierro</td><td>Invulnerables</td><td>No pueden ser detenidos por fuerzas humanas</td></tr>
+          <tr><td>Colas de escorpión</td><td>Con aguijones</td><td>Poder para dañar 5 meses; tóxico pero no mortal</td></tr>
+          <tr><td>Rey: Abadón/Apolión</td><td>"El destructor"</td><td>Ángel del abismo que los comanda</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ XIV. SEXTA TROMPETA ═══════ -->
+<section class="section" id="sec-XIV">
+  <div class="section-header">
+    <div class="section-number">XIV</div>
+    <h2 class="section-title">Sexta Trompeta (Segundo Ay) — El Ejército de 200 Millones</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Los 4 Ángeles del Éufrates (Ap. 9:13–16)</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 9:15–16</span>
+        <span class="scripture-text">Fueron desatados los cuatro ángeles que estaban preparados para la hora, día, mes y año, a fin de matar a la tercera parte de los hombres. Y el número de los ejércitos de los jinetes era doscientos millones.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Éufrates</span><span class="bullet-desc">El área más demoníaca de la tierra: la Mesopotamia, el territorio de Satanás. Los soldados que han luchado allí han regresado con lesiones no solo físicas sino emocionales y espirituales.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Preparados para el momento exacto</span><span class="bullet-desc">Tan terribles y depravados, que si no hubieran sido atados habrían matado gente todo el tiempo. Dios los preparó de antemano para esta hora específica.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">200 millones</span><span class="bullet-desc">2 × 10,000 × 10,000 = 200,000,000. Un ejército demoníaco sobrenatural — no China. (La interpretación China es un error popular.)</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Los Caballos Demoníacos (Ap. 9:17–19)</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">No son tanques de guerra</span><span class="bullet-desc">Juan conocía bien los caballos. El texto dice que "eran" caballos, no que "parecían". La Biblia debe interpretarse literalmente en primer lugar.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Cabezas de leones</span><span class="bullet-desc">Con fuego, humo y azufre saliendo de su boca — las tres plagas que mataron a ⅓ de los hombres.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Colas de serpiente</span><span class="bullet-desc">Con cabezas que también dañan (mordida mortal). El poder está en la boca y en las colas.</span></div></li>
+      </ul>
+      <div class="info-panel" style="margin-top:12px;">
+        <span class="info-panel-title">El libro de Joel describe este ejército</span>
+        <span class="bullet-desc">Joel 2:2–11 describe una invasión semejante: "como aspecto de caballos correrán… dejarán la tierra atrás como desierto desolado… Los tanques no entran por las ventanas ni suben por los muros." Jehová llama a este ejército "su ejército" (Joel 2:11).</span>
+      </div>
+    </div>
+    <div class="card full">
+      <div class="card-title">Resultado de la Sexta Trompeta — La Calamidad No Salva</div>
+      <div class="scripture-box" style="margin-bottom:14px;">
+        <span class="scripture-ref">Apocalipsis 9:20–21</span>
+        <span class="scripture-text">Y los otros hombres que no fueron muertos con estas plagas, ni aun así se arrepintieron de las obras de sus manos, ni dejaron de adorar a los demonios… y no se arrepintieron de sus homicidios, ni de sus hechicerías, ni de su fornicación, ni de sus hurtos.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Cero arrepentimientos</span><span class="bullet-desc">El 100% de los que quedaron no se arrepintieron. Demuestra que la calamidad no salva a nadie. Ni las circunstancias ni las emociones producen salvación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La fe no es emoción</span><span class="bullet-desc">No está basada en miedo, emociones, ni en pruebas convincentes. La salvación es el regalo que viene de Dios. (Romanos 2:4 — su benignidad te guía al arrepentimiento.)</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Efesios 2:8</span><span class="bullet-desc">Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios. La salvación es únicamente por gracia a través de la fe — nunca por reacción al sufrimiento.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Fe en la tierra</span><span class="bullet-desc">Todavía hay fe porque los 144,000 siguen evangelizando. No es por falta de predicación.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ XV. SITUACIÓN AL FINAL DE LA PRIMERA MITAD ═══════ -->
+<section class="section" id="sec-XV">
+  <div class="section-header">
+    <div class="section-number">XV</div>
+    <h2 class="section-title">Situación al Final de la Primera Mitad — Hacia el Mid-Trib</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Balance Final de la Primera Mitad</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">3½ años transcurridos</span><span class="bullet-desc">Corresponde a la primera parte de los 7 años.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">50% de la humanidad muerta</span><span class="bullet-desc">Primero murió ¼ (sello 4) y después ⅓ (trompeta 6) de los restantes = aproximadamente 4 billones muertos, 4 billones vivos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Tierra devastada</span><span class="bullet-desc">⅓ de la tierra inhabitable, ⅓ del agua no potable, ⅓ de los mares innavegables.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los 2 primeros Ayes completados</span><span class="bullet-desc">Trompetas 5 y 6. Lo peor está por venir con el tercer Ay (las 7 Copas).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La Mitad de la Tribulación (Mid-Trib) — Lo Que Viene</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un instante o breve período</span><span class="bullet-desc">Cubre ligeramente las dos mitades. Es una serie de eventos simultáneos en 6 capítulos (10–15) que altera el mundo fundamentalmente.</span></div></li>
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">Cap. 10</span><span class="bullet-desc">Lo que viene en Mid-Trib.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">Cap. 11–14</span><span class="bullet-desc">Cada capítulo tiene una referencia temporal: 3½ años / 42 meses / "un tiempo, tiempos y mitad de un tiempo".</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">Cap. 15</span><span class="bullet-desc">Lo que viene en la 2ª parte de la Tribulación (Gran Tribulación).</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Lo que sucede en Mid-Trib</span><span class="bullet-desc">Satanás expulsado del cielo. Anticristo muere y resucita. Abominación desoladora. Marca de la Bestia 666. Los 2 Testigos asesinados. 144,000 mártires en el cielo.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider"><span>✦</span></div>
+
+<!-- SUMMARY BOX -->
+<div class="summary-box">
+  <p>La primera mitad de la Tribulación revela una verdad fundamental: <em>Dios tiene el control absoluto de todo lo que ocurre en el cielo y en la tierra.</em> Es Jesús quien rompe cada sello y desata cada juicio. El Anticristo es solo un instrumento, no el autor de los eventos. A pesar de una devastación sin precedentes — guerras, hambrunas, plagas, oscuridad cósmica y ejércitos demoníacos — la gracia de Dios continúa obrando a través de los 144,000 judíos sellados, produciendo una cosecha de almas innumerable de todas las naciones. La calamidad nunca salva: es únicamente la gracia de Dios, actuando por medio de la fe, lo que transforma el corazón humano.</p>
+</div>
+
+</main>
+
+<footer>
+  Basado en la enseñanza original de <strong>Verse By Verse Ministry International (VBVMI)</strong> · <a href="http://www.vbvmi.org" target="_blank">vbvmi.org</a><br>
+  Arte de <strong>Pat Marvenko Smith</strong> © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a><br>
+  <em>Documento de uso libre — puede copiarse y distribuirse en su forma original sin fines de lucro.</em>
+</footer>
+
+</div><!-- /.page-wrap -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

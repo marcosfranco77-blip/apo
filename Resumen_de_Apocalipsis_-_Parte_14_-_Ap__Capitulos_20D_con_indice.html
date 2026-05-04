@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio de Apocalipsis – Parte 14 · Capítulo 20D</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Starfield */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 8%  22%, rgba(201,168,76,.5)  0%, transparent 100%),
+    radial-gradient(1px 1px at 29% 67%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 54% 11%, rgba(201,168,76,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 73% 49%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 79%, rgba(201,168,76,.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 3%  58%, rgba(255,255,255,.35)0%, transparent 100%),
+    radial-gradient(1px 1px at 42% 34%, rgba(201,168,76,.3)  0%, transparent 100%),
+    radial-gradient(1px 1px at 18% 92%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 63% 28%, rgba(201,168,76,.5)  0%, transparent 100%),
+    radial-gradient(1px 1px at 81% 63%, rgba(255,255,255,.3) 0%, transparent 100%);
+}
+
+/* Layout */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* ── HEADER ── */
+header {
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,26,26,.55) 0%, rgba(10,8,6,0) 70%);
+  text-align: center;
+  padding: 60px 24px 48px;
+}
+
+.header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+.header-ornament::before,
+.header-ornament::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim));
+}
+.header-ornament::after { background: linear-gradient(90deg, var(--gold-dim), transparent); }
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -.5px;
+}
+
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+}
+.meta-item {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  border: 1px solid rgba(201,168,76,.15);
+  padding: 6px 16px;
+  border-radius: 2px;
+}
+.meta-item span { color: var(--gold-dim); margin-right: 6px; }
+
+/* ── SECTIONS ── */
+.section {
+  margin: 52px 0 0;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp .6s ease forwards;
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.section-number {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.3;
+}
+
+/* ── CARDS GRID ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 780px) { .cards { grid-template-columns: 1fr; } }
+
+/* ── CARD ── */
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover { border-left-color: var(--gold); transform: translateX(3px); }
+.card.full { grid-column: 1 / -1; }
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+/* ── BULLET LIST ── */
+ul.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ul.bullet-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+.bullet-icon {
+  font-style: normal;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+.bullet-text { flex: 1; }
+
+/* ── SCRIPTURE BOX ── */
+.scripture-box {
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 32px;
+  position: relative;
+  margin: 10px 0;
+}
+.scripture-box::before {
+  content: '\201C';
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: block;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dim), transparent);
+}
+.timeline-item { position: relative; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -21px; top: 6px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.timeline-desc { font-size: 16px; color: var(--text-dim); line-height: 1.7; }
+
+/* ── INFO PANEL ── */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--sky-light);
+  margin-bottom: 10px;
+}
+
+/* ── TABLE ── */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+}
+.styled-table td {
+  font-size: 16px;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+}
+.styled-table tr:last-child td { border-bottom: none; }
+
+/* ── TWO COL PANELS ── */
+.two-col-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 600px) { .two-col-panels { grid-template-columns: 1fr; } }
+
+/* ── HIGHLIGHT ── */
+.hl { color: var(--gold-light); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider {
+  text-align: center;
+  margin: 52px 0 0;
+  position: relative;
+}
+.divider::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  margin-bottom: -10px;
+}
+.divider-symbol {
+  display: inline-block;
+  background: var(--deep);
+  padding: 0 14px;
+  color: var(--gold-dim);
+  font-size: 18px;
+  position: relative;
+}
+
+/* ── SUMMARY BOX ── */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  margin-top: 32px;
+}
+.summary-box p { font-size: 18px; font-style: italic; color: var(--text); line-height: 1.8; }
+
+/* ── FOOTNOTE ── */
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(201,168,76,.1);
+  text-align: center;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 2;
+}
+footer a { color: var(--gold-dim); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+/* Staggered animation delays */
+.section:nth-child(1)  { animation-delay: .05s; }
+.section:nth-child(2)  { animation-delay: .13s; }
+.section:nth-child(3)  { animation-delay: .21s; }
+.section:nth-child(4)  { animation-delay: .29s; }
+.section:nth-child(5)  { animation-delay: .37s; }
+.section:nth-child(6)  { animation-delay: .45s; }
+.section:nth-child(7)  { animation-delay: .53s; }
+.section:nth-child(8)  { animation-delay: .61s; }
+.section:nth-child(9)  { animation-delay: .69s; }
+.section:nth-child(10) { animation-delay: .77s; }
+.section:nth-child(11) { animation-delay: .85s; }
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed; top: 0; left: 0; width: 270px; height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000; display: flex; flex-direction: column; overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex; align-items: center; gap: 10px; padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12); flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold-dim); white-space: nowrap;
+}
+.toc-links {
+  flex: 1; overflow-y: auto; padding: 10px 0 20px;
+  scrollbar-width: thin; scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 18px;
+  text-decoration: none; color: var(--text-dim); font-family: var(--f-body);
+  font-size: 13px; line-height: 1.4; border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover { color: var(--gold-light); border-left-color: var(--gold); background: rgba(201,168,76,.06); }
+.toc-item.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,.1); }
+.toc-num { flex-shrink: 0; font-size: 11px; font-family: var(--f-heading); color: var(--crimson-light); padding-top: 1px; min-width: 22px; }
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute; bottom: 20px; right: 12px;
+  background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold); border-radius: 50%; width: 30px; height: 30px;
+  cursor: pointer; font-size: 18px; display: flex; align-items: center;
+  justify-content: center; transition: background .2s; line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed; top: 50%; left: 0; transform: translateY(-50%);
+  z-index: 999; background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3); border-left: none;
+  color: var(--gold); border-radius: 0 6px 6px 0; width: 22px; height: 54px;
+  cursor: pointer; font-size: 18px; display: none; align-items: center;
+  justify-content: center; transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+body.toc-open .page-wrap { margin-left: 270px; max-width: calc(1100px + 270px); transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+body.toc-closed .page-wrap { margin-left: 0; transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+@media (max-width: 900px) { #sidebar-toc { width: 240px; } body.toc-open .page-wrap { margin-left: 240px; } }
+@media (max-width: 600px) { body.toc-open .page-wrap { margin-left: 0; } }
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#toc-1" class="toc-item"><span class="toc-num">XII</span><span class="toc-title">Introducción al Templo Milenial — Ezequiel como Guía</span></a>
+<a href="#toc-2" class="toc-item"><span class="toc-num">XIII</span><span class="toc-title">Recorrido Arquitectónico: Las Dimensiones del Templo Milenial</span></a>
+<a href="#toc-3" class="toc-item"><span class="toc-num">XIV</span><span class="toc-title">Cristo en el Templo: La Partida y el Regreso Glorioso</span></a>
+<a href="#toc-4" class="toc-item"><span class="toc-num">XV</span><span class="toc-title">Las Fiestas del Reino — De Siete a Dos</span></a>
+<a href="#toc-5" class="toc-item"><span class="toc-num">XVI</span><span class="toc-title">El Sacerdocio en el Reino — Levitas, Hijos de Sadoc y Gentiles</span></a>
+<a href="#toc-6" class="toc-item"><span class="toc-num">XVII</span><span class="toc-title">¿Por Qué Regresan los Sacrificios? — Fundamento Teológico</span></a>
+<a href="#toc-7" class="toc-item"><span class="toc-num">XVIII</span><span class="toc-title">Los Sacrificios de la Iglesia Hoy — El Cuerpo como Templo</span></a>
+<a href="#toc-8" class="toc-item"><span class="toc-num">XIX</span><span class="toc-title">Los Sacrificios en el Reino — Ezequiel 43</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+<div class="starfield"></div>
+<div class="page-wrap">
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════ -->
+<header>
+  <div class="header-ornament">Verse by Verse Ministry International</div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 14 · Capítulo 20 — D</h2>
+  <div class="meta-row">
+    <div class="meta-item"><span>📖</span>Capítulo cubierto: Apocalipsis 20D</div>
+    <div class="meta-item"><span>📄</span>Páginas cubiertas: 1–43</div>
+    <div class="meta-item"><span>🏛</span>Tema central: El Templo, la Adoración y la Ley del Reino</div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XII — INTRODUCCIÓN AL TEMPLO DEL MILENIO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-1">
+  <div class="section-header">
+    <div class="section-number">XII</div>
+    <h2 class="section-title">Introducción al Templo Milenial — Ezequiel como Guía</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Estructura del Estudio (Parte 14)</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✓</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Partes 1–2 ya cubiertas</div>
+            <div class="bullet-desc">Creación, naturaleza, geografía, fronteras, gobierno; vida diaria y muerte en el Reino.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">▶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Parte 3 — Hoy</div>
+            <div class="bullet-desc"><span class="hl">El Templo, la Adoración y la Ley del Reino.</span> Prácticamente todo lo que sabemos proviene de Ezequiel y en ningún otro lugar.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">◎</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Parte 4 — Próximamente</div>
+            <div class="bullet-desc">La guerra final contra Satanás, el juicio final y la transición a los Nuevos Cielos y la Nueva Tierra.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">El Templo del Reino según Ezequiel</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Nueve capítulos de detalle</div>
+            <div class="bullet-desc">A lo largo de nueve capítulos (Ezequiel 40–48), Ezequiel ofrece un recorrido completo por el edificio, sus dimensiones, su funcionamiento y sus sacerdotes.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">¿El templo de la Tribulación continúa?</div>
+            <div class="bullet-desc">Daniel 12 indica que el templo de la Tribulación será limpiado de la imagen de la bestia en 30 días. Pero <span class="hl">el Templo del Reino será uno nuevo, mucho mejor que ese</span>, con dimensiones sin precedente en toda la historia.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Propósito del templo</div>
+            <div class="bullet-desc">El tamaño refleja la necesidad de que millones de personas de todo el mundo lo visiten. Este templo no es solo para Israel: <span class="hl">salvará a toda la humanidad</span>, no solo al pueblo judío.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">Visión Inaugural del Templo (Ezequiel 40:2–4)</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Ezequiel 40:2–4</span>
+        <span class="scripture-text">«En visiones de Dios me llevó a la tierra de Israel y me puso sobre un monte muy alto, sobre el cual había un edificio parecido a una gran ciudad, hacia el lado sur. Me llevó allí, y vi que había un hombre, cuyo aspecto era como el aspecto del bronce. Tenía un cordel de lino en la mano y una caña de medir... "Hijo de hombre, observa con cuidado, escucha atentamente y fíjate bien en todas las cosas que te muestro... Cuenta todo lo que ves a la casa de Israel."»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:12px; font-size:16px; color:var(--text-dim);">El templo está ubicado en una montaña alta y la estructura es tan masiva que parece <span class="hl">una ciudad en sí misma</span> — muy diferente a la topografía actual de Jerusalén. Ezequiel recibe instrucciones de medir con precisión para que podamos apreciar la escala.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XIII — ARQUITECTURA DEL TEMPLO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-2">
+  <div class="section-header">
+    <div class="section-number">XIII</div>
+    <h2 class="section-title">Recorrido Arquitectónico: Las Dimensiones del Templo Milenial</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Estructura General — Un Cuadrado Perfecto</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Muro exterior con tres puertas</div>
+            <div class="bullet-desc">El primer muro tiene 10 pies de altura. Al atravesarlo se accede a la primera puerta — la entrada principal es la <span class="hl">puerta del este</span>, que mide 100 pies de alto y 50 pies de ancho. No hay puertas al oeste.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">El edificio-puerta: simbolismo de los números</div>
+            <div class="bullet-desc">La puerta forma un salón con <span class="hl">6 cámaras</span> (3 a cada lado). Las medidas en codos van en incrementos de 5 y 6: el número 5 representa la <em>gracia</em>, el número 6 al <em>hombre pecador</em>. Simbólicamente, la puerta declara: «aquí el pecado se encuentra con la gracia».</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❸</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Primer patio exterior</div>
+            <div class="bullet-desc">Un gran patio abierto al interior de la primera puerta. Palmeras altas marcan las entradas y salidas para que millones de personas puedan orientarse con facilidad desde lejos.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❹</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Segunda puerta — patio interior</div>
+            <div class="bullet-desc">También tiene palmeras altas y mesas donde los sacerdotes realizan los sacrificios. En el centro del patio interior hay un <span class="hl">altar mayor</span> con escalones que conducen al templo.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❺</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Guardia en la entrada</div>
+            <div class="bullet-desc">El hecho de que haya guardias en la entrada indica que aún hay pecado en el mundo y que se necesita proteger la santidad del lugar.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">El Interior del Templo</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sin puerta ni velo de separación</div>
+            <div class="bullet-desc">A diferencia de los templos anteriores, <span class="hl">no hay puerta ni velo</span> que separe el Lugar Santo del Lugar Santísimo. El acceso simbólico a Dios ya no está bloqueado.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Lugar Santo (⅔ del templo): un solo mueble</div>
+            <div class="bullet-desc">En los primeros ⅔ del templo solo hay <span class="hl">la mesa del incienso</span>. Los demás muebles (candelabro, mesa de los panes de la proposición, etc.) se han retirado porque representaban a Jesús — y ahora Jesús está presente. El incienso permanece porque representa la intercesión, que sigue vigente.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Lugar Santísimo (⅓ del templo): completamente vacío</div>
+            <div class="bullet-desc">Ezequiel declara que el Lugar Santísimo no tiene muebles — <span class="hl">está completamente vacío</span>. Solo mora allí la Gloria Shekinah de Jesús.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Edificios y Elementos Adicionales</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Cámaras sacerdotales</div>
+            <div class="bullet-desc">Rodean el templo en los lados norte y sur. Aquí los sacerdotes comienzan su día de trabajo, cambiándose de ropa antes y después del servicio.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Galerías de observación</div>
+            <div class="bullet-desc">Hay galerías para ver las ofrendas de sacrificios quemados en el patio del templo.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">?</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Edificio misterioso ("Separate Place")</div>
+            <div class="bullet-desc">Un tercer edificio en la parte trasera izquierda del templo cuyo propósito no está definido en Ezequiel — solo se conocen sus medidas.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">El río del templo</div>
+            <div class="bullet-desc">Un pequeño río emerge de debajo de los cimientos del templo, fluye por el patio a través de las puertas del este, y crece hasta hacerse ancho y profundo. Se divide hacia el Mar Mediterráneo y el Mar Muerto, convirtiendo este último en agua dulce. <span class="hl">Simboliza el agua viva que procede de la presencia de Cristo.</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XIV — EL RECORRIDO DE LA GLORIA SHEKINAH
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-3">
+  <div class="section-header">
+    <div class="section-number">XIV</div>
+    <h2 class="section-title">Cristo en el Templo: La Partida y el Regreso Glorioso</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Cristo: La Única Manifestación Física de Dios</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Colosenses 1:15</span>
+        <span class="scripture-text">«Cristo es la imagen (visible) del Dios invisible, el primogénito de toda creación.»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:12px; font-size:16px; color:var(--text-dim);">Siempre que ha habido una manifestación física de Dios dentro de Su creación — el Ángel del Señor, la Gloria Shekinah — ha sido a través de <span class="hl">la segunda persona de la deidad: Jesús preencarnado</span>. En el Tabernáculo de Moisés, Cristo ocupó el Lugar Santísimo como la Shekinah sobre el arca. En el templo de Salomón, entró con mayor majestad al dedicarlo Salomón.</div>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">La Partida de la Gloria — Recorrido de Ezequiel (600 a.C.)</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">Paso 1 — Sale del Lugar Santísimo</div>
+          <div class="timeline-desc">La gloria del Señor dejó el Lugar Santísimo avanzando por el Lugar Santo hacia la puerta de entrada. Al hacerlo, <span class="hl">el templo se llenó de la nube de la gloria de Dios</span> (Ezequiel 10:4).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Paso 2 — Se detiene en la puerta oriental</div>
+          <div class="timeline-desc">La gloria se traslada hasta la puerta exterior del este, escoltada por querubines, y hace una pausa (Ezequiel 10:18–19).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Paso 3 — Sobre el Monte de los Olivos</div>
+          <div class="timeline-desc">La gloria cruza el Valle Cedrón (Kidron) hacia el este y se establece sobre la cima del Monte de los Olivos, donde hace otra pausa (Ezequiel 11:23).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Paso 4 — Desaparece (y no ha regresado)</div>
+          <div class="timeline-desc">Desde el Monte de los Olivos, la gloria departió definitivamente. <span class="hl">Desde entonces no ha regresado en ninguna de sus formas hasta el día de hoy.</span> Jesús entró en forma humana a Jerusalén, pero nunca en gloria Shekinah para ocupar el Lugar Santísimo.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Hechos 1 — Jesús asciende desde el mismo lugar</div>
+          <div class="timeline-desc">Los discípulos ven a Jesús resucitado ascender desde el Monte de los Olivos. Los ángeles declaran que <span class="hl">regresará de la misma manera</span> que lo ven partir.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Inicio del Reino — El regreso al Templo</div>
+          <div class="timeline-desc">Jesús regresa al Monte de los Olivos partiéndolo por la mitad, libera a Su pueblo, destruye al Anticristo y sus fuerzas, y entra al templo por la puerta oriental, como la Gloria Shekinah, para <span class="hl">morar allí para siempre</span> (Ezequiel 43:1–9).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">La Puerta Oriental Cerrada Para Siempre</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Ezequiel 44:1–2</span>
+        <span class="scripture-text">«Esta puerta estará cerrada; no se abrirá y no entrará nadie por ella, porque Jehová, Dios de Israel, entró por ella; estará, por tanto, cerrada.»</span>
+      </div>
+      <ul class="bullet-list" style="margin-top:12px;">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Simbolismo de la puerta cerrada</div>
+            <div class="bullet-desc">La puerta exterior del este permanece cerrada para siempre. Su cierre simboliza que la obra de redención ocurrió <span class="hl">una sola vez y para siempre</span>. Entrar y salir implicaría repetir el acto de la redención.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La oficina de David</div>
+            <div class="bullet-desc">Dado que la puerta exterior del este está permanentemente cerrada, <span class="hl">David, el príncipe del Señor</span>, usa ese espacio cerrado como su oficina en el templo: entra al amanecer para conducir asuntos y sale al final del día.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Nadie tomará café con Jesús</div>
+            <div class="bullet-desc">Jesús nunca abandona el templo, pues irse y regresar sugeriría que debe seguir calificándose. Reside en el templo <span class="hl">fuera de la vista del mundo incrédulo</span>, en Su Gloria, sin condescender ante el pecado.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Cómo Adoradores Pueden Ver la Gloria</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Entrada norte → salida sur (o viceversa)</div>
+            <div class="bullet-desc">Ezequiel establece que los adoradores entren por la puerta norte o sur y salgan por la opuesta. Esto los obliga a <span class="hl">cruzar el patio y ver por un instante el resplandor de la Gloria</span> en el Lugar Santísimo (Ezequiel 46:9).</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Días de acceso — Creyentes únicamente</div>
+            <div class="bullet-desc">Solo los creyentes pueden entrar a los atrios interiores. Los momentos permitidos son: <span class="hl">sábados, festividades de luna nueva, la Pascua y la Fiesta de los Tabernáculos</span>. El resto de los días la puerta interior está cerrada.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✗</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Incrédulos: acceso exterior únicamente</div>
+            <div class="bullet-desc">Los incrédulos pueden venir al patio exterior y hacer sacrificios con ayuda de los sacerdotes, pero nunca verán la gloria del Señor (Ezequiel 44:9).</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XV — LAS FIESTAS EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-4">
+  <div class="section-header">
+    <div class="section-number">XV</div>
+    <h2 class="section-title">Las Fiestas del Reino — De Siete a Dos</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Las Siete Fiestas de la Ley de Moisés y Su Cumplimiento</div>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Fiesta</th>
+            <th>Estación</th>
+            <th>Lo que representó</th>
+            <th>Estado en el Reino</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>① Pascua</td>
+            <td>Primavera</td>
+            <td>El Cordero que murió por nuestros pecados (1.ª venida)</td>
+            <td>✅ <span class="hl">Permanece</span> — aún señala la redención</td>
+          </tr>
+          <tr>
+            <td>② Pan sin Levadura</td>
+            <td>Primavera</td>
+            <td>Cristo llevó nuestro pecado, quitándolo de en medio</td>
+            <td>Cumplida — no se celebra en el Reino</td>
+          </tr>
+          <tr>
+            <td>③ Primeros Frutos</td>
+            <td>Primavera</td>
+            <td>La resurrección de Cristo, primer fruto del sacrificio</td>
+            <td>Cumplida — no se celebra en el Reino</td>
+          </tr>
+          <tr>
+            <td>④ Pentecostés</td>
+            <td>Verano</td>
+            <td>El Espíritu Santo morando entre nosotros — la Era de la Iglesia</td>
+            <td>Cumplida — la Iglesia ya no existe en esa forma</td>
+          </tr>
+          <tr>
+            <td>⑤ Fiesta de las Trompetas</td>
+            <td>Otoño</td>
+            <td>El Rapto a la última trompeta</td>
+            <td>Cumplida — el Rapto ya ocurrió</td>
+          </tr>
+          <tr>
+            <td>⑥ Día de Expiación</td>
+            <td>Otoño</td>
+            <td>Fin de la Tribulación, Jesús regresa a liberar a su pueblo</td>
+            <td>Cumplida — ya aconteció</td>
+          </tr>
+          <tr>
+            <td>⑦ Fiesta de los Tabernáculos</td>
+            <td>Otoño</td>
+            <td>El Rey Jesús reina y vive en medio de su pueblo</td>
+            <td>✅ <span class="hl">Permanece</span> — se vive su cumplimiento pleno</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Las Dos Fiestas del Reino</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La Pascua — Redención eterna</div>
+            <div class="bullet-desc">Representa la redención de Jesús a través de Su sacrificio en la cruz como nuestro Cordero. Sigue teniendo significado espiritual pleno porque la obra de la cruz es <span class="hl">el fundamento eterno de la salvación</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La Fiesta de los Tabernáculos — Cumplimiento vivido</div>
+            <div class="bullet-desc">Representa a Dios morando entre Su pueblo — algo que <span class="hl">en el Reino se experimenta literalmente</span>. Cristo habita en el templo en medio de la humanidad.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Otros Momentos de Adoración</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sábados y lunas nuevas</div>
+            <div class="bullet-desc">Además de las dos fiestas anuales, los adoradores pueden ir al templo en los sábados y los días de luna nueva (Ezequiel 46:3). Estos son momentos de adoración regular.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Comunicación directa permanente</div>
+            <div class="bullet-desc">Los glorificados también se comunican constantemente con Jesús y Lo han visto antes en el salón del trono en el cielo. La visita al templo no es el único punto de contacto.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XVI — EL SACERDOCIO EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-5">
+  <div class="section-header">
+    <div class="section-number">XVI</div>
+    <h2 class="section-title">El Sacerdocio en el Reino — Levitas, Hijos de Sadoc y Gentiles</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Evolución Histórica del Sacerdocio</div>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Era</th>
+            <th>Sacerdotes</th>
+            <th>Sumo Sacerdote</th>
+            <th>Lugar del sacrificio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Antiguo Testamento</td>
+            <td>Levitas (mediadores entre Dios e Israel)</td>
+            <td>Cristo preencarnado (el verdadero intercesor en el cielo)</td>
+            <td>Tabernáculo / Templo (edificio)</td>
+          </tr>
+          <tr>
+            <td>Iglesia (era actual)</td>
+            <td>Todos los creyentes — «real sacerdocio» (1 Pedro 2:9)</td>
+            <td>Cristo glorificado intercediendo ante el Padre</td>
+            <td>El cuerpo del creyente (templo del Espíritu)</td>
+          </tr>
+          <tr>
+            <td>Reino Milenial</td>
+            <td>Hijos de Sadoc + algunos gentiles creyentes</td>
+            <td>Cristo en el Templo (Sumo Sacerdote eterno)</td>
+            <td>Templo de Ezequiel (edificio físico)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Los Levitas Infieles — Rol Reducido</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Ezequiel 44:10,13–14</span>
+        <span class="scripture-text">«Los levitas que se apartaron de mí cuando Israel se alejó de mí, yéndose tras sus ídolos, llevarán su iniquidad... No se acercarán a mí para servirme como sacerdotes... sino que llevarán su ignominia y las abominaciones que hicieron. Los pondré por guardas encargados de la custodia de la casa.»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:10px; font-size:16px; color:var(--text-dim);">Los sacerdotes levitas facilitaron la idolatría antes de la destrucción babilónica. En el Reino, <span class="hl">su papel queda limitado al trabajo de custodios</span>: harán el trabajo «sucio» de matar y cortar los animales en pozos de quemadura — un papel más próximo al adorador que al sacerdote oficial.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Los Hijos de Sadoc — Fidelidad Recompensada</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Ezequiel 44:15–16</span>
+        <span class="scripture-text">«Pero los sacerdotes levitas, hijos de Sadoc, que guardaron el ordenamiento del santuario cuando los hijos de Israel se apartaron de mí, ellos se acercarán para ministrar ante mí, y delante de mí estarán para ofrecerme la grasa y la sangre... Ellos entrarán en mi santuario, se acercarán a mi mesa para servirme y guardarán mis ordenanzas.»</span>
+      </div>
+      <ul class="bullet-list" style="margin-top:10px;">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Quién fue Sadoc</div>
+            <div class="bullet-desc">Sadoc fue el sumo sacerdote que permaneció leal a David cuando la casa de Saúl luchaba por el trono. Tomó el arca del pacto y siguió a David mientras huía de Absalón, demostrando que <span class="hl">David era el ungido del Señor</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Lección de fidelidad</div>
+            <div class="bullet-desc">Dios tiene en cuenta lo que sembremos en este mundo. Igual que a los mártires de la Tribulación, el Señor asigna oportunidades para servir en el Reino conforme a la <span class="hl">fidelidad demostrada aquí</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Sacerdocio Conjunto Judío-Gentil</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Isaías confirma gentiles como sacerdotes</div>
+            <div class="bullet-desc">Como vimos en Isaías 56 y 66, el Señor tomará a algunos gentiles creyentes y les permitirá servir también como sacerdotes en el templo. Será un sacerdocio conjunto <span class="hl">judío-gentil sin precedente</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Distribución de roles en el patio</div>
+            <div class="bullet-desc">Los levitas «infieles» realizan el sacrificio del animal. Los hijos de Sadoc y los gentiles autorizados ofician los rituales ante el altar. Los pozos de quemadura en las esquinas del patio exterior son usados por los levitas para quemar lo que no cabe en el altar.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XVII — ¿POR QUÉ SACRIFICIOS EN EL MILENIO?
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-6">
+  <div class="section-header">
+    <div class="section-number">XVII</div>
+    <h2 class="section-title">¿Por Qué Regresan los Sacrificios? — Fundamento Teológico</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">La Pregunta Central y la Aparente Tensión con Hebreos</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Hebreos 10:10–14</span>
+        <span class="scripture-text">«En esa voluntad somos santificados mediante la ofrenda del cuerpo de Jesucristo hecha una vez para siempre... Pero Cristo, habiendo ofrecido una vez para siempre un solo sacrificio por los pecados, se ha sentado a la diestra de Dios... con una sola ofrenda hizo perfectos para siempre a los santificados.»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:12px; font-size:16px; color:var(--text-dim);">Si Cristo fue siempre nuestro sacrificio de una vez para siempre, ¿por qué se requieren sacrificios físicos de animales? A lo largo de los siglos, muchos teólogos se han inquietado ante esta perspectiva. La respuesta requiere entender <span class="hl">por qué han habido templos y sacrificios desde el principio</span>.</div>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">El Pecado y Sus Dos Efectos — La Historia de Adán y Eva</div>
+      <div class="two-col-panels">
+        <div class="info-panel">
+          <div class="info-panel-title">Efecto 1: Físico — Separación entre personas</div>
+          <div class="bullet-desc">Cuando Adán y Eva pecaron, instintivamente se cubrieron <em>el uno del otro</em>. El pecado corrompió su naturaleza y los convirtió en adversarios: ya no podían ser completamente conocidos, ni conocer completamente a la otra persona. Nacieron los pensamientos secretos, los deseos pecaminosos y la vergüenza. <span class="hl">El pecado separa físicamente a los seres humanos entre sí.</span></div>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">Efecto 2: Espiritual — Separación de Dios</div>
+          <div class="bullet-desc">Luego se escondieron <em>de Dios</em>. Instintivamente sintieron que el pecado demandaba la ira de Dios. Ya no se sentían cómodos en Su presencia. El espíritu dentro de ellos sintió su vulnerabilidad. <span class="hl">El pecado separa espiritualmente al hombre de Dios</span>, quien tampoco podría morar entre hombres sin protegerlos de Su gloria.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Las Dos Provisiones de Dios desde el Edén</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Provisión espiritual — Por fe</div>
+            <div class="bullet-desc">El Señor predicó el primer evangelio (<em>protoevangelium</em>) en Génesis 3:15: «ésta te herirá en la cabeza, y tú la herirás en el talón». Adán y Eva se salvaron por la fe en esta promesa futura. <span class="hl">Todos los santos de todos los tiempos</span> — A.T., N.T. y del Reino — obtienen la misma cobertura espiritual de la misma manera: por fe en el Mesías prometido.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Provisión física — Por sacrificio</div>
+            <div class="bullet-desc">Dios mismo mató a un animal (probablemente un cordero) y vistió a Adán y Eva con su piel (Génesis 3:21). Este sacrificio físico: (a) cubrió su vergüenza restaurando la comunión entre ellos, y (b) enseñó sobre el mayor sacrificio de Cristo que vendría, pues ver a un animal perder la vida <span class="hl">hace tangible el precio del pecado</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">El Orden y Propósito del Sacrificio</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Primero: cobertura espiritual por fe</div>
+            <div class="bullet-desc">La reconciliación con Dios siempre viene primero, <em>únicamente</em> por la fe en el Mesías.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Luego: sacrificio físico para restaurar comunión</div>
+            <div class="bullet-desc">El sacrificio físico restaura la comunión <em>entre personas</em> y <em>ante Dios</em>. Es un acto de adoración, no de salvación. Limpia la conciencia culpable.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Analogía del matrimonio</div>
+            <div class="bullet-desc">Cuando una pareja casada entra en días de desacuerdo, el pacto matrimonial no se disuelve (como la salvación), pero se requiere un <span class="hl">acto de reconciliación</span> para restaurar la comunión. Nuestro espíritu no peca, pero nuestra carne sí.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Patrón constante en toda la Biblia</div>
+            <div class="bullet-desc">Noé creyó (cobertura espiritual) y practicó sacrificios de animales (cobertura física). Abraham, Isaac y Jacob fueron justos por fe y también sacrificaban. La Ley de Moisés codificó este patrón. <span class="hl">La Iglesia no es la excepción.</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XVIII — LOS SACRIFICIOS DE LA IGLESIA HOY
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-7">
+  <div class="section-header">
+    <div class="section-number">XVIII</div>
+    <h2 class="section-title">Los Sacrificios de la Iglesia Hoy — El Cuerpo como Templo</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">El Principio Clave: El Sacrificio Ocurre Donde Mora Dios</div>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Era</th>
+            <th>¿Dónde mora Dios?</th>
+            <th>¿Dónde ocurre el sacrificio físico?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Génesis (Jardín)</td>
+            <td>Dios asiste directamente en el huerto</td>
+            <td>En el huerto donde el Señor ofició el primer sacrificio</td>
+          </tr>
+          <tr>
+            <td>Patriarcas</td>
+            <td>El Ángel del Señor (Cristo preencarnado) visita a su pueblo</td>
+            <td>En altares colocados donde el Ángel del Señor aparecía</td>
+          </tr>
+          <tr>
+            <td>Moisés — A.T.</td>
+            <td>En el Tabernáculo / Templo (edificio físico)</td>
+            <td>En el Tabernáculo/Templo, ante la presencia de Dios</td>
+          </tr>
+          <tr>
+            <td>Iglesia (hoy)</td>
+            <td>En el cuerpo de cada creyente (el Espíritu mora en nosotros)</td>
+            <td><span class="hl">En nuestro cuerpo</span> — sacrificando la carne, sirviendo los intereses de Cristo</td>
+          </tr>
+          <tr>
+            <td>Reino Milenial</td>
+            <td>En el Templo de Ezequiel (edificio físico, Lugar Santísimo)</td>
+            <td>En el Templo, ante la Gloria Shekinah</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">El Sacrificio Físico de la Iglesia según Pablo</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Romanos 12:1–2</span>
+        <span class="scripture-text">«Os ruego por las misericordias de Dios que presentéis vuestros cuerpos como sacrificio vivo, santo, agradable a Dios, que es vuestro verdadero culto. No os conforméis a este mundo, sino transformaos por medio de la renovación de vuestro entendimiento.»</span>
+      </div>
+      <div class="scripture-box">
+        <span class="scripture-ref">1 Corintios 6:19</span>
+        <span class="scripture-text">«¿O ignoráis que vuestro cuerpo es templo del Espíritu Santo, el cual está en vosotros, el cual habéis recibido de Dios, y que no sois vuestros?»</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">¿En Qué Consisten Nuestros Sacrificios Hoy?</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sacrificar el orgullo e interés propio</div>
+            <div class="bullet-desc">Al sacrificar nuestro orgullo e interés propio para mostrar amor por los demás, <span class="hl">restauramos el compañerismo dentro del cuerpo</span>. A eso se refiere el sacerdocio en el Nuevo Testamento.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Matar la carne para que Cristo viva en nosotros</div>
+            <div class="bullet-desc">Presentar nuestro cuerpo en sacrificio vivo al Señor no se hace para salvación — la salvación vino por el sacrificio de Cristo. Es una cobertura física: restaura relaciones, enseña sobre Cristo y es un acto de adoración.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Modelar el ministerio de Cristo (Filipenses 2)</div>
+            <div class="bullet-desc">Cristo, siendo Dios, se despojó a sí mismo y se hizo siervo. Cuando hacemos lo mismo, nuestros sacrificios también <span class="hl">representan a Cristo ante el mundo</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">Por Qué Dios Eligió Morar en la Iglesia Durante esta Era</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Filipenses 2:5–8</span>
+        <span class="scripture-text">«Haya, pues, en vosotros este sentir que hubo también en Cristo Jesús: Él, siendo en forma de Dios, no estimó el ser igual a Dios como cosa a que aferrarse, sino que se despojó a sí mismo, tomó la forma de siervo y se hizo semejante a los hombres... se humilló a sí mismo, haciéndose obediente hasta la muerte, y muerte de cruz.»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:12px; font-size:16px; color:var(--text-dim);">
+        Cuando llegó el momento de que Dios apartara a Israel temporalmente para darse a conocer a los gentiles, no podía simplemente mover Su templo a un país gentil — eso habría dado el mensaje erróneo de que abandonaba a Israel definitivamente, favoreciendo a una nación gentil específica. En cambio, <span class="hl">Dios eligió una solución completamente nueva y hermosa</span>: establecer Su templo en cada individuo creyente, en cada nación por igual. De esa manera, toda nación gentil tendría acceso a ese templo de manera perfectamente equitativa.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XIX — LOS SACRIFICIOS EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="toc-8">
+  <div class="section-header">
+    <div class="section-number">XIX</div>
+    <h2 class="section-title">Los Sacrificios en el Reino — Ezequiel 43</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Doble Naturaleza del Sacrificio en el Reino</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">①</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Espiritualmente — siempre por fe en Jesús</div>
+            <div class="bullet-desc">La reconciliación espiritual con Dios continúa siendo únicamente por la fe en Jesús, sin cambio alguno respecto a todas las eras anteriores.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">②</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Físicamente — animal en el templo</div>
+            <div class="bullet-desc">Dado que Dios mora nuevamente en un <span class="hl">edificio físico</span>, todos los sacrificios físicos deben ocurrir en ese lugar, delante de Su presencia. La gente acudirá con regularidad a sacrificar animales según instrucciones del Señor.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">¿Para Quiénes Son los Sacrificios?</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Solo para los que tienen pecado</div>
+            <div class="bullet-desc">Los sacrificios cubren el pecado, por lo que este sistema <em>solo</em> lo usan quienes tienen pecado — los creyentes e incrédulos con cuerpos naturales.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Glorificados: no participan en sacrificios</div>
+            <div class="bullet-desc">Los santos glorificados no tienen pecado y no harán sacrificios. Su papel se limitará principalmente a <span class="hl">gobernar</span>, aunque algunos podrían ser sacerdotes supervisores.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Creyentes con cuerpos naturales</div>
+            <div class="bullet-desc">Tanto los creyentes como los incrédulos con cuerpos naturales deben hacer sacrificios físicos. Los creyentes también tendrán la cobertura espiritual de Cristo. Sin fe es imposible agradar a Dios.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">El Ritual de Consagración del Altar (Ezequiel 43:18–27)</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Ezequiel 43:18–27 — Ordenanzas del Altar</span>
+        <span class="scripture-text">Día 1: un becerro para expiación — su sangre en los cuatro cuernos y esquinas del altar, luego quemado fuera del santuario. Día 2: un macho cabrío para expiación, purificando el altar como con el becerro. Días 2 en adelante: becerro + carnero sin tacha. Sal echada sobre todos. Siete días de expiación continua. Del octavo día en adelante: los holocaustos y ofrendas de paz del pueblo serán aceptos.</span>
+      </div>
+      <ul class="bullet-list" style="margin-top:12px;">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Propósito de los sacrificios en el Reino</div>
+            <div class="bullet-desc">Logran exactamente lo mismo que cubrieron los sacrificios físicos anteriores: <span class="hl">restauran la comunión entre el pueblo de Dios</span>, señalan y enseñan sobre el significado del sacrificio de Cristo.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Consecuencia de no participar</div>
+            <div class="bullet-desc">Si la gente no participa en los sacrificios, se les <span class="hl">corta la comunión</span> con el pueblo de Dios — igual que la sequía traída a las naciones que no adoran en las fiestas de Jerusalén.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     DIVIDER
+     ══════════════════════════════════════════════ -->
+<div class="divider">
+  <span class="divider-symbol">✦</span>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SUMMARY BOX
+     ══════════════════════════════════════════════ -->
+<div class="summary-box">
+  <p>El Templo Milenial no es una contradicción con la obra de Cristo sino su expresión más plena: Cristo habita en el Lugar Santísimo para siempre, la puerta oriental cerrada proclama que Su sacrificio fue suficiente y final, y el sistema de sacrificios físicos continúa el patrón eterno de Dios — primero la fe para la salvación, luego el sacrificio físico para restaurar la comunión entre personas y ante Dios. Lo que cambia no es el principio sino el lugar donde mora Dios; y allí mismo, siempre, es donde ocurre el sacrificio. La Iglesia no fue la excepción: nuestro cuerpo fue el templo, y nuestro orgullo crucificado fue el sacrificio.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTNOTE
+     ══════════════════════════════════════════════ -->
+<footer>
+  Basado en la enseñanza original de Verse By Verse Ministry International (VBVMI) · <a href="http://vbvmi.org" target="_blank">vbvmi.org</a><br>
+  Arte de Pat Marvenko Smith © 1992 · <a href="http://revelationillustrated.com" target="_blank">revelationillustrated.com</a>
+</footer>
+
+</div><!-- /page-wrap -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

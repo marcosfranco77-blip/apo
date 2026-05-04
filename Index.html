@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Índice General — Estudio del Libro de Apocalipsis</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --gold-faint:   rgba(201,168,76,0.08);
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --border:       rgba(201,168,76,0.15);
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+.starfield {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 65%, rgba(255,255,255,.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 20%, rgba(201,168,76,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 42%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 10%, rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5%  85%, rgba(255,255,255,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 42% 90%, rgba(201,168,76,.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 63% 75%, rgba(255,255,255,.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 52%, rgba(201,168,76,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,.5) 0%, transparent 100%);
+}
+.page-wrap {
+  position: relative; z-index: 1;
+  max-width: 900px; margin: 0 auto; padding: 0 24px 80px;
+}
+header {
+  text-align: center;
+  padding: 64px 32px 52px;
+  margin-bottom: 48px;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,26,26,.32) 0%, transparent 70%);
+}
+.ornament {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin-bottom: 22px;
+  font-family: var(--f-heading); font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted);
+}
+.ornament-line {
+  flex: 1; max-width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(26px, 5vw, 52px);
+  font-weight: 900; color: var(--gold-light);
+  line-height: 1.15; margin-bottom: 10px;
+  text-shadow: 0 2px 30px rgba(201,168,76,.2);
+}
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(13px, 2vw, 18px);
+  text-transform: uppercase; letter-spacing: 2.5px;
+  color: var(--text-dim); font-weight: 400; margin-bottom: 32px;
+}
+.stats-row {
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-value {
+  font-family: var(--f-display); font-size: 28px;
+  color: var(--gold); display: block; line-height: 1; margin-bottom: 4px;
+}
+.stat-label {
+  font-family: var(--f-heading); font-size: 11px;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted);
+}
+.controls {
+  display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px;
+}
+.ctrl-btn {
+  background: rgba(201,168,76,.08);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: var(--f-heading); font-size: 12px; letter-spacing: 1px;
+  padding: 6px 16px; border-radius: 3px; cursor: pointer; transition: all .2s;
+}
+.ctrl-btn:hover {
+  background: rgba(201,168,76,.15); color: var(--gold-light);
+  border-color: rgba(201,168,76,.3);
+}
+.parts-grid { display: flex; flex-direction: column; gap: 10px; }
+.part-card {
+  background: linear-gradient(135deg, var(--mid) 0%, var(--dark) 100%);
+  border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+  transition: border-color .25s;
+}
+.part-card:hover { border-color: rgba(201,168,76,.3); }
+.part-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 16px; cursor: pointer; user-select: none;
+}
+.part-badge {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; min-width: 46px; height: 46px;
+  border: 1px solid var(--crimson); border-radius: 4px;
+  flex-shrink: 0; background: rgba(139,26,26,.12);
+}
+.part-label {
+  font-family: var(--f-heading); font-size: 9px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-muted); line-height: 1;
+}
+.part-number {
+  font-family: var(--f-display); font-size: 20px;
+  color: var(--crimson-light); line-height: 1.1; font-weight: 700;
+}
+.part-meta { flex: 1; min-width: 0; }
+.part-caps {
+  font-family: var(--f-heading); font-size: 15px;
+  color: var(--gold); font-weight: 600; transition: color .2s;
+}
+.part-header:hover .part-caps { color: var(--gold-light); }
+.part-count {
+  font-family: var(--f-heading); font-size: 11px;
+  color: var(--text-muted); letter-spacing: 1px; margin-top: 2px;
+}
+.open-btn {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center;
+  padding: 5px 13px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 3px;
+  color: var(--gold);
+  font-family: var(--f-heading);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.open-btn:hover {
+  background: rgba(201,168,76,.22);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+.part-toggle {
+  background: none; border: none; color: var(--gold-dim);
+  font-size: 18px; cursor: pointer; padding: 4px 4px;
+  transition: transform .3s, color .2s; flex-shrink: 0; line-height: 1;
+}
+.part-toggle.open { transform: rotate(180deg); color: var(--gold); }
+
+/* DESCRIPTION */
+.part-desc {
+  padding: 0 18px 14px 76px;
+  font-family: var(--f-body);
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(201,168,76,.07);
+  font-style: italic;
+}
+
+.topics-list {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s cubic-bezier(.4,0,.2,1);
+}
+.topics-list.open {
+  max-height: 2000px;
+  border-top: 1px solid var(--border);
+}
+.topic-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 8px 22px; border-bottom: 1px solid rgba(201,168,76,.06);
+  transition: background .15s;
+}
+.topic-item:last-child { border-bottom: none; }
+.topic-item:hover { background: var(--gold-faint); }
+.topic-num {
+  flex-shrink: 0; font-family: var(--f-heading);
+  font-size: 11px; color: var(--crimson-light);
+  min-width: 26px; padding-top: 2px;
+}
+.topic-title {
+  font-family: var(--f-body); font-size: 14px;
+  color: var(--text-dim); line-height: 1.45;
+}
+footer {
+  text-align: center; padding: 48px 0 32px;
+  font-family: var(--f-heading); font-size: 12px;
+  letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase;
+}
+.footer-line {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  margin: 0 auto 18px;
+}
+@media (max-width: 600px) {
+  .stats-row { gap: 24px; }
+  .part-caps { font-size: 13px; }
+  .open-btn { font-size: 11px; padding: 4px 10px; }
+  .part-desc { padding-left: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="starfield"></div>
+<div class="page-wrap">
+
+<header>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    Verse by Verse Ministry International
+    <div class="ornament-line"></div>
+  </div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Índice General de las 17 Partes</h2>
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-value">17</span>
+      <span class="stat-label">Partes</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">22</span>
+      <span class="stat-label">Capítulos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">199</span>
+      <span class="stat-label">Temas</span>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <button class="ctrl-btn" onclick="expandAll()">Expandir todo</button>
+  <button class="ctrl-btn" onclick="collapseAll()">Colapsar todo</button>
+</div>
+
+<div class="parts-grid">
+
+    <div class="part-card" id="parte-01">
+      <div class="part-header" onclick="togglePart('topics-01', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">01</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 1–4</div>
+          <div class="part-count">16 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_01_-_Ap__Capitulos_1_-_4_con_indice.html" title="Abrir Parte 01" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">Introducción al libro y su estructura profética. Cubre las siete cartas, la visión de Cristo glorificado, el contexto de la Era de los Gentiles, las 70 Semanas de Daniel, las señales del fin, el Rapto y la adoración celestial del capítulo 4.</div>
+      <div class="topics-list" id="topics-01">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">La Revelación de Jesucristo — Introducción y Cadena de Custodia</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">Salutación a las Siete Iglesias — Las Tres Descripciones de Jesús</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">Una Visión del Hijo del Hombre — La Apariencia Eterna de Cristo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">Esquema del Libro de Apocalipsis</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Las Siete Cartas — ¿A Quién Fueron Dirigidas y Cuándo?</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">Carta a Laodicea — La Iglesia de Nuestra Época</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">La Gran Apostasía — El Cambio en la Manera de Pensar</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">El Siglo Presente, el Siglo Venidero y los Últimos Días</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">La Era de los Gentiles — Su Inicio, Duración y Fin</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">Los Cuatro Reinos Gentiles — Daniel 2 y Daniel 7</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">El Viejo Pacto, sus Bendiciones, Maldiciones y la Puerta de Salvación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">Las 70 Semanas de Daniel — La Cronología de la Salvación de Israel</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">Señales del Final de la Era de los Gentiles</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIV</span>
+                <span class="topic-title">El Sermón del Monte de los Olivos — Mateo 24 y Lucas 21</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XV</span>
+                <span class="topic-title">El Rapto — La Resurrección de la Iglesia y la Tradición de la Boda Judía</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVI</span>
+                <span class="topic-title">La Adoración Celestial — Apocalipsis Capítulo 4 (Después del Rapto)</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-02">
+      <div class="part-header" onclick="togglePart('topics-02', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">02</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 5–9</div>
+          <div class="part-count">15 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_02_-_Ap__Capitulos_5_-_9_con_indice.html" title="Abrir Parte 02" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">Los primeros seis sellos y las primeras seis trompetas: los cuatro jinetes, los mártires, los 144,000, la gran multitud y los juicios devastadores sobre la tierra durante la primera mitad de la Tribulación.</div>
+      <div class="topics-list" id="topics-02">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Estructura General del Libro de Apocalipsis</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">El Inicio de la Tribulación — El Pacto del Anticristo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">El Rollo y el Cordero — Apocalipsis Capítulo 5</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">Quién es el Anticristo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Los Cuatro Primeros Sellos — Los Cuatro Jinetes</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">Quinto Sello — Santos y Mártires de la Tribulación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">Sexto Sello — Calamidades Sobrenaturales</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">Los 144,000 Sellados — Capítulo 7</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">La Gran Multitud Vestida de Ropas Blancas</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">El Séptimo Sello — Preludio a las 7 Trompetas</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">Las Primeras Cuatro Trompetas — Devastación de la Tierra</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">Advertencia antes de las Últimas Tres Trompetas — Los Ayes</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">Quinta Trompeta (Primer Ay) — Las Langostas del Abismo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIV</span>
+                <span class="topic-title">Sexta Trompeta (Segundo Ay) — El Ejército de 200 Millones</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XV</span>
+                <span class="topic-title">Situación al Final de la Primera Mitad — Hacia el Mid-Trib</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-03">
+      <div class="part-header" onclick="togglePart('topics-03', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">03</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 10–12</div>
+          <div class="part-count">12 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_03_-_Ap__Capitulos_10_-_12_con_indice.html" title="Abrir Parte 03" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">El punto medio exacto de la Tribulación (Mid-Trib): el tercer templo, los Dos Testigos, la séptima trompeta, la batalla en el cielo y la expulsión de Satanás, con Israel refugiado sobrenaturalmente en Petra.</div>
+      <div class="topics-list" id="topics-03">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Situación Actual al Inicio del Mid-Trib</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">El Ángel con el Librito — Capítulo 10</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">Los 1,290 Días — El Punto Medio Definido con Precisión</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">El Tercer Templo — Capítulo 11</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Los Dos Testigos — Ministerio, Identidad y Propósito</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">Muerte, Ignominia y Resurrección de los Dos Testigos</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">La Séptima Trompeta — Proclamación de Victoria (Ap. 11:15–19)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">La Mujer y el Dragón — Capítulo 12</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">El Cuarto Imperio Evoluciona hacia la Cuarta Bestia — Daniel 7</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">La Batalla en el Cielo — Satanás Expulsado para Siempre</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">El Remanente de Israel — Protección Sobrenatural en Petra</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">El Resto de la Descendencia — Los que Quedaron Atrás</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-04">
+      <div class="part-header" onclick="togglePart('topics-04', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">04</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 13–14</div>
+          <div class="part-count">11 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_04_-_Ap__Capitulos_13_-_14_con_indice.html" title="Abrir Parte 04" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">La segunda mitad de la Tribulación: el Anticristo, el Falso Profeta, la marca 666, los cinco grupos tribulacionales, los 144,000 en el cielo, los tres ángeles y las dos cosechas finales.</div>
+      <div class="topics-list" id="topics-04">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">La Bestia del Mar — El Anticristo Identificado (Ap. 13:1–2)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">Muerte y Resurrección del Anticristo — La Gran Falsificación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">Autoridad sobre el Mundo por 42 Meses (Ap. 13:5–10)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">La Segunda Bestia — El Falso Profeta (Ap. 13:11–14)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">La Imagen del Anticristo y la Marca 666 (Ap. 13:14–18)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">Los Cinco Grupos de la Tribulación — La División Final</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">Los 144,000 en el Monte de Sión — En el Cielo (Ap. 14:1–5)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">El Fin del Evangelismo Humano — Los Tres Ángeles (Ap. 14:6–13)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">Bienaventurados los que Mueren en el Señor — La Perseverancia (Ap. 14:12–13)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">Las Dos Cosechas — Creyentes y No Creyentes (Ap. 14:14–20)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">Resumen de Mid-Trib y Repaso de Todos los Juicios</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-05">
+      <div class="part-header" onclick="togglePart('topics-05', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">05</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 15–16</div>
+          <div class="part-count">13 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_05_-_Ap__Capitulos_15_-_16__con_indice.html" title="Abrir Parte 05" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">Las siete copas de la ira de Dios (capítulos 15–16): los cánticos del cielo, el tabernáculo celestial, las plagas paralelas al Éxodo, la introducción a Armagedón y la caída anunciada de Babilonia.</div>
+      <div class="topics-list" id="topics-05">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Situación Actual: El Punto Medio de la Tribulación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">Transición al Final: ¿Qué Viene a Continuación?</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">Capítulo 15: La Gran y Maravillosa Señal — Los Siete Ángeles</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">El Mar de Vidrio y los Mártires Cantando</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Los Dos Cánticos de Moisés — Profecía y Cumplimiento</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">El Tabernáculo en el Cielo — La Gloria de Dios se Hace Visible</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">El Templo Lleno de Humo — Un Período "Sin" Gracia</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">Capítulo 16: Las Siete Copas de la Ira — Copas 1 a 5</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">Significado Teológico de las Copas — Vista Previa del Infierno y Paralelo con el Éxodo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">La Guerra de Armagedón — Introducción y Etapas</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">La Sexta Copa — El Éufrates se Seca y Armagedón Etapa I</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">Advertencia al Creyente Durante la Tribulación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">La Séptima Copa — "Hecho Está" y la Caída de Babilonia</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-06">
+      <div class="part-header" onclick="togglePart('topics-06', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">06</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 16–17</div>
+          <div class="part-count">12 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_06_-_Ap__Capitulos_16_-_17_con_indice.html" title="Abrir Parte 06" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">Análisis profundo de Babilonia en sus cinco dimensiones históricas y espirituales. Capítulo 17: la Gran Ramera, su relación con el Anticristo, los siete reyes gentiles y su destrucción definitiva.</div>
+      <div class="topics-list" id="topics-06">
+              <div class="topic-item">
+                <span class="topic-num">XIV</span>
+                <span class="topic-title">Babilonia y la Redención de Cristo — Los Dos Grandes Temas de la Biblia</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XV</span>
+                <span class="topic-title">Babilonia Dimensión 1 — Casa de Pecado: El Hogar de Satanás</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVI</span>
+                <span class="topic-title">Babilonia Dimensión 2 — Fuente de Toda Idolatría: La Torre de Babel</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVII</span>
+                <span class="topic-title">Babilonia Dimensión 3 — Primer Reino Gentil en Conquistar Israel y Jerusalén</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVIII</span>
+                <span class="topic-title">Babilonia Dimensión 4 — Sede Central del Anticristo en los Últimos Días</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIX</span>
+                <span class="topic-title">Babilonia Dimensión 5 — Símbolo de Todas las Religiones Falsas</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XX</span>
+                <span class="topic-title">Los Puntos Cardinales como Símbolo Espiritual — Este vs. Oeste</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXI</span>
+                <span class="topic-title">Capítulo 17: El Juicio a la Babilonia Espiritual — La Gran Ramera</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXII</span>
+                <span class="topic-title">La Ramera Cabalga sobre la Bestia — Babilonia y el Anticristo Unidos</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXIII</span>
+                <span class="topic-title">Las Siete Cabezas — Siete Montes, Siete Reyes: La Era de los Gentiles</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXIV</span>
+                <span class="topic-title">Los Siete Reyes Históricos que Controlaron Babilonia y Jerusalén</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXV</span>
+                <span class="topic-title">Destrucción de la Ramera — El Fin de la Babilonia Espiritual</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-07">
+      <div class="part-header" onclick="togglePart('topics-07', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">07</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 18</div>
+          <div class="part-count">12 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_07_-_Ap__Capitulos_18_con_indice.html" title="Abrir Parte 07" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">La caída de Babilonia comercial y religiosa (capítulo 18): el llamado de Dios a su pueblo a salir, los lamentos de reyes y mercaderes, las dos fases de su destrucción y las naciones del norte como agentes del juicio.</div>
+      <div class="topics-list" id="topics-07">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">La Séptima Copa y el Efecto Dominó de Babilonia</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">El Patrón Histórico: Daniel 2 y la Era de los Gentiles</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">La Babilonia Espiritual: Las Religiones Falsas del Mundo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">La Destrucción de Todas las Religiones Falsas en Una Sola</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Perspectiva de los Capítulos 16, 17 y 18</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">El Ángel Anuncia: Babilonia ha Caído (Ap. 18:1-3)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">Las Tres Razones para la Destrucción (Ap. 18:3)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">Dios Llama a su Pueblo a Salir de Babilonia (Ap. 18:4-8)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">La Destrucción de Babilonia en Dos Fases</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">Las Naciones del Norte: Identificación de los Atacantes</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">Las Fases de la Guerra de Armagedón y la Caída de Babilonia</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">Los Lamentos y la Destrucción Final de Babilonia (Ap. 18:9-24)</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-08">
+      <div class="part-header" onclick="togglePart('topics-08', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">08</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 19A</div>
+          <div class="part-count">13 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_08_-_Ap__Capitulos_19A_con_indice.html" title="Abrir Parte 08" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">Las bodas del Cordero y el regreso de Cristo (capítulo 19, primera parte): alabanzas celestiales, el asedio de Jerusalén, los movimientos del Anticristo según Daniel 11 y el contexto profético de la etapa III de Armagedón.</div>
+      <div class="topics-list" id="topics-08">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Visión General: La Tribulación y sus Tres Grandes Períodos</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">Situación al Inicio del Capítulo 19: El Anticristo Acorralado</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">Alabanzas en el Cielo: ¡Aleluya! (Ap. 19:1–5)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">Las Bodas del Cordero (Ap. 19:6–9)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">La Boda Judía como Metáfora del Rapto y la Segunda Venida</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">Juan Adora al Ángel: La Corrección (Ap. 19:10)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">Repaso de las Etapas I y II — El Telón de Fondo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">El Anticristo según Daniel 11: Su Carácter y Sus Movimientos</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">Etapa III: Las Fuerzas del Anticristo en Bosra y Jerusalén</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">El Asedio de Jerusalén: Profetas del A.T. dan los Detalles</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">Zacarías: El Plan de Dios para Presionar a Israel (Zac. 13–12)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">El Asedio de Asiria: Imagen Histórica de la Tribulación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">Lo que Viene: Por qué Satanás Quiere Destruir a Todos los Judíos</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-09">
+      <div class="part-header" onclick="togglePart('topics-09', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">09</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 19B</div>
+          <div class="part-count">13 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_09_-_Ap__Capitulos_19B_con_indice.html" title="Abrir Parte 09" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">El propósito teológico de la Tribulación y la causa desencadenante de la Segunda Venida: la confesión nacional de Israel. Zacarías 14, los salmos de arrepentimiento, Oseas y la perspectiva cósmica del regreso de Cristo.</div>
+      <div class="topics-list" id="topics-09">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Introducción: La Guerra de Armagedón como Serie de Eventos</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">El Propósito de la Tribulación: Seis Razones Dadas por Daniel</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">El Pacto Mosaico: Las Consecuencias del Incumplimiento</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">La Gracia en Medio del Juicio: La Desobediencia de Israel como Oportunidad para los Gentiles</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">La Causa Desencadenante de la Segunda Venida: La Confesión Nacional de Israel</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">La Situación al Final de la Tribulación: El Panorama Completo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">Zacarías 14: Lo Que Sucede Dentro de Jerusalén</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">El Derramamiento del Espíritu Santo y la Confesión Nacional (Zacarías 12:10)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">Los Salmos del Arrepentimiento de Israel al Final de la Tribulación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">Oseas: La Cronología Exacta de la Última Batalla y el Regreso</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">La Segunda Venida de Cristo: Apocalipsis 19:11-16</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">La Perspectiva Terrenal del Regreso: El Apagón Cósmico</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">Cierre y Perspectiva: Lo que Viene a Continuación</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-10">
+      <div class="part-header" onclick="togglePart('topics-10', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">10</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 19C</div>
+          <div class="part-count">11 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_10_-_Ap__Capitulos_19C_con_indice.html" title="Abrir Parte 10" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">Las etapas finales de Armagedón: Cristo destruye los ejércitos en Bosra, avanza hacia Jerusalén, mata al Anticristo y al Falso Profeta, y los envía al lago de fuego. El intervalo de 75 días y la entrada al Milenio.</div>
+      <div class="topics-list" id="topics-10">
+              <div class="topic-item">
+                <span class="topic-num">XIV</span>
+                <span class="topic-title">Situación Actual al Inicio de la Lección: Israel ha Clamado, Jesús Desciende</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XV</span>
+                <span class="topic-title">Tipología: José y Sus Hermanos — Imagen Perfecta de Cristo e Israel</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVI</span>
+                <span class="topic-title">Etapa IV de Armagedón: Jesús Destruye los Ejércitos en Bosra (Isaías 34)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVII</span>
+                <span class="topic-title">El Señor Regresa de Bosra hacia Jerusalén: Isaías 63 — La Perspectiva del Profeta</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVIII</span>
+                <span class="topic-title">El Trayecto de Bosra a Jerusalén: ¿Natural o Sobrenatural?</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIX</span>
+                <span class="topic-title">Etapa V de Armagedón: Jesús Llega al Monte de los Olivos y Defiende Jerusalén (Zacarías 14)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XX</span>
+                <span class="topic-title">La Muerte del Anticristo: La Espada de la Boca de Cristo (Habacuc 3 · 2 Tesalonicenses 2)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXI</span>
+                <span class="topic-title">Las Secuelas de la Batalla — El "Tsunami de Sangre" y la Gran Cena de Dios (Apocalipsis 19:17-21)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXII</span>
+                <span class="topic-title">Los Grupos Supervivientes al Final de la Guerra</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXIII</span>
+                <span class="topic-title">El Destino de los Instigadores: El Anticristo y el Falso Profeta</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXIV</span>
+                <span class="topic-title">Lo Que Viene a Continuación: El Intervalo de 75 Días y el Milenio</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-11">
+      <div class="part-header" onclick="togglePart('topics-11', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">11</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 20A</div>
+          <div class="part-count">11 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_11_-_Ap__Capitulos_20A_con_indice.html" title="Abrir Parte 11" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">El intervalo de 75 días entre la Tribulación y el Milenio: los 30 días de restauración, los 45 días de juicio, los cinco grupos que entran al reino, las dos resurrecciones y el juicio de ovejas y cabritos de Mateo 25.</div>
+      <div class="topics-list" id="topics-11">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Perspectiva Global: El Intervalo entre la Tribulación y el Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">La Línea de Tiempo de Daniel: Anclas Proféticas</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">El Primer Período: 30 Días de Restauración de la Tierra</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">El Segundo Período: 45 Días de Juicio y Bendición</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Los Cinco Grupos de Ciudadanos del Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">Grupo #2: Resurrección de los Santos del Antiguo Testamento</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">Grupo #3: Resurrección de los Santos Mártires de la Tribulación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">Grupo #4: Judíos Vivos al Regreso de Cristo — ¿Serán Resucitados?</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">La Primera y la Segunda Resurrección</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">Grupo #5: Los Gentiles Vivientes — Ovejas y Cabritos (Mateo 25)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">La Entrada al Reino: Hijos Nacidos Durante el Milenio</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-12">
+      <div class="part-header" onclick="togglePart('topics-12', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">12</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 20B</div>
+          <div class="part-count">8 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_12_-_Ap__Capitulos_20B_con_indice.html" title="Abrir Parte 12" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">La naturaleza del Reino Milenial: restauración de la creación, armonía entre los animales, reversión de la maldición agrícola, geografía del reino, presencia del pecado bajo el gobierno perfecto de Cristo.</div>
+      <div class="topics-list" id="topics-12">
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">El Comienzo del Reino: Lo que Apocalipsis Dice (y No Dice)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">El Concepto Progresivo del Reino: Cuatro Etapas</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIV</span>
+                <span class="topic-title">Cambios en la Creación: Las Consecuencias del Pecado de Adán</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XV</span>
+                <span class="topic-title">Los Animales en el Reino: Restauración de la Armonía Original</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVI</span>
+                <span class="topic-title">La Tierra Producirá: Reversión de la Maldición Agrícola</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVII</span>
+                <span class="topic-title">Fronteras y Geografía del Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVIII</span>
+                <span class="topic-title">El Pecado en el Milenio y el Gobierno Perfecto de Cristo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIX</span>
+                <span class="topic-title">La Estructura del Gobierno del Reino</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-13">
+      <div class="part-header" onclick="togglePart('topics-13', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">13</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 20C</div>
+          <div class="part-count">11 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_13_-_Ap__Capitulos_20C_con_indice.html" title="Abrir Parte 13" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">La vida cotidiana en el Milenio: el gobierno con vara de hierro, la muerte residual, la gloria Shekinah en el templo, la fe como único medio de salvación, el papel de los gentiles y los grandes silencios de las Escrituras.</div>
+      <div class="topics-list" id="topics-13">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Resumen: La Creación, la Tierra y el Gobierno en el Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">Los Cinco Grupos de Creyentes que Entran al Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">El Pecado Contenido: Gobierno con Vara de Hierro</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">La Muerte en el Reino — Análisis de Isaías 65:20</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">¿Cómo es Posible la Incredulidad con Cristo Gobernando?</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">La Gloria Shekinah de Dios Regresa al Templo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">La Fe: Único y Permanente Medio de Salvación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">La Calidad de la Vida Diaria en el Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">Jerusalén Cubierta por la Gloria: Isaías 4</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">La Vida y Función de los Gentiles en el Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">Los Grandes Silencios — Lo que las Escrituras No Revelan</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-14">
+      <div class="part-header" onclick="togglePart('topics-14', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">14</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 20D</div>
+          <div class="part-count">8 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_14_-_Ap__Capitulos_20D_con_indice.html" title="Abrir Parte 14" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">El Templo Milenial de Ezequiel: su arquitectura, el sacerdocio restaurado, las fiestas reducidas a dos, y el fundamento teológico del regreso de los sacrificios como memorial retrospectivo, no como expiación.</div>
+      <div class="topics-list" id="topics-14">
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">Introducción al Templo Milenial — Ezequiel como Guía</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">Recorrido Arquitectónico: Las Dimensiones del Templo Milenial</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIV</span>
+                <span class="topic-title">Cristo en el Templo: La Partida y el Regreso Glorioso</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XV</span>
+                <span class="topic-title">Las Fiestas del Reino — De Siete a Dos</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVI</span>
+                <span class="topic-title">El Sacerdocio en el Reino — Levitas, Hijos de Sadoc y Gentiles</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVII</span>
+                <span class="topic-title">¿Por Qué Regresan los Sacrificios? — Fundamento Teológico</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVIII</span>
+                <span class="topic-title">Los Sacrificios de la Iglesia Hoy — El Cuerpo como Templo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIX</span>
+                <span class="topic-title">Los Sacrificios en el Reino — Ezequiel 43</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-15">
+      <div class="part-header" onclick="togglePart('topics-15', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">15</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 20E</div>
+          <div class="part-count">11 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_15_-_Ap__Capitulos_20E_con_indice.html" title="Abrir Parte 15" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">La última guerra al final del Milenio: Satanás liberado, Gog y Magog (Ezequiel 38–39), la identidad de los atacantes, su destrucción sobrenatural y la comparación detallada con Apocalipsis 20.</div>
+      <div class="topics-list" id="topics-15">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Contexto: Línea de Tiempo del Reino</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">El Texto de Apocalipsis 20 — La Última Guerra</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">El Papel de Satanás: Por Qué Fue Atado y Liberado</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">El Verdadero Propósito del Reino de los 1,000 Años</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Ezequiel 38–39: Marco y Estructura</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">Identidad de Gog y Magog (Ezequiel 38:1–8)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">Detalles de la Invasión (Ezequiel 38:9–16)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">El Propósito de la Invasión: Dios Demuestra su Fidelidad al Pacto</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">La Destrucción Sobrenatural y sus Consecuencias (Ezequiel 39)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">El Sacrificio Final: Inversión del Orden Creacional (Ezequiel 39:17–21)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">Tabla Comparativa: Ezequiel 38–39 vs. Apocalipsis 20</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-16">
+      <div class="part-header" onclick="togglePart('topics-16', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">16</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 21</div>
+          <div class="part-count">10 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_16_-_Ap__Capitulos_21_con_indice.html" title="Abrir Parte 16" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">El fin de la historia y el umbral de la eternidad: la segunda resurrección, el Gran Trono Blanco, el lago de fuego, los nuevos cielos y la nueva tierra, y la Nueva Jerusalén descendiendo del cielo.</div>
+      <div class="topics-list" id="topics-16">
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">El Intervalo Final: 7 Años Únicos en la Historia</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIII</span>
+                <span class="topic-title">El Lago de Fuego y Azufre</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIV</span>
+                <span class="topic-title">La Segunda Resurrección</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XV</span>
+                <span class="topic-title">Recorrido de las Almas Según su Época</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVI</span>
+                <span class="topic-title">El Gran Juicio del Trono Blanco (Apocalipsis 20:11–15)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVII</span>
+                <span class="topic-title">El Desarrollo del Juicio — Los Libros Abiertos</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XVIII</span>
+                <span class="topic-title">La Próxima Era: La Eternidad y la Revelación Progresiva</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XIX</span>
+                <span class="topic-title">Los Nuevos Cielos y la Nueva Tierra — Apocalipsis 21:1–8</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XX</span>
+                <span class="topic-title">La Nueva Jerusalén — La Ciudad que Desciende</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XXI</span>
+                <span class="topic-title">El Llamado a la Salvación — Apocalipsis 21:8</span>
+              </div>
+      </div>
+    </div>
+    <div class="part-card" id="parte-17">
+      <div class="part-header" onclick="togglePart('topics-17', this)">
+        <div class="part-badge">
+          <span class="part-label">Parte</span>
+          <span class="part-number">17</span>
+        </div>
+        <div class="part-meta">
+          <div class="part-caps">Apocalipsis 22</div>
+          <div class="part-count">12 temas</div>
+        </div>
+        <a class="open-btn" href="Resumen_de_Apocalipsis_-_Parte_17_-_Ap__Capitulos_22_con_indice.html" title="Abrir Parte 17" onclick="event.stopPropagation()">Abrir ↗</a>
+        <button class="part-toggle" title="Expandir/Colapsar">▾</button>
+      </div>
+      <div class="part-desc">La eternidad en la Nueva Jerusalén: sus dimensiones, sus habitantes, la ausencia de templo, de noche y de maldición, el río de vida, el árbol de la vida, y las palabras finales de Cristo cerrando el canon de las Escrituras.</div>
+      <div class="topics-list" id="topics-17">
+              <div class="topic-item">
+                <span class="topic-num">I</span>
+                <span class="topic-title">Introducción: Los Nuevos Cielos y la Nueva Tierra (NC&NT)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">II</span>
+                <span class="topic-title">La Nueva Jerusalén: Primera Vista y la Novia de Cristo</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">III</span>
+                <span class="topic-title">Las Doce Tribus y los Doce Apóstoles: Memorial Eterno</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IV</span>
+                <span class="topic-title">Las Medidas de la Ciudad: Dimensiones Extraordinarias</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">V</span>
+                <span class="topic-title">Los Habitantes y la Gloria de la Ciudad (Ap. 21:22–27)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VI</span>
+                <span class="topic-title">El Diseño de la Primera Creación: Por Qué Existían Mares, Noche y Sol</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VII</span>
+                <span class="topic-title">El Río de Agua de Vida y el Árbol de la Vida (Ap. 22:1–5)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">VIII</span>
+                <span class="topic-title">Sin Maldición: Vida Perfecta en la Presencia de Dios</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">IX</span>
+                <span class="topic-title">Tabla Comparativa: Primera Creación vs. Nueva Creación</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">X</span>
+                <span class="topic-title">Predestinación, el Propósito de la Creación y el Carácter Completo de Dios</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XI</span>
+                <span class="topic-title">El Epílogo: Palabras Finales de Cristo a Juan (Ap. 22:6–15)</span>
+              </div>
+              <div class="topic-item">
+                <span class="topic-num">XII</span>
+                <span class="topic-title">El Llamado Final: A Creyentes, a Incrédulos y la Advertencia sobre las Escrituras</span>
+              </div>
+      </div>
+    </div>
+</div>
+
+<footer>
+  <div class="footer-line"></div>
+  Verse by Verse Ministry International
+</footer>
+
+</div>
+<script>
+(function() {
+  window.togglePart = function(targetId, header) {
+    var topics = document.getElementById(targetId);
+    var btn = header.querySelector('.part-toggle');
+    var isOpen = topics.classList.contains('open');
+    topics.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+  };
+  window.expandAll = function() {
+    document.querySelectorAll('.topics-list').forEach(function(t) { t.classList.add('open'); });
+    document.querySelectorAll('.part-toggle').forEach(function(b) { b.classList.add('open'); });
+  };
+  window.collapseAll = function() {
+    document.querySelectorAll('.topics-list').forEach(function(t) { t.classList.remove('open'); });
+    document.querySelectorAll('.part-toggle').forEach(function(b) { b.classList.remove('open'); });
+  };
+})();
+</script>
+</body>
+</html>

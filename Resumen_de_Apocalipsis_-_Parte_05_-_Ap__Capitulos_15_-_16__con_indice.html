@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis — Parte 05 · Capítulos 15–16</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* STARFIELD */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 8%,  rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 34% 22%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 56% 5%,  rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 18%, rgba(255,255,255,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 33%, rgba(201,168,76,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 8%  67%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 44% 81%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 55%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 72%, rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 23% 91%, rgba(255,255,255,.5) 0%, transparent 100%);
+}
+
+/* WRAPPER */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* HEADER */
+header {
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,26,26,.45) 0%, rgba(10,8,6,0) 70%);
+  text-align: center;
+  padding: 64px 24px 48px;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.ornament-line {
+  flex: 1;
+  max-width: 160px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim));
+}
+.ornament-line.right {
+  background: linear-gradient(to left, transparent, var(--gold-dim));
+}
+.ornament-text {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+}
+
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.meta-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+.meta-value {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 52px;
+  animation: fadeUp .6s ease both;
+}
+.section:nth-child(1)  { animation-delay: .00s; }
+.section:nth-child(2)  { animation-delay: .08s; }
+.section:nth-child(3)  { animation-delay: .16s; }
+.section:nth-child(4)  { animation-delay: .24s; }
+.section:nth-child(5)  { animation-delay: .32s; }
+.section:nth-child(6)  { animation-delay: .40s; }
+.section:nth-child(7)  { animation-delay: .48s; }
+.section:nth-child(8)  { animation-delay: .56s; }
+.section:nth-child(9)  { animation-delay: .64s; }
+.section:nth-child(10) { animation-delay: .72s; }
+.section:nth-child(11) { animation-delay: .80s; }
+.section:nth-child(12) { animation-delay: .88s; }
+.section:nth-child(13) { animation-delay: .96s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.section-num {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.3;
+}
+
+/* CARDS GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 780px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+/* CARD */
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover {
+  border-left-color: var(--gold);
+  transform: translateX(3px);
+}
+.card.full {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+}
+
+/* BULLET LIST */
+ul.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+ul.bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+
+.bullet-icon {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.bullet-content {}
+
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* SCRIPTURE BOX */
+.scripture {
+  position: relative;
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 32px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.scripture::before {
+  content: '"';
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  display: block;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* HIGHLIGHT */
+.hl {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold-dim), transparent);
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+/* INFO PANEL */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+
+/* TWO COL COMPARE */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* TABLE */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 12px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+.styled-table td {
+  color: var(--text-dim);
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+}
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+}
+.divider-sym {
+  color: var(--gold-dim);
+  font-size: 14px;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* FOOTNOTE */
+footer {
+  border-top: 1px solid rgba(201,168,76,.12);
+  padding-top: 24px;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.9;
+}
+footer a {
+  color: var(--gold-dim);
+  text-decoration: none;
+}
+footer a:hover { color: var(--gold); }
+
+p.card-body {
+  font-size: 17px;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+.toc-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.06);
+}
+.toc-item.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.1);
+}
+.toc-num {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: var(--f-heading);
+  color: var(--crimson-light);
+  padding-top: 1px;
+  min-width: 22px;
+}
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: none;
+  color: var(--gold);
+  border-radius: 0 6px 6px 0;
+  width: 22px;
+  height: 54px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+}
+
+/* PAGE WRAP — desplaza el contenido cuando el índice está abierto */
+.page-wrap {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-open .page-wrap {
+  margin-left: 270px;
+}
+body.toc-closed .page-wrap {
+  margin-left: 0;
+}
+@media (max-width: 900px) {
+  body.toc-open .page-wrap { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#sec-I" class="toc-item"><span class="toc-num">I</span><span class="toc-title">Situación Actual: El Punto Medio de la Tribulación</span></a>
+<a href="#sec-II" class="toc-item"><span class="toc-num">II</span><span class="toc-title">Transición al Final: ¿Qué Viene a Continuación?</span></a>
+<a href="#sec-III" class="toc-item"><span class="toc-num">III</span><span class="toc-title">Capítulo 15: La Gran y Maravillosa Señal — Los Siete Ángeles</span></a>
+<a href="#sec-IV" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">El Mar de Vidrio y los Mártires Cantando</span></a>
+<a href="#sec-V" class="toc-item"><span class="toc-num">V</span><span class="toc-title">Los Dos Cánticos de Moisés — Profecía y Cumplimiento</span></a>
+<a href="#sec-VI" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">El Tabernáculo en el Cielo — La Gloria de Dios se Hace Visible</span></a>
+<a href="#sec-VII" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">El Templo Lleno de Humo — Un Período "Sin" Gracia</span></a>
+<a href="#sec-VIII" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">Capítulo 16: Las Siete Copas de la Ira — Copas 1 a 5</span></a>
+<a href="#sec-IX" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">Significado Teológico de las Copas — Vista Previa del Infierno y Paralelo con el Éxodo</span></a>
+<a href="#sec-X" class="toc-item"><span class="toc-num">X</span><span class="toc-title">La Guerra de Armagedón — Introducción y Etapas</span></a>
+<a href="#sec-XI" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">La Sexta Copa — El Éufrates se Seca y Armagedón Etapa I</span></a>
+<a href="#sec-XII" class="toc-item"><span class="toc-num">XII</span><span class="toc-title">Advertencia al Creyente Durante la Tribulación</span></a>
+<a href="#sec-XIII" class="toc-item"><span class="toc-num">XIII</span><span class="toc-title">La Séptima Copa — "Hecho Está" y la Caída de Babilonia</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+
+<div class="starfield"></div>
+
+<div class="wrapper page-wrap">
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span class="ornament-text">Verse by Verse Ministry International</span>
+    <div class="ornament-line right"></div>
+  </div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 05 · Capítulos 15 – 16</h2>
+  <div class="meta-bar">
+    <div class="meta-item">
+      <span class="meta-label">Capítulos cubiertos</span>
+      <span class="meta-value">Apocalipsis 15 – 16</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Temas principales</span>
+      <span class="meta-value">Las Siete Copas · La Guerra de Armagedón</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Período histórico</span>
+      <span class="meta-value">Final de los 7 años de Tribulación</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ SECCIÓN I ═══════════════════════════ -->
+<div class="section" id="sec-I">
+  <div class="section-header">
+    <div class="section-num">I</div>
+    <h2 class="section-title">Situación Actual: El Punto Medio de la Tribulación</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Estado del Mundo al Iniciar Apocalipsis 15</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Satanás habita al Anticristo</span><span class="bullet-desc">Satanás ha resucitado al Anticristo y habita en su cuerpo. El mundo lo celebra por haber detenido los juicios con la muerte de los dos testigos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Anticristo domina el mundo</span><span class="bullet-desc">Con el poder de Satanás gobierna el planeta, siendo adorado como el mesías y salvador del mundo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Falso Profeta y la nueva religión</span><span class="bullet-desc">Satanás ha levantado un falso profeta para guiar al mundo en una única religión que adora al Anticristo; se instala una imagen sobrenatural en el templo judío.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La marca de la bestia</span><span class="bullet-desc">Todos son llamados a adorar al nuevo dios del mundo. Quien se niega no puede comprar ni vender y, al ser hallado, es decapitado (Ap 20:4).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Grupos que Resisten</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">①</span><div class="bullet-content"><span class="bullet-label">Creyentes en Jesús (judíos y gentiles)</span><span class="bullet-desc">Perseveran en la fe aun bajo amenaza de decapitación.</span></div></li>
+        <li><span class="bullet-icon">②</span><div class="bullet-content"><span class="bullet-label">Judíos devotos de Yahweh</span><span class="bullet-desc">Permanecen fieles al Dios de Israel, especialmente bajo persecución en Jerusalén.</span></div></li>
+        <li><span class="bullet-icon">③</span><div class="bullet-content"><span class="bullet-label">Refugiados en Petra / Botzrah</span><span class="bullet-desc">Algunos están a salvo en Petra; otros son martirizados y entran al cielo para descansar y esperar su resurrección en el reino.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El mundo inconverso</span><span class="bullet-desc">Disfruta una paz incómoda durante la mayor parte de la segunda mitad de la Tribulación. Los juicios de los sellos y las trompetas ya se completaron en los primeros 3 ½ años; falta la séptima trompeta: las copas.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN II ═══════════════════════════ -->
+<div class="section" id="sec-II">
+  <div class="section-header">
+    <div class="section-num">II</div>
+    <h2 class="section-title">Transición al Final: ¿Qué Viene a Continuación?</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Salto Narrativo de Juan</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El texto salta al final</span><span class="bullet-desc">Dado que los juicios de las copas son el siguiente paso, el texto de Apocalipsis salta desde el punto medio hasta un punto cercano al <span class="hl">final de los siete años</span>. La Biblia no describe más ese período intermedio porque tal vez no hay nada más que decir.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El capítulo 15 como puente</span><span class="bullet-desc">El capítulo 15 nos lleva a lo largo de ese camino comenzando con otra señal en el cielo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">¿Cuánto tiempo queda?</span><span class="bullet-desc">Las copas y la venida de Cristo están separadas por <span class="hl">semanas o días</span>, no meses ni años. Son los eventos finales antes del regreso del Señor para terminar los 7 años de tribulación y la <span class="hl">era de los gentiles</span>.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La Gran Tribulación — Línea de Tiempo</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">Años 1–3½ (Primera mitad)</div>
+          <div class="timeline-desc">Juicios de los sellos y las trompetas. Se completan los primeros 3½ años.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Punto Medio — Mid-Trib</div>
+          <div class="timeline-desc">Anticristo resucitado, falso profeta, imagen en el templo, la marca, persecución masiva.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Últimas semanas de Tribulación</div>
+          <div class="timeline-desc">Los siete juicios de las copas. Juan salta a este punto directamente en el Cap. 15.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Días finales — Segunda Venida</div>
+          <div class="timeline-desc">La guerra de Armagedón (5 etapas) concluye con el regreso de Cristo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN III ═══════════════════════════ -->
+<div class="section" id="sec-III">
+  <div class="section-header">
+    <div class="section-num">III</div>
+    <h2 class="section-title">Capítulo 15: La Gran y Maravillosa Señal — Los Siete Ángeles</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 15:1</span>
+        <span class="scripture-text">Vi en el cielo otra señal, grande y admirable: siete ángeles que tenían las siete plagas postreras; porque en ellas se consumaba la ira de Dios.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Las Siete Copas como Fin del Antiguo Pacto</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Últimos juicios de la Tribulación</span><span class="bullet-desc">Los siete ángeles sostienen las siete copas: los últimos juicios de la Tribulación y el último de los juicios de Dios requeridos por el <span class="hl">Antiguo Pacto</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La Semana 70 de Daniel</span><span class="bullet-desc">El período de tribulación es consecuencia de los términos del Pacto entre el Señor e Israel. Como le dijo Gabriel a Daniel: <em>"Setenta semanas están determinadas sobre tu pueblo y sobre tu santa ciudad"</em> (Dn 9:24). Los últimos siete años son los designados para Israel (no para la Iglesia).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Un Juicio para Refinar a Israel</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Protección a creyentes en Botzrah</span><span class="bullet-desc">Estos juicios <span class="hl">no están dirigidos a los creyentes</span>. El Señor brinda protección a los judíos creyentes en Botzrah. Esta distinción afirma que el rapto sucede <em>antes</em> de la Tribulación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El fuego que refina</span><span class="bullet-desc">Para el Israel no creyente, el derramamiento de la ira de Dios los refina y purifica, como lo describe Zacarías 13:7-9: dos terceras partes serán cortadas; la tercera quedará y será fundida como plata, probada como oro hasta confesar: <em>"Jehová es mi Dios"</em>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un juicio diferido</span><span class="bullet-desc">Desde Isaías 49, Dios declaró su propósito: diferir su ira para purificar a Israel en el horno de la aflicción, por amor de su nombre. Finalmente está emitiendo el juicio que ha venido demorando.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN IV ═══════════════════════════ -->
+<div class="section" id="sec-IV">
+  <div class="section-header">
+    <div class="section-num">IV</div>
+    <h2 class="section-title">El Mar de Vidrio y los Mártires Cantando</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 15:2–4</span>
+        <span class="scripture-text">Vi también como un mar de vidrio mezclado con fuego; y a los que habían alcanzado la victoria sobre la bestia y su imagen, y su marca y el número de su nombre, en pie sobre el mar de vidrio, con las arpas de Dios. Y cantan el cántico de Moisés siervo de Dios, y el cántico del Cordero...</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Los Mártires de la Tribulación</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El mar de vidrio mezclado con fuego</span><span class="bullet-desc">Un entorno de otro mundo donde están parados los que fueron martirizados en la Tribulación. Su muerte se llama una <span class="hl">"victoria"</span>, porque los traslada de la influencia de la bestia al dominio del Señor.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Vencieron al enemigo mediante la muerte</span><span class="bullet-desc">Murieron sin ceder a las demandas del enemigo, superaron la marca de la bestia porque nunca amaron su vida física más que al Señor. Jesús dijo que el que busque ganar su vida, la perderá; y el que la pierda, la ganará.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Cántico del Cordero — Para los Creyentes</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Mensaje del cántico</span><span class="bullet-desc">Declara que Jesús es el <span class="hl">justo Rey de las naciones</span>, que será adorado al final de la Tribulación y a su regreso reinará sobre ellas. Enfatiza todo lo que se ha estado esperando.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Una esperanza para el creyente perseguido</span><span class="bullet-desc">Esta señal le da al creyente de la Tribulación algo a qué aferrarse. Las fuerzas del enemigo destrozarán familias y ejecutarán niños, pero la confianza del creyente está en saber que vencerá mediante la muerte y que Cristo regresará pronto.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN V ═══════════════════════════ -->
+<div class="section" id="sec-V">
+  <div class="section-header">
+    <div class="section-num">V</div>
+    <h2 class="section-title">Los Dos Cánticos de Moisés — Profecía y Cumplimiento</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Primer Cántico — Deuteronomio 32</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Advertencia profética al morir Moisés</span><span class="bullet-desc">Cuando Moisés está a punto de morir, advierte a Israel que en el futuro se volverá infiel, adorará a otros dioses y pasará por alto a la Roca que los salvó.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Día de venganza y aflicción</span><span class="bullet-desc">El Señor traerá calamidades sobre su pueblo, los humillará para quebrar sus corazones rebeldes. Dt 32:35: <em>"Mía es la venganza y la retribución; a su tiempo su pie resbalará, porque el día de su aflicción (tribulación) está cercano."</em></span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Cumplimiento final en la Tribulación</span><span class="bullet-desc">Esta canción es claramente profética y su cumplimiento final se encuentra en los eventos de la Tribulación. El Señor judga a su pueblo por sus pactos.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Segundo Cántico — Éxodo 15</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El cruce del Mar Rojo</span><span class="bullet-desc">Moisés dirige al pueblo en un cántico de alabanza después de que el Señor cierra el Mar Rojo sobre el ejército del Faraón. Israel escapa de la esclavitud huyendo en el desierto de un enemigo decidido.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Imagen del rescate final</span><span class="bullet-desc">Éxodo es una imagen de lo que pasará en la Tribulación: mediante juicios milagrosos, el Señor trae a Israel a sí mismo para que more seguro en la tierra prometida. El Señor los rescata cuando las cosas parecen más oscuras.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Propósito de Ambos Cánticos — Dos Audiencias</div>
+      <div class="two-col">
+        <div class="info-panel">
+          <div class="info-panel-title">🎵 Cántico del Cordero → Creyentes</div>
+          <p class="bullet-desc">A los creyentes se les dice que esperen con ansias la venida y el reinado del Señor al final de los juicios de las copas. Su confianza descansa en que Cristo regresará a reinar pronto.</p>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">🎵 Cántico de Moisés → Judíos Ortodoxos</div>
+          <p class="bullet-desc">Le da esperanza a los judíos de la tribulación, especialmente al judío ortodoxo que aún no cree en Jesús. Le recuerda que estos eventos no están fuera del control de Dios y que vendrá también la bendición después de la expiación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN VI ═══════════════════════════ -->
+<div class="section" id="sec-VI">
+  <div class="section-header">
+    <div class="section-num">VI</div>
+    <h2 class="section-title">El Tabernáculo en el Cielo — La Gloria de Dios se Hace Visible</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 15:5–7</span>
+        <span class="scripture-text">Después de estas cosas miré, y he aquí fue abierto en el cielo el templo del tabernáculo del testimonio... y del templo salieron los siete ángeles que tenían las siete plagas, vestidos de lino limpio y resplandeciente, y ceñidos alrededor del pecho con cintos de oro.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">El Tabernáculo Celestial</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El tabernáculo verdadero</span><span class="bullet-desc">En el cielo existe el tabernáculo verdadero del cual el tabernáculo de Moisés era una copia (Heb 9:23-24). En la última cámara, el Lugar Santísimo, está el arca y sobre ella el propiciatorio donde reposa la gloria de Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Satanás y los querubines</span><span class="bullet-desc">Ezequiel 28 nos dice que Satanás era uno de los querubines cuyo trabajo era guardar el propiciatorio en el tabernáculo celestial. La Shekinah gloria reposa allí.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La gloria partió en 605 a.C.</span><span class="bullet-desc">Justo antes de la invasión de Israel por Babilonia, la Shekinah gloria de Dios abandonó el templo. Desde entonces no ha regresado. No volverá hasta que comience el Reino y se establezca en el templo (Ezequiel 43).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Significado de Abrir el Tabernáculo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Anuncio del regreso inminente</span><span class="bullet-desc">La apertura del tabernáculo significa: <span class="hl">"Mi retorno está a punto de suceder."</span> La gloria de Dios visible — Jesús — está a punto de regresar a la tierra. Anuncia su tan esperado regreso.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ezequiel lo profetizó</span><span class="bullet-desc">Eze 43:5-9: La gloria del Señor llenará la casa. Ese es el lugar de su trono donde habitará entre los hijos de Israel para siempre. La próxima vez que la gloria regrese al templo será con el inicio del Milenio.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Las copas emergen del templo</span><span class="bullet-desc">Con eso, los ángeles con las siete copas salen del templo. La ira de Dios, descrita como algo que se <em>almacena o acumula</em> en una copa (Romanos 2:5), ahora será derramada en plena medida.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN VII ═══════════════════════════ -->
+<div class="section" id="sec-VII">
+  <div class="section-header">
+    <div class="section-num">VII</div>
+    <h2 class="section-title">El Templo Lleno de Humo — Un Período "Sin" Gracia</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 15:8</span>
+        <span class="scripture-text">Y el templo se llenó de humo por la gloria de Dios, y por su poder; y nadie podía entrar en el templo hasta que se hubiesen cumplido las siete plagas de los siete ángeles.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">El Acceso al Templo Bloqueado</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">¿Quién entra al templo?</span><span class="bullet-desc">En la Ley, solo los sacerdotes podían entrar al templo. Solo el Sumo Sacerdote podía entrar al Lugar Santísimo. En el cielo, <span class="hl">solo hay un Sumo Sacerdote: Jesús</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Jesús no puede interceder</span><span class="bullet-desc">La indicación es que el Padre le ha <em>impedido</em> a Jesús entrar al templo hasta el final de los juicios de las copas. Si Jesús no puede entrar al templo, no puede ir ante el Padre para interceder. Si no puede interceder, no se puede ofrecer gracia.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">No hay nueva fe durante las copas</span><span class="bullet-desc">Esta es una indicación más de que <span class="hl">no es posible una nueva fe en la tierra</span> hasta el final de los juicios de las copas. Es un período sin la mediación activa de Cristo.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Transición al Final de la Tribulación</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Capítulo 15: capítulo de transición</span><span class="bullet-desc">Finalizado el capítulo 15, nos lleva fuera del punto medio de la Tribulación y nos dice cómo será la segunda mitad. Con el Capítulo 16 pasamos a las últimas semanas.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Eventos superpuestos</span><span class="bullet-desc">Al igual que el punto medio, el final de los siete años involucra un conjunto complejo de eventos que se superponen. Se usarán gráficos y diagramas para mejorar la comprensión a lo largo del estudio.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN VIII ═══════════════════════════ -->
+<div class="section" id="sec-VIII">
+  <div class="section-header">
+    <div class="section-num">VIII</div>
+    <h2 class="section-title">Capítulo 16: Las Siete Copas de la Ira — Copas 1 a 5</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 16:1–11</span>
+        <span class="scripture-text">Oí una gran voz que decía desde el templo a los siete ángeles: Id y derramad sobre la tierra las siete copas de la ira de Dios.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Las Cinco Primeras Copas</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">Copa #1 — Llagas malignas</span><span class="bullet-desc">Úlceras repugnantes (malignas y pestilentes) sobre todos los que tienen la marca de la bestia. Rompen la carne de formas inimaginables — comparables a los azotes del cuerpo de Jesús.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">Copa #2 — Los mares se convierten en sangre</span><span class="bullet-desc">Toda la vida marina muere. Los mares se convierten en sangre como de muerto. La sangre se endurecería, volviéndose pútrida. Fin de la navegación y colapso del ciclo del agua.</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">Copa #3 — Ríos y fuentes se convierten en sangre</span><span class="bullet-desc">Toda fuente de agua dulce se convierte en sangre. El ángel declara que el mundo merece estar sin agua porque derramaron la sangre de los santos y profetas. ¿Cuánto tiempo puede alguien sobrevivir sin agua? <span class="hl">Solo unos pocos días</span> — lo que confirma que las copas ocurren al <em>final</em> de los 7 años.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Copas 4 y 5 — Calor y Oscuridad</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❹</span><div class="bullet-content"><span class="bullet-label">Copa #4 — El sol quema a los hombres</span><span class="bullet-desc">El sol aumenta repentinamente de intensidad hasta quemar a los hombres con fuego. Sin lluvia (mares convertidos en sangre), sin fuentes de agua dulce, y ahora un sol abrasador. El calor aumentaría la tasa de descomposición de animales muertos.</span></div></li>
+        <li><span class="bullet-icon">❺</span><div class="bullet-content"><span class="bullet-label">Copa #5 — Oscuridad sobre el trono de la bestia</span><span class="bullet-desc">El reino del Anticristo se cubre de tinieblas tan intensas que provoca un dolor insoportable. No es simplemente falta de luz física — es <span class="hl">oscuridad espiritual</span>. Similar a cómo el Padre retiró su presencia de Jesús en la cruz; el mundo queda a merced de las fuerzas espirituales.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Respuesta del mundo: blasfemia</span><span class="bullet-desc">En los versículos 9 y 11: los hombres continúan blasfemando a Dios sin arrepentimiento. La naturaleza pecaminosa de un incrédulo es eterna; por eso su rebelión también lo será. Y por la misma razón, el castigo de un incrédulo debe ser eterno.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN IX ═══════════════════════════ -->
+<div class="section" id="sec-IX">
+  <div class="section-header">
+    <div class="section-num">IX</div>
+    <h2 class="section-title">Significado Teológico de las Copas — Vista Previa del Infierno y Paralelo con el Éxodo</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Una Vista Previa del Infierno</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El patrón de las copas</span><span class="bullet-desc">Calor abrasador, oscuridad, sin agua, sin refrigerio, a merced del enemigo, sin alivio del tormento físico. El mundo está experimentando una <span class="hl">vista previa del infierno</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El infierno es ira de Dios derramada</span><span class="bullet-desc">El infierno es en sí mismo un lugar que experimenta el derramamiento de la ira de Dios continuamente. Tiene sentido que la ira derramada en la tierra se sienta de manera similar.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La ira que Jesús tomó por nosotros</span><span class="bullet-desc">La ira de Dios — su ausencia y lo que esa ausencia produce — estaba destinada para nosotros. Pero fue Jesús quien la experimentó por nosotros en la cruz. A cambio, nosotros recibimos la salvación y la vida eterna.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Paralelo con el Éxodo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Liberación, no destrucción</span><span class="bullet-desc">En el Éxodo, Israel estaba cautivo en Egipto y el Señor usó juicios para liberarlo. Aquí nuevamente, Israel está cautivo del Anticristo, y el Señor derrama juicio para liberar a su pueblo, <span class="hl">no para destruirlo</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Copas 1, 2, 3 y 5 tienen paralelos en el Éxodo</span><span class="bullet-desc">La conexión es intencional: nos recuerda que estos juicios finalmente llevan a la nación a un buen resultado. Los juicios del Éxodo trajeron libertad y entrada a la Tierra Prometida; estos llevarán a Israel al Reino.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Propósito de los primeros cinco juicios</span><span class="bullet-desc">Son una entrega sistemática del infierno a la tierra en preparación para el regreso del Señor. Sirven como plagas (reconociendo el Éxodo), como telón de fondo para los eventos de los capítulos 17, 18 y 19.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN X ═══════════════════════════ -->
+<div class="section" id="sec-X">
+  <div class="section-header">
+    <div class="section-num">X</div>
+    <h2 class="section-title">La Guerra de Armagedón — Introducción y Etapas</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Qué es la Guerra de Armagedón</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">No es solo una batalla</span><span class="bullet-desc">La guerra de Armagedón no es solo un enfrentamiento militar, sino <span class="hl">una serie de eventos durante días y semanas</span>. Tiene lugar en diferentes ubicaciones e involucra muchos lugares, grupos y personajes.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Cinco etapas</span><span class="bullet-desc">Esta guerra pone fin a la Tribulación y conduce a la Segunda Venida de Cristo. Las dos primeras etapas son puestas en marcha por los dos juicios finales de las copas (la sexta y la séptima).</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Detalles en el A.T.</span><span class="bullet-desc">El Apocalipsis da un resumen general; los aspectos cruciales se encuentran en los profetas del Antiguo Testamento. Las descripciones se dispersan a lo largo de Ap. 16 a 19, que traen resolución a los grandes temas de las Escrituras desde Génesis.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Babilonia en el Centro</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El enemigo más importante</span><span class="bullet-desc">En particular, Dios juzga y elimina al enemigo y su influencia más importante sobre la humanidad: <span class="hl">Babilonia</span>. Es un tema misterioso y complejo que requiere explicación cuidadosa.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Relación entre las copas y Armagedón</span><span class="bullet-desc">Las primeras cinco copas dieron al mundo un sentido de urgencia. La sexta copa le dio la oportunidad al secar el río Éufrates. Los dos juicios finales dan inicio a la guerra que pone fin a todo.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN XI ═══════════════════════════ -->
+<div class="section" id="sec-XI">
+  <div class="section-header">
+    <div class="section-num">XI</div>
+    <h2 class="section-title">La Sexta Copa — El Éufrates se Seca y Armagedón Etapa I</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 16:12–16</span>
+        <span class="scripture-text">El sexto ángel derramó su copa sobre el gran río Éufrates; y el agua de éste se secó, para que estuviese preparado el camino a los reyes del oriente. Y vi salir de la boca del dragón, y de la boca de la bestia, y de la boca del falso profeta, tres espíritus inmundos a manera de ranas... para reunirlos a la batalla de aquel gran día del Dios Todopoderoso. Y los reunió en el lugar que en hebreo se llama Armagedón.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">El Río Éufrates Seco</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El principal río de Mesopotamia</span><span class="bullet-desc">El río Éufrates corre cerca de la antigua ciudad de Babilonia, en el actual Irak. Ya había sido convertido en sangre; secar ese río que ahora es de sangre es un juicio diferente.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los siete reyes del Anticristo</span><span class="bullet-desc">La Tribulación comienza con diez reyes en el poder, que se convierten en siete cuando el Anticristo asciende. El río se seca para preparar un camino para que <span class="hl">estos siete reyes</span> viajen de este a oeste hacia Israel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">¿Por qué es un juicio secar el río?</span><span class="bullet-desc">Este es un juicio porque pone en marcha una guerra que finalmente trae la muerte a todos los incrédulos y la derrota de Satanás y el Anticristo. El Señor dirige las piezas como en un tablero de ajedrez.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Los Espíritus Inmundos y Har-Megiddo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Tres espíritus como ranas</span><span class="bullet-desc">Del dragón, la bestia y el falso profeta salen tres espíritus inmundos (demonios), descritos como ranas, que es un símbolo del AT para un espíritu inmundo. Van a los reyes de toda la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El valle de Jezreel</span><span class="bullet-desc"><span class="hl">Har-Megiddo</span> = "har" (colina o montaña en hebreo) + Megido (ciudad en el norte de Israel en el valle de Jezreel). Armagedón en español. Aquí se reunirán los ejércitos para prepararse para la gran guerra contra Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El plan de Satanás</span><span class="bullet-desc">Satanás determina que debe prepararse para destruir a Cristo a su regreso. Con la influencia del Anticristo y el falso profeta, llama al mundo a luchar como uno contra Cristo. Señala el estado desesperado del mundo como la única esperanza de supervivencia.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Estrategia: Si Destruye a los Judíos, Jesús No Puede Regresar</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ataque a Jerusalén</span><span class="bullet-desc">Las fuerzas del Anticristo se reunen en el norte de Israel para un ataque masivo contra la ciudad del Señor. El enemigo mueve sus fuerzas al valle de Armagedón como lugar de reunión, pero la batalla real sucederá en Jerusalén.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El objetivo: hacer imposible el regreso de Cristo</span><span class="bullet-desc">Si destruye a los judíos que quedan en Jerusalén, espera hacer imposible el regreso de Cristo. Lo que no saben es que Cristo los está <span class="hl">reuniendo a todos en un mismo lugar para destruirlos a todos a la vez</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Etapa I de Armagedón</span><span class="bullet-desc">El movimiento de las fuerzas del Anticristo desde su ciudad capital (Babilonia, al este del Éufrates) hacia Israel (al oeste). El secado del río confirma que Babilonia es su sede.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN XII ═══════════════════════════ -->
+<div class="section" id="sec-XII">
+  <div class="section-header">
+    <div class="section-num">XII</div>
+    <h2 class="section-title">Advertencia al Creyente Durante la Tribulación</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 16:15</span>
+        <span class="scripture-text">He aquí, yo vengo como ladrón. Bienaventurado el que vela, y guarda sus ropas, para que no ande desnudo, y vean su vergüenza.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Para el Creyente en la Tribulación</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La venida es esperada y casi fechada</span><span class="bullet-desc">Para los que creen durante la Tribulación, la venida del Señor es esperada y prácticamente conocida en fecha. Pero para el mundo inconverso, vendrá como <span class="hl">ladrón en la noche</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Paralelo con la carta a Laodicea (Ap. 3)</span><span class="bullet-desc">Anteriormente en Apocalipsis 3, el Señor advirtió a la iglesia sobre el Rapto: vendría inesperadamente y solo los creyentes serían recibidos en el cielo. Jesús les dijo a los incrédulos en la iglesia que estuvieran listos ya que no sabrían la hora de su venida.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El mismo problema, diferente momento</span><span class="bullet-desc">Asimismo, el mundo no reconocerá que la segunda venida de Jesús es inminente. Por tanto deben saber y creer antes de que llegue ese día. Es el mismo problema en un momento diferente. La llamada es la misma: créame, mientras hoy todavía se llama "hoy".</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Tiempo de Angustia para Jacob</div>
+      <div class="scripture">
+        <span class="scripture-ref">Jeremías 30:7</span>
+        <span class="scripture-text">¡Ah, cuán grande es aquel día! tanto, que no hay otro semejante a él; tiempo de angustia para Jacob; pero de ella será librado.</span>
+      </div>
+      <p class="card-body" style="margin-top:10px;">Dios está derramando su ira en juicios finales antes de la segunda venida. Seis de los siete juicios ya han llegado. Los primeros cinco produjeron destrucción tan devastadora que la vida es prácticamente imposible, por lo que el fin debe llegar rápidamente.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN XIII ═══════════════════════════ -->
+<div class="section" id="sec-XIII">
+  <div class="section-header">
+    <div class="section-num">XIII</div>
+    <h2 class="section-title">La Séptima Copa — "Hecho Está" y la Caída de Babilonia</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 16:17–21</span>
+        <span class="scripture-text">El séptimo ángel derramó su copa por el aire; y salió una gran voz del templo del cielo, del trono, diciendo: Hecho está. Entonces hubo relámpagos y voces y truenos, y un gran temblor de tierra... Y la gran ciudad fue dividida en tres partes, y las ciudades de las naciones cayeron; y la gran Babilonia vino en memoria delante de Dios... Y cayó del cielo sobre los hombres un enorme granizo como del peso de un talento.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">La Copa Derramada en el Aire</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La atmósfera como océano</span><span class="bullet-desc">El juicio final se derrama en el aire — la atmósfera de nuestra tierra es un océano que rodea al planeta. Como los juicios anteriores se vertieron en cuerpos de agua, este se vierte en el gran cuerpo de aire. Como tinta en una piscina: la ira de Dios va a <span class="hl">todas partes de la tierra</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un terremoto sin precedentes</span><span class="bullet-desc">Un terremoto que produce destrucción única diferente a cualquier otro jamás visto. El daño debe estar a la par del diluvio de Noé, excepto sin agua. Las montañas y las islas (que son las cimas de montañas que surgen del mar) se hunden hacia la corteza terrestre.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Tormenta de granizo de 100 libras</span><span class="bullet-desc">La Biblia habla de granizo como piedras que caen del cielo. Dios destruye el mundo con rocas de 100 libras, resultando en la <span class="hl">destrucción completa</span> de cualquier cosa hecha por el hombre. La gente reconoce que esto es obra de Dios pero blasfema su nombre en respuesta.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">"Hecho Está" — Cumplido</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La ira de Dios concluye</span><span class="bullet-desc">La palabra griega para "hecho" también puede significar "cumplido". La ira de Dios y sus propósitos en la Tribulación llegan a su fin con esta copa final. Como se prometió en Ap. 15:1: en estas plagas se consumaba la ira de Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Paralelo con la cruz</span><span class="bullet-desc">Cuando Jesús completó la obra de redención, declaró que también estaba terminada: Juan 19:30: <em>"Consumado es."</em> En la cruz, Jesús tomó la ira de Dios sobre sí mismo por nuestro bien. Una vez que Jesús recibió esa ira, declaró que la ira de Dios contra los elegidos había terminado.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Sobre Quién se Derrama la Ira de Dios</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ira por el pecado: medida justa</span><span class="bullet-desc">Todos los pecados de todas las personas durante toda la historia produjeron una medida de ira de Dios. Esta ira es derramada de dos maneras: sobre Jesús en la cruz (por los que serán salvos), o sobre cada uno que rechaza a Jesús.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ni una gota de más ni de menos</span><span class="bullet-desc">Dios conoció desde el principio a todos los que serían salvos y decretó un juicio exacto y justo sobre Cristo. Ni una gota más ni menos de ira fue derramada sobre Jesús. Ambas sentencias fueron justas porque provienen de un juicio justo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El libre albedrío y la soberanía</span><span class="bullet-desc">Esto no sugiere que Dios decidió quién iba a ser salvo o no — es una elección personal que proviene del libre albedrío. Pero sí sugiere que Dios <span class="hl">conoce el final desde el principio</span> (Juan 3:36).</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">La Gran Ciudad Partida en Tres — ¿Jerusalén o Babilonia?</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El término "gran ciudad" solo en Apocalipsis</span><span class="bullet-desc">El término "gran ciudad" aparece en <span class="hl">solo ocho versículos en toda la Biblia</span>, todos en Apocalipsis, y en todos los casos hace referencia al mismo lugar: <strong>Babilonia</strong>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La referencia de Ap. 11:8</span><span class="bullet-desc">En Ap. 11:8 se describió a Jerusalén con cuatro nombres: "la gran ciudad", Sodoma, Egipto, y el lugar donde Jesús fue crucificado. Solo el cuarto nos dice claramente que es Jerusalén; las tres primeras son comparativas — Jerusalén es <em>como</em> Babilonia, <em>como</em> Sodoma, <em>como</em> Egipto en cuanto a su pecado.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Conclusión: es siempre Babilonia</span><span class="bullet-desc">El término "gran ciudad" es siempre una referencia a <span class="hl">Babilonia</span>, que ahora se convertirá en el centro de la historia durante los capítulos 17 y 18.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Propósito de la Séptima Copa: Eliminar las Ciudades Gentiles</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Todas las ciudades de los gentiles caen</span><span class="bullet-desc">La palabra griega "ethnos" (naciones) también puede traducirse como gentiles. Todas las ciudades de los gentiles en cualquier parte de la tierra son eliminadas.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Solo Jerusalén permanece</span><span class="bullet-desc">Solo Jerusalén ha sido excluida de estos juicios. Dado que Jerusalén está sobre una montaña y esa montaña sigue allí, <span class="hl">Jerusalén permanece intacta</span> y se eleva por encima de todas las demás ciudades — literalmente el punto más alto de toda la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Señor ha dejado muy claro qué ciudad prefiere</span><span class="bullet-desc">Al final de todos los juicios, solo una ciudad se eleva sobre todas las demás: la ciudad de Dios. El escenario está listo para la batalla final entre el bien y el mal, que terminará esta era.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Siguiente Paso: Caída de Babilonia</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El juicio más importante de la Tribulación</span><span class="bullet-desc">El último juicio se centra en la caída de una gran ciudad — Babilonia — y esa caída es el <span class="hl">evento más importante</span> de la Tribulación. Es tan importante que se explica con más detalle en los capítulos 17 y 18.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Señor como director de ajedrez</span><span class="bullet-desc">El Señor está dirigiendo las acciones del enemigo como piezas en un tablero de ajedrez, llevando todo a su fin designado. La caída de Babilonia es la siguiente etapa de la guerra de Armagedón.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ DIVIDER ═══════════════════════════ -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-sym">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ═══════════════════════════ RESUMEN FINAL ═══════════════════════════ -->
+<div class="summary-box">
+  Los capítulos 15 y 16 de Apocalipsis nos transportan al umbral del fin: el cielo se abre para mostrar la gloria de Dios lista a irrumpir en la historia, los mártires cantan su victoria desde el otro lado, y los juicios finales de las copas transforman la tierra en un anticipo del infierno, mientras Satanás — desesperado y consciente de que su tiempo se acaba — mueve sus fichas hacia Israel creyendo que puede frustrar el regreso de Cristo. Pero es el propio Señor quien dirige esas piezas, reuniendo a sus enemigos en un solo lugar para destruirlos juntos. Con el grito celestial <em>"Hecho está"</em>, la ira de Dios contra el pecado llega a su fin justo — de la misma manera que fue declarada terminada en la cruz — y solo Jerusalén permanece en pie, elevada sobre todas las ciudades del mundo, señalando que el Rey de reyes está a punto de reclamar su trono.
+</div>
+
+<!-- ═══════════════════════════ FOOTNOTE ═══════════════════════════ -->
+<footer>
+  Basado en la enseñanza original de Verse By Verse Ministry International (VBVMI) · <a href="http://vbvmi.org" target="_blank">vbvmi.org</a><br>
+  Arte de Pat Marvenko Smith © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a>
+</footer>
+
+</div><!-- /wrapper -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

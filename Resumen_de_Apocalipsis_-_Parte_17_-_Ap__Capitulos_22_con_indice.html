@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Estudio de Apocalipsis — Parte 17 · Capítulo 22</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── STARFIELD ── */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 34% 72%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 58% 9%,  rgba(201,168,76,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 79% 44%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5%  91%, rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 67%, rgba(255,255,255,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 23% 53%, rgba(201,168,76,.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 29%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 85%, rgba(201,168,76,.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 12%, rgba(255,255,255,.45) 0%, transparent 100%);
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 28px 80px;
+}
+
+/* ── HEADER ── */
+header {
+  background: radial-gradient(ellipse at 50% 0%, rgba(100,20,20,.55) 0%, rgba(10,8,6,0) 70%);
+  text-align: center;
+  padding: 70px 20px 56px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  margin-bottom: 60px;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.ornament-line {
+  flex: 1;
+  max-width: 140px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.ornament-text {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-bottom: 38px;
+}
+
+.meta-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 30px;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.meta-label {
+  font-family: var(--f-heading);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--text-muted);
+}
+.meta-value {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── SECTION ── */
+.section {
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp .6s ease forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.section-num {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+/* ── CARDS ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover {
+  transform: translateX(3px);
+  border-left-color: var(--gold);
+}
+.card.full {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+}
+
+/* ── BULLETS ── */
+ul.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ul.bullet-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+.b-icon {
+  font-size: 15px;
+  line-height: 1.6;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+.b-content { flex: 1; }
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* ── SCRIPTURE BOX ── */
+.scripture-box {
+  position: relative;
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 32px;
+  margin: 10px 0 6px;
+  overflow: hidden;
+}
+.scripture-box::before {
+  content: '\201C';
+  position: absolute;
+  top: -4px;
+  left: 10px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 6px;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold-dim), transparent);
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 600;
+  display: block;
+}
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ── INFO PANEL (comparison) ── */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-top: 6px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* ── TABLE ── */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(201,168,76,.2);
+}
+.styled-table td {
+  font-size: 15px;
+  color: var(--text-dim);
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  line-height: 1.55;
+}
+.styled-table tr:last-child td { border-bottom: none; }
+.td-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  color: var(--crimson-light);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── TWO COLUMN COMPARISON ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.compare-panel {
+  padding: 14px 18px;
+  border-radius: 4px;
+}
+.compare-panel.creation {
+  background: linear-gradient(135deg, rgba(139,26,26,.1) 0%, rgba(10,8,6,.85) 100%);
+  border: 1px solid rgba(139,26,26,.25);
+}
+.compare-panel.new-creation {
+  background: linear-gradient(135deg, rgba(74,127,168,.1) 0%, rgba(10,8,6,.85) 100%);
+  border: 1px solid rgba(74,127,168,.25);
+}
+.compare-label {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+}
+.compare-panel.creation .compare-label { color: var(--crimson-light); }
+.compare-panel.new-creation .compare-label { color: var(--sky-light); }
+.compare-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(201,168,76,.06);
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.compare-item:last-child { border-bottom: none; }
+.compare-item .ref-tag {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ── HIGHLIGHT ── */
+.hl {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 56px 0;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.3), transparent);
+}
+.divider-symbol {
+  color: var(--gold-dim);
+  font-size: 16px;
+}
+
+/* ── SUMMARY BOX ── */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  margin-bottom: 56px;
+}
+.summary-box p {
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ── FOOTNOTE ── */
+footer {
+  border-top: 1px solid rgba(201,168,76,.1);
+  padding: 28px 0;
+  text-align: center;
+  font-family: var(--f-heading);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+footer a {
+  color: var(--gold-dim);
+  text-decoration: none;
+}
+footer a:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 780px) {
+  .cards { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .card.full { grid-column: 1; }
+}
+
+/* ── ANIMATION DELAYS ── */
+.section:nth-child(1)  { animation-delay: .05s; }
+.section:nth-child(2)  { animation-delay: .13s; }
+.section:nth-child(3)  { animation-delay: .21s; }
+.section:nth-child(4)  { animation-delay: .29s; }
+.section:nth-child(5)  { animation-delay: .37s; }
+.section:nth-child(6)  { animation-delay: .45s; }
+.section:nth-child(7)  { animation-delay: .53s; }
+.section:nth-child(8)  { animation-delay: .61s; }
+.section:nth-child(9)  { animation-delay: .69s; }
+.section:nth-child(10) { animation-delay: .77s; }
+.section:nth-child(11) { animation-delay: .85s; }
+.section:nth-child(12) { animation-delay: .93s; }
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+.toc-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.06);
+}
+.toc-item.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.1);
+}
+.toc-num {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: var(--f-heading);
+  color: var(--crimson-light);
+  padding-top: 1px;
+  min-width: 22px;
+}
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: none;
+  color: var(--gold);
+  border-radius: 0 6px 6px 0;
+  width: 22px;
+  height: 54px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+body.toc-open .page-wrap {
+  margin-left: 270px;
+  max-width: calc(1100px + 270px);
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-closed .page-wrap {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+  body.toc-open .page-wrap { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#sec-I" class="toc-item"><span class="toc-num">I</span><span class="toc-title">Introducción: Los Nuevos Cielos y la Nueva Tierra (NC&NT)</span></a>
+<a href="#sec-II" class="toc-item"><span class="toc-num">II</span><span class="toc-title">La Nueva Jerusalén: Primera Vista y la Novia de Cristo</span></a>
+<a href="#sec-III" class="toc-item"><span class="toc-num">III</span><span class="toc-title">Las Doce Tribus y los Doce Apóstoles: Memorial Eterno</span></a>
+<a href="#sec-IV" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">Las Medidas de la Ciudad: Dimensiones Extraordinarias</span></a>
+<a href="#sec-V" class="toc-item"><span class="toc-num">V</span><span class="toc-title">Los Habitantes y la Gloria de la Ciudad (Ap. 21:22–27)</span></a>
+<a href="#sec-VI" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">El Diseño de la Primera Creación: Por Qué Existían Mares, Noche y Sol</span></a>
+<a href="#sec-VII" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">El Río de Agua de Vida y el Árbol de la Vida (Ap. 22:1–5)</span></a>
+<a href="#sec-VIII" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">Sin Maldición: Vida Perfecta en la Presencia de Dios</span></a>
+<a href="#sec-IX" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">Tabla Comparativa: Primera Creación vs. Nueva Creación</span></a>
+<a href="#sec-X" class="toc-item"><span class="toc-num">X</span><span class="toc-title">Predestinación, el Propósito de la Creación y el Carácter Completo de Dios</span></a>
+<a href="#sec-XI" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">El Epílogo: Palabras Finales de Cristo a Juan (Ap. 22:6–15)</span></a>
+<a href="#sec-XII" class="toc-item"><span class="toc-num">XII</span><span class="toc-title">El Llamado Final: A Creyentes, a Incrédulos y la Advertencia sobre las Escrituras</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+<div class="starfield" aria-hidden="true"></div>
+<div class="page-wrap">
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span class="ornament-text">Verse by Verse Ministry International</span>
+    <div class="ornament-line"></div>
+  </div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 17 · Capítulo 22</h2>
+  <div class="meta-bar">
+    <div class="meta-item">
+      <span class="meta-label">Capítulos cubiertos</span>
+      <span class="meta-value">Apocalipsis 21 – 22</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Páginas cubiertas</span>
+      <span class="meta-value">33 páginas</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Período histórico principal</span>
+      <span class="meta-value">Eternidad — Nuevos Cielos y Nueva Tierra</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════ SECCIÓN I ═══════════════════ -->
+<section class="section" id="sec-I">
+  <div class="section-header">
+    <div class="section-num">I</div>
+    <h3 class="section-title">Introducción: Los Nuevos Cielos y la Nueva Tierra (NC&NT)</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El mayor misterio del libro</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Contenido más misterioso</span><span class="bullet-desc">Esta última lección concluye con el contenido más misterioso de Apocalipsis y de toda la Biblia.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El desafío de Juan</span><span class="bullet-desc">Juan (John) es llamado a describir los Nuevos Cielos y la Nueva Tierra, lo cual representa un enorme desafío para él.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Foco en la ciudad capital</span><span class="bullet-desc">Juan no nos dice mucho sobre el mundo en sí; lo poco que se revela se centra en la ciudad capital: la <span class="hl">Nueva Jerusalén</span>.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Lo que ya sabemos del NC&NT</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">❶</span><div class="b-content"><span class="bullet-label">Sin llanto, dolor, lágrimas ni muerte</span><span class="bullet-desc">Juan ya recibió la introducción al nuevo mundo como un lugar libre de todas las miserias del mundo caído.</span></div></li>
+        <li><span class="b-icon">❷</span><div class="b-content"><span class="bullet-label">Cumplimiento total de promesas</span><span class="bullet-desc">En el NC&NT se cumple completamente todo lo que Dios prometió en la Biblia.</span></div></li>
+        <li><span class="b-icon">❸</span><div class="b-content"><span class="bullet-label">No revelado al AT</span><span class="bullet-desc">Este mundo nunca fue revelado a los santos del Antiguo Testamento; a los profetas anteriores a Cristo solo se les habló del período del Reino, no más allá.</span></div></li>
+        <li><span class="b-icon">❹</span><div class="b-content"><span class="bullet-label">Israel como tipo prefigurado</span><span class="bullet-desc">Lo que fue cierto para Israel en el Reino finalmente se hará realidad para toda la humanidad en el NC&NT.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN II ═══════════════════ -->
+<section class="section" id="sec-II">
+  <div class="section-header">
+    <div class="section-num">II</div>
+    <h3 class="section-title">La Nueva Jerusalén: Primera Vista y la Novia de Cristo</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Apocalipsis 21:9–14</span>
+        <p class="scripture-text">«Ven acá, te mostraré la desposada, la esposa del Cordero.» Me llevó en el Espíritu a un monte grande y alto y me mostró la gran ciudad, la santa Jerusalén, que descendía del cielo de parte de Dios. Tenía la gloria de Dios y su fulgor era semejante al de una piedra preciosísima, como piedra de jaspe, diáfana como el cristal. Tenía un muro grande y alto, con doce puertas, y en las puertas doce ángeles, y nombres inscritos, que son los de las doce tribus de los hijos de Israel… El muro de la ciudad tenía doce cimientos y sobre ellos los doce nombres de los doce apóstoles del Cordero.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">La Ciudad como Novia de Cristo</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Título transferido</span><span class="bullet-desc">En el NT, "Novia de Cristo" era título de la Iglesia. En el NC&NT ese título se transfiere a la ciudad misma.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Morada del Espíritu</span><span class="bullet-desc">"Novia de Cristo" se refiere a la morada de Su Espíritu. En la Era de la Iglesia, la Novia era el cuerpo de creyentes (Su Templo).</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Era eterna</span><span class="bullet-desc">En la era eterna, Cristo habita con el Padre en el Templo de la Ciudad, convirtiendo la ciudad en la Esposa de Cristo. Nosotros vivimos en la ciudad, por tanto vivimos con Cristo.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Características de la ciudad</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Cubo perfecto</span><span class="bullet-desc">La ciudad tiene forma de cubo: largo, ancho y altura son iguales. Su primera vista es extraordinaria.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Gloria de Dios como brillo</span><span class="bullet-desc">La ciudad brilla con la gloria de Dios como un diamante transparente; más brillante que nuestro sol actual.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Muro con 12 puertas</span><span class="bullet-desc">Rodeada por un muro alto con tres puertas en cada costado, para un total de 12 puertas con ángeles guardianes.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Puertas nunca cerradas</span><span class="bullet-desc">Las puertas nunca se cierran (v.25). No son defensivas; son monumentos que recuerdan la obra redentora de Dios.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN III ═══════════════════ -->
+<section class="section" id="sec-III">
+  <div class="section-header">
+    <div class="section-num">III</div>
+    <h3 class="section-title">Las Doce Tribus y los Doce Apóstoles: Memorial Eterno</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Las doce tribus de Israel en las puertas</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Cada puerta: una tribu</span><span class="bullet-desc">Cada puerta lleva el nombre de una de las doce tribus de Israel. Las puertas son puntos de entrada; nombrarlas así recuerda que Israel es la puerta de entrada a la redención.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Sin Israel no hay entrada</span><span class="bullet-desc">Sin Israel no habría pactos, profetas, Ley, templo ni Cristo. Todos entran a través del legado de Israel (Rom 9:4–5).</span></div></li>
+      </ul>
+      <div class="scripture-box" style="margin-top:12px;">
+        <span class="scripture-ref">Romanos 9:4–5</span>
+        <p class="scripture-text">…que son israelitas, de los cuales son la adopción, la gloria, el pacto, la promulgación de la Ley, el culto y las promesas. A ellos también pertenecen los patriarcas, de los cuales, según la carne, vino Cristo…</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Significado numérico: 3 y 12</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El número 3 = la Deidad</span><span class="bullet-desc">Tres es el número de Dios. Por cualquier lado que se entre se encuentran 3 puertas. Todo el trabajo fue solo de Dios.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El número 12 = gobierno a través de personas</span><span class="bullet-desc">El 12 representa a Dios gobernando a través de las personas, específicamente los hijos de Jacob. Las puertas recuerdan para siempre que el Señor usó a Israel para conducirnos a la ciudad.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Los doce apóstoles en los cimientos</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Doce capas de piedras preciosas</span><span class="bullet-desc">Los cimientos del muro contienen doce capas de piedras preciosas que representan a los doce apóstoles llamados por Jesús.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Papel apostólico</span><span class="bullet-desc">Los apóstoles establecieron la Iglesia, abrieron la oportunidad para que los gentiles entraran, y esparcieron el evangelio. Es apropiado que sean capas de cimentación.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Israel y la Iglesia: distintos pero unidos</span><span class="bullet-desc">La conmemoración de ambos grupos refuerza que Israel y la Iglesia son distintos en el plan de Dios y, sin embargo, trabajan juntos para su gloria. (Ef 2:12–22)</span></div></li>
+      </ul>
+      <div class="scripture-box" style="margin-top:12px;">
+        <span class="scripture-ref">Efesios 2:19–20</span>
+        <p class="scripture-text">…ya no sois extranjeros ni forasteros, sino conciudadanos de los santos y miembros de la familia de Dios, edificados sobre el fundamento de los apóstoles y profetas, siendo la principal piedra del ángulo Jesucristo mismo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN IV ═══════════════════ -->
+<section class="section" id="sec-IV">
+  <div class="section-header">
+    <div class="section-num">IV</div>
+    <h3 class="section-title">Las Medidas de la Ciudad: Dimensiones Extraordinarias</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Apocalipsis 21:15–21</span>
+        <p class="scripture-text">…Con la caña midió la ciudad: doce mil estadios (1,500 millas). La longitud, la altura y la anchura de ella son iguales. Y midió su muro: ciento cuarenta y cuatro codos (216 pies)… El material de su muro era de jaspe, pero la ciudad era de oro puro, semejante al vidrio limpio. Los cimientos del muro estaban adornados con toda clase de piedras preciosas… Las doce puertas eran doce perlas; cada una de las puertas era una perla. Y la calle de la ciudad era de oro puro, como vidrio transparente.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Dimensiones asombrosas</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">1,500 millas en cada dirección</span><span class="bullet-desc">La ciudad abarca 1,500 millas de largo, 1,500 millas de ancho — cubriendo la mayor parte del territorio continental de EE. UU.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Cubo que alcanza el espacio</span><span class="bullet-desc">La ciudad se extiende <span class="hl">1,500 millas hacia arriba</span>, alcanzando el rango de satélites en órbita. La atmósfera actual solo llega ~50 millas.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Mundo radicalmente diferente</span><span class="bullet-desc">Esta ciudad exige que el mundo que la sostiene sea completamente diferente al actual, con una atmósfera distinta o sin necesidad de ella.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Medidas griegas y su significado</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">12,000 estadios y 144 codos</span><span class="bullet-desc">Las medidas griegas originales —12,000 estadios y 144 codos— son múltiplos de 12, el número del gobierno perfecto de Dios a través de los hombres.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Memorial del plan perfecto</span><span class="bullet-desc">La ciudad es un memorial del plan perfecto de Dios cumplido en Cristo a través de Israel y la Iglesia, todo reflejado en el patrón numérico.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">12 joyas y calles de oro</span><span class="bullet-desc">Doce piedras preciosas adornan los cimientos, puertas de perlas sólidas y calles de oro transparente. Lo más valioso hoy será el pavimento de entonces.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN V ═══════════════════ -->
+<section class="section" id="sec-V">
+  <div class="section-header">
+    <div class="section-num">V</div>
+    <h3 class="section-title">Los Habitantes y la Gloria de la Ciudad (Ap. 21:22–27)</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Apocalipsis 21:22–27</span>
+        <p class="scripture-text">En ella no vi templo, porque el Señor Dios Todopoderoso es su templo, y el Cordero. La ciudad no tiene necesidad de sol ni de luna que brillen en ella, porque la gloria de Dios la ilumina y el Cordero es su lumbrera. Las naciones que hayan sido salvas andarán a la luz de ella y los reyes de la tierra traerán su gloria y su honor a ella. Sus puertas nunca serán cerradas de día, pues allí no habrá noche. No entrará en ella ninguna cosa impura…</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Sin templo: Dios es el templo</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Presencia directa</span><span class="bullet-desc">No habrá edificio-templo porque la Trinidad de Dios es el templo de la ciudad. En el pasado, el templo separaba al hombre pecador de Dios Santo.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Comunión plena restaurada</span><span class="bullet-desc">Con todo pecado borrado, la Deidad en plenitud morará con nosotros en Su Persona. Desde Adán en el jardín, esto no había sido posible.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Dios todo en todos (1 Cor 15:28)</span><span class="bullet-desc">El Padre, Hijo y Espíritu Santo estarán completamente presentes; el Hijo se sujeta al Padre, para que Dios sea todo en todos.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Dios es la luz; las naciones caminan</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Sin sol ni luna</span><span class="bullet-desc">No habrá sol ni luna porque la gloria de Dios es la fuente de toda luz en el nuevo mundo.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Naciones salvas</span><span class="bullet-desc">Las naciones redimidas que habitan en la tierra nueva caminan a la luz del Cordero.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Los reyes devuelven su gloria</span><span class="bullet-desc">Los reyes de la tierra traen su gloria a Dios; toda autoridad queda devuelta, para que toda gloria sea de Dios y para Dios (cf. 1 Cor 15:24).</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Solo los inscritos</span><span class="bullet-desc">No entrará ninguna cosa impura, solo los que están inscritos en el Libro de la Vida del Cordero.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">¿Es plana la Nueva Tierra?</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Pregunta abierta</span><span class="bullet-desc">Si Dios reside en la ciudad y es la única fuente de luz, eso podría sugerir un mundo plano —una esfera dejaría la parte trasera en oscuridad. O quizás el universo entero está igualmente iluminado, o las leyes de la física han cambiado. La respuesta no está clara.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN VI ═══════════════════ -->
+<section class="section" id="sec-VI">
+  <div class="section-header">
+    <div class="section-num">VI</div>
+    <h3 class="section-title">El Diseño de la Primera Creación: Por Qué Existían Mares, Noche y Sol</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El agua: material y juicio</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Pedro explica el agua</span><span class="bullet-desc">Pedro dice (2 Ped 3:5–6) que la tierra fue hecha del agua y subsiste por el agua; y pereció ahogada en agua. El uso del agua refleja el plan a largo plazo de Dios.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Anticipación del juicio</span><span class="bullet-desc">Dios sabía que usaría el agua para traer juicio (diluvio de Noé), por eso el agua estaba presente desde el principio.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El mar como imagen del Seol</span><span class="bullet-desc">El Señor usa las profundidades del mar como imagen del Seol (lugar de los muertos). En hebreo, "tehom" (abismo/profundo) y "mar" son la misma figura: oscuridad sin fin.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La luz y la oscuridad: pecado e ilustración</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Luz antes del sol (Día 1)</span><span class="bullet-desc">La luz existió el Día 1 antes de que existiera el sol. Esto confirma que la luz puede existir sin el sol —como ocurrirá en el NC&NT.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Oscuridad como ilustración del pecado</span><span class="bullet-desc">El Señor creó la alternancia luz/oscuridad para ilustrar la justicia y el pecado. (Jn 8:12: "Yo soy la luz del mundo; el que me sigue no andará en tinieblas.")</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El sol y la luna: creación del tiempo</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Propósito del sol y la luna</span><span class="bullet-desc">El sol y la luna no fueron creados principalmente para proporcionar luz —la luz ya existía— sino para marcar estaciones, días y años (Gén 1:14). Su función era medir el tiempo.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Señales del fin</span><span class="bullet-desc">Dios usa el sol y la luna como señales del fin de la era (sol oscurecido, luna de sangre). Son instrumentos de la cuenta regresiva divina.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El tiempo cuenta hacia atrás</span><span class="bullet-desc">Los incrédulos dicen que la tierra es eterna y nosotros temporales, pero es al contrario: somos eternos y la tierra es temporal. Dios cuenta el tiempo hacia atrás, no hacia adelante —es una cuenta regresiva para el fin.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Sin noche = sin "días"; sin sol = sin "años"</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">No habrá necesidad de contar el tiempo</span><span class="bullet-desc">En el NC&NT no será necesario contar el tiempo de la misma forma ni se necesitarán temporadas ni señales, por lo que los objetos creados para ese propósito desaparecen.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El tiempo es interminable</span><span class="bullet-desc">El tiempo es interminable en el NC&NT, aunque se siguen contando meses (para observar celebraciones y memoriales de Cristo en ciclos de 12).</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN VII ═══════════════════ -->
+<section class="section" id="sec-VII">
+  <div class="section-header">
+    <div class="section-num">VII</div>
+    <h3 class="section-title">El Río de Agua de Vida y el Árbol de la Vida (Ap. 22:1–5)</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Apocalipsis 22:1–5</span>
+        <p class="scripture-text">Después me mostró un río limpio, de agua de vida, resplandeciente como cristal, que fluía del trono de Dios y del Cordero. En medio de la calle de la ciudad y a uno y otro lado del río estaba el árbol de la vida, que produce doce frutos, dando cada mes su fruto; y las hojas del árbol eran para la sanidad de las naciones. Y no habrá más maldición. El trono de Dios y del Cordero estará en ella, sus siervos lo servirán, verán su rostro y su nombre estará en sus frentes. Allí no habrá más noche; y no tienen necesidad de luz de lámpara ni de luz del sol, porque Dios el Señor los iluminará y reinarán por los siglos de los siglos.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">El río de agua de vida</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Origen: el trono</span><span class="bullet-desc">Del trono de Dios y del Cordero brota un río de agua cristalina que fluye por el centro de una gran avenida de la ciudad.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Paralelo con Ezequiel</span><span class="bullet-desc">En el Reino, Ezequiel y Zacarías describieron un río saliendo del templo que causaba vida en todas partes. El río de vida es parte del diseño de Dios tanto en el Reino como en el NC&NT.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El árbol de la vida</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Conocido desde el Jardín del Edén</span><span class="bullet-desc">La última vez que vimos este árbol fue antes de la caída. Adán y Eva comían de él y tenían vida eterna; después del pecado fueron excluidos (Gén 3:22–24).</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Doce frutos mensuales</span><span class="bullet-desc">El árbol produce frutos en un patrón mensual —un fruto diferente cada mes— marcando el ciclo de 12 que medirá el tiempo en el NC&NT.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Hojas sanadoras para las naciones</span><span class="bullet-desc">Las hojas del árbol tienen poder curativo para las naciones que viven en el NC&NT.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">¿Por qué existe el árbol? Mecanismo de memoria</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Toda vida viene de Dios</span><span class="bullet-desc">El árbol es sostenido por el agua que proviene del trono; claramente comunica que toda la vida viene de Dios. Cada vez que comemos del árbol se nos recuerda de dónde proviene la vida.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Prevenir el olvido</span><span class="bullet-desc">Sin muerte ni enfermedad que nos recuerde nuestra mortalidad, fácilmente podríamos dar por sentada la inmortalidad y olvidar que la fuente de toda vida es Dios. El árbol previene ese olvido.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Los meses para celebraciones</span><span class="bullet-desc">El ciclo mensual de 12 probablemente sirve para observar ciertas celebraciones y memoriales de Cristo, honrando a Dios a través del patrón de observancia.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN VIII ═══════════════════ -->
+<section class="section" id="sec-VIII">
+  <div class="section-header">
+    <div class="section-num">VIII</div>
+    <h3 class="section-title">Sin Maldición: Vida Perfecta en la Presencia de Dios</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La maldición eliminada (Ap. 22:3)</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Cumplida y removida</span><span class="bullet-desc">La maldición que Dios pronunció en Génesis 3 sobre la tierra a causa de Adán —muerte física, trabajo penoso y eventual destrucción de la Tierra— ha sido llevada a cabo y eliminada.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Mundo perfecto y sin defecto</span><span class="bullet-desc">Sin maldición, el mundo es perfecto. No hay malas hierbas, no hay trabajo pesado, no hay pecado ni muerte.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Vida en la presencia directa de Dios</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Veremos el rostro de Dios</span><span class="bullet-desc">Nuestra naturaleza perfecta nos permite trabajar en Su misma presencia y <span class="hl">ver Su rostro</span> —algo imposible para el hombre pecador.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Su nombre en nosotros</span><span class="bullet-desc">Él nos marcará como Suyos con Su nombre en nosotros, un sello de garantía que nunca más enfrentaremos la muerte o el pecado.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Sin oscuridad en ningún lugar</span><span class="bullet-desc">La luz de Dios existirá en todos los lugares: no hay habitación oscura, no hay sombras. Posiblemente tampoco dormiremos con un horario cíclico.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN IX ═══════════════════ -->
+<section class="section" id="sec-IX">
+  <div class="section-header">
+    <div class="section-num">IX</div>
+    <h3 class="section-title">Tabla Comparativa: Primera Creación vs. Nueva Creación</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Un mundo creado para el pecado → Un mundo creado para la Gloria</div>
+      <div class="compare-grid">
+        <div class="compare-panel creation">
+          <span class="compare-label">Primera Creación</span>
+          <div class="compare-item"><span class="ref-tag">Gén 1:1</span> Cielos y Tierra creados</div>
+          <div class="compare-item"><span class="ref-tag">Gén 1:5</span> La noche comienza</div>
+          <div class="compare-item"><span class="ref-tag">Gén 1:10</span> Los mares son creados</div>
+          <div class="compare-item"><span class="ref-tag">Gén 1:14</span> El sol y la luna</div>
+          <div class="compare-item"><span class="ref-tag">Gén 3:14–17</span> Maldición sobre la tierra</div>
+          <div class="compare-item"><span class="ref-tag">Gén 3:19</span> La muerte entra</div>
+          <div class="compare-item"><span class="ref-tag">Gén 3:17</span> Tristeza y dolor comienzan</div>
+          <div class="compare-item"><span class="ref-tag">Gén 3:24</span> El hombre separado del árbol</div>
+        </div>
+        <div class="compare-panel new-creation">
+          <span class="compare-label">Nueva Creación (NC&NT)</span>
+          <div class="compare-item"><span class="ref-tag">Ap 21:1</span> Nuevos Cielos y Tierra creados</div>
+          <div class="compare-item"><span class="ref-tag">Ap 21:25</span> No hay noche</div>
+          <div class="compare-item"><span class="ref-tag">Ap 21:1</span> No hay mares</div>
+          <div class="compare-item"><span class="ref-tag">Ap 21:23</span> No hay sol ni luna</div>
+          <div class="compare-item"><span class="ref-tag">Ap 22:3</span> No hay maldición</div>
+          <div class="compare-item"><span class="ref-tag">Ap 21:4</span> No hay muerte</div>
+          <div class="compare-item"><span class="ref-tag">Ap 21:4</span> No hay llanto, dolor, ni tristeza</div>
+          <div class="compare-item"><span class="ref-tag">Ap 22:14</span> Hombre restaurado por el árbol</div>
+        </div>
+      </div>
+    </div>
+    <div class="card full">
+      <div class="card-title">La lección del diseño: Dios anticipó todo</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Diseño con propósito redentor</span><span class="bullet-desc">Antes de que existiera el hombre o que tuviera lugar la caída, el Señor incorporó características en la primera creación <span class="hl">anticipando la llegada del pecado</span>, para que esas características le sirvieran para ilustrar verdades espirituales sobre el pecado y la redención.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">La oscuridad ilustra el pecado</span><span class="bullet-desc">Creó luz y oscuridad para poder usar esos términos y hablar del pecado y la justicia ("Yo soy la luz del mundo" — Jn 8:12).</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El mar ilustra el juicio y la muerte</span><span class="bullet-desc">Creó el mar para usarlo en el juicio del diluvio, y usa las profundidades como imagen del Seol y del castigo eterno.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El NC&NT no necesita ilustraciones</span><span class="bullet-desc">En el NC&NT, el pecado ya no existe y nunca volverá. Dios diseña un mundo diferente —sin esas ilustraciones— porque las cosas que ilustraban ya no existen.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN X ═══════════════════ -->
+<section class="section" id="sec-X">
+  <div class="section-header">
+    <div class="section-num">X</div>
+    <h3 class="section-title">Predestinación, el Propósito de la Creación y el Carácter Completo de Dios</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Efesios 1:5–6</span>
+        <p class="scripture-text">Por su amor, nos predestinó para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad, para alabanza de la gloria de su gracia, con la cual nos hizo aceptos en el Amado.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Predestinación: escogidos antes de la fundación</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Dios conocía el pecado de antemano</span><span class="bullet-desc">Dios nos escogió desde antes de la fundación del mundo, conociendo la entrada del pecado y nuestra redención en Su Hijo Jesús. Sin ser el autor del pecado, lo esperaba y acomodó su llegada.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">La creación fue hecha para conocer a Dios completamente</span><span class="bullet-desc">La creación debía conocer el pecado y el juicio que el pecado requiere, para apreciar plenamente el amor de Dios y glorificarlo por quien Él realmente es.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El carácter completo de Dios</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Dios es más que misericordia</span><span class="bullet-desc">Para conocer verdaderamente a Dios, necesitamos conocer sus dos lados: no solo es un Dios de misericordia, sino de ira; no solo de perdón sino de juicio; no solo de amor sino que odia el pecado.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Para amarlo debemos conocerlo totalmente</span><span class="bullet-desc">Si vamos a amar a Dios, debemos tener la oportunidad de conocer ambos lados de Su carácter. Debemos entender que es un Dios de ira y juicio para poder alabarlo por Su gracia.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Recordamos en el NC&NT</span><span class="bullet-desc">En la nueva creación, estaremos siempre expuestos al lado de bendición, pero recordaremos el otro lado porque lo conocemos. La Nueva Jerusalén, el árbol, el río, la luz —todo lo recuerda.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN XI ═══════════════════ -->
+<section class="section" id="sec-XI">
+  <div class="section-header">
+    <div class="section-num">XI</div>
+    <h3 class="section-title">El Epílogo: Palabras Finales de Cristo a Juan (Ap. 22:6–15)</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Apocalipsis 22:6–9</span>
+        <p class="scripture-text">«Estas palabras son fieles y verdaderas. El Señor, el Dios de los espíritus de los profetas, ha enviado su ángel para mostrar a sus siervos las cosas que deben suceder pronto. ¡Vengo pronto! Bienaventurado el que guarda las palabras de la profecía de este libro.» Yo, Juan, soy el que oyó y vio estas cosas… me postré a los pies del ángel que me mostraba estas cosas, para adorarlo. Pero él me dijo: «¡Mira, no lo hagas!… ¡Adora a Dios!»</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Palabras fieles y verdaderas</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El mismo Espíritu de los profetas</span><span class="bullet-desc">El Espíritu Santo que les dio a los profetas sus palabras (Isaías, Daniel) es el mismo que le dio a Juan estas palabras. El cumplimiento de Isaías y Daniel valida la certeza de Apocalipsis.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">¿"Pronto" = 2,000 años?</span><span class="bullet-desc">En el griego, "pronto" se refiere a que, <span class="hl">una vez que los eventos comiencen, se moverán rápidamente</span>. A la luz de la eternidad, 2,000 años no es nada.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La respuesta equivocada de Juan — y la corrección</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Juan se postró a adorar al ángel</span><span class="bullet-desc">Al ver todo esto, Juan cayó a los pies del ángel para adorarlo. El ángel lo reprendió: "¡No lo hagas! Soy consiervo tuyo. ¡Adora a Dios!"</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Lección para nosotros</span><span class="bullet-desc">No debemos elevar a ningún siervo de Dios —sea hombre o ángel— más allá de lo apropiado.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Bienaventurado el que guarda las palabras</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">No es solo conocimiento intelectual</span><span class="bullet-desc">Prestar atención significa permitir que la realidad de estos eventos venideros influya en las decisiones que tomemos en la vida. No es como leer una novela: es un cambio de pensamiento, de dirección, de esperanza.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Vivir con ojos en la eternidad</span><span class="bullet-desc">Jesús dice que vendrá pronto (referencia al Rapto) y que debemos estar pensando en el final en todo momento, preparados para Su regreso.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">La profecía NO sellada (vs. Daniel)</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Daniel selló; Juan no sella</span><span class="bullet-desc">A Daniel se le dijo que sellara su visión porque no sería revelada hasta los días de Juan (Ap 11). La profecía de Daniel era tan anticipada que no era útil en sus días. A Juan se le dice que <span class="hl">deje sin sellar</span> la profecía porque el tiempo está cerca.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Significado cada vez más claro</span><span class="bullet-desc">El significado del libro se vuelve más claro a medida que nos acercamos al final. Esa claridad creciente es en sí misma una señal de que estamos cerca.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El libro trae bendición</span><span class="bullet-desc">Este no es un libro para ser temido o evitado; al contrario, el libro pronuncia una bendición sobre quienes lo estudian.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECCIÓN XII ═══════════════════ -->
+<section class="section" id="sec-XII">
+  <div class="section-header">
+    <div class="section-num">XII</div>
+    <h3 class="section-title">El Llamado Final: A Creyentes, a Incrédulos y la Advertencia sobre las Escrituras</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Apocalipsis 22:12–21</span>
+        <p class="scripture-text">«¡Vengo pronto!, y mi galardón conmigo, para recompensar a cada uno según sea su obra. Yo soy el Alfa y la Omega, el principio y el fin, el primero y el último. Bienaventurados los que lavan sus ropas para tener derecho al árbol de la vida y para entrar por las puertas en la ciudad. Pero los perros estarán afuera…» Yo advierto a todo aquel que oye las palabras de la profecía de este libro: Si alguno añade a estas cosas, Dios traerá sobre él las plagas que están escritas en este libro. Y si alguno quita de las palabras del libro de esta profecía, Dios quitará su parte del libro de la vida… «Ciertamente vengo en breve.» ¡Amén! ¡Ven, Señor Jesús!</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Para el creyente</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Jesús viene sin previo aviso</span><span class="bullet-desc">Jesús dice que vendrá rápidamente —sin previo aviso— y que trae una recompensa: nos recompensará por nuestras obras realizadas en Su servicio.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Bienaventurados los que lavan sus ropas</span><span class="bullet-desc">Los que son limpios de pecado por la sangre de Jesús tendrán derecho al árbol de la vida y entrarán por las puertas de la ciudad.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El Espíritu y la Esposa dicen "Ven"</span><span class="bullet-desc">Desde el primer siglo, el Espíritu de Dios y la Iglesia han estado llamando al mundo a conocer a Jesús. El que tenga sed de justicia tomará del agua de la vida gratuitamente.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Para el incrédulo</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Un llamado a desear las cosas buenas</span><span class="bullet-desc">Jesús llama a los incrédulos a desear: ser limpios de pecado por Su sangre, comer del árbol de la vida en lugar de morir en el lago de fuego, y entrar por las puertas de la ciudad.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">"Los perros estarán afuera"</span><span class="bullet-desc">Quienes practican y aman los actos injustos del pecado y no se arrepienten quedarán afuera de la ciudad. El lago de fuego estará en algún lugar fuera de la ciudad en la nueva tierra.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">No es sobre perder la salvación</span><span class="bullet-desc">Jesús no dice que hacer pecados automáticamente nos hace no salvos. Describe los comportamientos que tipifican el <span class="hl">estilo de vida de los incrédulos</span>.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">La advertencia sobre adulterar las Escrituras</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Añadir: traerá las plagas del libro</span><span class="bullet-desc">Cualquiera que añada a las palabras de esta profecía recibirá las plagas descritas en el libro.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Quitar: perderá su parte del libro de la vida</span><span class="bullet-desc">El lenguaje del v.19 usa lenguaje paralelo en griego: "Quita mis palabras, y yo te quito a ti." No es que alguien pierda la salvación, sino que quien hace esto demuestra incredulidad.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El deseo de socavar la Palabra es incredulidad</span><span class="bullet-desc">Alterar la Palabra de Dios es señal segura de que la persona no tiene relación con el Espíritu que es el autor de la obra.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">Aplica a toda la Biblia</span><span class="bullet-desc">Dado que el Espíritu es el autor de toda la Biblia como una sola obra, esta advertencia se extiende lógicamente a todos los libros de las Escrituras, no solo a Apocalipsis.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Jesús se identifica con claridad y cierra el libro</div>
+      <ul class="bullet-list">
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">La raíz y linaje de David</span><span class="bullet-desc">Jesús testifica que debemos confiar y creer lo que Él nos ha dado, y confiar en Él como el Mesías, el descendiente de David.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">El único libro en primera persona</span><span class="bullet-desc">Es el único libro de las Escrituras en el que Jesús le habla al lector en primera persona como el Cristo encarnado, y el único donde enfatiza con tanta fuerza que la palabra debe ser confiada y escuchada.</span></div></li>
+        <li><span class="b-icon">✦</span><div class="b-content"><span class="bullet-label">«Ciertamente vengo en breve»</span><span class="bullet-desc">La última promesa del canon bíblico. Juan responde: "Amén, ven Señor Jesús" —el grito de esperanza de todo creyente a través de los siglos.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DIVIDER ═══════════════════ -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-symbol">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ═══════════════════ RESUMEN FINAL ═══════════════════ -->
+<div class="summary-box">
+  <p>Los Nuevos Cielos y la Nueva Tierra no son simplemente el "después" del juicio divino — son la culminación del plan eterno de un Dios que diseñó la primera creación anticipando el pecado, para expresar plenamente Su carácter: Su ira y Su misericordia, Su justicia y Su gracia. La Nueva Jerusalén, con sus puertas de las doce tribus, sus cimientos apostólicos, su árbol de vida, su río de gloria y su luz que es Dios mismo, es el memorial eterno de todo lo que Dios hizo en Cristo. En ese mundo perfecto ya no habrá noche, ni mar, ni sol artificial, ni maldición — porque las ilustraciones del pecado ya no serán necesarias. Y el último llamado del canon bíblico sigue resonando: el Espíritu y la Esposa dicen «¡Ven!» — y el que tenga sed, que venga.</p>
+</div>
+
+<!-- ═══════════════════ FOOTNOTE ═══════════════════ -->
+<footer>
+  Basado en la enseñanza original de Verse By Verse Ministry International (VBVMI) · <a href="http://vbvmi.org" target="_blank">vbvmi.org</a><br/>
+  Arte de Pat Marvenko Smith © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a>
+</footer>
+
+</div><!-- /page-wrap -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

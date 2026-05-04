@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis — Parte 01 · Capítulos 1–4</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* STARFIELD */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(201,168,76,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 34% 67%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 56% 23%, rgba(201,168,76,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 45%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 12%, rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 7% 88%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 43% 91%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 78%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 22% 54%, rgba(201,168,76,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 87% 72%, rgba(255,255,255,.6) 0%, transparent 100%);
+}
+
+/* LAYOUT */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* HEADER */
+header {
+  position: relative;
+  text-align: center;
+  padding: 64px 32px 56px;
+  margin-bottom: 48px;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,26,26,.38) 0%, transparent 70%);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(139,26,26,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-family: var(--f-heading);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.ornament-line {
+  flex: 1;
+  max-width: 140px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 30px rgba(201,168,76,.25);
+}
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  font-weight: 400;
+  margin-bottom: 36px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.meta-item {
+  text-align: center;
+}
+.meta-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.meta-value {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp .6s ease forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(201,168,76,.15);
+}
+.section-num {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+/* CARDS GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 780px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover {
+  border-left-color: var(--gold);
+  transform: translateX(3px);
+}
+.card.full {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+}
+
+/* BULLETS */
+ul.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ul.bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+.bullet-icon {
+  flex-shrink: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gold);
+}
+.bullet-body {}
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+}
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* SCRIPTURE BOX */
+.scripture {
+  position: relative;
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 28px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.scripture::before {
+  content: '\201C';
+  position: absolute;
+  top: -4px;
+  left: 10px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* HIGHLIGHT */
+.hl { color: var(--gold-light); font-weight: 600; }
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold-dim), transparent);
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -23px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* INFO PANEL */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-top: 8px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  color: var(--sky-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* STYLED TABLE */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+.styled-table td {
+  color: var(--text-dim);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+}
+
+/* TWO COL inside full card */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 48px 0;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.divider-sym {
+  color: var(--gold-dim);
+  font-size: 14px;
+}
+
+/* SUMMARY */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.summary-box p {
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* FOOTNOTE */
+footer {
+  border-top: 1px solid rgba(201,168,76,.12);
+  padding-top: 24px;
+  text-align: center;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+footer a { color: var(--gold-dim); text-decoration: none; }
+
+/* STAGGER DELAYS */
+.section:nth-child(1)  { animation-delay: .05s; }
+.section:nth-child(2)  { animation-delay: .13s; }
+.section:nth-child(3)  { animation-delay: .21s; }
+.section:nth-child(4)  { animation-delay: .29s; }
+.section:nth-child(5)  { animation-delay: .37s; }
+.section:nth-child(6)  { animation-delay: .45s; }
+.section:nth-child(7)  { animation-delay: .53s; }
+.section:nth-child(8)  { animation-delay: .61s; }
+.section:nth-child(9)  { animation-delay: .69s; }
+.section:nth-child(10) { animation-delay: .77s; }
+.section:nth-child(11) { animation-delay: .85s; }
+.section:nth-child(12) { animation-delay: .93s; }
+.section:nth-child(13) { animation-delay: 1.01s; }
+.section:nth-child(14) { animation-delay: 1.09s; }
+.section:nth-child(15) { animation-delay: 1.17s; }
+.section:nth-child(16) { animation-delay: 1.25s; }
+
+p.body-text { font-size: 17px; color: var(--text-dim); line-height: 1.78; margin-bottom: 10px; }
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+.toc-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.06);
+}
+.toc-item.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.1);
+}
+.toc-num {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: var(--f-heading);
+  color: var(--crimson-light);
+  padding-top: 1px;
+  min-width: 22px;
+}
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: none;
+  color: var(--gold);
+  border-radius: 0 6px 6px 0;
+  width: 22px;
+  height: 54px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+body.toc-open .page-wrap {
+  margin-left: 270px;
+  max-width: calc(1100px + 270px);
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-closed .page-wrap {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+  body.toc-open .page-wrap { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#sec-I" class="toc-item"><span class="toc-num">I</span><span class="toc-title">La Revelación de Jesucristo — Introducción y Cadena de Custodia</span></a>
+<a href="#sec-II" class="toc-item"><span class="toc-num">II</span><span class="toc-title">Salutación a las Siete Iglesias — Las Tres Descripciones de Jesús</span></a>
+<a href="#sec-III" class="toc-item"><span class="toc-num">III</span><span class="toc-title">Una Visión del Hijo del Hombre — La Apariencia Eterna de Cristo</span></a>
+<a href="#sec-IV" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">Esquema del Libro de Apocalipsis</span></a>
+<a href="#sec-V" class="toc-item"><span class="toc-num">V</span><span class="toc-title">Las Siete Cartas — ¿A Quién Fueron Dirigidas y Cuándo?</span></a>
+<a href="#sec-VI" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">Carta a Laodicea — La Iglesia de Nuestra Época</span></a>
+<a href="#sec-VII" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">La Gran Apostasía — El Cambio en la Manera de Pensar</span></a>
+<a href="#sec-VIII" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">El Siglo Presente, el Siglo Venidero y los Últimos Días</span></a>
+<a href="#sec-IX" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">La Era de los Gentiles — Su Inicio, Duración y Fin</span></a>
+<a href="#sec-X" class="toc-item"><span class="toc-num">X</span><span class="toc-title">Los Cuatro Reinos Gentiles — Daniel 2 y Daniel 7</span></a>
+<a href="#sec-XI" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">El Viejo Pacto, sus Bendiciones, Maldiciones y la Puerta de Salvación</span></a>
+<a href="#sec-XII" class="toc-item"><span class="toc-num">XII</span><span class="toc-title">Las 70 Semanas de Daniel — La Cronología de la Salvación de Israel</span></a>
+<a href="#sec-XIII" class="toc-item"><span class="toc-num">XIII</span><span class="toc-title">Señales del Final de la Era de los Gentiles</span></a>
+<a href="#sec-XIV" class="toc-item"><span class="toc-num">XIV</span><span class="toc-title">El Sermón del Monte de los Olivos — Mateo 24 y Lucas 21</span></a>
+<a href="#sec-XV" class="toc-item"><span class="toc-num">XV</span><span class="toc-title">El Rapto — La Resurrección de la Iglesia y la Tradición de la Boda Judía</span></a>
+<a href="#sec-XVI" class="toc-item"><span class="toc-num">XVI</span><span class="toc-title">La Adoración Celestial — Apocalipsis Capítulo 4 (Después del Rapto)</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+<div class="starfield"></div>
+<div class="page-wrap">
+
+<!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
+<header>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    Verse by Verse Ministry International
+    <div class="ornament-line"></div>
+  </div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 01 &middot; Capítulos 1 – 4</h2>
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="meta-label">Capítulos cubiertos</span>
+      <span class="meta-value">Apocalipsis 1 – 4</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Páginas cubiertas</span>
+      <span class="meta-value">91 páginas</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Período histórico principal</span>
+      <span class="meta-value">Era de la Iglesia — Desde Pentecostés hasta el Rapto</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════ SECCIÓN I ══════════════════════════ -->
+<div class="section" id="sec-I">
+  <div class="section-header">
+    <div class="section-num">I</div>
+    <h3 class="section-title">La Revelación de Jesucristo — Introducción y Cadena de Custodia</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">¿Qué es el Libro de Apocalipsis?</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Único libro profético con autor divino directo</span><span class="bullet-desc">No existe otro libro de la Biblia que declare ser la revelación directa de Jesucristo mismo. En griego "Apocalipsis" significa revelación.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Cadena de custodia verificada</span><span class="bullet-desc">La revelación viene del <span class="hl">Padre → Jesucristo → Ángel → Apóstol Juan → la Iglesia</span>. Certifica la autenticidad del contenido, garantizando que es el original no adulterado, de importancia crítica dada la proliferación de maestros falsos de la época.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Destinada a los siervos, no al mundo</span><span class="bullet-desc">La carta no está dirigida al mundo en general para testificar, sino <span class="hl">específicamente a la iglesia de Cristo</span>.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Juan vio, no narró</span><span class="bullet-desc">Juan no escribió una interpretación de lo que oyó; escribió fielmente lo que le fue <span class="hl">mostrado visualmente</span>, para que nosotros lo interpretemos.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La Bienaventuranza Única de Apocalipsis</div>
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 1:3</span>
+        <span class="scripture-text">Bienaventurado el que lee, y los que oyen las palabras de esta profecía, y guardan las cosas en ella escritas; porque el tiempo está cerca.</span>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Recompensa prometida</span><span class="bullet-desc">Es el único libro de la Biblia que promete expresamente una recompensa a quien lo lee y escucha — mayor entendimiento de los planes y el carácter de Dios, paz, discernimiento y deseo de profundizar.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">No requiere comprensión total</span><span class="bullet-desc">La bendición es para quienes <span class="hl">leen y oyen con corazón abierto al Espíritu Santo</span>, sin importar su nivel de conocimiento teológico. No dice "para los que entiendan".</span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN II ══════════════════════════ -->
+<div class="section" id="sec-II">
+  <div class="section-header">
+    <div class="section-num">II</div>
+    <h3 class="section-title">Salutación a las Siete Iglesias — Las Tres Descripciones de Jesús</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Los Tres Períodos del Ministerio de Cristo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><span class="bullet-body"><span class="bullet-label">El que era — Período Pre-encarnación</span><span class="bullet-desc">Testigo de la existencia de Dios a través de la creación. (Col 1:16: <em>todo fue creado por medio de él y para él</em>)</span></span></li>
+        <li><span class="bullet-icon">❷</span><span class="bullet-body"><span class="bullet-label">El que es — Después de su encarnación</span><span class="bullet-desc">Su muerte y resurrección en gloria. Es el <span class="hl">primogénito de entre los muertos</span>, cabeza de la iglesia. (Col 1:18)</span></span></li>
+        <li><span class="bullet-icon">❸</span><span class="bullet-body"><span class="bullet-label">El que ha de venir — Segunda Venida</span><span class="bullet-desc">Reinará en la tierra como lo prometió. El libro de Apocalipsis nos lleva desde el final del período actual hasta un <span class="hl">período de 7 años</span>, y después al milenio.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Atributos de Cristo en la Salutación (Ap. 1:4-8)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Testigo fiel</span><span class="bullet-desc">Primogénito de los muertos y soberano de los reyes de la tierra.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Nos hizo reyes y sacerdotes</span><span class="bullet-desc">A través de su sangre que nos lavó de nuestros pecados. Ap. 1:5-6.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Segunda Venida visible</span><span class="bullet-desc"><em>He aquí que viene con las nubes, y todo ojo le verá</em> — incluyendo los que le traspasaron (Ap. 1:7).</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El Alfa y la Omega</span><span class="bullet-desc">Principio y fin. El Todopoderoso que es, que era y que ha de venir. (Ap. 1:8)</span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN III ══════════════════════════ -->
+<div class="section" id="sec-III">
+  <div class="section-header">
+    <div class="section-num">III</div>
+    <h3 class="section-title">Una Visión del Hijo del Hombre — La Apariencia Eterna de Cristo</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Descripción de la Visión (Ap. 1:12-18)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Siete candeleros de oro</span><span class="bullet-desc">En medio de ellos estaba uno semejante al Hijo del Hombre.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Cabeza y cabello blancos como nieve</span><span class="bullet-desc">Simbolizan <span class="hl">pureza y santidad eterna</span>.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Ojos como llama de fuego</span><span class="bullet-desc">Discernimiento absoluto.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Pies de bronce bruñido</span><span class="bullet-desc">Juicio contra el injusto.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Voz como estruendo de muchas aguas</span><span class="bullet-desc">Autoridad irresistible.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Espada de dos filos en su boca</span><span class="bullet-desc">Su Palabra destruye al impío (Isa 11:4: <em>herirá la tierra con la vara de su boca</em>).</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Significado Teológico de la Visión</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Apariencia temporal vs. apariencia eterna</span><span class="bullet-desc">Durante su primera venida Jesús tuvo una apariencia temporal (Fil 2:6-8: <em>se despojó a sí mismo, tomando forma de siervo</em>). Ahora se presenta como quien verdaderamente es.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Rey de reyes en toda su majestad</span><span class="bullet-desc">Justicia (lomos), Fidelidad (cinto), Pureza (ropas blancas), Sacerdocio y Reinado (ropas), Luz de la verdad (rostro resplandece).</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Consistencia con Daniel e Isaías</span><span class="bullet-desc">La visión es idéntica a Dan 10:4-6 e Isa 11:1-5 — confirma la coherencia de la Escritura.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Reacción de Juan</span><span class="bullet-desc"><em>Caí como muerto a sus pies.</em> Cristo lo reanimann con su diestra: <em>No temas; yo soy el primero y el último.</em> (Ap. 1:17)</span></span></li>
+      </ul>
+      <div class="scripture" style="margin-top:14px;">
+        <span class="scripture-ref">Apocalipsis 19:11-16</span>
+        <span class="scripture-text">El que lo montaba se llamaba Fiel y Verdadero... De su boca sale una espada aguda... en su vestidura y en su muslo tiene escrito: REY DE REYES Y SEÑOR DE SEÑORES.</span>
+      </div>
+    </div>
+    <div class="card full">
+      <div class="card-title">El Misterio de las Siete Estrellas y los Siete Candeleros (Ap. 1:19-20)</div>
+      <div class="two-col">
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Siete estrellas = ángeles de las siete iglesias</span><span class="bullet-desc">Mensajeros bajo la autoridad de Cristo (los tiene en su mano), dedicados al servicio de los herederos de la salvación. (Heb 1:14)</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Siete candeleros = las siete iglesias</span><span class="bullet-desc">Las iglesias iluminan la verdad alcanzando las tinieblas — la Gran Comisión. (Fil 2:15: <em>resplandecéis como luminares en el mundo</em>)</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El número siete = totalidad</span><span class="bullet-desc">Las 7 cartas fueron escritas para 7 iglesias, aunque en esa época había más (Roma, Corinto, Galacia, Colosas, Tesalónica, Jerusalén, etc.). El 7 bíblico representa completo, todo — la obra de Dios terminada.</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Estructura del libro revelada</span><span class="bullet-desc">Ap. 1:19 establece el triple esquema: (1) cosas que Juan vio, (2) cosas que son, (3) cosas que han de ser después.</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN IV ══════════════════════════ -->
+<div class="section" id="sec-IV">
+  <div class="section-header">
+    <div class="section-num">IV</div>
+    <h3 class="section-title">Esquema del Libro de Apocalipsis</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Las Tres Partes Fundamentales</div>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Parte</th>
+            <th>Capítulos</th>
+            <th>Contenido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="hl">Cosas que Juan vio</span></td>
+            <td>Capítulo 1</td>
+            <td>La visión de Jesús como Rey en toda su gloria y poder — nunca antes visto así. Jesús no va a regresar como vino la primera vez.</td>
+          </tr>
+          <tr>
+            <td><span class="hl">Cosas que son</span></td>
+            <td>Capítulos 2–3</td>
+            <td>Las 7 cartas dictadas por Jesús a las 7 iglesias que existían en ese momento. Duran hasta que comiencen las cosas que han de venir.</td>
+          </tr>
+          <tr>
+            <td><span class="hl">Cosas que han de ser después</span></td>
+            <td>Capítulos 4–22</td>
+            <td>Ap. 4:1: "Sube acá, y yo te mostraré las cosas que sucederán después de estas." Abarca la Tribulación, el Milenio y la eternidad.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN V ══════════════════════════ -->
+<div class="section" id="sec-V">
+  <div class="section-header">
+    <div class="section-num">V</div>
+    <h3 class="section-title">Las Siete Cartas — ¿A Quién Fueron Dirigidas y Cuándo?</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Dos Conclusiones Clave</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><span class="bullet-body"><span class="bullet-label">Conclusión #1: Totalidad de las iglesias</span><span class="bullet-desc">Las cartas describen 7 características universales manifestadas en 7 iglesias principales. El 7 bíblico = totalidad. Por tanto, están dirigidas a <span class="hl">toda la Iglesia de Cristo</span> de aquella época.</span></span></li>
+        <li><span class="bullet-icon">❷</span><span class="bullet-body"><span class="bullet-label">Conclusión #2: Todos los períodos históricos</span><span class="bullet-desc">Las cartas están escritas en orden <span class="hl">en sentido del reloj</span> —sugiere tiempo. Desde el inicio de la iglesia (Pentecostés) hasta el final de la era de la iglesia, incluyendo a la iglesia actual. (Identificado hace ~150 años en perspectiva histórica)</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Reglas de Interpretación Bíblica</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><span class="bullet-body"><span class="bullet-label">Literal</span><span class="bullet-desc">Específica e histórica. Si la interpretación más simple y sencilla tiene sentido común, no busque otra.</span></span></li>
+        <li><span class="bullet-icon">❷</span><span class="bullet-body"><span class="bullet-label">Universal</span><span class="bullet-desc">General y sin tiempo. Aplicable a cualquier época, incluyendo la actual.</span></span></li>
+        <li><span class="bullet-icon">❸</span><span class="bullet-body"><span class="bullet-label">Profética</span><span class="bullet-desc">Simbólica y habla de eventos futuros. <em>**Las tres deben usarse y en ese orden.**</em></span></span></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Los Siete Períodos Históricos de la Iglesia</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">Éfeso — 30–100 AD · Iglesia Apostólica</div>
+          <div class="timeline-desc">Con la muerte del último apóstol se cerró el período de Éfeso.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Esmirna — 100–313 AD · Iglesia Perseguida</div>
+          <div class="timeline-desc">Persecución Romana — Siglos 2 y 3.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Pérgamo — 313–600 AD · Iglesia del Imperio Romano</div>
+          <div class="timeline-desc">Constantino termina la persecución y oficializa el cristianismo. La iglesia se casa con el gobierno (<em>Pérgamo = matrimonio</em>). El Imperio Romano termina en 600 AD.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Tiatira — 600–1517 AD · Iglesia Católica Romana</div>
+          <div class="timeline-desc">Dominio de la Iglesia Católica Romana durante casi un milenio.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Sardis — 1517–1648 AD · Reforma de la Iglesia</div>
+          <div class="timeline-desc">La Reforma Protestante desafía el dominio del catolicismo.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Filadelfia — 1648–1900 AD · Iglesia Misionera</div>
+          <div class="timeline-desc">La iglesia lleva el evangelio a través de toda la tierra.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Laodicea — 1900–...AD · Iglesia Actual</div>
+          <div class="timeline-desc">La era presente. Apostasía creciente, tibieza espiritual, enfoque material. <em>** Los años son aproximados y su exactitud es irrelevante.</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN VI ══════════════════════════ -->
+<div class="section" id="sec-VI">
+  <div class="section-header">
+    <div class="section-num">VI</div>
+    <h3 class="section-title">Carta a Laodicea — La Iglesia de Nuestra Época</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Ciudad de Laodicea — Contexto Histórico</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Significado del nombre</span><span class="bullet-desc"><span class="hl">"Gente que gobierna o se rige por su propio juicio"</span> — mentalidad democrática independiente.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Centro administrativo, bancario y comercial</span><span class="bullet-desc">La ciudad más rica, próspera y muy independiente. Tras el terremoto del 60 AD rechazó la ayuda imperial y se reconstruyó por sus propios medios. Título de "ciudad libre".</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Agua tibia y azufrada</span><span class="bullet-desc">Recibía agua de dos ciudades: una fría (montaña/nieve) y una caliente (manantial termal). Combinadas producen agua tibia con azufre que hace vomitar — metáfora perfecta para la tibieza espiritual.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Conocida por lino, lana negra, colirio y banca</span><span class="bullet-desc">Jesús usa estos tres elementos como metáforas directas en su carta.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Diagnóstico de Cristo a Laodicea (Ap. 3:14-22)</div>
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 3:17</span>
+        <span class="scripture-text">Porque tú dices: Yo soy rico, y me he enriquecido, y de ninguna cosa tengo necesidad; y no sabes que tú eres un desventurado, miserable, pobre, ciego y desnudo.</span>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Oro refinado</span><span class="bullet-desc">Las verdaderas riquezas espirituales vs. la impureza material. Carece de las riquezas de Cristo.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Vestiduras blancas</span><span class="bullet-desc">Cubrir la vergüenza de la desnudez espiritual — no están cubiertos con las vestiduras de Cristo.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Colirio</span><span class="bullet-desc">Para ver espiritualmente. La iglesia padece ceguera espiritual total.</span></span></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Iglesia Visible vs. Iglesia Invisible — Caliente, Frío y Tibio</div>
+      <div class="two-col">
+        <div class="info-panel">
+          <div class="info-panel-title">Iglesia Visible vs. Invisible</div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Visible</span><span class="bullet-desc">Toda la congregación, incluyendo creyentes verdaderos e incrédulos.</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Invisible</span><span class="bullet-desc">Los que realmente conocen al Señor — nacidos de nuevo por el Espíritu Santo. Este círculo <span class="hl">disminuye en los últimos tiempos</span>. Ningún lugar de la Escritura nos envía a inspeccionar a otros; solo a escudriñar nuestro propio corazón.</span></span></li>
+          </ul>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">El Peligro del Estado Tibio</div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Caliente (creyente)</span><span class="bullet-desc">Reconoce su condición y puede ser alcanzado.</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Frío (incrédulo)</span><span class="bullet-desc">Al menos reconoce su incredulidad — puede arrepentirse.</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Tibio (el peligro)</span><span class="bullet-desc"><em>"Ojalá fueras frío o caliente."</em> El tibio dice estar de un lado pero realmente está del otro. <span class="hl">No reconoce lo que realmente es</span> — ahí está el peligro. (Mat 7:21)</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN VII ══════════════════════════ -->
+<div class="section" id="sec-VII">
+  <div class="section-header">
+    <div class="section-num">VII</div>
+    <h3 class="section-title">La Gran Apostasía — El Cambio en la Manera de Pensar</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Apostasía en las Iglesias</div>
+      <div class="scripture">
+        <span class="scripture-ref">2 Tesalonicenses 2:3</span>
+        <span class="scripture-text">Nadie os engañe en ninguna manera; porque no vendrá sin que antes venga la apostasía, y se manifieste el hombre de pecado, el hijo de perdición.</span>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Características de la iglesia apóstata</span><span class="bullet-desc">No se predica el evangelio. No se hace llamado al perdido. No se trae convicción de pecado. No esperan la segunda venida de Cristo. Se predica el evangelio de la prosperidad. Regulan la unión matrimonial.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Independencia y democracia espiritual</span><span class="bullet-desc">167 países democráticos de 195 — mentalidad global que ha llegado a la iglesia. Cada quien crea sus propias verdades. Propensos a poner su voluntad sobre la de Dios.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Transformación cultural individual mediante IA</span><span class="bullet-desc">Social media y noticias falsas influencian el pensamiento colectivo. La IA reajusta el contenido individualmente para cada persona, llevando su pensamiento gradualmente del punto A al B al C, <span class="hl">transformando su manera de pensar</span> y reescribiendo la Biblia.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Carácter de los Hombres en los Postreros Días</div>
+      <div class="scripture">
+        <span class="scripture-ref">2 Timoteo 3:1-5</span>
+        <span class="scripture-text">En los postreros días vendrán tiempos peligrosos. Porque habrá hombres amadores de sí mismos, avaros, vanagloriosos, soberbios, blasfemos, desobedientes a los padres, ingratos, impíos, sin afecto natural, implacables, calumniadores, intemperantes, crueles, aborrecedores de lo bueno, traidores, impetuosos, infatuados, amadores de los deleites más que de Dios, que tendrán apariencia de piedad, pero negarán la eficacia de ella.</span>
+      </div>
+      <p class="body-text" style="margin-top:10px;">Este carácter describe precisamente lo que se ve en las noticias hoy en día y en las redes sociales.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN VIII ══════════════════════════ -->
+<div class="section" id="sec-VIII">
+  <div class="section-header">
+    <div class="section-num">VIII</div>
+    <h3 class="section-title">El Siglo Presente, el Siglo Venidero y los Últimos Días</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Definiciones de Tiempo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Siglo / Era</span><span class="bullet-desc">Tiempo prolongado pero <span class="hl">finito</span> en el gran plan de Dios. No es eterno — tiene un inicio y un fin determinados.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Siglo presente</span><span class="bullet-desc">El período actual que llegará a su fin para dar inicio a otro. Por fe, ya hemos recibido la promesa de vida eterna. Una vez en nuestro cuerpo eterno, tomaremos posesión de lo prometido. (Marcos 10:30)</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Siglo venidero</span><span class="bullet-desc">La próxima era — iniciará cuando el siglo presente termine. Incluye el Milenio y la nueva creación.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Últimos días (postreros)</span><span class="bullet-desc">El período final del siglo presente. Pablo ya declaraba estar en los últimos días en el Siglo I (Heb 1:2). Es decir, los "últimos días" llevan 2,000 años — el período completo de la iglesia está dentro de ellos.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Siglo Presente es Más Grande que la Era de la Iglesia</div>
+      <div class="info-panel">
+        <div class="info-panel-title">Clave Conceptual</div>
+        <p class="body-text">El Siglo Presente comenzó <span class="hl">mucho antes</span> que el período de la iglesia. Cuando la iglesia inició, ya estaban en los últimos días del siglo presente. Esto implica que el plan de Dios no trata <em>principalmente</em> de la iglesia — el plan inició antes con Israel y concluirá con Israel. Para nosotros la iglesia, lo es todo; pero en el gran esquema, el plan gira en torno a la redención de Israel y el establecimiento del reino prometido.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN IX ══════════════════════════ -->
+<div class="section" id="sec-IX">
+  <div class="section-header">
+    <div class="section-num">IX</div>
+    <h3 class="section-title">La Era de los Gentiles — Su Inicio, Duración y Fin</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">¿Qué Determina la Era de los Gentiles? (Lucas 21:24)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><span class="bullet-body"><span class="bullet-label">Espada</span><span class="bullet-desc">Israel siendo vencida militarmente por naciones gentiles.</span></span></li>
+        <li><span class="bullet-icon">❷</span><span class="bullet-body"><span class="bullet-label">Cautivos</span><span class="bullet-desc">Israel dispersa entre todas las naciones del mundo.</span></span></li>
+        <li><span class="bullet-icon">❸</span><span class="bullet-body"><span class="bullet-label">Hollada</span><span class="bullet-desc">La ciudad de Jerusalén pisoteada e invadida por naciones gentiles.</span></span></li>
+      </ul>
+      <div class="scripture" style="margin-top:14px;">
+        <span class="scripture-ref">Lucas 21:24</span>
+        <span class="scripture-text">Jerusalén será hollada por los gentiles, hasta que los tiempos de los gentiles se cumplan.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Inicio y Duración de la Era</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Inicio</span><span class="bullet-desc">Cuando Nabucodonosor invadió Israel, tomó Jerusalén y llevó al pueblo cautivo a Babilonia. Descrita en Daniel 2 y 7.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El reloj sincronizado con Israel</span><span class="bullet-desc">Rom 11:25: <em>ha acontecido a Israel endurecimiento en parte, hasta que haya entrado la plenitud de los gentiles.</em></span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Duración</span><span class="bullet-desc">Continúa mientras las 3 condiciones (espada, cautivos, hollada) sigan cumpliéndose. Termina con la Segunda Venida de Cristo.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">¿Por qué existe?</span><span class="bullet-desc">Fue el castigo sobre Israel como consecuencia de la desobediencia al Viejo Pacto — el cumplimiento de las <span class="hl">maldiciones del Viejo Pacto</span> (Levítico 26).</span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN X ══════════════════════════ -->
+<div class="section" id="sec-X">
+  <div class="section-header">
+    <div class="section-num">X</div>
+    <h3 class="section-title">Los Cuatro Reinos Gentiles — Daniel 2 y Daniel 7</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Estatua del Sueño de Nabucodonosor (Daniel 2)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><span class="bullet-body"><span class="bullet-label">Cabeza de oro — Babilonia</span><span class="bullet-desc">Dios le entregó a Babilonia el poder para ser la nación más poderosa de la tierra. (Dan 2:37-38)</span></span></li>
+        <li><span class="bullet-icon">❷</span><span class="bullet-body"><span class="bullet-label">Pecho y brazos de plata — Medo-Persia</span><span class="bullet-desc">Inferior en majestad pero más amplio territorialmente.</span></span></li>
+        <li><span class="bullet-icon">❸</span><span class="bullet-body"><span class="bullet-label">Vientre y muslos de bronce — Grecia</span><span class="bullet-desc">El Imperio de Alejandro Magno, veloz como un leopardo. Al morir, dividido entre 4 generales — 2 al este y 2 al oeste (piernas). La división este-oeste persiste hasta hoy.</span></span></li>
+        <li><span class="bullet-icon">❹</span><span class="bullet-body"><span class="bullet-label">Piernas de hierro, pies de hierro y barro — Roma y sus sucesores</span><span class="bullet-desc">Subdividido (no monolítico). Alianzas humanas fuertes y débiles — como hierro no se mezcla con barro. Ha evolucionado a <span class="hl">Alianzas Democráticas Imperialistas</span>.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Las Cuatro Bestias de Daniel 7 — La Naturaleza de Cada Reino</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><span class="bullet-body"><span class="bullet-label">León alado — Babilonia</span><span class="bullet-desc">Símbolo histórico de Babilonia. Sus alas fueron arrancadas — perdió su poder.</span></span></li>
+        <li><span class="bullet-icon">❷</span><span class="bullet-body"><span class="bullet-label">Oso — Medo-Persia</span><span class="bullet-desc">Fuerza bruta. Devoró a Babilonia, Media y Persia (tres costillas).</span></span></li>
+        <li><span class="bullet-icon">❸</span><span class="bullet-body"><span class="bullet-label">Leopardo con 4 alas y 4 cabezas — Grecia</span><span class="bullet-desc">Velocidad de Alejandro el Grande. Los 4 generales que heredaron el reino = 4 cabezas.</span></span></li>
+        <li><span class="bullet-icon">❹</span><span class="bullet-body"><span class="bullet-label">Bestia terrible sin precedente — Roma/Imperio actual</span><span class="bullet-desc">Daniel no encontró animal con qué compararla. Dientes de hierro, 10 cuernos + 1 cuerno pequeño. <span class="hl">Termina con 10+1 reinos mundiales</span> para la Segunda Venida de Cristo.</span></span></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">El Cuarto Reino — Del Imperio Romano al Presente</div>
+      <div class="two-col">
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El Imperio Romano</span><span class="bullet-desc">Alcanzó de Escocia a India, de África a toda Europa. Su forma unida desapareció entre 600-700 AD.</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El Sacro Imperio Romano</span><span class="bullet-desc">Fundado el 25 de diciembre del 800 AD, disuelto el 6 de agosto de 1806 (1,000 años). Dividido en cientos de entidades: reyes, duques, condes, obispos, abades — todos llamados "príncipes".</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Continúa cumpliendo los 4 requisitos</span><span class="bullet-desc">El bloque occidental (UE, EE.UU., OTAN y Medio Oriente) sigue siendo: (1) reino gentil, (2) poder dominante mundial, (3) en posesión de Babilonia (Irak), (4) ocupando Jerusalén.</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El fin del cuarto reino</span><span class="bullet-desc">Una <span class="hl">piedra no cortada con manos</span> (Cristo en su Segunda Venida) destruirá la estatua completa y se convertirá en un gran monte que llena toda la tierra — el Reino eterno de Dios. (Dan 2:44-45)</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XI ══════════════════════════ -->
+<div class="section" id="sec-XI">
+  <div class="section-header">
+    <div class="section-num">XI</div>
+    <h3 class="section-title">El Viejo Pacto, sus Bendiciones, Maldiciones y la Puerta de Salvación</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Pacto Nacional de Israel (Deuteronomio 29)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Un pacto grupal, no individual</span><span class="bullet-desc">Todo Israel entró en pacto con Dios: cabezas de tribus, ancianos, oficiales, varones, niños, mujeres, y los extranjeros — a todos los niveles de la sociedad.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Incluye generaciones futuras</span><span class="bullet-desc">No solo con los presentes sino con "los que no están aquí hoy" — todas las generaciones desde Abraham.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Analogía del lago Superior</span><span class="bullet-desc">Es el mismo lago con el mismo cuerpo de agua, aunque cada año esté compuesto por moléculas completamente diferentes. El pacto lo hizo Dios con todo el grupo descendiente de Abraham, no con individuos aislados.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Bendiciones y Maldiciones del Pacto (Levítico 26)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✓</span><span class="bullet-body"><span class="bullet-label">Si obedecen</span><span class="bullet-desc">Lluvia en su tiempo, tierra fructífera, prosperidad, paz — bendiciones en el reino. (Lev 26:3-4)</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Si desobedecen</span><span class="bullet-desc">Terror, extenuación, calentura, semilla destruida por enemigos, derrota en batalla. Si un solo israelita incumple una sola ley, toda la nación recibe las consecuencias — pacto muy fuerte.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">La Era de los Gentiles = maldiciones en acción</span><span class="bullet-desc">La dispersión de Israel, la pérdida del templo y el dominio gentil son el cumplimiento literal de las maldiciones del Viejo Pacto.</span></span></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">La Puerta de Salvación al Incumplimiento de la Ley (Levítico 26:40-45)</div>
+      <div class="two-col">
+        <div>
+          <div class="scripture">
+            <span class="scripture-ref">Levítico 26:40-42</span>
+            <span class="scripture-text">Y confesarán su iniquidad, y la iniquidad de sus padres, por su prevaricación con que prevaricaron contra mí... Entonces yo me acordaré de mi pacto con Jacob, y asimismo de mi pacto con Isaac, y también de mi pacto con Abraham.</span>
+          </div>
+        </div>
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Confesión nacional requerida</span><span class="bullet-desc">Toda la nación debe confesar su pecado y el de sus padres por crucificar al Señor (<em>prevaricación = resolución injusta</em>).</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Resultado de la confesión</span><span class="bullet-desc">Dios pondrá a un lado el Viejo Pacto para bendecirlos con base en el Pacto con Abraham — salvación por fe, no por ley.</span></span></li>
+            <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Salvación individual ya disponible</span><span class="bullet-desc">Todo judío que individualmente llegue a la fe en Cristo sale del Viejo Pacto igual que cualquier gentil — salvo únicamente por fe (Rom 10:12-13).</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XII ══════════════════════════ -->
+<div class="section" id="sec-XII">
+  <div class="section-header">
+    <div class="section-num">XII</div>
+    <h3 class="section-title">Las 70 Semanas de Daniel — La Cronología de la Salvación de Israel</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Error de Daniel y la Corrección del Ángel Gabriel</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El error de Daniel</span><span class="bullet-desc">Al final de los 70 años de cautiverio en Babilonia, Daniel creyó erróneamente que: (a) esos 70 años correspondían al castigo total por el pecado, y (b) que él podía hacer la confesión individualmente a nombre de toda la nación.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">La realidad</span><span class="bullet-desc">Los 70 años correspondieron a la desobediencia de no dejar descansar la tierra cada séptimo año (Lev 25:2-4; Jer 25:11). La confesión individual no podía sustituir la nacional.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">70 semanas de años</span><span class="bullet-desc">El ángel corrige: son 70 semanas <em>de años</em>. Los judíos agrupan por sietes (como agrupamos en docenas). 70 × 7 = <span class="hl">490 años</span>.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Propósito de las 70 Semanas (Daniel 9:24)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Terminar la transgresión (prevaricación)</span><span class="bullet-desc">El rechazo al Mesías debe ser reconocido y confesado.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Poner fin al pecado</span><span class="bullet-desc">La era de la desobediencia nacional concluirá.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Traer justicia perdurable</span><span class="bullet-desc">El reino milenial bajo el Mesías — Jesús reinando sobre Israel.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Sellar la visión y la profecía</span><span class="bullet-desc">Todo lo profetizado sobre Israel se cumplirá completamente.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Ungir al Santo de los santos</span><span class="bullet-desc">Cristo reinará en el Templo durante el Milenio.</span></span></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">La Línea de Tiempo de las 70 Semanas — Dónde Estamos Hoy</div>
+      <table class="styled-table">
+        <thead>
+          <tr><th>Segmento</th><th>Duración</th><th>Evento</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="hl">7 semanas</span></td><td>49 años</td><td>Desde el decreto del rey Ciro para restaurar Jerusalén (Esdras 1) hasta que se terminaron los muros — tiempos angustiosos.</td></tr>
+          <tr><td><span class="hl">62 semanas</span></td><td>434 años</td><td>Hasta la venida del Mesías Príncipe. Total acumulado: 69 semanas = 483 años.</td></tr>
+          <tr><td><span class="hl">PAUSA</span></td><td>~2,000 años</td><td>Inicia con la crucifixión del Mesías. La Era de la Iglesia es esta pausa, como un partido de fútbol detenido faltando 2 minutos. El reloj se reiniciará cuando la plenitud de los gentiles entre.</td></tr>
+          <tr><td><span class="hl">1 semana</span></td><td>7 años</td><td>La Tribulación — la semana #70. Confirmación del pacto con Israel da inicio. A la mitad cesa el sacrificio y comienza la gran tribulación.</td></tr>
+        </tbody>
+      </table>
+      <div class="info-panel" style="margin-top:14px;">
+        <div class="info-panel-title">Dos Venidas — Dos Naturalezas</div>
+        <div class="two-col">
+          <div>
+            <ul class="bullets">
+              <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El Rapto — inminente</span><span class="bullet-desc">Nada le precede excepto la entrada completa de los gentiles. Solo el Padre conoce el día. Por eso debemos estar preparados <em>a todo momento</em>.</span></span></li>
+            </ul>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">La Segunda Venida — calculable</span><span class="bullet-desc">Exactamente 7 años después de la firma del tratado. Quien discierna el inicio de la semana #70 conocerá el día exacto con 7 años de anticipación.</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XIII ══════════════════════════ -->
+<div class="section" id="sec-XIII">
+  <div class="section-header">
+    <div class="section-num">XIII</div>
+    <h3 class="section-title">Señales del Final de la Era de los Gentiles</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Nueve Señales de Transición (Del Período de la Iglesia a la Tribulación)</div>
+      <div class="two-col">
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✓</span><span class="bullet-body"><span class="bullet-label">Guerras y sediciones (Mat 24, Luc 21)</span><span class="bullet-desc">WWI: 88% de naciones involucradas, 22M muertos. WWII: 95% de naciones, 66M muertos. Cumplido ✅</span></span></li>
+            <li><span class="bullet-icon">✓</span><span class="bullet-body"><span class="bullet-label">Incremento en hambrunas</span><span class="bullet-desc">China: 45M muertos a fines del siglo XX. 2007-2008: 147M con hambre globalmente. Cumplido ✅</span></span></li>
+            <li><span class="bullet-icon">✓</span><span class="bullet-body"><span class="bullet-label">Incremento en terremotos</span><span class="bullet-desc">Oklahoma: de 60 terremotos en 2009 a 1,047 en 2014. Cumplido ✅</span></span></li>
+            <li><span class="bullet-icon">✓</span><span class="bullet-body"><span class="bullet-label">Apostasía de la Iglesia (Apo 3, 1 Tim 4:1-3)</span><span class="bullet-desc">Laodicea — la iglesia actual en estado tibio. Cumplido ✅</span></span></li>
+            <li><span class="bullet-icon">✓</span><span class="bullet-body"><span class="bullet-label">Regreso de Israel a su tierra (Eze 20:34, 22:15)</span><span class="bullet-desc">Dispersión desde 70 AD. Israel renació como nación <span class="hl">en un solo día en 1948</span>. Cumplido ✅</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">?</span><span class="bullet-body"><span class="bullet-label">Resurrección de la Iglesia — El Rapto (Ap 4, 2 Tes 2)</span><span class="bullet-desc">Pendiente ❓</span></span></li>
+            <li><span class="bullet-icon">?</span><span class="bullet-body"><span class="bullet-label">10 reyes gobernando antes del #11 (Dan 2 y 7)</span><span class="bullet-desc">El surgimiento del Anticristo — pendiente ❓</span></span></li>
+            <li><span class="bullet-icon">?</span><span class="bullet-body"><span class="bullet-label">Regreso del profeta Elías (Malaquías 4:5)</span><span class="bullet-desc">Para regresar a Israel al Ortodoxismo y los sacrificios — pendiente ❓</span></span></li>
+            <li><span class="bullet-icon">?</span><span class="bullet-body"><span class="bullet-label">Confirmación del Pacto con Israel (Dan 9:27)</span><span class="bullet-desc">Da inicio a la Tribulación e inicio de los sacrificios en el Templo — pendiente ❓</span></span></li>
+          </ul>
+          <div class="info-panel" style="margin-top:12px;">
+            <div class="info-panel-title">Dolores de Parto (griego: Odín)</div>
+            <p class="body-text">Las señales aumentan en: (1) intensidad dolorosa, (2) frecuencia, (3) severidad. Asociadas al <span class="hl">nacimiento del Reino</span>. Escritos judíos del Siglo I (Zohar Chadash, Bereshit Rabbah) confirman que "nación contra nación" era el modismo rabínico para las señales del Mesías.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XIV ══════════════════════════ -->
+<div class="section" id="sec-XIV">
+  <div class="section-header">
+    <div class="section-num">XIV</div>
+    <h3 class="section-title">El Sermón del Monte de los Olivos — Mateo 24 y Lucas 21</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Las Cuatro Preguntas y el Tema Adicional</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">A</span><span class="bullet-body"><span class="bullet-label">¿Cuáles NO son señales del final?</span><span class="bullet-desc">Falsos cristos, rumores de guerras, guerras y sediciones — pero aún no es el fin. (Mat 24:4-6; Luc 21:8-9)</span></span></li>
+        <li><span class="bullet-icon">B</span><span class="bullet-body"><span class="bullet-label">¿Cuáles son las señales del fin del siglo?</span><span class="bullet-desc">Principio de dolores: naciones contra naciones, hambres, terremotos, pestilencias, terror y señales en el cielo. (Mat 24:7-8; Luc 21:10-11)</span></span></li>
+        <li><span class="bullet-icon">C</span><span class="bullet-body"><span class="bullet-label">¿Cuándo será la destrucción del Templo?</span><span class="bullet-desc">Solo en Lucas 21:12-24. Cumplida en 70 AD bajo Tito. Advierta para huir cuando Jerusalén esté rodeada de ejércitos.</span></span></li>
+        <li><span class="bullet-icon">D</span><span class="bullet-body"><span class="bullet-label">¿Cuáles son las señales de tu venida?</span><span class="bullet-desc">La Tribulación precede a la Segunda Venida. Falsos cristos con señales, la abominación desoladora, la gran tribulación sin precedentes, señales cósmicas. (Mat 24:9-31; Luc 21:25-28)</span></span></li>
+        <li><span class="bullet-icon">E</span><span class="bullet-body"><span class="bullet-label">Advertencia y Resurrección de la Iglesia (Rapto)</span><span class="bullet-desc">Como en días de Noé. Dos en el campo, uno tomado y el otro dejado. Velad porque no sabéis la hora. (Mat 24:32-44; Luc 21:28-36)</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La Venida del Señor vs. El Día del Señor</div>
+      <div class="two-col" style="gap:10px;">
+        <div class="info-panel">
+          <div class="info-panel-title">😊 La Venida del Señor (Rapto)</div>
+          <p class="body-text">Día feliz para la iglesia. Puede suceder en cualquier momento. <em>"El Señor mismo... descenderá del cielo; y los muertos en Cristo resucitarán primero. Luego... seremos arrebatados en las nubes para recibir al Señor en el aire."</em> (1 Tes 4:16-17). Juicio para recompensa, no condenación (2 Cor 5:10).</p>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">😟 El Día del Señor (Tribulación)</div>
+          <p class="body-text">Día triste para los incrédulos. También llamado: Gran Día del Señor (Mal 4:5), Tribulación (Deut 4:30), Tiempo de Angustia para Jacob (Jer 30:7), La Indignación (Dan 11:36), Día de Oscuridad (Joel 2:2). Son los 7 años de la semana #70 de Daniel.</p>
+        </div>
+      </div>
+      <div class="scripture" style="margin-top:12px;">
+        <span class="scripture-ref">2 Tesalonicenses 2:1-3</span>
+        <span class="scripture-text">Con respecto a la venida de nuestro Señor Jesucristo, y nuestra reunión con él... no vendrá [el día del Señor] sin que antes venga la apostasía, y se manifieste el hombre de pecado.</span>
+      </div>
+    </div>
+    <div class="card full">
+      <div class="card-title">Orden de Sucesos Establecido por Pablo (2 Tesalonicenses 2)</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">① Apostasía de la Iglesia</div>
+          <div class="timeline-desc">La iglesia de Laodicea en su estado tibio y apóstata. Ya en proceso.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">② La Venida del Señor y nuestra reunión con Él (posiblemente simultáneo con ③)</div>
+          <div class="timeline-desc">El Espíritu Santo, que mora en la iglesia, es "quitado de en medio" junto con su novia. Esto permite la manifestación del Anticristo.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">③ Manifestación del Anticristo</div>
+          <div class="timeline-desc">El cuerno pequeño de Daniel 7 — el "hombre de pecado, hijo de perdición" que se sienta en el templo haciéndose pasar por Dios.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">④ El Día del Señor — La Tribulación (Semana #70)</div>
+          <div class="timeline-desc">Los 7 años determinados para el pueblo de Israel (Dan 9:27). La iglesia no está puesta para ira (1 Tes 5:9).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">⑤ La Segunda Venida de Cristo</div>
+          <div class="timeline-desc">Exactamente 7 años después del inicio de la Tribulación. Cristo viene con sus ejércitos celestiales (la iglesia vestida de lino blanco, Ap 19:14). Destruye el cuarto reino. Establece el Milenio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XV ══════════════════════════ -->
+<div class="section" id="sec-XV">
+  <div class="section-header">
+    <div class="section-num">XV</div>
+    <h3 class="section-title">El Rapto — La Resurrección de la Iglesia y la Tradición de la Boda Judía</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">¿Por Qué la Iglesia es Removida Antes de la Tribulación?</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><span class="bullet-body"><span class="bullet-label">La semana #70 es para Israel</span><span class="bullet-desc">Destinada específicamente para tratar la incredulidad de Israel. (Dan 9:24)</span></span></li>
+        <li><span class="bullet-icon">❷</span><span class="bullet-body"><span class="bullet-label">La novia no está destinada a ira</span><span class="bullet-desc"><em>Porque no nos ha puesto Dios para ira, sino para alcanzar salvación.</em> (1 Tes 5:9)</span></span></li>
+        <li><span class="bullet-icon">❸</span><span class="bullet-body"><span class="bullet-label">La casa está lista</span><span class="bullet-desc">Juan 14:2-3: <em>Voy a preparar lugar para vosotros... vendré otra vez y os tomaré a mí mismo.</em> El Padre decide cuándo la casa está lista.</span></span></li>
+        <li><span class="bullet-icon">❹</span><span class="bullet-body"><span class="bullet-label">La plenitud de los gentiles se ha completado</span><span class="bullet-desc">Rom 11:25: Israel tendrá endurecimiento <em>hasta que haya entrado la plenitud de los gentiles.</em></span></span></li>
+        <li><span class="bullet-icon">❺</span><span class="bullet-body"><span class="bullet-label">Toda la novia es llevada al mismo tiempo</span><span class="bullet-desc">En <span class="hl">un momento, en un abrir y cerrar de ojos</span> (1 Cor 15:52). No ocurre en etapas.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La Tradición de la Boda Judía — Metáfora del Rapto (Génesis 24)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El padre busca novia para el hijo</span><span class="bullet-desc">El Padre prepara todo. El hijo (novio) inicia la construcción de la adición a la casa del padre — lo que hereda.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El hijo no conoce el día de su boda</span><span class="bullet-desc">Porque el <span class="hl">Padre decide cuándo la casa está lista</span>. (Mat 24:36: <em>del día y la hora nadie sabe, sino solo mi Padre</em>)</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El novio va a buscar a la novia</span><span class="bullet-desc">La novia no sabe el día — debe estar preparada a todo momento. El novio la lleva a su casa.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">7 días de luna de miel</span><span class="bullet-desc">Corresponde a los 7 años de Tribulación. La novia (iglesia) está con el novio (Cristo) en el cielo durante esos 7 años.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Regresan juntos a los 7 días</span><span class="bullet-desc">La iglesia regresa con Cristo en su Segunda Venida (Ap 19:14). ¡Las bodas del Cordero! (Ap 19:9)</span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XVI ══════════════════════════ -->
+<div class="section" id="sec-XVI">
+  <div class="section-header">
+    <div class="section-num">XVI</div>
+    <h3 class="section-title">La Adoración Celestial — Apocalipsis Capítulo 4 (Después del Rapto)</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Escena del Trono Celestial (Ap. 4:1-11)</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">"Después de estas cosas"</span><span class="bullet-desc">Ap. 4:1 comienza inmediatamente después de los caps. 2-3 (la era de la iglesia). La iglesia no se menciona de nuevo sino hasta el cap. 19:9 (Bodas del Cordero).</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">24 ancianos en tronos</span><span class="bullet-desc">Primera vez que aparecen "ancianos" en una visión de Dios — sugiere que antes no estaban ahí. Líderes humanos (el 12 = gobierno; 24 = totalidad del gobierno). Sentados en tronos de autoridad (Luc 22:30; Ap 20:4).</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Vestidos de ropas blancas</span><span class="bullet-desc">Revestidos de justicia por fe (Gal 3:27; Ap 3:5; Ap 19:8 — lino fino = acciones justas de los santos).</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Coronas de oro en sus cabezas</span><span class="bullet-desc">Coronas <em>stephanos</em> — ganadas por servicio a Cristo, no por nacimiento en la realeza. (2 Tim 4:8; 1 Cor 9:25)</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Evidencias de que Cap. 4 Ocurre Después del Rapto</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">7 lámparas = Siete Espíritus de Dios</span><span class="bullet-desc">El número 7 = el Espíritu Santo en toda su plenitud — <span class="hl">100% de su presencia en el cielo</span>, no en la tierra con la iglesia. Isaías describe las 7 características del Espíritu (Isa 11:2).</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Jesús prometió permanecer</span><span class="bullet-desc">Mat 28:20: <em>He aquí yo estoy con vosotros todos los días, hasta el fin del mundo (del siglo).</em> Si el Espíritu Santo está 100% en el cielo, la iglesia no puede estar en la tierra.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">Los ancianos tienen cuerpos</span><span class="bullet-desc">Tienen coronas físicas, están sentados y vestidos con ropas — deben tener <span class="hl">cuerpos espirituales eternos</span>, lo que implica que han experimentado la resurrección.</span></span></li>
+        <li><span class="bullet-icon">✦</span><span class="bullet-body"><span class="bullet-label">El misterio de la iniquidad puede manifestarse</span><span class="bullet-desc">2 Tes 2:7: <em>hay quien al presente lo detiene, hasta que él a su vez sea quitado de en medio.</em> Al ser quitada la iglesia, el Anticristo puede manifestarse.</span></span></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Resumen: La Secuencia Final Completa</div>
+      <div class="two-col">
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">✓</span><span class="bullet-body"><span class="bullet-label">Ya cumplidos</span><span class="bullet-desc">Rumores y guerras mundiales ✅ · Incremento de terremotos ✅ · Incremento de hambrunas ✅ · Apostasía de la Iglesia ✅ · Regreso de Israel a su tierra ✅</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="bullets">
+            <li><span class="bullet-icon">?</span><span class="bullet-body"><span class="bullet-label">Por cumplir</span><span class="bullet-desc">Resurrección de la Iglesia (Rapto) ❓ · Surgimiento de 10 gobernantes mundiales ❓ · Regreso de Elías ❓ · Firma del Convenio con Israel (da inicio a la Tribulación) ❓</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="scripture" style="margin-top:16px;">
+        <span class="scripture-ref">Lucas 21:36</span>
+        <span class="scripture-text">Velad, pues, en todo tiempo orando que seáis tenidos por dignos de escapar de todas estas cosas que vendrán, y de estar en pie delante del Hijo del Hombre.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-sym">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary-box">
+  <p>El libro de Apocalipsis no es un mensaje de terror sino de <em>esperanza y certeza</em>. A través de sus capítulos iniciales comprendemos que Jesús, quien se presentó en toda su gloria eterna a Juan, gobierna soberanamente la historia humana. La Era de los Gentiles — el largo período del dominio gentil sobre Israel — no es un accidente histórico sino el cumplimiento puntual de las maldiciones del Viejo Pacto, diseñado por la misericordia de Dios para que, a través de la pausa de la Era de la Iglesia, <em>toda la plenitud de los gentiles entre</em> y luego todo Israel sea salvo. El Rapto es inminente. La Tribulación viene para Israel. El Reino Eterno es inevitable. Y el enfoque de la novia de Cristo no debe ser el juicio venidero, sino prepararse para <em>la venida del Novio</em>, que llegará a la hora que no pensamos.</p>
+</div>
+
+<!-- FOOTNOTE -->
+<footer>
+  <p>Basado en la enseñanza original de <strong>Verse By Verse Ministry International (VBVMI)</strong> · vbvmi.org</p>
+  <p>Las interpretaciones y conclusiones presentadas se basan en VBVMI con autorización. Los puntos de vista del autor no representan necesariamente los de VBVMI.</p>
+  <p>Arte de <strong>Pat Marvenko Smith</strong> © 1992 · revelationillustrated.com</p>
+  <p style="margin-top:8px;font-size:12px;">Puede copiarse y distribuirse en su forma original, sin editar, incluyendo esta declaración de derechos de autor, sin cobro por su distribución.</p>
+</footer>
+
+</div><!-- end page-wrap -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

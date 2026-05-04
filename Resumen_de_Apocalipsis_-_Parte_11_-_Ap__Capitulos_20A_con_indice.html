@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis — Parte 11</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Starfield */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 15%, rgba(201,168,76,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 28% 72%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 44% 33%, rgba(201,168,76,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 57% 88%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 71% 22%, rgba(201,168,76,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 83% 55%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 10%, rgba(201,168,76,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 6%  60%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 45%, rgba(201,168,76,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 78%, rgba(255,255,255,0.5) 0%, transparent 100%);
+}
+
+/* Layout wrapper */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  background: radial-gradient(ellipse at 50% 0%, rgba(100,10,10,0.55) 0%, rgba(10,8,6,0) 70%);
+  text-align: center;
+  padding: 56px 24px 48px;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  margin-bottom: 52px;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-family: var(--f-heading);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.ornament::before, .ornament::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim));
+}
+.ornament::after {
+  background: linear-gradient(90deg, var(--gold-dim), transparent);
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  font-weight: 400;
+  margin-bottom: 36px;
+}
+
+.meta-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.meta-item::before {
+  content: '✦';
+  color: var(--gold-dim);
+  font-size: 10px;
+}
+
+/* ==================== SECTIONS ==================== */
+.section {
+  margin-bottom: 52px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.section-num {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.3;
+}
+
+/* ==================== CARDS ==================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover {
+  border-left-color: var(--gold);
+  transform: translateX(3px);
+}
+.card.full {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+}
+
+/* ==================== BULLETS ==================== */
+ul.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+ul.bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+
+.bullet-icon {
+  font-size: 15px;
+  line-height: 1.6;
+  flex-shrink: 0;
+  color: var(--gold-dim);
+}
+
+.bullet-content { flex: 1; }
+
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* ==================== SCRIPTURE BOX ==================== */
+.scripture {
+  position: relative;
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 28px;
+  margin: 6px 0;
+  overflow: hidden;
+}
+
+.scripture::before {
+  content: '\201C';
+  position: absolute;
+  top: -4px;
+  left: 10px;
+  font-size: 56px;
+  font-family: var(--f-display);
+  color: rgba(139,26,26,0.3);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1.2px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.scripture p {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* ==================== TIMELINE ==================== */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold-dim), transparent);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -23px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,0.5);
+}
+
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ==================== INFO PANEL ==================== */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+/* ==================== TABLES ==================== */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(201,168,76,.2);
+}
+
+.styled-table td {
+  font-size: 15px;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.styled-table tr:last-child td { border-bottom: none; }
+
+/* ==================== TWO COL ==================== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ==================== HIGHLIGHT ==================== */
+.hl {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* ==================== DIVIDER ==================== */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0;
+  color: var(--gold-dim);
+  font-size: 14px;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+}
+
+/* ==================== SUMMARY BOX ==================== */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* ==================== FOOTNOTE ==================== */
+footer {
+  border-top: 1px solid rgba(201,168,76,.1);
+  margin-top: 56px;
+  padding-top: 24px;
+  text-align: center;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+footer a {
+  color: var(--gold-dim);
+  text-decoration: none;
+}
+footer a:hover { color: var(--gold); }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 780px) {
+  .cards, .two-col { grid-template-columns: 1fr; }
+  .card.full { grid-column: 1; }
+}
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed; top: 0; left: 0; width: 270px; height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000; display: flex; flex-direction: column; overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex; align-items: center; gap: 10px; padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12); flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold-dim); white-space: nowrap;
+}
+.toc-links {
+  flex: 1; overflow-y: auto; padding: 10px 0 20px;
+  scrollbar-width: thin; scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 18px;
+  text-decoration: none; color: var(--text-dim); font-family: var(--f-body);
+  font-size: 13px; line-height: 1.4; border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover { color: var(--gold-light); border-left-color: var(--gold); background: rgba(201,168,76,.06); }
+.toc-item.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,.1); }
+.toc-num { flex-shrink: 0; font-size: 11px; font-family: var(--f-heading); color: var(--crimson-light); padding-top: 1px; min-width: 22px; }
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute; bottom: 20px; right: 12px;
+  background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold); border-radius: 50%; width: 30px; height: 30px;
+  cursor: pointer; font-size: 18px; display: flex; align-items: center;
+  justify-content: center; transition: background .2s; line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed; top: 50%; left: 0; transform: translateY(-50%);
+  z-index: 999; background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3); border-left: none;
+  color: var(--gold); border-radius: 0 6px 6px 0; width: 22px; height: 54px;
+  cursor: pointer; font-size: 18px; display: none; align-items: center;
+  justify-content: center; transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+.wrapper { transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+body.toc-open .page-wrap, body.toc-open .wrapper { margin-left: 270px; max-width: calc(1100px + 270px); transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+body.toc-closed .page-wrap, body.toc-closed .wrapper { margin-left: 0; transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+@media (max-width: 900px) { #sidebar-toc { width: 240px; } body.toc-open .page-wrap, body.toc-open .wrapper { margin-left: 240px; } }
+@media (max-width: 600px) { body.toc-open .page-wrap, body.toc-open .wrapper { margin-left: 0; } }
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#toc-1" class="toc-item"><span class="toc-num">I</span><span class="toc-title">Perspectiva Global: El Intervalo entre la Tribulación y el Reino</span></a>
+<a href="#toc-2" class="toc-item"><span class="toc-num">II</span><span class="toc-title">La Línea de Tiempo de Daniel: Anclas Proféticas</span></a>
+<a href="#toc-3" class="toc-item"><span class="toc-num">III</span><span class="toc-title">El Primer Período: 30 Días de Restauración de la Tierra</span></a>
+<a href="#toc-4" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">El Segundo Período: 45 Días de Juicio y Bendición</span></a>
+<a href="#toc-5" class="toc-item"><span class="toc-num">V</span><span class="toc-title">Los Cinco Grupos de Ciudadanos del Reino</span></a>
+<a href="#toc-6" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">Grupo #2: Resurrección de los Santos del Antiguo Testamento</span></a>
+<a href="#toc-7" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">Grupo #3: Resurrección de los Santos Mártires de la Tribulación</span></a>
+<a href="#toc-8" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">Grupo #4: Judíos Vivos al Regreso de Cristo — ¿Serán Resucitados?</span></a>
+<a href="#toc-9" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">La Primera y la Segunda Resurrección</span></a>
+<a href="#toc-10" class="toc-item"><span class="toc-num">X</span><span class="toc-title">Grupo #5: Los Gentiles Vivientes — Ovejas y Cabritos (Mateo 25)</span></a>
+<a href="#toc-11" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">La Entrada al Reino: Hijos Nacidos Durante el Milenio</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+
+<div class="starfield"></div>
+
+<div class="wrapper">
+
+<!-- ==================== HEADER ==================== -->
+<header>
+  <div class="ornament">Verse by Verse Ministry International</div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 11 · Capítulo 20A</h2>
+  <div class="meta-bar">
+    <span class="meta-item">Capítulo cubierto: Apocalipsis 20 (primera parte)</span>
+    <span class="meta-item">Referencias cruzadas: Daniel 9, 12 · Isaías 2, 26, 65 · Mateo 25 · 1 Corintios 13, 15 · Jeremías 24, 31, 50 · Ezequiel 11, 44 · Sofonías 3</span>
+    <span class="meta-item">Período histórico: El Intervalo de 75 Días entre la Tribulación y el Reino Milenial</span>
+  </div>
+</header>
+
+<!-- ==================== SECCIÓN I ==================== -->
+<section class="section" id="toc-1">
+  <div class="section-header">
+    <div class="section-num">I</div>
+    <h3 class="section-title">Perspectiva Global: El Intervalo entre la Tribulación y el Reino</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Momento Esperado</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El cumplimiento de la promesa</span><span class="bullet-desc">El mundo ha esperado el regreso del Señor desde <span class="hl">Génesis 3:15</span>. El mundo antiguo, los patriarcas, los profetas y reyes de Israel, los apóstoles y la Iglesia han esperado ansiosamente este día venidero.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La línea de tiempo culmina</span><span class="bullet-desc">Cristo regresa a la Tierra poniendo fin a la Tribulación y a la <span class="hl">Era de los Gentiles</span>. El mundo está en silencio y el enemigo vencido.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La herencia prometida</span><span class="bullet-desc">Los creyentes se unirán a Jesús en una tierra libre de guerras, injusticias y pandemias para disfrutar de la herencia prometida.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Intervalo de Tiempo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">¿Qué es el intervalo?</span><span class="bullet-desc">Existe un <span class="hl">breve intervalo de tiempo</span> entre la Tribulación y el Reino. No es parte de la Tribulación ni parte del tiempo del Reino, sino que une a uno con el otro y se adapta a ciertos eventos que deben tener lugar en preparación para el Reino.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Duración total</span><span class="bullet-desc">El intervalo dura <span class="hl">75 días</span> en total: dos períodos diferenciados de 30 días y de 45 días, cada uno con propósitos específicos.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN II ==================== -->
+<section class="section" id="toc-2">
+  <div class="section-header">
+    <div class="section-num">II</div>
+    <h3 class="section-title">La Línea de Tiempo de Daniel: Anclas Proféticas</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Daniel 9:27</span>
+        <p>"Y por otra semana confirmará el pacto con muchos; a la mitad de la semana hará cesar el sacrificio y la ofrenda. Después con la muchedumbre de las abominaciones vendrá el desolador, hasta que venga la consumación, y lo que está determinado se derrame sobre el desolador."</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Las Tres Anclas de la Tribulación</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">El comienzo</span><span class="bullet-desc">La firma de un pacto entre el Anticristo e Israel, que permitirá a los judíos reiniciar el sacrificio en un templo recién construido en el monte del templo. Este evento da inicio a los siete años.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">La mitad — 3.5 años (1,260 días)</span><span class="bullet-desc">El Anticristo pone fin al sacrificio en el templo y asume un nuevo y peligroso papel en el mundo. La abominación desoladora — la imagen del Anticristo — es instalada en el templo.</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">El final — 7 años</span><span class="bullet-desc">Destrucción completa sobre el Anticristo y regreso de Cristo. La Tribulación consta de <span class="hl">dos períodos de 1,260 días</span> (dos veces 3.5 años usando el calendario judío de 360 días).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Daniel 12: Extensión de la Línea de Tiempo</div>
+      <div class="scripture" style="margin-bottom:12px;">
+        <span class="scripture-ref">Daniel 12:11–12</span>
+        <p>"Y desde el tiempo que sea quitado el continuo sacrificio hasta la abominación desoladora, habrá mil doscientos noventa días. Bienaventurado el que espere, y llegue a mil trescientos treinta y cinco días."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los 1,290 días</span><span class="bullet-desc">30 días adicionales después de la segunda venida de Jesús para <span class="hl">remover la abominación</span> del templo y limpiar el templo. La imagen permanece en pie por un tiempo hasta que se quita.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los 1,335 días</span><span class="bullet-desc">Otros 45 días adicionales. Los <span class="hl">"bienaventurados del Señor"</span> son los que esperen y alcancen este día: período para identificar quienes pueden entrar al Reino y darles cuerpos eternos.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN III ==================== -->
+<section class="section" id="toc-3">
+  <div class="section-header">
+    <div class="section-num">III</div>
+    <h3 class="section-title">El Primer Período: 30 Días de Restauración de la Tierra</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Estado de la Tierra</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Desastre global</span><span class="bullet-desc">Los juicios de la Tribulación han resultado en un desastre natural global de proporciones bíblicas. Montañas aplanadas, ciudades destruidas, el agua convertida en sangre, sin sol ni luna ni estrellas. <span class="hl">A la tierra le queda muy poco.</span></span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La tierra del Reino</span><span class="bullet-desc">Sin embargo, esta misma tierra dañada es la tierra del Reino de 1,000 años. Si vamos a disfrutar del mundo con Cristo durante el Reino, este desastre debe limpiarse sobrenatural­mente.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Isaías 65: Renovación, No Creación Nueva</div>
+      <div class="scripture">
+        <span class="scripture-ref">Isaías 65:17–19</span>
+        <p>"Porque he aquí que yo crearé nuevos cielos y nueva tierra… Mas os gozaréis y os alegraréis para siempre en las cosas que yo he creado… Yo me alegraré con Jerusalén y me gozaré con mi pueblo."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Sentido correcto de "nuevo"</span><span class="bullet-desc">El hebreo original indica <span class="hl">recreación</span>, no creación desde cero. El mejor sentido es "creando los cielos de nuevo y la tierra de nuevo" — renovando algo que ha sido arruinado, no un "brand new start".</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Diferencia con Apocalipsis 21</span><span class="bullet-desc">No confundir con Apocalipsis 21, donde Juan describe un mundo radicalmente diferente (en griego "fresh new"): sin mares, sin tinieblas, sin cielo físico, ni luna. El mundo de Isaías 65 aún tiene pecado y muerte.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Significado de los 30 Días</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Propósito del tiempo</span><span class="bullet-desc">Dios pudo restaurar la tierra instantáneamente, pero se toma 30 días como lo hizo con los 6 días de la creación: los números y todo lo que Dios hace tienen propósito y múltiples niveles de revelación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El número 3 (Deidad)</span><span class="bullet-desc">El número 3 es el número de la <span class="hl">Deidad</span>, recordándonos que Dios está en el centro de esta obra y del mundo venidero.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El número 10 (Testimonio)</span><span class="bullet-desc">El número 10 es el número del <span class="hl">testimonio</span> en la Biblia. El Reino entero es un testimonio del gobierno justo de Jesús y del derecho que tiene sobre la herencia que el Padre le ha dado. (30 = 3×10)</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Otros Eventos de los 30 Días</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">El Anticristo y el Falso Profeta</span><span class="bullet-desc">Mueren inmediatamente a la segunda venida de Jesús. Sus almas descienden al infierno donde los reyes se burlan de ellos. Luego son depositados en el Lago de Fuego eternamente — <span class="hl">los primeros dos en ese lugar</span>, solos por 1,000 años.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">Remoción de los cuerpos</span><span class="bullet-desc">Los ejércitos que luchaban contra Jesús fueron asesinados con Su Espada al regreso de Jesús. Sus cuerpos deben ser removidos con la ayuda de las aves, proceso que lleva tiempo dentro de estos 30 días.</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">El nuevo Templo del Reino</span><span class="bullet-desc">Según Daniel 12 y Ezequiel, se construirá un templo nuevo y majestuoso para la apertura del Reino. La topografía misma cambiará: nuevas montañas y ríos alrededor de Jerusalén (Isaías 2:2–3).</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN IV ==================== -->
+<section class="section" id="toc-4">
+  <div class="section-header">
+    <div class="section-num">IV</div>
+    <h3 class="section-title">El Segundo Período: 45 Días de Juicio y Bendición</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Significado Numérico</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El número 9 (Juicio)</span><span class="bullet-desc">El 9 es el número de <span class="hl">juicio</span>. Este período es un momento de juzgar corazones para determinar quién entra al Reino.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El número 5 (Gracia)</span><span class="bullet-desc">El 5 es el número de la <span class="hl">gracia</span>. En medio del juicio, habrá gracia para algunos. (45 = 9×5) — Juicio y gracia simultáneos.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Atadura de Satanás (Apoc. 20:1–3)</div>
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 20:1–3</span>
+        <p>"Vi un ángel que descendía del cielo con la llave del abismo y una gran cadena en la mano. Prendió al dragón, la serpiente antigua, que es el Diablo y Satanás, y lo ató por mil años…"</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Padre permanece en el cielo</span><span class="bullet-desc">Durante todo el reinado de 1,000 años de Cristo, el Padre permanece separado del Hijo, fuera del alcance de la Creación. Solo por Su Hijo puede alguien acercarse al Padre, pues todavía habrá pecado en la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Satanás atado</span><span class="bullet-desc">Dios pudo atar a Satanás en cualquier momento, pero decidió hacerlo de esta manera para Su propia gloria y propósitos. Será liberado al final del reino por un corto tiempo (v.7).</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Los Tres Destinos: Abismo, Infierno y Lago de Fuego</div>
+      <div class="two-col">
+        <div class="info-panel">
+          <div class="info-panel-title">El Abismo</div>
+          <p style="font-size:16px;color:var(--text-dim);line-height:1.65;">Lugar en las profundidades de la tierra donde Dios retiene los <span class="hl">espíritus de los demonios</span> hasta el día de su juicio. No es el infierno. Satanás permanecerá aquí durante los 1,000 años del Reino. En un momento futuro se vaciará para el juicio final.</p>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">El Infierno (Seol/Hades)</div>
+          <p style="font-size:16px;color:var(--text-dim);line-height:1.65;">Lugar de detención para los <span class="hl">humanos pecadores</span> en las profundidades de la tierra. No es el estado final. El Anticristo y el Falso Profeta pasarán aquí mientras esperan ser lanzados al Lago de Fuego.</p>
+        </div>
+        <div class="info-panel" style="grid-column:1/-1;">
+          <div class="info-panel-title">El Lago de Fuego — Destino Permanente</div>
+          <p style="font-size:16px;color:var(--text-dim);line-height:1.65;">La residencia permanente y final, tanto para los demonios como para la humanidad no creyente. El Anticristo y el Falso Profeta serán los <span class="hl">primeros dos en llegar</span>, solos durante los primeros 1,000 años del Reino. Ni el Abismo ni el Infierno son estados finales — ambos preceden este juicio final.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN V ==================== -->
+<section class="section" id="toc-5">
+  <div class="section-header">
+    <div class="section-num">V</div>
+    <h3 class="section-title">Los Cinco Grupos de Ciudadanos del Reino</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Panorama General de los Cinco Grupos</div>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Grupo</th>
+            <th>Descripción</th>
+            <th>Estado Corporal</th>
+            <th>Resurrección</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="hl">#1 Santos de la Iglesia</span></td>
+            <td>Creyentes de la Era de la Iglesia, incluyendo al lector</td>
+            <td>Glorificado (rapto)</td>
+            <td>En el Rapto, antes de la Tribulación</td>
+          </tr>
+          <tr>
+            <td><span class="hl">#2 Santos del A.T.</span></td>
+            <td>Adán, Noé, Abraham, Moisés, David, Juan el Bautista…</td>
+            <td>Glorificado (intervalo)</td>
+            <td>Durante los 45 días del intervalo</td>
+          </tr>
+          <tr>
+            <td><span class="hl">#3 Mártires de la Tribulación</span></td>
+            <td>Almas bajo el altar (Apoc. 6), decapitados por su fe</td>
+            <td>Glorificado (intervalo)</td>
+            <td>Durante los 45 días del intervalo</td>
+          </tr>
+          <tr>
+            <td><span class="hl">#4 Judíos vivos al regreso de Cristo</span></td>
+            <td>Remanente de Petra + judíos en Israel que confesaron a Jesús</td>
+            <td>Natural (posiblemente mixto)</td>
+            <td>Debate: posiblemente glorificados o en cuerpo natural</td>
+          </tr>
+          <tr>
+            <td><span class="hl">#5 Gentiles creyentes vivos</span></td>
+            <td>"Las ovejas" — gentiles que protegieron al pueblo judío</td>
+            <td>Natural</td>
+            <td>No muertos; entran al Reino en cuerpo natural</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">Implicación clave: Dos Naturalezas en el Reino</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Cuerpos glorificados</span><span class="bullet-desc">No pecan, no se casan, no tienen hijos, no mueren. Son como Jesús resucitado. <span class="hl">Llamados a gobernar</span> el mundo natural de los pecadores.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Cuerpos naturales</span><span class="bullet-desc">Todavía llevan el pecado en sus cuerpos, se casan y tienen hijos. Sus descendientes serán incrédulos y pecadores que necesitan ser gobernados.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Convivencia fascinante</span><span class="bullet-desc">La convivencia de estas dos naturalezas distintas lleva a consecuencias fascinantes para la vida en el Reino que se estudiarán próximamente.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Matrimonio en los Cuerpos Glorificados</div>
+      <div class="scripture">
+        <span class="scripture-ref">Marcos 12:24–25</span>
+        <p>"Cuando resuciten de los muertos, ni se casarán ni se darán en casamiento, sino que serán como los ángeles que están en los cielos."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Por qué ya no se necesita el matrimonio</span><span class="bullet-desc">El matrimonio fue instituido porque no era bueno que el hombre estuviera solo ante el pecado. Resucitados, estaremos casados con Cristo y no necesitaremos un partner. Ya no se requiere multiplicarse para poblar la tierra.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN VI ==================== -->
+<section class="section" id="toc-6">
+  <div class="section-header">
+    <div class="section-num">VI</div>
+    <h3 class="section-title">Grupo #2: Resurrección de los Santos del Antiguo Testamento</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Daniel 12:1–2</span>
+        <p>"En aquel tiempo se levantará Miguel, el gran príncipe que está de parte de los hijos de tu pueblo… será libertado tu pueblo, todos los que se hallen inscritos en el libro. Muchos de los que duermen en el polvo de la tierra serán despertados: unos para vida eterna, otros para vergüenza y confusión perpetua."</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">La Resurrección Descrita</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El contexto de Daniel 12:1</span><span class="bullet-desc">La salvación de Israel al final de la Tribulación desencadena la resurrección de los santos del A.T. "En aquel tiempo" el pueblo de Daniel será salvo y muchos de los que "duermen" despertarán a la vida eterna.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los incrédulos no resucitan aquí</span><span class="bullet-desc">A los judíos incrédulos se les promete la desgracia, aunque su resurrección no tiene lugar en este punto. Su momento llegará después del Reino (segunda resurrección).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Isaías 26 lo Confirma</div>
+      <div class="scripture">
+        <span class="scripture-ref">Isaías 26:19</span>
+        <p>"Tus muertos vivirán; sus cadáveres resucitarán. ¡Despertad y cantad, moradores del polvo! porque tu rocío es cual rocío de hortalizas, y la tierra entregará sus muertos."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un momento maravilloso</span><span class="bullet-desc">Por primera vez veremos a Adán, Noé, Abraham, Moisés, David e incluso Juan el Bautista en la carne. Podremos caminar e interactuar con los hombres y mujeres de las historias bíblicas. <span class="hl">¡Podemos hacerle buenas preguntas a Adán!</span></span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">1 Corintios 13:12</span>
+        <p>"Sucede lo mismo con nosotros. Ahora vemos todo como el reflejo tenue de un espejo oscuro, pero cuando llegue lo perfecto, nos veremos con Dios cara a cara. Ahora mi conocimiento es parcial, pero luego mi conocimiento será completo. Conoceré a Dios tal como él me conoce a mí."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN VII ==================== -->
+<section class="section" id="toc-7">
+  <div class="section-header">
+    <div class="section-num">VII</div>
+    <h3 class="section-title">Grupo #3: Resurrección de los Santos Mártires de la Tribulación</h3>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 20:4</span>
+        <p>"Vi tronos, y se sentaron sobre ellos los que recibieron facultad de juzgar. Y vi las almas de los decapitados por causa del testimonio de Jesús y por la palabra de Dios, los que no habían adorado a la bestia ni a su imagen, ni recibieron la marca en sus frentes ni en sus manos; y vivieron y reinaron con Cristo mil años."</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Su Estado Previo y su Resurrección</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Almas bajo el altar</span><span class="bullet-desc">Estos son los santos de la Tribulación martirizados por su fe, vistos en Apocalipsis 6 debajo del altar. Hasta ahora han vivido en el Cielo <span class="hl">solo en forma de alma</span>, sin cuerpos físicos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">"Cobraron vida"</span><span class="bullet-desc">Las almas nunca dejan de existir, pero estaban "muertas" en el sentido de carecer de cuerpos físicos. "Volvieron a la vida" es una descripción de resurrección — su momento de recibir nuevos cuerpos, análogo al rapto para los santos de la Iglesia.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Los Tronos de Gobierno</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Autoridad de juzgar</span><span class="bullet-desc">Después de atar a Satanás, Juan ve tronos establecidos para gobernar. Esto confirma que estos eventos forman parte del período de 45 días de juicio y bendición descrito por Daniel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Reinado milenial</span><span class="bullet-desc">Estos mártires "vivieron y reinaron con Cristo mil años" — su resurrección y entronamiento ocurren dentro del intervalo de 75 días como preparación para el Reino.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN VIII ==================== -->
+<section class="section" id="toc-8">
+  <div class="section-header">
+    <div class="section-num">VIII</div>
+    <h3 class="section-title">Grupo #4: Judíos Vivos al Regreso de Cristo — ¿Serán Resucitados?</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Las Promesas para Israel en el Reino</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Jeremías 31:31–34 — El Nuevo Pacto</span><span class="bullet-desc">Hecho con Israel (no originalmente con los gentiles). La promesa: <span class="hl">todo Israel conocerá al Señor perfectamente</span>, sin necesidad de enseñar, con pecados perdonados y el corazón transformado.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Jeremías 24:7 y 50:19–20</span><span class="bullet-desc">Israel recibirá un corazón para conocer al Señor y se volverá a Él con todo su corazón. Incluso si uno busca el pecado en Israel, <span class="hl">no se encontrará</span>. El 100% de la nación será 100% obediente.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ezequiel 11:19–20 y Sofonías 3:9–13</span><span class="bullet-desc">Dios da a Israel un corazón nuevo y un nuevo espíritu, perfectamente obediente. El remanente de Israel no hará injusticia, ni dirá mentiras, ni en su boca se hallará lengua engañosa.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Problema: Hay Matrimonios, Muertes y Enseñanza en Israel</div>
+      <div class="scripture">
+        <span class="scripture-ref">Ezequiel 44:21–26</span>
+        <p>"Ninguno de los sacerdotes beberá vino cuando haya de entrar en el atrio interior. Ni viuda ni repudiada tomará por mujer… Enseñarán a mi pueblo a hacer diferencia entre lo santo y lo profano…"</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Contradicción aparente</span><span class="bullet-desc">Si Israel fuera completamente glorificado, no habría matrimonios, ni muerte, ni necesidad de enseñanza. Pero Ezequiel 44 describe sacerdotes que se casan, tienen familia y enseñan al pueblo — inconsistente con la glorificación total.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La mejor respuesta: ambos grupos</span><span class="bullet-desc">Algunos judíos serán glorificados (los Santos del A.T. resucitados). Pero otros judíos entrarán al Reino en forma natural, se casarán, tendrán descendencia y poseerán pecado. Israel del Reino será un grupo <span class="hl">combinado</span>.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN IX ==================== -->
+<section class="section" id="toc-9">
+  <div class="section-header">
+    <div class="section-num">IX</div>
+    <h3 class="section-title">La Primera y la Segunda Resurrección</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Primera Resurrección: Juicio de los Creyentes</div>
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 20:6</span>
+        <p>"Bienaventurado y santo el que tiene parte en la primera resurrección; la segunda muerte no tiene poder sobre éstos, sino que serán sacerdotes de Dios y de Cristo y reinarán con él mil años."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Primero y segundo = momento del juicio</span><span class="bullet-desc">Los términos "primera" y "segunda" resurrección no hacen referencia al <em>momento</em> de la resurrección, sino al <span class="hl">momento del juicio</span>. Dos juicios: primero para creyentes, segundo para no creyentes.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Resurrección en partes</span><span class="bullet-desc">"Tener parte" refleja que la primera resurrección ocurre en partes a lo largo del tiempo, no en un solo evento.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Las Cinco Partes de la Primera Resurrección</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">① La Resurrección de Cristo</div>
+          <div class="timeline-desc">Cristo fue las <span class="hl">primicias</span> de la resurrección (1 Cor. 15:20), el primero en recibir un nuevo cuerpo. Base y garantía de todas las resurrecciones siguientes.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">② Santos de la Iglesia — El Rapto</div>
+          <div class="timeline-desc">Los creyentes de la Era de la Iglesia, incluyendo al lector, reciben nuevos cuerpos en el Rapto, <em>antes</em> del inicio de la Tribulación.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">③ Los Dos Testigos</div>
+          <div class="timeline-desc">Los Dos Testigos resucitan en la mitad de la Tribulación, siendo vistos por todo el mundo (Apoc. 11).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">④ Santos del Antiguo Testamento</div>
+          <div class="timeline-desc">Resucitan durante el período de 45 días del intervalo, al final de la Tribulación, conforme a Daniel 12.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">⑤ Mártires de la Tribulación</div>
+          <div class="timeline-desc">Resucitan después de la Tribulación durante el intervalo de 75 días, conforme a Apocalipsis 20:4.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card full">
+      <div class="card-title">La Segunda Resurrección: Juicio de los Incrédulos</div>
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 20:5</span>
+        <p>"Pero los otros muertos no volvieron a vivir hasta que se cumplieron mil años. Ésta es la primera resurrección."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El "resto de los muertos"</span><span class="bullet-desc">Por proceso de eliminación, solo puede referirse a los incrédulos muertos. Todos los incrédulos serán resucitados en un segundo evento <span class="hl">al final de los 1,000 años</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Sin bendición</span><span class="bullet-desc">La segunda resurrección no es un evento bendecido. No es para recompensa sino para el juicio final por obras, para perdición. Los incrédulos no fueron salvados del pecado por rechazar a Cristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Tribunal de Cristo</span><span class="bullet-desc">El juicio para los creyentes (primera resurrección) es un juicio de <span class="hl">recompensa</span> — el "Tribunal de Cristo" (2 Cor. 5:10). Para recibir recompensa en el Reino, el creyente debe obtener su "boleta celestial" — su nuevo cuerpo — antes de que el Reino comience.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN X ==================== -->
+<section class="section" id="toc-10">
+  <div class="section-header">
+    <div class="section-num">X</div>
+    <h3 class="section-title">Grupo #5: Los Gentiles Vivientes — Ovejas y Cabritos (Mateo 25)</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Separación de las Naciones</div>
+      <div class="scripture">
+        <span class="scripture-ref">Mateo 25:31–33</span>
+        <p>"Cuando el Hijo del hombre venga en su gloria y todos los santos ángeles con él, entonces se sentará en su trono de gloria, y serán reunidas delante de él todas las naciones; entonces apartará los unos de los otros, como aparta el pastor las ovejas de los cabritos."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El "ethnos" griego</span><span class="bullet-desc">La palabra griega <em>ethnos</em> se usa comúnmente para los <span class="hl">gentiles</span>. Tiene sentido porque los judíos ya están con Jesús. Este es el juicio de los gentiles sobrevivientes de la Tribulación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El lugar del juicio</span><span class="bullet-desc">Jesús esperó 30 días para que el templo fuera limpiado y reconstruido. Quizás el trono estará en el nuevo templo, lo que explicaría por qué el juicio espera hasta el período de los 45 días.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Derecha e izquierda</span><span class="bullet-desc">En la cultura oriental, la derecha era el lugar de honor (ovejas = creyentes) y la izquierda era el deshonor (cabritos = incrédulos). El juicio de dignidad se basará en la <span class="hl">fe</span>, no en las obras (Habacuc 2:4).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Las Ovejas: Creyentes Gentiles</div>
+      <div class="scripture">
+        <span class="scripture-ref">Mateo 25:34–36</span>
+        <p>"Venid, benditos de mi Padre, heredad el Reino preparado para vosotros desde la fundación del mundo. Porque tuve hambre y me disteis de comer; tuve sed y me disteis de beber; fui forastero y me recogisteis; estuve desnudo y me vestisteis; enfermo y me visitasteis; en la cárcel y fuisteis a verme."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El fruto, no la salvación</span><span class="bullet-desc">Jesús no dice que las obras sociales <em>causaron</em> la salvación — describe el <span class="hl">fruto</span> del Espíritu visible en creyentes durante la Tribulación. Serán conocidos por su fruto, no salvados por él.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El fruto único de la Tribulación</span><span class="bullet-desc">En ese período no puede haber servicios de iglesia, misioneros ni álbumes de adoración en internet — el Anticristo vendría y los decapitaría. Pero el fruto será visible de otra forma.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Las Obras de Misericordia: ¿Para Quién?</div>
+      <div class="scripture">
+        <span class="scripture-ref">Mateo 25:40</span>
+        <p>"De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis."</p>
+      </div>
+      <div class="two-col">
+        <div class="info-panel">
+          <div class="info-panel-title">¿Quiénes son "sus hermanos más pequeños"?</div>
+          <ul class="bullets" style="margin-top:8px;">
+            <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Por eliminación</span><span class="bullet-desc">No pueden ser gentiles (ellos son los que hacen las obras). No pueden ser judíos creyentes (están protegidos bajo el cuidado del Señor). El único grupo restante: <span class="hl">los judíos incrédulos perseguidos</span> durante la Tribulación.</span></div></li>
+          </ul>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">Actos de Misericordia Suicidas</div>
+          <ul class="bullets" style="margin-top:8px;">
+            <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Peligro extremo</span><span class="bullet-desc">Cuidar enfermos, entregar agua valiosa, ropa, visitar prisioneros judíos durante el reinado de terror del Anticristo era <span class="hl">potencialmente suicida</span>. Solo la fe en Cristo los motivaría a tomar tales riesgos.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">La Sorpresa de las Ovejas</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Nuevos creyentes sin instrucción</span><span class="bullet-desc">Estas ovejas estarán tan ausentes de todo discipulado durante la Tribulación que se <span class="hl">sorprenderán</span> al saber que deben ser recompensadas. No sabían que estaban sirviendo a Jesús.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La fe no depende de la madurez</span><span class="bullet-desc">El libro de Hechos está lleno de personas así. El Espíritu trae vida y la fe no depende de la madurez espiritual. Simplemente vivieron en el Espíritu y fueron guiados — y eso dio fruto.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Cada acto fue servicio a Jesús</span><span class="bullet-desc">No se dieron cuenta de que estaban sirviendo a Jesús hasta el momento en que Él mismo se lo dijo. Estaban motivados para proteger a Israel — eso es el fruto del Espíritu.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Los Cabritos: Gentiles Incrédulos</div>
+      <div class="scripture">
+        <span class="scripture-ref">Mateo 25:41, 46</span>
+        <p>"Apartaos de mí, malditos, al fuego eterno preparado para el diablo y sus ángeles… Irán éstos al castigo eterno y los justos a la vida eterna."</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Sin fruto del Espíritu</span><span class="bullet-desc">Los cabritos carecen del fruto del Espíritu porque no tenían fe. Mueren instantáneamente y entran al infierno para esperar la Segunda Resurrección. Posteriormente entrarán al Lago de Fuego.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Resultado final</span><span class="bullet-desc">Los gentiles creyentes (ovejas) vivirán y serán bienvenidos al Reino en cuerpo natural. Los gentiles incrédulos (cabritos) mueren inmediatamente y entran al infierno para esperar la Segunda Resurrección.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECCIÓN XI ==================== -->
+<section class="section" id="toc-11">
+  <div class="section-header">
+    <div class="section-num">XI</div>
+    <h3 class="section-title">La Entrada al Reino: Hijos Nacidos Durante el Milenio</h3>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Un Hecho Fascinante</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Hombres y mujeres natos</span><span class="bullet-desc">Habrá hombres y mujeres con <span class="hl">cuerpos naturales</span> que entrarán al Reino — tanto judíos (posiblemente) como gentiles. Estos seres humanos naturales todavía llevan el pecado en sus cuerpos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Reproducción en el Reino</span><span class="bullet-desc">Los que tienen cuerpos naturales podrán casarse y tener hijos. Cuando se reproduzcan, producirán hijos naturales como nosotros: incrédulos y pecadores que necesitan ser gobernados.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El llamado de los santos resucitados</span><span class="bullet-desc">Los santos resucitados son llamados a <span class="hl">gobernar el mundo natural</span> de los pecadores y la ofrenda por el pecado que producen. Somos llamados a ser parte de este gobierno.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Próximos Temas de Estudio</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">Los propósitos del Reino</span><span class="bullet-desc">Ahora que se han establecido quiénes son los ciudadanos del Reino, el estudio avanzará al período del Reino propiamente dicho, comenzando con sus propósitos.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">La convivencia de las dos naturalezas</span><span class="bullet-desc">Cómo conviven e interactúan en armonía el grupo de cuerpos glorificados y el de cuerpos naturales dentro del Reino milenial.</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">El Templo del Reino</span><span class="bullet-desc">El nuevo templo descrito por Ezequiel se convertirá en la pieza central de la vida en el Reino. La morada de Jesús durante los 1,000 años y el lugar desde donde gobernará.</span></div></li>
+        <li><span class="bullet-icon">❹</span><div class="bullet-content"><span class="bullet-label">La reunión de la Deidad</span><span class="bullet-desc">Eventualmente el Padre se unirá al Hijo. Este evento extraordinario se estudiará en Apocalipsis 21.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DIVIDER ==================== -->
+<div class="divider">✦</div>
+
+<!-- ==================== RESUMEN FINAL ==================== -->
+<div class="summary-box">
+  <em>El intervalo de 75 días entre la Tribulación y el Reino no es un simple paréntesis histórico, sino el momento en que Dios cumple con precisión matemática todo lo prometido a sus santos. En 30 días renueva la tierra destrozada para hacerla digna de la presencia de su Hijo; en 45 días resucita, juzga y posiciona a cada grupo de creyentes para gobernar o habitar el Reino. La Primera Resurrección, completada en cinco etapas desde la resurrección de Cristo hasta los mártires de la Tribulación, revela que Dios nunca olvida a ninguno de los suyos. Y las ovejas gentiles — creyentes sin nombre, sin instrucción, que arriesgaron sus vidas para proteger al pueblo judío perseguido — demuestran que la fe verdadera siempre produce fruto, aunque el creyente mismo no lo sepa.</em>
+</div>
+
+<!-- ==================== FOOTNOTE ==================== -->
+<footer>
+  Basado en la enseñanza original de <strong>Verse By Verse Ministry International (VBVMI)</strong> · <a href="http://vbvmi.org" target="_blank">vbvmi.org</a><br>
+  Arte de <strong>Pat Marvenko Smith</strong> © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a><br>
+  <span style="color:var(--text-muted);font-size:12px;">Las interpretaciones y conclusiones bíblicas presentadas se basan en la enseñanza original de VBVMI usada con autorización. Los puntos de vista del autor no representan necesariamente los de VBVMI, sus directores o personal.</span>
+</footer>
+
+</div><!-- /wrapper -->
+
+<script>
+// Animación escalonada de secciones
+document.querySelectorAll('.section').forEach((sec, i) => {
+  sec.style.animationDelay = (0.08 + i * 0.08) + 's';
+});
+</script>
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

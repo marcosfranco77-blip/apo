@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis — Parte 09 · Capítulo 19B</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0A0806;
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* STARFIELD */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(201,168,76,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 34% 7%,  rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 56% 23%, rgba(201,168,76,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 11%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 41%, rgba(201,168,76,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 23% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 72%, rgba(201,168,76,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 88%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 8%  92%, rgba(201,168,76,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 63%, rgba(255,255,255,0.45) 0%, transparent 100%);
+}
+
+/* HEADER */
+header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 70px 40px 60px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(100,10,10,0.55) 0%, transparent 70%);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -20%, rgba(139,26,26,0.3) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.ornament-line {
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+}
+
+.ornament-text {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 30px rgba(201,168,76,0.2);
+}
+
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.meta-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  text-align: center;
+}
+
+.meta-label {
+  font-family: var(--f-heading);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* MAIN */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 60px 28px 80px;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.section-num {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.3;
+}
+
+/* CARDS GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 780px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+
+.card:hover {
+  border-left-color: var(--gold);
+  transform: translateX(3px);
+}
+
+.card.full {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 16px;
+}
+
+/* BULLET LIST */
+ul.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ul.bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+
+.bullet-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  line-height: 1.6;
+}
+
+.bullet-body {}
+
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* SCRIPTURE BOX */
+.scripture-box {
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 44px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.scripture-box::before {
+  content: '\201C';
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.8px;
+}
+
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold-dim), transparent);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(201,168,76,0.5);
+}
+
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+/* INFO PANEL */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* TWO COL INFO */
+.two-col-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .two-col-info { grid-template-columns: 1fr; }
+}
+
+/* TABLE */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 0.8px;
+}
+
+.styled-table td {
+  font-size: 16px;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.styled-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* HIGHLIGHT */
+.hl {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 56px 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,.3), transparent);
+}
+
+.divider-sym {
+  color: var(--gold-dim);
+  font-size: 16px;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.summary-box p {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.85;
+}
+
+/* FOOTNOTE */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 32px 28px 48px;
+  border-top: 1px solid rgba(201,168,76,.1);
+}
+
+footer p {
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+footer a {
+  color: var(--gold-dim);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+/* STAGGERED ANIMATION DELAYS */
+.section:nth-child(1)  { animation-delay: 0.08s; }
+.section:nth-child(2)  { animation-delay: 0.16s; }
+.section:nth-child(3)  { animation-delay: 0.24s; }
+.section:nth-child(4)  { animation-delay: 0.32s; }
+.section:nth-child(5)  { animation-delay: 0.40s; }
+.section:nth-child(6)  { animation-delay: 0.48s; }
+.section:nth-child(7)  { animation-delay: 0.56s; }
+.section:nth-child(8)  { animation-delay: 0.64s; }
+.section:nth-child(9)  { animation-delay: 0.72s; }
+.section:nth-child(10) { animation-delay: 0.80s; }
+.section:nth-child(11) { animation-delay: 0.88s; }
+.section:nth-child(12) { animation-delay: 0.96s; }
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+.toc-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.06);
+}
+.toc-item.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.1);
+}
+.toc-num {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: var(--f-heading);
+  color: var(--crimson-light);
+  padding-top: 1px;
+  min-width: 22px;
+}
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: none;
+  color: var(--gold);
+  border-radius: 0 6px 6px 0;
+  width: 22px;
+  height: 54px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+body.toc-open .page-wrap {
+  margin-left: 270px;
+  max-width: calc(1100px + 270px);
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-closed .page-wrap {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+.page-wrap {
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+  body.toc-open .page-wrap { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#sec-I" class="toc-item"><span class="toc-num">I</span><span class="toc-title">Introducción: La Guerra de Armagedón como Serie de Eventos</span></a>
+<a href="#sec-II" class="toc-item"><span class="toc-num">II</span><span class="toc-title">El Propósito de la Tribulación: Seis Razones Dadas por Daniel</span></a>
+<a href="#sec-III" class="toc-item"><span class="toc-num">III</span><span class="toc-title">El Pacto Mosaico: Las Consecuencias del Incumplimiento</span></a>
+<a href="#sec-IV" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">La Gracia en Medio del Juicio: La Desobediencia de Israel como Oportunidad para los Gentiles</span></a>
+<a href="#sec-V" class="toc-item"><span class="toc-num">V</span><span class="toc-title">La Causa Desencadenante de la Segunda Venida: La Confesión Nacional de Israel</span></a>
+<a href="#sec-VI" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">La Situación al Final de la Tribulación: El Panorama Completo</span></a>
+<a href="#sec-VII" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">Zacarías 14: Lo Que Sucede Dentro de Jerusalén</span></a>
+<a href="#sec-VIII" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">El Derramamiento del Espíritu Santo y la Confesión Nacional (Zacarías 12:10)</span></a>
+<a href="#sec-IX" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">Los Salmos del Arrepentimiento de Israel al Final de la Tribulación</span></a>
+<a href="#sec-X" class="toc-item"><span class="toc-num">X</span><span class="toc-title">Oseas: La Cronología Exacta de la Última Batalla y el Regreso</span></a>
+<a href="#sec-XI" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">La Segunda Venida de Cristo: Apocalipsis 19:11-16</span></a>
+<a href="#sec-XII" class="toc-item"><span class="toc-num">XII</span><span class="toc-title">La Perspectiva Terrenal del Regreso: El Apagón Cósmico</span></a>
+<a href="#sec-XIII" class="toc-item"><span class="toc-num">XIII</span><span class="toc-title">Cierre y Perspectiva: Lo que Viene a Continuación</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+
+<div class="starfield"></div>
+
+<div class="page-wrap">
+
+<!-- HEADER -->
+<header>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span class="ornament-text">Verse by Verse Ministry International</span>
+    <div class="ornament-line"></div>
+  </div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 09 · Capítulo 19B</h2>
+  <div class="meta-bar">
+    <div class="meta-item">
+      <span class="meta-label">Capítulos cubiertos</span>
+      <span class="meta-value">Apocalipsis 19 (continuación)</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Páginas cubiertas</span>
+      <span class="meta-value">28 páginas</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Período histórico principal</span>
+      <span class="meta-value">Guerra de Armagedón · Etapas IV y V</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- I -->
+  <section class="section" id="sec-I">
+    <div class="section-header">
+      <div class="section-num">I</div>
+      <h3 class="section-title">Introducción: La Guerra de Armagedón como Serie de Eventos</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Naturaleza de la Guerra</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">No es un momento único</span>
+              <span class="bullet-desc">La guerra de Armagedón —llamada en la Biblia <span class="hl">"la guerra del gran día de Dios"</span>— no ocurre en un solo instante, sino que es una serie de eventos que tienen lugar durante días y semanas.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Cierre de la Tribulación</span>
+              <span class="bullet-desc">Esta guerra concluye la Tribulación de siete años. En su auge, Jesús regresa para poner fin al gobierno del Anticristo.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Apocalipsis 19 es un resumen</span>
+              <span class="bullet-desc">El capítulo 19 resume el regreso del Señor, omitiendo muchos detalles ya descritos en libros anteriores del Antiguo Testamento. Para comprenderlos, es necesario salir del libro de Apocalipsis y consultar las profecías veterotestamentarias.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Cadena desencadenada por la séptima copa</span>
+              <span class="bullet-desc">Los juicios finales de las copas desencadenaron una cadena de eventos como fichas de dominó que inicia la guerra y la mueve a lo largo de sus <span class="hl">cinco etapas</span> hasta el final.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Estado actual al inicio de esta lección</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Etapa I — estudiada</span>
+              <span class="bullet-desc">La sexta copa secó el río Éufrates para atraer al Anticristo y sus fuerzas desde Babilonia hacia el oeste, acampando en el valle de Jezreel preparándose para invadir Jerusalén.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Etapa II — estudiada</span>
+              <span class="bullet-desc">Dos de los siete reyes bajo el Anticristo se rebelaron e invadieron Babilonia. La séptima copa destruyó tanto la ciudad como a los invasores, forzando al Anticristo a avanzar contra Jerusalén.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Etapa III — estudiada</span>
+              <span class="bullet-desc">El Anticristo mueve sus fuerzas hacia el sur por los valles centrales hasta la Sefela, luego avanza hacia el este rodeando y asediando Jerusalén. La guerra regresa a un estilo medieval (caballos, espadas, rampas) por el nivel rudimentario de tecnología de la Tribulación.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Segundo frente: Petra</span>
+              <span class="bullet-desc">El Anticristo también abre un segundo frente enviando lo que queda de sus fuerzas desde Babilonia hacia Petra (Bozrah), donde el Señor protege al remanente de Israel durante los últimos 3.5 años de la Tribulación.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- II -->
+  <section class="section" id="sec-II">
+    <div class="section-header">
+      <div class="section-num">II</div>
+      <h3 class="section-title">El Propósito de la Tribulación: Seis Razones Dadas por Daniel</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">Daniel 9:24 — Las Seis Metas de las Setenta Semanas</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Daniel 9:24</span>
+          <span class="scripture-text">"Setenta semanas están determinadas sobre tu pueblo y sobre tu santa ciudad, para terminar la prevaricación, poner fin al pecado y expiar la iniquidad, para traer la justicia perdurable, sellar la visión y la profecía y ungir al Santo de los santos."</span>
+        </div>
+        <ul class="bullets" style="margin-top:14px;">
+          <li>
+            <span class="bullet-icon">❶</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Terminar la prevaricación (injusticia)</span>
+              <span class="bullet-desc">La era de la desobediencia de Israel llega a su fin definitivo.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❷</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Poner fin al pecado</span>
+              <span class="bullet-desc">El pecado de la nación es completamente resuelto.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❸</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Expiar la iniquidad</span>
+              <span class="bullet-desc">La obra expiatoria de Cristo se aplica plenamente a la nación.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❹</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Traer la justicia perdurable</span>
+              <span class="bullet-desc">El inicio de la justicia eterna, el Reino Mesiánico.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❺</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Sellar la visión y la profecía</span>
+              <span class="bullet-desc">El cumplimiento definitivo de todas las profecías del Antiguo Testamento.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❻</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Ungir al Santo de los santos</span>
+              <span class="bullet-desc">La instalación formal de Cristo como Rey sobre Israel y las naciones.</span>
+            </div>
+          </li>
+        </ul>
+        <p style="margin-top:14px; font-size:16px; color:var(--text-dim);">En resumen: <span class="hl">la Tribulación trae fe salvadora a todo Israel y hace que regresen al Señor</span>, colocando a la nación en una situación increíblemente difícil tras siete años de intensa prueba.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- III -->
+  <section class="section" id="sec-III">
+    <div class="section-header">
+      <div class="section-num">III</div>
+      <h3 class="section-title">El Pacto Mosaico: Las Consecuencias del Incumplimiento</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Un Pacto Multigeneracional</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Pacto nacional y hereditario</span>
+              <span class="bullet-desc">Cuando Israel entró en el Pacto Mosaico antes de entrar a la Tierra Prometida, Moisés dejó claro que este arreglo no solo era para los judíos del desierto sino para <span class="hl">todos sus descendientes</span>. Deuteronomio 29:14-15.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El individuo y la nación van juntos</span>
+              <span class="bullet-desc">"Así como va el individuo, va la nación; y así como va la nación, va el individuo." Los requisitos y consecuencias se aplican a cada persona por igual hasta que el pacto sea cumplido.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La raíz de amargura</span>
+              <span class="bullet-desc">Moisés advirtió contra cualquier persona cuyo corazón se aparte del Señor para servir a otros dioses, pues eso produciría "hiel y ajenjo" (adversidad y amargura) para toda la nación. Deuteronomio 29:18.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Cómo se cumple el Pacto</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">①</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Para el individuo: fe en Cristo</span>
+              <span class="bullet-desc">Un judío individual es liberado de la Ley cuando pone su fe en Jesucristo, quien la cumplió totalmente bajo su propia vida, a nombre del creyente, y pagó la condena de muerte consecuencia del pecado. Así entra en un <span class="hl">nuevo y mejor pacto</span>.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">②</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Para la nación: confesión colectiva</span>
+              <span class="bullet-desc">El Antiguo Pacto requiere que <span class="hl">toda la nación</span> haga la confesión, juntos, sin excepciones. Como nación, la única salida es el cumplimiento de la ley; pero para el individuo, la salida es Jesús.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">③</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Jesús no removió la Ley</span>
+              <span class="bullet-desc">Por eso Jesús dijo que "no vino a remover la Ley." El resto de la nación que no llegó a la fe personal sigue sujeta a la Ley y sus castigos. Romanos 7:4-6 explica que estamos libres de ella solo mediante la muerte y resurrección de Cristo.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">Las Maldiciones del Pacto — Descritas en Deuteronomio 29</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Deuteronomio 29:22-25</span>
+          <span class="scripture-text">Las generaciones venideras verán las plagas de aquella tierra ... azufre y sal, abrasada toda su tierra; no será sembrada ni producirá, como sucedió en la destrucción de Sodoma y de Gomorra. Entonces todas las naciones preguntarán: "¿Por qué hizo esto Jehová a esta tierra?" y responderán: "Por cuanto dejaron el pacto de Jehová."</span>
+        </div>
+        <p style="margin-top:12px; font-size:16px; color:var(--text-dim);">Estos juicios descritos en Deuteronomio nunca se han experimentado en Israel hasta el día de hoy. Son una descripción de la devastación que vendrá durante el <span class="hl">Día del Señor</span>, la Tribulación de siete años. Las maldiciones son severas, pero evidencian la gracia de Dios porque conducen hacia el bien: la salvación de Israel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IV -->
+  <section class="section" id="sec-IV">
+    <div class="section-header">
+      <div class="section-num">IV</div>
+      <h3 class="section-title">La Gracia en Medio del Juicio: La Desobediencia de Israel como Oportunidad para los Gentiles</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Israel apartado temporalmente</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Romanos 11:7-8, 11</span>
+          <span class="scripture-text">Lo que buscaba Israel, no lo ha alcanzado; pero los escogidos sí lo han alcanzado, y los demás fueron endurecidos... Al contrario, debido a su transgresión vino la salvación a los gentiles, a fin de provocarlos a celos.</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Era de la Iglesia posible gracias a Israel</span>
+              <span class="bullet-desc">El Señor aparta a Su pueblo por un tiempo para que la salvación esté disponible para los gentiles. El período de la Era de la Iglesia es posible precisamente por el endurecimiento temporal de Israel.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">El juicio conduce al arrepentimiento de Israel</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El Señor usará el juicio como instrumento</span>
+              <span class="bullet-desc">El período de juicio de Israel traerá a la nación de regreso al Señor, como lo indicaron Daniel y Zacarías. En su prueba, la nación clamará al Señor y Él los escuchará.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La condición para el retorno de Cristo</span>
+              <span class="bullet-desc">Jesús estableció que esto debe suceder <span class="hl">antes</span> de que Él esté dispuesto a regresar a su pueblo y darles el Reino. Lucas 13:34-35: "no me volveréis a ver HASTA que digáis: Bendito el que viene en el nombre del Señor."</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- V -->
+  <section class="section" id="sec-V">
+    <div class="section-header">
+      <div class="section-num">V</div>
+      <h3 class="section-title">La Causa Desencadenante de la Segunda Venida: La Confesión Nacional de Israel</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Lo que Jesús requiere</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Lucas 13:34-35</span>
+          <span class="scripture-text">¡Jerusalén, Jerusalén! ¡Cuántas veces quise juntar a tus hijos, como la gallina a sus polluelos debajo de sus alas, pero no quisiste! Vuestra casa os es dejada desierta; y os digo que no me volveréis a ver HASTA que llegue el tiempo en que digáis: "BENDITO EL QUE VIENE EN EL NOMBRE DEL SEÑOR."</span>
+        </div>
+        <p style="margin-top:12px; font-size:16px; color:var(--text-dim);">Jesús estableció los <span class="hl">términos de su segunda venida</span>: Israel debe clamar por Él como su Mesías. Cuando lo llamen, Él regresará como lo prometió. Más allá de que el evangelio llegue a todos los rincones del mundo, el <span class="hl">verdadero detonador (trigger)</span> es la confesión nacional de Israel.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">La "puerta de escape" en Levítico 26</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Levítico 26:40-42</span>
+          <span class="scripture-text">Entonces confesarán su iniquidad y la iniquidad de sus padres, la rebeldía con que se rebelaron contra mí... Y yo me acordaré de mi pacto con Jacob, y asimismo de mi pacto con Isaac, y también de mi pacto con Abraham...</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">①</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Confesión personal</span>
+              <span class="bullet-desc">Cada judío debe confesar su propio pecado y su necesidad de un Salvador — igual que cualquier creyente. Esto es suficiente para la salvación individual.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">②</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Confesión nacional del pecado de los antepasados</span>
+              <span class="bullet-desc">Esta futura generación debe confesar que <span class="hl">sus antepasados crucificaron a Jesús en su primera venida</span>, que el Mesías ya vino y fue rechazado. Toda la nación se arrepentirá de haberlo rechazado.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">Romanos 11 — Todo Israel será salvo</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Romanos 11:25-27</span>
+          <span class="scripture-text">El endurecimiento de una parte de Israel durará hasta que haya entrado la plenitud de los gentiles. Luego todo Israel será salvo, como está escrito: Vendrá de Sión el Libertador, que apartará de Jacob la impiedad. Y éste será mi pacto con ellos, cuando yo quite sus pecados.</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La Sión celestial</span>
+              <span class="bullet-desc">La "Sión" mencionada en Romanos 11:26 es la Sión celestial — una referencia a la <span class="hl">Segunda Venida de Cristo</span> desde el cielo, no a la Sión terrenal.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El viejo pacto al que se refiere Romanos 11:27</span>
+              <span class="bullet-desc">Se refiere al Pacto Mosaico, no al de Abraham. El Pacto de Abraham promete el Reino; el Mosaico establece la condición de confesión que libera su cumplimiento. Cuando la nación confiese, el Señor recordará el Pacto con Abraham y establecerá el Reino.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El que persevere hasta el fin</span>
+              <span class="bullet-desc">Mateo 24:13 — Este es el único momento en la historia en que <span class="hl">"mantenerse vivo"</span> garantiza la salvación si se es judío: solo en el último momento, cuando Israel está a punto de ser destruido y solo queda un tercio, llegan a confesar a Cristo por el poder del Espíritu Santo.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VI -->
+  <section class="section" id="sec-VI">
+    <div class="section-header">
+      <div class="section-num">VI</div>
+      <h3 class="section-title">La Situación al Final de la Tribulación: El Panorama Completo</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">Fotografía de la situación</div>
+        <div class="two-col-info">
+          <div class="info-panel">
+            <div class="info-panel-title">✅ Lo que está en pie</div>
+            <ul class="bullets">
+              <li>
+                <span class="bullet-icon">✦</span>
+                <div class="bullet-body">
+                  <span class="bullet-desc">Jesús en el cielo con su novia (la Iglesia) preparada para regresar.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-icon">✦</span>
+                <div class="bullet-body">
+                  <span class="bullet-desc">Los judíos creyentes en Petra, vivos y protegidos por el Señor, esperando su regreso.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="info-panel">
+            <div class="info-panel-title">⚠ Lo que está en crisis</div>
+            <ul class="bullets">
+              <li>
+                <span class="bullet-icon">✦</span>
+                <div class="bullet-body">
+                  <span class="bullet-desc">Babilonia desaparecida; el resto del mundo en ruinas; comida y agua escasean.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-icon">✦</span>
+                <div class="bullet-body">
+                  <span class="bullet-desc">Los judíos incrédulos en Jerusalén suplican a Dios su rescate mientras el Anticristo los rodea y ataca.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:14px; font-size:16px; color:var(--text-dim);">Lo único que falta es que los judíos incrédulos en Jerusalén obedezcan la demanda del Señor de declararlo Mesías. En el momento en que digan <span class="hl">"Bendito Aquel que viene en el nombre del Señor"</span>, Jesús los escuchará y regresará para salvarlos a todos (Lucas 13:34-35).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VII -->
+  <section class="section" id="sec-VII">
+    <div class="section-header">
+      <div class="section-num">VII</div>
+      <h3 class="section-title">Zacarías 14: Lo Que Sucede Dentro de Jerusalén</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">El Asedio Final según Zacarías</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Zacarías 14:1-2</span>
+          <span class="scripture-text">Viene el día de Jehová, y en medio de ti serán repartidos tus despojos. Porque yo reuniré a todas las naciones para combatir contra Jerusalén. La ciudad será tomada, las casas serán saqueadas, y violadas las mujeres. La mitad de la ciudad irá al cautiverio, pero el resto del pueblo no será sacado de la ciudad.</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Profecía incumplida hasta ahora</span>
+              <span class="bullet-desc">La reunión de todas las naciones de la tierra contra Jerusalén nunca ha sucedido antes — es profecía aún por cumplirse, describiendo la <span class="hl">Etapa III de la guerra del Armagedón</span>.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Victoria parcial del Anticristo</span>
+              <span class="bullet-desc">Las murallas caen, la mitad de la ciudad es exiliada y las mujeres son agredidas. Dios interviene para evitar la conquista total, manteniendo un remanente bajo presión extrema.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">La Trampa de Dios para el Anticristo</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Zacarías 12:2-3</span>
+          <span class="scripture-text">Yo pongo a Jerusalén como una copa que hará temblar a todos los pueblos de alrededor... En aquel día yo pondré a Jerusalén como una piedra pesada para todos los pueblos; todos los que intenten cargarla serán despedazados.</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La victoria parcial es preparación para derrota total</span>
+              <span class="bullet-desc">El Señor ha tendido una trampa al Anticristo: lo atrae a sitiar la ciudad y le permite éxito inicial solo para preparar su derrota total. La presión extrema sobre la ciudad creará las condiciones para el arrepentimiento colectivo.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El Señor defiende lo que resta</span>
+              <span class="bullet-desc">Zacarías 12:8-9: "En aquel día Jehová defenderá al habitante de Jerusalén; el que entre ellos sea débil... será como David, y la casa de David será como Dios." El Señor procurará destruir a todas las naciones que vengan contra la ciudad.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIII -->
+  <section class="section" id="sec-VIII">
+    <div class="section-header">
+      <div class="section-num">VIII</div>
+      <h3 class="section-title">El Derramamiento del Espíritu Santo y la Confesión Nacional (Zacarías 12:10)</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">El Momento Cúspide</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La ciudad parece perdida</span>
+              <span class="bullet-desc">Si no quedaran judíos, no habría quien invocara a Jesús — condición para su regreso. Teóricamente, si Israel es destruido, Jesús no regresaría por segunda vez. <span class="hl">Por eso el enemigo se ha opuesto a Israel desde siempre:</span> Israel era la clave para la primera venida y también para la segunda.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El giro comienza con el Espíritu</span>
+              <span class="bullet-desc">Como ocurre con toda obra de salvación, el Señor es el primero en moverse. Cuando la nación parece al borde de la aniquilación, Dios envía Su Espíritu.</span>
+            </div>
+          </li>
+        </ul>
+        <div class="scripture-box" style="margin-top:12px;">
+          <span class="scripture-ref">Zacarías 12:10</span>
+          <span class="scripture-text">Pero sobre la casa de David y los habitantes de Jerusalén derramaré un espíritu de gracia y de oración. Mirarán hacia mí, a quien traspasaron, y llorarán como se llora por el hijo unigénito, y se afligirán por él como quien se aflige por el primogénito.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Sobre quiénes y cómo ocurre</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Dos grupos destinatarios</span>
+              <span class="bullet-desc"><span class="hl">La casa de David</span> (la clase dominante de Israel) y <span class="hl">los habitantes de Jerusalén</span> aún vivos en la ciudad — el grupo restante que no fue exiliado.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Reconocimiento instantáneo</span>
+              <span class="bullet-desc">El efecto de la llegada del Espíritu es un reconocimiento instantáneo de que <span class="hl">Jesús es el Mesías</span>. Miran al que traspasaron y lloran por Él como por un hijo único.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El reconocimiento no trae gozo inicial</span>
+              <span class="bullet-desc">La creencia no resulta en gozo inmediato, porque el Espíritu también revela que Israel mató a su Mesías. Los judíos asumen que es demasiado tarde, que perdieron la oportunidad. Piensan: <span class="hl">"Nosotros lo matamos. ¿Por qué nos salvaría ahora?"</span></span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">No es una experiencia grupal</span>
+              <span class="bullet-desc">Esto sucede mientras cada familia está aislada. No es resultado del evangelismo convencional. Cada judío es convencido <span class="hl">individual y simultáneamente</span> por el Espíritu.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">Cuatro grupos que representan todo el espectro de Israel (Zacarías 12:11-14)</div>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Grupo</th>
+              <th>Representación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="hl">Casa de David</span></td>
+              <td>La clase dominante, los gobernantes de la nación</td>
+            </tr>
+            <tr>
+              <td><span class="hl">Casa de Natán</span></td>
+              <td>Los profetas, los portavoces de Dios</td>
+            </tr>
+            <tr>
+              <td><span class="hl">Casa de Leví</span></td>
+              <td>Los sacerdotes, los ministros religiosos</td>
+            </tr>
+            <tr>
+              <td><span class="hl">Simeitas</span></td>
+              <td>Los judíos comunes, el pueblo ordinario</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px; font-size:16px; color:var(--text-dim);">Los grandes y pequeños, los eruditos y los incultos, los privilegiados y los comunes — todos están llegando a la <span class="hl">misma fe en Jesús</span>. Todas las familias que permanecen en la ciudad lloran y confiesan, cada una por su lado, de manera independiente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IX -->
+  <section class="section" id="sec-IX">
+    <div class="section-header">
+      <div class="section-num">IX</div>
+      <h3 class="section-title">Los Salmos del Arrepentimiento de Israel al Final de la Tribulación</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Salmo 79: La Voz Arrepentida de la Nación</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Salmos 79:1-13 (fragmento clave)</span>
+          <span class="scripture-text">Oh Dios, vinieron las naciones a tu heredad; han profanado tu santo templo; redujeron a Jerusalén a escombros... No recuerdes contra nosotros las iniquidades de nuestros antepasados; vengan pronto tus misericordias a encontrarnos... Ayúdanos, oh Dios de nuestra salvación, por la gloria de tu nombre; y líbranos, y perdona nuestros pecados por amor de tu nombre.</span>
+        </div>
+        <p style="margin-top:12px; font-size:16px; color:var(--text-dim);">El Salmo 79 captura la <span class="hl">voz arrepentida de la nación en el momento preciso</span> en que el Anticristo presiona su ataque contra la ciudad. Es el clamor del pueblo sitiado que reconoce su pecado y busca la misericordia divina.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Salmo 80: El Clímax de la Confesión</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Salmos 80:14-19 (NASV 1995)</span>
+          <span class="scripture-text">Oh Dios de los ejércitos, vuelve tu rostro hacia nosotros ahora... Mira desde el cielo... Sea Tu mano sobre el varón de Tu diestra, sobre el hijo del hombre que para ti fortaleciste. Entonces no voltearemos nuestro rostro de Ti; revívenos e invocaremos Tu nombre. Señor, Dios de los ejércitos, restáuranos; haz resplandecer tu rostro sobre nosotros, y seremos salvos.</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Invocan al Hijo de Dios</span>
+              <span class="bullet-desc">En lenguaje poético invocan al "varón de Tu diestra" — el retoño de Isaí, Jesús (Isaías 11:1). Reconocen que fue "quemado con fuego y cortado" — referencia al rechazo del Mesías en su primera venida.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Piden una segunda oportunidad</span>
+              <span class="bullet-desc">"Envíalo nuevamente" — piden que la mano del Señor esté sobre el Hijo de Dios. Prometen que si el Señor los reviviera, <span class="hl">no le darán la espalda nuevamente</span> e invocarían Su nombre, tal como Jesús requirió.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">El Momento Culminante: No el regreso, sino el llamado</div>
+        <p style="font-size:17px; color:var(--text-dim); line-height:1.8;">El <span class="hl">momento culminante de la segunda venida de Jesús no es su regreso</span>, sino el <span class="hl">llamado a Jesús</span> que precipita su regreso del cielo, después del arrepentimiento de Israel. Hay un sentido de luto, pero también esperanza de recibir una segunda oportunidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- X -->
+  <section class="section" id="sec-X">
+    <div class="section-header">
+      <div class="section-num">X</div>
+      <h3 class="section-title">Oseas: La Cronología Exacta de la Última Batalla y el Regreso</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Confirmación de Oseas: Tres Días</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Oseas 6:1-3</span>
+          <span class="scripture-text">Venid y volvamos a Jehová, pues él nos destrozó, mas nos curará; nos hirió, mas nos vendará. Después de dos días nos hará revivir, al tercer día nos levantará, y viviremos delante de él. Esforcémonos por conocer a Jehová: cierta como el alba es su salida. Vendrá a nosotros como la lluvia, como la lluvia tardía y temprana viene a la tierra.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Cronología de los Tres Días</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-period">Días 1 y 2</div>
+            <div class="timeline-desc">La última batalla en Jerusalén. El Anticristo ataca la ciudad. La mitad de los judíos son asesinados y las mujeres agredidas (Zacarías). El Espíritu es derramado; Israel reconoce a su Mesías.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Fin del día 2 — Inicio del día 3</div>
+            <div class="timeline-desc">La nación arrepentida clama a Cristo colectivamente. Israel invoca el nombre del Señor como Jesús requirió (Mateo 24:13). El último tercio de la ciudad sobrevive hasta el tercer día.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Día 3</div>
+            <div class="timeline-desc">El Espíritu es derramado sobre los sobrevivientes; la nación responde. <span class="hl">Jesús regresa</span>. Dios los levanta y vivirán delante de Él. El Señor viene "como lluvia que riega la tierra" — imagen de la gracia de Dios.</div>
+          </div>
+        </div>
+        <p style="margin-top:14px; font-size:16px; color:var(--text-dim);">Oseas habla de la última batalla en Jerusalén: la guerra dura tres días y es <span class="hl">Jesús quien la termina</span>. El que persevere hasta el fin será salvo (Mateo 24:13).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- XI -->
+  <section class="section" id="sec-XI">
+    <div class="section-header">
+      <div class="section-num">XI</div>
+      <h3 class="section-title">La Segunda Venida de Cristo: Apocalipsis 19:11-16</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">El Jinete del Caballo Blanco</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Apocalipsis 19:11-16</span>
+          <span class="scripture-text">Entonces vi el cielo abierto, y había un caballo blanco. El que lo montaba se llamaba Fiel y Verdadero, y con justicia juzga y pelea. Sus ojos eran como llama de fuego, en su cabeza tenía muchas diademas y tenía escrito un nombre que ninguno conocía sino él mismo. Estaba vestido de una ropa teñida en sangre y su nombre es: La Palabra de Dios. Los ejércitos celestiales, vestidos de lino finísimo, blanco y limpio, lo seguían en caballos blancos. De su boca sale una espada aguda para herir con ella a las naciones, y él las regirá con vara de hierro. Él pisa el lagar del vino del furor y de la ira del Dios Todopoderoso. En su vestidura y en su muslo tiene escrito este nombre: Rey de reyes y Señor de señores.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Descripción de Cristo en Su Regreso</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Forma glorificada</span>
+              <span class="bullet-desc">Jesús aparece en la forma glorificada que tenía antes y después de su estancia en la tierra — la misma imagen descrita en el Capítulo 1 de Apocalipsis. Ojos llameantes; <span class="hl">su imagen terrenal fue la excepción, no la norma.</span></span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Muchas diademas</span>
+              <span class="bullet-desc">Reflejan su derecho natural a gobernar todas las naciones, en contraste con las diademas limitadas del Dragón y la Bestia.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Un nombre desconocido</span>
+              <span class="bullet-desc">Tiene un nombre que ninguno conoce aún. Esto sugiere que el nombre "Yeshua" no será el nombre definitivo que llevará en el Reino. Al final, toda la controversia sobre cómo llamar a Jesús <span class="hl">carecerá de sentido.</span> Jesús seguirá siendo conocido como la Palabra de Dios, pero llevará un nombre nuevo.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Túnica teñida en sangre</span>
+              <span class="bullet-desc">La sangre ya no representa su sangre redentora de la primera venida, sino <span class="hl">la sangre del juicio</span> que aplica en su segunda venida (Apocalipsis 19:15).</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Caballo blanco</span>
+              <span class="bullet-desc">Símbolo de gobernar. El Anticristo también apareció en un caballo blanco (falso gobernante), pero ahora el <span class="hl">verdadero Rey</span> aparece para reemplazar al falso.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Los Ejércitos que Le Siguen</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Los santos de la Iglesia</span>
+              <span class="bullet-desc">Los ejércitos celestiales vestidos de <span class="hl">lino finísimo, blanco y limpio</span> — anteriormente vimos a los santos de la Iglesia vestidos de esta manera. Somos nosotros, los creyentes, el ejército que sigue a Jesús. No lucharemos, pero estaremos presentes.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El ejército de ángeles</span>
+              <span class="bullet-desc">Mateo 16:27 — "el Hijo del hombre vendrá en la gloria de su Padre, con sus ángeles." Un segundo ejército de ángeles acompaña a Cristo en su regreso.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Certeza de participación</span>
+              <span class="bullet-desc">"No podemos decir con certeza qué haremos mañana, pero podemos estar seguros por nuestra fe de que estaremos allí en un día en el futuro." Estamos leyendo sobre un evento en el que <span class="hl">tenemos la seguridad de participar.</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">Primera Venida vs. Segunda Venida — Contraste Fundamental</div>
+        <div class="two-col-info">
+          <div class="info-panel">
+            <div class="info-panel-title">Primera Venida</div>
+            <ul class="bullets">
+              <li><span class="bullet-icon">✓</span><div class="bullet-body"><span class="bullet-desc">Vino a predicar la salvación.</span></div></li>
+              <li><span class="bullet-icon">✓</span><div class="bullet-body"><span class="bullet-desc">Mostró misericordia y perdón.</span></div></li>
+              <li><span class="bullet-icon">✓</span><div class="bullet-body"><span class="bullet-desc">No vino a juzgar.</span></div></li>
+              <li><span class="bullet-icon">✓</span><div class="bullet-body"><span class="bullet-desc">Sangre redentora en su vestidura.</span></div></li>
+            </ul>
+          </div>
+          <div class="info-panel">
+            <div class="info-panel-title">Segunda Venida</div>
+            <ul class="bullets">
+              <li><span class="bullet-icon">✦</span><div class="bullet-body"><span class="bullet-desc">Viene para juicio y para gobernar.</span></div></li>
+              <li><span class="bullet-icon">✦</span><div class="bullet-body"><span class="bullet-desc">Trae una espada y pisará el lagar de la ira.</span></div></li>
+              <li><span class="bullet-icon">✦</span><div class="bullet-body"><span class="bullet-desc">Regirá con vara de hierro.</span></div></li>
+              <li><span class="bullet-icon">✦</span><div class="bullet-body"><span class="bullet-desc">Sangre del juicio en su vestidura.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- XII -->
+  <section class="section" id="sec-XII">
+    <div class="section-header">
+      <div class="section-num">XII</div>
+      <h3 class="section-title">La Perspectiva Terrenal del Regreso: El Apagón Cósmico</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Perturbaciones Cósmicas — Mateo 24</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Mateo 24:29-30</span>
+          <span class="scripture-text">Inmediatamente después de la tribulación de aquellos días, el sol se oscurecerá, la luna no dará su resplandor, las estrellas caerán del cielo y las potencias de los cielos serán conmovidas. Entonces aparecerá la señal del Hijo del hombre en el cielo, y todas las tribus de la tierra harán lamentación cuando vean al Hijo del hombre venir sobre las nubes del cielo, con poder y gran gloria.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">El Apagón Total del Universo</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Zacarías 14:6-7</span>
+          <span class="scripture-text">Acontecerá que en ese día no habrá luz, ni frío, ni hielo. Será un día único, sólo conocido por Jehová, en el que no habrá ni día ni noche, pero sucederá que al caer la tarde habrá luz.</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Oscuridad absoluta</span>
+              <span class="bullet-desc">Se produce un <span class="hl">apagón total del Universo</span>, dejando la tierra en completa y absoluta oscuridad. Toda fuente de luz — sol, luna, estrellas — deja de dar su luz.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Cristo: la única fuente de luz</span>
+              <span class="bullet-desc">En medio del apagón total, la ventana al cielo se abre y el Señor viene sobre las nubes. En ese momento, <span class="hl">el Señor mismo es la única fuente de luz en todo el Universo.</span> Todos lo verán.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Nadie podrá perderse su venida</span>
+              <span class="bullet-desc">Por eso Jesús advirtió que no se siguiera a nadie que dijera ser el Mesías. Cuando regrese, no habrá nada más que ver excepto a Él. El efecto: las naciones lo verán y llorarán, sabiendo que su juez ha regresado.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- XIII -->
+  <section class="section" id="sec-XIII">
+    <div class="section-header">
+      <div class="section-num">XIII</div>
+      <h3 class="section-title">Cierre y Perspectiva: Lo que Viene a Continuación</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">Punto de cierre de esta lección</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Jesús en el aire, regresando</span>
+              <span class="bullet-desc">La lección termina con Jesús en el aire, regresando para salvar a Israel. El estudio continúa con las <span class="hl">Etapas IV y V de la guerra de Armagedón</span>, las cuales serán batallas llevadas a cabo por Jesús mismo.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Resultado de las etapas IV y V</span>
+              <span class="bullet-desc">El fin completo del Anticristo y de sus fuerzas, y el final de la Tribulación de siete años.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Lo que sigue al regreso del Señor</span>
+              <span class="bullet-desc">Después de la guerra, el estudio de la Tribulación llega a su fin y se hace la transición a los eventos posteriores al regreso del Señor, incluyendo <span class="hl">algunas de las profecías más fascinantes de toda la Biblia.</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-sym">✦</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-box">
+    <p>Esta lección revela que la Segunda Venida de Cristo no es un acto unilateral, sino la respuesta soberana de Dios al clamor de Su pueblo. Israel, llevado al límite extremo de su existencia por la guerra de Armagedón, experimenta el derramamiento del Espíritu Santo y confiesa colectivamente a Jesús como Mesías —cumpliendo las condiciones del Pacto Mosaico, establecidas en Levítico 26. Solo entonces el Señor, Fiel y Verdadero, abre los cielos, apaga toda fuente de luz en el universo y desciende como la única luz, al frente de Sus ejércitos, para establecer Su Reino eterno.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    Basado en la enseñanza original de <a href="http://vbvmi.org" target="_blank">Verse By Verse Ministry International (VBVMI)</a><br>
+    Arte de Pat Marvenko Smith © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a>
+  </p>
+</footer>
+
+</div><!-- /.page-wrap -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

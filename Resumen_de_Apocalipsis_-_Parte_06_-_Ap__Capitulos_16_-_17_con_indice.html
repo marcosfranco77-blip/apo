@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis — Parte 06 · Capítulos 16–17</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 9%  11%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 29% 27%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 51% 6%,  rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 73% 19%, rgba(255,255,255,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 38%, rgba(201,168,76,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 6%  71%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 41% 84%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 63% 59%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 76%, rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 19% 93%, rgba(255,255,255,.5) 0%, transparent 100%);
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* HEADER */
+header {
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,26,26,.45) 0%, rgba(10,8,6,0) 70%);
+  text-align: center;
+  padding: 64px 24px 48px;
+  margin-bottom: 56px;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.ornament-line {
+  flex: 1;
+  max-width: 160px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim));
+}
+.ornament-line.right {
+  background: linear-gradient(to left, transparent, var(--gold-dim));
+}
+.ornament-text {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+}
+
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.meta-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.meta-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+.meta-value {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 52px;
+  animation: fadeUp .6s ease both;
+}
+.section:nth-child(1)  { animation-delay: .00s; }
+.section:nth-child(2)  { animation-delay: .08s; }
+.section:nth-child(3)  { animation-delay: .16s; }
+.section:nth-child(4)  { animation-delay: .24s; }
+.section:nth-child(5)  { animation-delay: .32s; }
+.section:nth-child(6)  { animation-delay: .40s; }
+.section:nth-child(7)  { animation-delay: .48s; }
+.section:nth-child(8)  { animation-delay: .56s; }
+.section:nth-child(9)  { animation-delay: .64s; }
+.section:nth-child(10) { animation-delay: .72s; }
+.section:nth-child(11) { animation-delay: .80s; }
+.section:nth-child(12) { animation-delay: .88s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.section-num {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.3;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 780px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover {
+  border-left-color: var(--gold);
+  transform: translateX(3px);
+}
+.card.full { grid-column: 1 / -1; }
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+}
+
+/* BULLETS */
+ul.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ul.bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+.bullet-icon {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: var(--gold);
+  margin-top: 2px;
+}
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* SCRIPTURE */
+.scripture {
+  position: relative;
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 32px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.scripture::before {
+  content: '"';
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  display: block;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* HIGHLIGHT */
+.hl { color: var(--gold-light); font-weight: 600; }
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold-dim), transparent);
+}
+.timeline-item { position: relative; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+/* INFO PANEL */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+
+/* TWO COL */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* TABLE */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 12px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+.styled-table td {
+  color: var(--text-dim);
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+}
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+}
+.divider-sym { color: var(--gold-dim); font-size: 14px; }
+
+/* SUMMARY BOX */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* FOOTNOTE */
+footer {
+  border-top: 1px solid rgba(201,168,76,.12);
+  padding-top: 24px;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.9;
+}
+footer a { color: var(--gold-dim); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+p.card-body {
+  font-size: 17px;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed; top: 0; left: 0; width: 270px; height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000; display: flex; flex-direction: column; overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex; align-items: center; gap: 10px; padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12); flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold-dim); white-space: nowrap;
+}
+.toc-links {
+  flex: 1; overflow-y: auto; padding: 10px 0 20px;
+  scrollbar-width: thin; scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 18px;
+  text-decoration: none; color: var(--text-dim); font-family: var(--f-body);
+  font-size: 13px; line-height: 1.4; border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover { color: var(--gold-light); border-left-color: var(--gold); background: rgba(201,168,76,.06); }
+.toc-item.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,.1); }
+.toc-num { flex-shrink: 0; font-size: 11px; font-family: var(--f-heading); color: var(--crimson-light); padding-top: 1px; min-width: 22px; }
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute; bottom: 20px; right: 12px;
+  background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold); border-radius: 50%; width: 30px; height: 30px;
+  cursor: pointer; font-size: 18px; display: flex; align-items: center;
+  justify-content: center; transition: background .2s; line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed; top: 50%; left: 0; transform: translateY(-50%);
+  z-index: 999; background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3); border-left: none;
+  color: var(--gold); border-radius: 0 6px 6px 0; width: 22px; height: 54px;
+  cursor: pointer; font-size: 18px; display: none; align-items: center;
+  justify-content: center; transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+}
+
+/* PAGE WRAP — desplaza el contenido cuando el índice está abierto */
+.page-wrap {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-open .page-wrap {
+  margin-left: 270px;
+}
+body.toc-closed .page-wrap {
+  margin-left: 0;
+}
+@media (max-width: 900px) {
+  body.toc-open .page-wrap { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#toc-1" class="toc-item"><span class="toc-num">XIV</span><span class="toc-title">Babilonia y la Redención de Cristo — Los Dos Grandes Temas de la Biblia</span></a>
+<a href="#toc-2" class="toc-item"><span class="toc-num">XV</span><span class="toc-title">Babilonia Dimensión 1 — Casa de Pecado: El Hogar de Satanás</span></a>
+<a href="#toc-3" class="toc-item"><span class="toc-num">XVI</span><span class="toc-title">Babilonia Dimensión 2 — Fuente de Toda Idolatría: La Torre de Babel</span></a>
+<a href="#toc-4" class="toc-item"><span class="toc-num">XVII</span><span class="toc-title">Babilonia Dimensión 3 — Primer Reino Gentil en Conquistar Israel y Jerusalén</span></a>
+<a href="#toc-5" class="toc-item"><span class="toc-num">XVIII</span><span class="toc-title">Babilonia Dimensión 4 — Sede Central del Anticristo en los Últimos Días</span></a>
+<a href="#toc-6" class="toc-item"><span class="toc-num">XIX</span><span class="toc-title">Babilonia Dimensión 5 — Símbolo de Todas las Religiones Falsas</span></a>
+<a href="#toc-7" class="toc-item"><span class="toc-num">XX</span><span class="toc-title">Los Puntos Cardinales como Símbolo Espiritual — Este vs. Oeste</span></a>
+<a href="#toc-8" class="toc-item"><span class="toc-num">XXI</span><span class="toc-title">Capítulo 17: El Juicio a la Babilonia Espiritual — La Gran Ramera</span></a>
+<a href="#toc-9" class="toc-item"><span class="toc-num">XXII</span><span class="toc-title">La Ramera Cabalga sobre la Bestia — Babilonia y el Anticristo Unidos</span></a>
+<a href="#toc-10" class="toc-item"><span class="toc-num">XXIII</span><span class="toc-title">Las Siete Cabezas — Siete Montes, Siete Reyes: La Era de los Gentiles</span></a>
+<a href="#toc-11" class="toc-item"><span class="toc-num">XXIV</span><span class="toc-title">Los Siete Reyes Históricos que Controlaron Babilonia y Jerusalén</span></a>
+<a href="#toc-12" class="toc-item"><span class="toc-num">XXV</span><span class="toc-title">Destrucción de la Ramera — El Fin de la Babilonia Espiritual</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+
+<div class="starfield"></div>
+
+<div class="wrapper page-wrap">
+
+<!-- ══════════════════════════ HEADER ══════════════════════════ -->
+<header>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span class="ornament-text">Verse by Verse Ministry International</span>
+    <div class="ornament-line right"></div>
+  </div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 06 · Capítulos 16 – 17</h2>
+  <div class="meta-bar">
+    <div class="meta-item">
+      <span class="meta-label">Capítulos cubiertos</span>
+      <span class="meta-value">Apocalipsis 16:19 – 17:18</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Temas principales</span>
+      <span class="meta-value">Babilonia en sus 5 dimensiones · La Gran Ramera · Los 7 Reyes</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Período histórico</span>
+      <span class="meta-value">Era de los Gentiles → Final de la Tribulación</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════ SECCIÓN XIV ══════════════════════════ -->
+<div class="section" id="toc-1">
+  <div class="section-header">
+    <div class="section-num">XIV</div>
+    <h2 class="section-title">Babilonia y la Redención de Cristo — Los Dos Grandes Temas de la Biblia</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 16:19</span>
+        <span class="scripture-text">Y la gran ciudad fue dividida en tres partes… la gran Babilonia vino en memoria delante de Dios, para darle el cáliz del vino del ardor de su ira.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Los Dos Temas que Atraviesan Toda la Escritura</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Redención vs. Babilonia</span><span class="bullet-desc">La destrucción de Babilonia es <span class="hl">uno de los dos temas principales de la Biblia</span>. El otro es la redención por medio de Cristo. Ambos temas juegan uno contra el otro a lo largo de toda la Escritura.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Babilonia como el antagonista</span><span class="bullet-desc">Babilonia sirve como lo opuesto al protagonista que es Cristo. Así como la identidad de Jesús se reveló lentamente a lo largo de la Escritura, Babilonia también se desvela en etapas.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Las copas como recipientes de ira</span><span class="bullet-desc">Las copas se usan como símbolos en las Escrituras que almacenan la ira de Dios para un tiempo posterior, cuando se derrame sobre los objetos merecedores de esa ira.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Las Cinco Dimensiones de Babilonia</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">❶</span><div class="bullet-content"><span class="bullet-label">Casa de pecado</span><span class="bullet-desc">El territorio donde comenzó el pecado en la tierra y el dominio de Satanás.</span></div></li>
+        <li><span class="bullet-icon">❷</span><div class="bullet-content"><span class="bullet-label">Origen de toda idolatría</span><span class="bullet-desc">La fuente primera de la adoración falsa y la rebelión religiosa.</span></div></li>
+        <li><span class="bullet-icon">❸</span><div class="bullet-content"><span class="bullet-label">Primera nación gentil en conquistar Israel y Jerusalén</span><span class="bullet-desc">Primer instrumento de Dios para disciplinar a su pueblo.</span></div></li>
+        <li><span class="bullet-icon">❹</span><div class="bullet-content"><span class="bullet-label">Sede central del poder del Anticristo</span><span class="bullet-desc">La capital física y espiritual de los últimos días.</span></div></li>
+        <li><span class="bullet-icon">❺</span><div class="bullet-content"><span class="bullet-label">Símbolo de toda religión falsa</span><span class="bullet-desc">La madre de todas las rameras y abominaciones de la tierra.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XV ══════════════════════════ -->
+<div class="section" id="toc-2">
+  <div class="section-header">
+    <div class="section-num">XV</div>
+    <h2 class="section-title">Babilonia Dimensión 1 — Casa de Pecado: El Hogar de Satanás</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Jardín del Edén y la Caída</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Satanás pierde su lugar celestial</span><span class="bullet-desc">Después de la caída de Satanás del cielo y su remoción del Edén celestial (Ez 28:13), busca su lugar en el Edén terrenal, que es imagen del celestial (Génesis 2:8). El Edén terrenal se ubicaba en lo que hoy es Irak, en la región de Babilonia.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los celos de Satanás por la humanidad</span><span class="bullet-desc">Los celos de Satanás por la creación del hombre y la mujer — quienes competían con su belleza y sabiduría — lo llevaron a atacarlos y traer a la humanidad al pecado.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Satanás gana dominio sobre la tierra</span><span class="bullet-desc">Cuando Adán desobedeció a Dios y obedeció a Satanás, le entregó el dominio que Dios le había dado. Satanás ganó así el dominio sobre la tierra.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Babilonia: Zona Cero de la Guerra Espiritual</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La primera área entregada a Satanás</span><span class="bullet-desc">Babilonia es <span class="hl">ground zero</span> — la primera área de tierra entregada a Satanás, el inicio del pecado y el comienzo de su batalla con Dios por el control de la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Fortaleza eterna de Satanás</span><span class="bullet-desc">Por siempre, Babilonia ha sido el territorio natal de Satanás, su fortaleza. Hoy, esta región continúa siendo fuertemente custodiada por sus fuerzas oscuras, con una actividad demoníaca especialmente intensa.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Regla de asociación</span><span class="bullet-desc">Cuando escuchemos la palabra Babilonia, debemos asociarla con el <span class="hl">hogar de Satanás y el pecado</span>.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XVI ══════════════════════════ -->
+<div class="section" id="toc-3">
+  <div class="section-header">
+    <div class="section-num">XVI</div>
+    <h2 class="section-title">Babilonia Dimensión 2 — Fuente de Toda Idolatría: La Torre de Babel</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Nimrod y la Torre de Babel</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Nimrod: el anticristo de su época</span><span class="bullet-desc">Génesis 11 registra cómo los hombres se reunieron en Babel bajo el liderazgo de Nimrod, un líder mundial todopoderoso para todas las tribus de aquellos días. Su historia sirve como imagen del Anticristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La primera religión falsa</span><span class="bullet-desc">Nimrod pide un nuevo tipo de adoración y un proyecto de construcción de una torre que llegaría al cielo. La torre fue la <span class="hl">primera religión falsa</span>: intentó reemplazar la obediencia a Dios con una forma hecha por el hombre para llegar al cielo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La idea que Satanás sembró</span><span class="bullet-desc">Detrás de la torre había corazones que creyeron por primera vez que era posible abrirse camino hacia Dios por propios esfuerzos. Satanás usó a Nimrod para establecer esta idea: los hombres podrían definir su propia manera de llegar al cielo. Dios puso eternidad en el corazón del hombre para buscarlo, pero Satanás la corrompió.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Dios Responde: La Confusión de Lenguas</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Señor esparce al hombre</span><span class="bullet-desc">El Señor respondió confundiendo el lenguaje para asegurar que tal rebelión mundial fuera más difícil en el futuro. Ningún gobierno funciona si la gente no tiene un lenguaje común. Desde entonces, los idiomas han mantenido a los hombres separados en lugar de organizarse contra Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El idioma global del internet</span><span class="bullet-desc">La cultura occidental e internet han reunido cada vez más al mundo bajo un idioma común: el inglés. Los traductores automáticos integran a una gran población a la unidad global. Esto ha hecho que la torre de Babel aumente en población. Toda persona integrada puede ser fácilmente influenciada y dirigida hacia objetivos específicos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Una nueva rebelión contra Dios</span><span class="bullet-desc">A medida que el mundo supera rápidamente la barrera del idioma, una nueva rebelión mundial contra Dios se vuelve posible. Nuestros cerebros son manipulados por algoritmos diseñados para hacernos comprar ideas distorsionadas sobre el mundo y especialmente en contra de una relación genuina con Dios.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XVII ══════════════════════════ -->
+<div class="section" id="toc-4">
+  <div class="section-header">
+    <div class="section-num">XVII</div>
+    <h2 class="section-title">Babilonia Dimensión 3 — Primer Reino Gentil en Conquistar Israel y Jerusalén</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Nabucodonosor y el Inicio de la Era de los Gentiles</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La primera conquista gentil</span><span class="bullet-desc">Antes de Nabucodonosor, ninguna nación gentil había tenido éxito en dominar al pueblo de Dios. Dios permitió que Babilonia conquistara a Israel como parte de su plan para <span class="hl">disciplinar a su pueblo</span> por sus pecados.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Nabucodonosor como imagen del Anticristo</span><span class="bullet-desc">Como se estudió en Daniel, el hombre a la cabeza de Babilonia también es una imagen del Anticristo. Babilonia se convierte en la primera de las naciones en controlar a Israel durante la Era de los Gentiles.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Juicio prometido a Babilonia</span><span class="bullet-desc">Dios permitió la conquista pero también prometió, en Jeremías, castigar eventualmente a Babilonia por su crueldad contra Israel: <em>"Y pagaré a Babilonia y a todos los moradores de Caldea, todo el mal que ellos hicieron en Sion"</em> (Jer 51:24).</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Patrón se Repite al Final</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un último gobernante gentil</span><span class="bullet-desc">Los tiempos de los gentiles terminarán de manera similar a como comenzaron: un solo gobernante gentil controlando el mundo entero y persiguiendo a Israel, controlando tanto a Jerusalén como a Babilonia. Este será el reino del Anticristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Disciplina, no destrucción</span><span class="bullet-desc">Como la primera Babilonia, esta última será usada por Dios para disciplinar a su pueblo. Sin embargo, como Dios prometió, la disciplina no será para la destrucción de Israel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Regla de asociación</span><span class="bullet-desc">Cuando escuchemos Babilonia, debemos pensar en <span class="hl">"el instrumento de Dios para disciplinar a Israel"</span>.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XVIII ══════════════════════════ -->
+<div class="section" id="toc-5">
+  <div class="section-header">
+    <div class="section-num">XVIII</div>
+    <h2 class="section-title">Babilonia Dimensión 4 — Sede Central del Anticristo en los Últimos Días</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Babilonia: Física y Espiritual a la Vez</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Literal y simbólica simultáneamente</span><span class="bullet-desc">La Escritura deja en claro que Babilonia en Apocalipsis es <span class="hl">tanto el lugar literal como el símbolo bíblico</span>. Es como la creación: los siete días son literales, pero también el número siete tiene significado simbólico.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Anticristo reside en Babilonia geográfica</span><span class="bullet-desc">Ya en Apocalipsis 16, el Anticristo reside en la Babilonia geográfica, cerca del río Éufrates. Cuando el Éufrates se seca, es la oportunidad para llevar sus ejércitos a Israel (de este a oeste).</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El hogar de Satanás explica la elección</span><span class="bullet-desc">El Anticristo traslada la sede del poder mundial a Babilonia en el momento en que Satanás habita en él. Tiene sentido: el hogar de Satanás siempre ha estado en Mesopotamia; naturalmente ubicará allí la sede del gobierno mundial.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Una Ciudad que Renace para Ser Destruida</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Destrucción lenta según su propósito</span><span class="bullet-desc">La destrucción de la ciudad de Babilonia se destaca precisamente porque la ciudad se ha convertido nuevamente en un centro de poder. Será destruida justo antes de que el Anticristo sea destruido.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Centro de poder político, militar y financiero</span><span class="bullet-desc">En los últimos días de la Tribulación, el Anticristo hace de Babilonia la sede de su poder militar y financiero. El capítulo 18 describirá el juicio de esta ciudad física, arruinando su riqueza, poder y prestigio.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Regla de asociación</span><span class="bullet-desc">Cuando escuchemos Babilonia, debemos pensar en <span class="hl">"la sede del poder en los últimos días"</span>.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XIX ══════════════════════════ -->
+<div class="section" id="toc-6">
+  <div class="section-header">
+    <div class="section-num">XIX</div>
+    <h2 class="section-title">Babilonia Dimensión 5 — Símbolo de Todas las Religiones Falsas</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Solo Dos Sistemas Religiosos en la Tierra</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El camino de Dios</span><span class="bullet-desc">El camino de Dios, puesto a disposición a través de sus promesas en su Palabra y por medio de nuestra fe en la obra de Cristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Todo lo demás: Babilonia</span><span class="bullet-desc">La religión falsa del enemigo que comenzó en el Jardín, tomó forma en Babel y dio a luz a un número incontable de religiones derivadas. La mezcla heterogénea de opciones religiosas de hoy es testimonio de la proliferación de mentiras del enemigo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">No representa una sola religión falsa</span><span class="bullet-desc">Babilonia no representa un sistema falso específico, sino <span class="hl">todos los sistemas religiosos falsos</span> que Satanás ha inventado.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Cómo la Multiplicidad de Religiones Falsas Beneficia a Satanás</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">①</span><div class="bullet-content"><span class="bullet-label">Camufla la verdad</span><span class="bullet-desc">Muchas religiones generan confusión y hacen difícil que alguien encuentre la verdad entre tanto ruido.</span></div></li>
+        <li><span class="bullet-icon">②</span><div class="bullet-content"><span class="bullet-label">Perpetúa el mito de muchos caminos</span><span class="bullet-desc">Hace parecer que hay muchos caminos para ir al cielo, por lo que todas las religiones parecen igualmente válidas. Esto diluye la exclusividad de Cristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Regla de asociación</span><span class="bullet-desc">Cuando escuchemos Babilonia, debemos pensar en <span class="hl">"toda religión falsa"</span>.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Resumen: Babilonia Es y Representa — Dos Ciudades Antagónicas</div>
+      <div class="two-col">
+        <div class="info-panel">
+          <div class="info-panel-title">🔴 Babilonia — Morada de Satanás</div>
+          <p class="bullet-desc">Es un lugar físico donde comenzó el pecado, sede espiritual de Satanás y la rebelión. Punto de partida de la idolatría. Fuente de todo odio y opresión contra el pueblo de Dios. Símbolo de todo lo que Satanás es y hace para socavar la verdad y oponerse a Dios. Al este de Jerusalén: dirección del mal.</p>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">✨ Jerusalén — Morada de Dios</div>
+          <p class="bullet-desc">Es la ciudad de Dios y un lugar de redención. Capital de su pueblo y lugar del sacrificio de Cristo. Será la sede del gobierno de Cristo y el centro del mundo en el Reino. Así como Babilonia es para Satanás, Jerusalén es para Jesús. Al oeste: dirección del bien.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XX ══════════════════════════ -->
+<div class="section" id="toc-7">
+  <div class="section-header">
+    <div class="section-num">XX</div>
+    <h2 class="section-title">Los Puntos Cardinales como Símbolo Espiritual — Este vs. Oeste</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Este = Mal · Oeste = Bien</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Un patrón bíblico consistente</span><span class="bullet-desc">Babilonia está al este de Jerusalén y por tanto la dirección este representa el mal. Jerusalén está al oeste, por lo que moverse hacia el oeste es una imagen de alejarse del mal y acercarse al Señor.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Después de la creación</span><span class="bullet-desc">Después de la creación de Adán, el Señor lo puso en un jardín <em>al oriente</em>, representando a Adán moviéndose hacia el pecado.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Caín enviado al este</span><span class="bullet-desc">Caín es enviado al este después de asesinar a Abel — movimiento hacia el pecado y la separación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Abraham de este a oeste</span><span class="bullet-desc">Abraham fue enviado desde Ur en el este a la Tierra Prometida en el oeste, representando su paso del paganismo a la fe.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Jesús y las tentaciones</span><span class="bullet-desc">Incluso Jesús se trasladó del oeste del Jordán al este para enfrentarse a Satanás en sus tentaciones en el desierto.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Lo Figurativo se Vuelve Literal al Final</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El campo de batalla final</span><span class="bullet-desc">Donde antes Babilonia y Jerusalén representaban figurativamente el mal contra el bien, ahora se han convertido en el <span class="hl">campo de batalla literal</span>. Las únicas dos ciudades que quedan en pie al final de la era son Babilonia y Jerusalén.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El Señor reduce el enfoque</span><span class="bullet-desc">El Señor ha reducido el enfoque del mundo a estos dos lugares. Con los juicios de las copas lleva a Satanás del este (Babilonia) hacia el oeste (Jerusalén) para una batalla final.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El plan global de la destrucción</span><span class="bullet-desc">Físicamente: el Anticristo y su base de poder, la ciudad de Babilonia, deben ser destruidos. Espiritualmente: toda religión falsa debe llegar a su fin, así como toda rebelión e idolatría. Babilonia destruyendo Jerusalén, pero al final Jerusalén destruye Babilonia.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XXI ══════════════════════════ -->
+<div class="section" id="toc-8">
+  <div class="section-header">
+    <div class="section-num">XXI</div>
+    <h2 class="section-title">Capítulo 17: El Juicio a la Babilonia Espiritual — La Gran Ramera</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 17:1–6</span>
+        <span class="scripture-text">Vino entonces uno de los siete ángeles que tenían las siete copas, y habló conmigo diciéndome: Ven acá, y te mostraré la sentencia contra la gran ramera, la que está sentada sobre muchas aguas; con la cual han fornicado los reyes de la tierra... Y me llevó en el Espíritu al desierto; y vi a una mujer sentada sobre una bestia escarlata llena de nombres de blasfemia... BABILONIA LA GRANDE, LA MADRE DE LAS RAMERAS Y DE LAS ABOMINACIONES DE LA TIERRA. Vi a la mujer ebria de la sangre de los santos...</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">La Mujer como Símbolo de la Religión Falsa</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Las mujeres simbolizan sistemas religiosos</span><span class="bullet-desc">En las Escrituras, las mujeres se usan comúnmente para simbolizar sistemas religiosos. A Israel se le llama la esposa de Jehová, y a la Iglesia se le llama la Novia y Esposa de Cristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La ramera: esposa ilegítima</span><span class="bullet-desc">Una ramera es una esposa ilegítima y falsa, que da la ilusión de un matrimonio sin sustancia ni realidad. En ese sentido es una imagen adecuada de la idolatría: una relación religiosa falsa que pretende ser verdadera, sustituyendo el lugar de un pacto con el Dios verdadero.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La Madre de todas las rameras</span><span class="bullet-desc">Esta mujer no es simplemente una de las muchas religiones falsas; es la <span class="hl">Madre de toda religión falsa</span>. Babilonia es donde todo inició. La fuente de la religión falsa es Satanás, padre de toda mentira, personificado en su ciudad natal.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Sentada sobre Muchas Aguas — Dominio Global</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Las aguas = todas las naciones</span><span class="bullet-desc">Las aguas representan la multitud de naciones y pueblos del mundo (v.15). La ramera sentada sobre ellas sugiere que domina y engaña a toda la humanidad bajo la religión falsa que encuentra su origen en Babilonia.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Los líderes mundiales fornican con ella</span><span class="bullet-desc">A lo largo del tiempo, los líderes mundiales han utilizado la religión para construir una base de poder, para enriquecerse y controlar a sus súbditos. Fornican con la ramera en el sentido de que la usan para su propio placer y se vuelven socios de ella.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Religión falsa: sedante y estimulante</span><span class="bullet-desc"><span class="hl">Estimulante:</span> despierta la lujuria por mayor poder y otros deseos. Se convierte en adoración a sí mismo — un dios que yo diseño para satisfacer mi adicción. <span class="hl">Sedante:</span> adormece a la persona en un estupor espiritual, vacunándola contra la verdad (2 Corintios 4:3-4).</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XXII ══════════════════════════ -->
+<div class="section" id="toc-9">
+  <div class="section-header">
+    <div class="section-num">XXII</div>
+    <h2 class="section-title">La Ramera Cabalga sobre la Bestia — Babilonia y el Anticristo Unidos</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 17:3, 8</span>
+        <span class="scripture-text">Y me llevó en el Espíritu al desierto; y vi a una mujer sentada sobre una bestia escarlata llena de nombres de blasfemia, que tenía siete cabezas y diez cuernos... La bestia que has visto, era, y no es; y está para subir del abismo e ir a perdición.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">La Bestia es el Anticristo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La misma bestia del Capítulo 13</span><span class="bullet-desc">Esta bestia es la misma que Juan vio en Apocalipsis 13: siete cabezas y diez cuernos. Es el Anticristo, confirmado en el v.17:8: el que fue, no es y está a punto de salir del abismo — referencia a su <span class="hl">muerte y resurrección</span>.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La ramera ha existido antes del Anticristo</span><span class="bullet-desc">La Babilonia espiritual ha existido mucho antes del Anticristo. La acabamos de ver sentada sobre muchas aguas, que son los reyes de la tierra por toda la historia. Satanás ha estado usando la religión falsa para controlar a los líderes mundiales a lo largo de los siglos.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Un Cambio Crucial: La Ramera Ahora Monta a la Bestia</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La unión al final de la Tribulación</span><span class="bullet-desc">En el Capítulo 17, Babilonia la ramera cabalga sobre la bestia (el Anticristo) que gobierna el mundo. Mientras Satanás habita en este hombre, la Babilonia espiritual y la bestia se han unido como uno.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Una sola religión: la peor</span><span class="bullet-desc">Al final de la Tribulación, toda la religión del mundo está investida en un solo hombre, el Anticristo. Ya no habrá muchas religiones falsas. La ramera ahora monta a la bestia porque solo queda uno: no Buda, no la virgen, no Mahoma, etc. <span class="hl">Solo el Anticristo.</span></span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Adornada de riquezas para honrar a Satanás</span><span class="bullet-desc">La mujer vestida como realeza representa que Satanás requiere adoración con grandes sacrificios. Dan 11:36-38: el Anticristo se engrandecerá sobre todo dios y honrará al dios de las fortalezas con oro, plata y piedras preciosas.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Ebria de la Sangre de los Santos — El Juicio Asegurado</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Copa de abominaciones</span><span class="bullet-desc">La ramera sostiene una copa de abominaciones e inmoralidad (v.4), promoviendo estas dos cosas que van de la mano. Se complace en ellas como si fuera adicta.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Ebria de sangre de los mártires</span><span class="bullet-desc">El versículo 6 revela que está ebria de la sangre de los santos, que representa tanto el martirio de la Tribulación como el de tiempos anteriores. Esta escena cuenta la historia de la religión en todos los tiempos, usada para perseguir a los santos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El peor enemigo: denominaciones cristianas falsas</span><span class="bullet-desc">Los peores ejemplos son las denominadas religiones cristianas falsas que Satanás usa para desacreditar a Jesús y a la verdadera Iglesia. En los últimos días de la era de los gentiles, todos sus planes están investidos en un solo hombre: el Anticristo.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XXIII ══════════════════════════ -->
+<div class="section" id="toc-10">
+  <div class="section-header">
+    <div class="section-num">XXIII</div>
+    <h2 class="section-title">Las Siete Cabezas — Siete Montes, Siete Reyes: La Era de los Gentiles</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 17:9–11</span>
+        <span class="scripture-text">Esto, para la mente que tenga sabiduría: Las siete cabezas son siete montes, sobre los cuales se sienta la mujer, y son siete reyes. Cinco de ellos han caído; uno es, y el otro aún no ha venido; y cuando venga, es necesario que dure breve tiempo. La bestia que era, y no es, es también el octavo; y es de entre los siete, y va a la perdición.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">La Cadena Simbólica: Cabezas → Montes → Reyes</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Tener sabiduría = conocer el A.T.</span><span class="bullet-desc">"Para la mente que tenga sabiduría" significa que debemos conocer la historia y el Antiguo Testamento, específicamente el contexto de Daniel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Las montañas son reyes supremos</span><span class="bullet-desc">Cuando la Biblia usa montañas para representar reyes, significa reyes de la más alta autoridad. Nadie es más alto que ellos — no tienen sobre ellos otra autoridad humana. No tienen encima al Anticristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Distinción clave: no son los 7 del final</span><span class="bullet-desc">Estos siete reyes deben distinguirse de los siete líderes que gobernarán bajo el Anticristo durante la Tribulación (que no serán la máxima autoridad). Los siete reyes históricos gobiernan en secuencia a lo largo del tiempo, no simultáneamente.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Cuernos de la Bestia vs. Cabezas — Dragón vs. Anticristo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El dragón (Satanás) en Ap. 12:3</span><span class="bullet-desc">Tenía diez cuernos y siete cabezas <em>con coronas</em>. Esto indica que Satanás tiene el control del mundo entero: todos sus diez reinos y todos sus siete gobernantes incluyendo al Anticristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La bestia (Anticristo) en Ap. 13:1</span><span class="bullet-desc">Tenía diez cuernos con diez coronas, pero solo siete cabezas con nombres blasfemos. Y una de esas siete cabezas fue asesinada y luego resucitó. Las siete cabezas son líderes mundiales supremos que gobernaron a través de la Era de los Gentiles.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La Bestia incorpora las cuatro bestias de Daniel</span><span class="bullet-desc">La bestia del Ap. 13:2 (leopardo, oso, boca de león, diez cuernos) representa toda la era de los gentiles, culminando con el gobierno del mundo por el Anticristo. Tenía partes de león, oso, leopardo y la cuarta bestia de Daniel 7.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XXIV ══════════════════════════ -->
+<div class="section" id="toc-11">
+  <div class="section-header">
+    <div class="section-num">XXIV</div>
+    <h2 class="section-title">Los Siete Reyes Históricos que Controlaron Babilonia y Jerusalén</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Regla para Identificar a los Siete Reyes</div>
+      <p class="card-body" style="margin-bottom:14px;">Para ser contados entre los siete reyes, los gobernantes debían haber controlado <span class="hl">tanto a Babilonia como a Jerusalén</span> al mismo tiempo. Israel ha permanecido bajo la autoridad de los gentiles desde Babilonia hasta el regreso de Cristo. El tema siempre ha sido Babilonia contra Jerusalén.</p>
+    </div>
+    <div class="card full">
+      <div class="card-title">Los Siete Reyes a lo Largo de la Era de los Gentiles</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">Rey I — Nabucodonosor (Babilonia)</div>
+          <div class="timeline-desc">Primera dinastía gentil en controlar tanto Babilonia como Jerusalén. Imagen del Anticristo. Inicio de la Era de los Gentiles.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Rey II — Ciro (Persia)</div>
+          <div class="timeline-desc">El Imperio Persa sucede a Babilonia y controla ambas ciudades bajo la dinastía de Ciro.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Rey III — Alejandro Magno (Grecia)</div>
+          <div class="timeline-desc">El breve gobierno de Alejandro sobre todo el mundo conocido. Murió sin descendientes; su Imperio se dividió en cuatro (como las cuatro alas del leopardo de Daniel).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Rey IV — Ptolomeo III (246 a.C.)</div>
+          <div class="timeline-desc">Del Imperio Ptolemaico, atacó al Imperio Seléucida y logró temporalmente el control de Babilonia y Jerusalén.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Rey V — Antíoco IV Epífanes (170 a.C.)</div>
+          <div class="timeline-desc">Del Imperio Griego Seléucida, atacó el Reino Ptolemaico y obtuvo el control de ambas ciudades. Para los días de Juan, estos cinco reyes ya habían caído.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Rey VI — Tito / Imperio Romano (época de Juan)</div>
+          <div class="timeline-desc">El general Tito conquistó Jerusalén en el 70 d.C. y gobernó Babilonia cuando ascendió a emperador de Roma. El Imperio Romano y sus descendientes continuaron el control sobre ambas ciudades hasta 1923. Este es el rey que "es" en la época de Juan.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Rey VII — El Anticristo (Tribulación)</div>
+          <div class="timeline-desc">El último líder mundial en hacerse con el control de ambos lugares. Reina por un corto tiempo (3½ años, la segunda mitad de la Tribulación). Aún no había venido en la época de Juan. La ramera finalmente se establece sobre él.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">El Séptimo Rey que Resucita como el Octavo</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Muerte y resurrección del Anticristo</span><span class="bullet-desc">En el versículo 17:11 se dice que la bestia es <span class="hl">el séptimo y también el octavo</span>. Juan dijo que era y no es, y luego regresa. Esto hace referencia a la muerte y resurrección del Anticristo. Fue el séptimo hasta que muere; al resucitar vuelve a estar a cargo, como si fuera un "octavo" rey.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">La ramera monta a los reyes a lo largo de la historia</span><span class="bullet-desc">Así como la ramera se sentó sobre cada uno de los cinco reyes anteriores en su tiempo, se sienta sobre el actual (el VI) durante la época de Juan, y finalmente se sentará sobre el séptimo/Anticristo durante la Tribulación. Ella es el facilitador; los reyes son su benefactor.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Los Diez Cuernos — Los Diez Reyes de la Tribulación</div>
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 17:12–13</span>
+        <span class="scripture-text">Y los diez cuernos que has visto, son diez reyes, que aún no han recibido reino; pero por una hora recibirán autoridad como reyes juntamente con la bestia. Estos tienen un mismo propósito, y entregarán su poder y su autoridad a la bestia.</span>
+      </div>
+      <ul class="bullets" style="margin-top:10px;">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Propósito exclusivo: apoyar al Anticristo</span><span class="bullet-desc">El único propósito de estos diez reyes es apoyar el programa de Dios para llevar al Anticristo al poder, consolidando el gobierno mundial bajo 10 gobernantes. Es más fácil para un hombre gobernar sobre 10 naciones que sobre 190+.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Aún no han venido en la época de Juan</span><span class="bullet-desc">Pasarían 2000 años o más antes de que lleguen al poder. Gobernarán por un corto tiempo (una "hora"). En última instancia, ellos y sus reinos terminan con la venida de Cristo.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECCIÓN XXV ══════════════════════════ -->
+<div class="section" id="toc-12">
+  <div class="section-header">
+    <div class="section-num">XXV</div>
+    <h2 class="section-title">Destrucción de la Ramera — El Fin de la Babilonia Espiritual</h2>
+  </div>
+  <div class="cards">
+    <div class="card full">
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 17:15–18</span>
+        <span class="scripture-text">Las aguas que has visto donde la ramera se sienta, son pueblos, muchedumbres, naciones y lenguas. Y los diez cuernos que viste en la bestia, éstos aborrecerán a la ramera, y la dejarán desolada y desnuda; y devorarán sus carnes, y la quemarán con fuego; porque Dios ha puesto en sus corazones el ejecutar lo que él quiso... Y la mujer que has visto es la gran ciudad que reina sobre los reyes de la tierra.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">El Anticristo Destruye la Religión Falsa</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">A mitad de la Tribulación</span><span class="bullet-desc">Cuando Satanás mora en el Anticristo, ordena que se le dé <span class="hl">toda la adoración</span>. Por lo tanto, pone fin a cualquier forma de culto y práctica religiosa. Los diez cuernos llegan a odiar a la ramera.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Destrucción de todas las instituciones religiosas</span><span class="bullet-desc">Todas las instituciones religiosas, templos, iglesias, mezquitas y otros lugares de culto son destruidos. Estas estructuras físicas y las reliquias en su interior son quemadas con fuego (v.16). Estas cosas constituyen la "carne" de la ramera.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Desolada y desnuda</span><span class="bullet-desc">Todas las instituciones religiosas son despojadas de su riqueza, por lo que la ramera queda desolada y desnuda. El ángel dice en el versículo 17 que estos reyes están trabajando para cumplir los propósitos de Dios, aunque creen que es su propia idea.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Plan Soberano de Dios — Solo Un Hombre Queda</div>
+      <ul class="bullets">
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">El mundo pasa de muchos dioses a uno solo</span><span class="bullet-desc">Después de que se derrame la séptima copa, la única adoración religiosa falsa que quedará es la adoración a Satanás. A un solo dios. Que siempre ha sido el objetivo de la Babilonia espiritual.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Dios usó a Satanás para destruir su propio sistema</span><span class="bullet-desc">Durante la Era de los Gentiles, Dios puso el sistema religioso falso de Satanás a trabajar para sus propios propósitos al disciplinar a Israel. Ahora el séptimo juicio pone fin a este sistema corrupto usando al mismo Satanás para completar esa destrucción.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div class="bullet-content"><span class="bullet-label">Al final: solo un hombre</span><span class="bullet-desc">El Señor usó el séptimo juicio para simplificar enormemente el problema de limpiar el mundo de la religión falsa. En su segunda venida solo necesita destruir a un hombre para terminar con toda idolatría. La batalla queda entre Dios y un solo hombre: <span class="hl">el 666 contra el único Dios verdadero</span>.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">El Cordero Vencerá</div>
+      <div class="scripture">
+        <span class="scripture-ref">Apocalipsis 17:14</span>
+        <span class="scripture-text">Pelearán contra el Cordero, y el Cordero los vencerá, porque él es Señor de señores y Rey de reyes; y los que están con él son llamados y elegidos y fieles.</span>
+      </div>
+      <p class="card-body" style="margin-top:12px;">Al final, toda la estructura que ha estado gobernando el mundo a lo largo de toda la historia — múltiples gobiernos y religiones — será destruida. Solo quedará un hombre gobernando el mundo como líder político y religioso. Y ese hombre enfrentará al Cordero. A continuación viene la destrucción física de la ciudad de Babilonia (Capítulo 18).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ DIVIDER ══════════════════════════ -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-sym">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ══════════════════════════ RESUMEN FINAL ══════════════════════════ -->
+<div class="summary-box">
+  Los capítulos 16 y 17 revelan que la historia del mundo no es el caos que aparenta ser, sino el desarrollo de dos grandes temas que se oponen desde el Edén: la redención de Cristo y la rebelión de Babilonia. Satanás, desde su fortaleza en Mesopotamia, ha tejido a lo largo de milenios una red de religiones falsas, gobiernos corruptos y engaños para contrarrestar el plan de Dios — pero en el momento culminante, el propio Señor voltea cada pieza del tablero a su favor: usa la séptima copa para que el Anticristo destruya todas las religiones falsas excepto la suya propia, reduciendo el problema del mal a un solo hombre, y dispone los ejércitos del mundo en el preciso lugar donde el Cordero los encontrará. El resultado es inevitable: el Señor de señores y Rey de reyes vence, y Babilonia, en todas sus formas, recibe la copa de vino ardiente que lleva su nombre desde la eternidad.
+</div>
+
+<!-- ══════════════════════════ FOOTNOTE ══════════════════════════ -->
+<footer>
+  Basado en la enseñanza original de Verse By Verse Ministry International (VBVMI) · <a href="http://vbvmi.org" target="_blank">vbvmi.org</a><br>
+  Arte de Pat Marvenko Smith © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a>
+</footer>
+
+</div><!-- /wrapper -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

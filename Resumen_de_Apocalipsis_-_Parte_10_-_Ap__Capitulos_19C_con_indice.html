@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis — Parte 10 · Capítulo 19C</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0A0806;
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* STARFIELD */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 9%  14%, rgba(201,168,76,0.5)  0%, transparent 100%),
+    radial-gradient(1px 1px at 29% 6%,  rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 53% 21%, rgba(201,168,76,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 74% 9%,  rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 38%, rgba(201,168,76,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 19% 52%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 63% 69%, rgba(201,168,76,0.4)  0%, transparent 100%),
+    radial-gradient(1px 1px at 41% 84%, rgba(255,255,255,0.35)0%, transparent 100%),
+    radial-gradient(1px 1px at 6%  91%, rgba(201,168,76,0.3)  0%, transparent 100%),
+    radial-gradient(1px 1px at 79% 58%, rgba(255,255,255,0.45)0%, transparent 100%);
+}
+
+/* HEADER */
+header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 70px 40px 60px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(100,10,10,0.55) 0%, transparent 70%);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -20%, rgba(139,26,26,0.3) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.ornament-line {
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+}
+.ornament-text {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 30px rgba(201,168,76,0.2);
+}
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.meta-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.meta-item { text-align: center; }
+.meta-label {
+  font-family: var(--f-heading);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.meta-value {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* MAIN */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 60px 28px 80px;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.6s ease forwards;
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.section-num {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.3;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 780px) { .cards { grid-template-columns: 1fr; } }
+
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover { border-left-color: var(--gold); transform: translateX(3px); }
+.card.full { grid-column: 1 / -1; }
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  margin-bottom: 16px;
+}
+
+/* BULLETS */
+ul.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+ul.bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+.bullet-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  line-height: 1.6;
+}
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+
+/* SCRIPTURE */
+.scripture-box {
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 44px;
+  margin: 10px 0;
+  position: relative;
+}
+.scripture-box::before {
+  content: '\201C';
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.8px;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold-dim), transparent);
+}
+.timeline-item { position: relative; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(201,168,76,0.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+/* INFO PANEL */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* TWO COL */
+.two-col-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+@media (max-width: 600px) { .two-col-info { grid-template-columns: 1fr; } }
+
+/* TABLE */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 0.8px;
+}
+.styled-table td {
+  font-size: 16px;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.styled-table tr:last-child td { border-bottom: none; }
+
+/* HIGHLIGHT */
+.hl { color: var(--gold-light); font-weight: 600; }
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 56px 0;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,.3), transparent);
+}
+.divider-sym { color: var(--gold-dim); font-size: 16px; }
+
+/* SUMMARY */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.summary-box p {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.85;
+}
+
+/* FOOTNOTE */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 32px 28px 48px;
+  border-top: 1px solid rgba(201,168,76,.1);
+}
+footer p {
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+footer a { color: var(--gold-dim); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+/* STAGGER */
+.section:nth-child(1)  { animation-delay: 0.08s; }
+.section:nth-child(2)  { animation-delay: 0.16s; }
+.section:nth-child(3)  { animation-delay: 0.24s; }
+.section:nth-child(4)  { animation-delay: 0.32s; }
+.section:nth-child(5)  { animation-delay: 0.40s; }
+.section:nth-child(6)  { animation-delay: 0.48s; }
+.section:nth-child(7)  { animation-delay: 0.56s; }
+.section:nth-child(8)  { animation-delay: 0.64s; }
+.section:nth-child(9)  { animation-delay: 0.72s; }
+.section:nth-child(10) { animation-delay: 0.80s; }
+.section:nth-child(11) { animation-delay: 0.88s; }
+.section:nth-child(12) { animation-delay: 0.96s; }
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed; top: 0; left: 0; width: 270px; height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000; display: flex; flex-direction: column; overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex; align-items: center; gap: 10px; padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12); flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold-dim); white-space: nowrap;
+}
+.toc-links {
+  flex: 1; overflow-y: auto; padding: 10px 0 20px;
+  scrollbar-width: thin; scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 18px;
+  text-decoration: none; color: var(--text-dim); font-family: var(--f-body);
+  font-size: 13px; line-height: 1.4; border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover { color: var(--gold-light); border-left-color: var(--gold); background: rgba(201,168,76,.06); }
+.toc-item.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,.1); }
+.toc-num { flex-shrink: 0; font-size: 11px; font-family: var(--f-heading); color: var(--crimson-light); padding-top: 1px; min-width: 22px; }
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute; bottom: 20px; right: 12px;
+  background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold); border-radius: 50%; width: 30px; height: 30px;
+  cursor: pointer; font-size: 18px; display: flex; align-items: center;
+  justify-content: center; transition: background .2s; line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed; top: 50%; left: 0; transform: translateY(-50%);
+  z-index: 999; background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3); border-left: none;
+  color: var(--gold); border-radius: 0 6px 6px 0; width: 22px; height: 54px;
+  cursor: pointer; font-size: 18px; display: none; align-items: center;
+  justify-content: center; transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+.page-wrap { transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+body.toc-open .page-wrap { margin-left: 270px; max-width: calc(1100px + 270px); transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+body.toc-closed .page-wrap { margin-left: 0; transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+@media (max-width: 900px) { #sidebar-toc { width: 240px; } body.toc-open .page-wrap { margin-left: 240px; } }
+@media (max-width: 600px) { body.toc-open .page-wrap { margin-left: 0; } }
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#toc-1" class="toc-item"><span class="toc-num">XIV</span><span class="toc-title">Situación Actual al Inicio de la Lección: Israel ha Clamado, Jesús Desciende</span></a>
+<a href="#toc-2" class="toc-item"><span class="toc-num">XV</span><span class="toc-title">Tipología: José y Sus Hermanos — Imagen Perfecta de Cristo e Israel</span></a>
+<a href="#toc-3" class="toc-item"><span class="toc-num">XVI</span><span class="toc-title">Etapa IV de Armagedón: Jesús Destruye los Ejércitos en Bosra (Isaías 34)</span></a>
+<a href="#toc-4" class="toc-item"><span class="toc-num">XVII</span><span class="toc-title">El Señor Regresa de Bosra hacia Jerusalén: Isaías 63 — La Perspectiva del Profeta</span></a>
+<a href="#toc-5" class="toc-item"><span class="toc-num">XVIII</span><span class="toc-title">El Trayecto de Bosra a Jerusalén: ¿Natural o Sobrenatural?</span></a>
+<a href="#toc-6" class="toc-item"><span class="toc-num">XIX</span><span class="toc-title">Etapa V de Armagedón: Jesús Llega al Monte de los Olivos y Defiende Jerusalén (Zacarías 14)</span></a>
+<a href="#toc-7" class="toc-item"><span class="toc-num">XX</span><span class="toc-title">La Muerte del Anticristo: La Espada de la Boca de Cristo (Habacuc 3 · 2 Tesalonicenses 2)</span></a>
+<a href="#toc-8" class="toc-item"><span class="toc-num">XXI</span><span class="toc-title">Las Secuelas de la Batalla — El "Tsunami de Sangre" y la Gran Cena de Dios (Apocalipsis 19:17-21)</span></a>
+<a href="#toc-9" class="toc-item"><span class="toc-num">XXII</span><span class="toc-title">Los Grupos Supervivientes al Final de la Guerra</span></a>
+<a href="#toc-10" class="toc-item"><span class="toc-num">XXIII</span><span class="toc-title">El Destino de los Instigadores: El Anticristo y el Falso Profeta</span></a>
+<a href="#toc-11" class="toc-item"><span class="toc-num">XXIV</span><span class="toc-title">Lo Que Viene a Continuación: El Intervalo de 75 Días y el Milenio</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+
+<div class="starfield"></div>
+
+<div class="page-wrap">
+
+<header>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span class="ornament-text">Verse by Verse Ministry International</span>
+    <div class="ornament-line"></div>
+  </div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 10 · Capítulo 19C</h2>
+  <div class="meta-bar">
+    <div class="meta-item">
+      <span class="meta-label">Capítulos cubiertos</span>
+      <span class="meta-value">Apocalipsis 19 (conclusión) · Isaías 14, 34, 59–60, 63 · Miqueas 2 · Zacarías 14 · Habacuc 3</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Páginas cubiertas</span>
+      <span class="meta-value">32 páginas</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Período histórico principal</span>
+      <span class="meta-value">Etapas IV y V de Armagedón · Destino del Anticristo · Antesala del Milenio</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- XIV (continuación de la parte 09) -->
+  <section class="section" id="toc-1">
+    <div class="section-header">
+      <div class="section-num">XIV</div>
+      <h3 class="section-title">Situación Actual al Inicio de la Lección: Israel ha Clamado, Jesús Desciende</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">El punto de partida</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Todo Israel ha llegado a la fe</span>
+              <span class="bullet-desc">Como resultado del derramamiento del Espíritu Santo, la nación de Israel llegó a la fe en Jesús. Todo Israel ha clamado a Jesús como condición para su regreso, cumpliéndose así Romanos 11:26.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Jesús sale del cielo hacia la tierra</span>
+              <span class="bullet-desc">Jesús está saliendo del cielo en dirección a la tierra en respuesta al llamado de los judíos, cumpliéndose las palabras de Pablo: "Vendrá de Sión el Libertador, que apartará de Jacob la impiedad."</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Israel en desesperación sin esperanza</span>
+              <span class="bullet-desc">Los judíos en Jerusalén piensan que perdieron la esperanza de misericordia — asumen que mataron a su Mesías y que ya es demasiado tarde. Están desesperados <span class="hl">incluso cuando claman a Dios por misericordia.</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Isaías 59–60: La Promesa de Redención</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Isaías 59:19-21 · 60:1-2</span>
+          <span class="scripture-text">Vendrá el Redentor a Sión y a los que se vuelven de la iniquidad en Jacob... Mi espíritu que está sobre ti y mis palabras que puse en tu boca, no faltarán jamás... ¡Levántate, resplandece, porque ha venido tu luz y la gloria de Jehová ha nacido sobre ti! Porque he aquí que tinieblas cubrirán la tierra y oscuridad las naciones; mas sobre ti amanecerá Jehová y sobre ti será vista su gloria.</span>
+        </div>
+        <p style="margin-top:10px; font-size:16px; color:var(--text-dim);">Pablo en Romanos 11 cita Isaías 59, que describe la Segunda Venida de Jesús <span class="hl">en respuesta a la llegada de Israel a la fe.</span> Este es el momento al que hemos llegado: Jesús pone sus pies en la tierra nuevamente para establecer el Reino para Israel.</p>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">Los Dos Frentes de la Guerra al Inicio de las Etapas Finales</div>
+        <div class="two-col-info">
+          <div class="info-panel">
+            <div class="info-panel-title">⚔ Frente 1 — Jerusalén</div>
+            <ul class="bullets">
+              <li><span class="bullet-icon">✦</span><div class="bullet-body"><span class="bullet-desc">El Anticristo ataca Jerusalén. Ya mató o exilió la mitad de los residentes. Amenaza con exterminar el resto. La otra mitad vive en pánico, sabiendo que mató a su Mesías.</span></div></li>
+            </ul>
+          </div>
+          <div class="info-panel">
+            <div class="info-panel-title">⚔ Frente 2 — Bosra / Petra</div>
+            <ul class="bullets">
+              <li><span class="bullet-icon">✦</span><div class="bullet-body"><span class="bullet-desc">El remanente judío creyente está bajo protección divina en Bosra desde la mitad de la Tribulación. Las fuerzas del Anticristo enviadas desde Babilonia no han logrado penetrar la fortaleza pero persisten en su ataque.</span></div></li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:14px; font-size:16px; color:var(--text-dim);">Ambos frentes están a punto de llegar a su fin con el regreso de Jesús. La segunda venida <span class="hl">no comienza en Jerusalén</span> — el primer lugar de regreso es Bosra, donde están los judíos creyentes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- XV -->
+  <section class="section" id="toc-2">
+    <div class="section-header">
+      <div class="section-num">XV</div>
+      <h3 class="section-title">Tipología: José y Sus Hermanos — Imagen Perfecta de Cristo e Israel</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">La Historia de José como Profecía Tipológica</div>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Evento con José</th>
+              <th>Cumplimiento en Cristo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>José era el hijo preferido de Jacob; sus hermanos lo rechazaron por celos al verlo como posible gobernante.</td>
+              <td>Jesús, el Hijo amado del Padre, fue rechazado por sus hermanos (Israel) al ofrecerles el Reino bajo su gobierno.</td>
+            </tr>
+            <tr>
+              <td>Los hermanos vendieron a José a comerciantes gentiles (egipcios) cerca de Dotán.</td>
+              <td>Los hermanos de Jesús (Israel) lo vendieron en manos de los romanos gentiles.</td>
+            </tr>
+            <tr>
+              <td>José se levantó para gobernar Egipto (poder gentil), como segundo al mando bajo el Faraón.</td>
+              <td>Jesús se convirtió en el Señor de la Iglesia gentil, segunda posición bajo la autoridad de Dios Padre.</td>
+            </tr>
+            <tr>
+              <td>Dios trajo hambre a la tierra para que Jacob buscara ayuda en Egipto.</td>
+              <td>Dios trajo la Tribulación sobre la tierra para traer a Israel de regreso a Él a través de Jesús.</td>
+            </tr>
+            <tr>
+              <td>Los hermanos aparecen ante José desesperados. José decide cuándo y cómo revelarse. Al momento oportuno, "abre los ojos" de sus hermanos. Primera reacción: <span class="hl">terror</span>.</td>
+              <td>Israel, desesperado bajo el ataque del Anticristo, clama a Jesús. Jesús decide el momento de revelarse. Israel, al reconocerlo, primero llora con terror pensando que ya es demasiado tarde.</td>
+            </tr>
+            <tr>
+              <td>José dice: "No os entristezcáis ni os pese haberme vendido acá, porque para salvar vidas me envió Dios." No me enviasteis vosotros, sino Dios. (Génesis 45:3-8)</td>
+              <td>El rechazo de Israel a Jesús fue parte del plan soberano de Dios para que el mundo entero fuera bendecido — produciendo la Iglesia, la novia de Cristo, salvada de la perdición espiritual como Egipto fue salvado del hambre.</td>
+            </tr>
+            <tr>
+              <td>Bajo José no solo estaría Israel bajo su gobierno, sino también toda Egipto (los gentiles).</td>
+              <td>El Reino que Jesús establece incluirá no solo a Israel sino a un gran ejército de santos gentiles — la Iglesia.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px; font-size:16px; color:var(--text-dim);">El rechazo de Israel a Jesús en su primera venida fue parte del plan de Dios para garantizar que <span class="hl">el mundo entero fuera bendecido al final.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- XVI -->
+  <section class="section" id="toc-3">
+    <div class="section-header">
+      <div class="section-num">XVI</div>
+      <h3 class="section-title">Etapa IV de Armagedón: Jesús Destruye los Ejércitos en Bosra (Isaías 34)</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">Isaías 34: El Señor Desciende para la Batalla en Bosra</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Isaías 34:1-6</span>
+          <span class="scripture-text">Porque Jehová está airado contra todas las naciones, indignado contra todo el ejército de ellas; las destruirá y las entregará al matadero... Todo el ejército de los cielos se disolverá, y se enrollarán los cielos como un libro... Porque en los cielos se embriagará mi espada; descenderá sobre Edom para juicio... Llena está de sangre y de grasa la espada de Jehová... porque Jehová tiene sacrificios en Bosra y una gran matanza en tierra de Edom.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Claves de Interpretación de Isaías 34</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">❶</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El ejército es el del Anticristo</span>
+              <span class="bullet-desc">El Anticristo es el líder de todo el mundo, por lo que su ejército es el ejército de todas las naciones. Isaías describe la ira del Señor contra "todas las naciones y todo su ejército."</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❷</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El contexto es la Tribulación</span>
+              <span class="bullet-desc">El verso 4 menciona que "los cielos se enrollarán como un pergamino y la vegetación se habrá ido" — descripción consistente con los juicios de la Tribulación ya estudiados.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❸</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La espada desciende del cielo a la tierra</span>
+              <span class="bullet-desc">"La espada del Señor se ha saciado en el cielo" — ya llegó a su punto máximo. Luego <span class="hl">desciende</span>: esa palabra clave comunica la transición del cielo a la tierra, la Segunda Venida de Cristo.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❹</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La destrucción comienza en Bosra, en Edom</span>
+              <span class="bullet-desc">El Señor ha preparado un sacrificio en Edom, específicamente en Bosra. Los cuerpos de los muertos serán hallados en la montaña disuelta con su sangre — referencia al <span class="hl">anillo montañoso que rodea el área abierta de Petra.</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Características de la Etapa IV</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Solo el Señor lucha</span>
+              <span class="bullet-desc">El texto no menciona a ninguna otra persona o entidad luchando. Solo el Señor combate en Bosra para defender el campamento de Su pueblo en Petra y destruir a todos los que la atacan.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Primer destino del regreso</span>
+              <span class="bullet-desc">El Señor desciende en caballo blanco (Apocalipsis 19) con ejércitos detrás de Él y llega <span class="hl">primero a Petra</span>, destruyendo rápidamente las fuerzas del Anticristo allí.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La puerta sellada como el Arca de Noé</span>
+              <span class="bullet-desc">El Señor abre la "puerta" de protección de Bosra sobrenaturalmente, igual que el arca de Noé tuvo una puerta que Dios cerró antes del diluvio y abrió cuando la situación fue segura. Es el Señor quien selló y quien rompe el sello.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">Miqueas 2:12-13: El Remanente es Rescatado — El "Rompedor" Abre la Puerta</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Miqueas 2:12-13</span>
+          <span class="scripture-text">De cierto te juntaré todo, Jacob, recogeré ciertamente el resto de Israel; lo reuniré como ovejas de Bosra, como un rebaño en medio de su aprisco, y harán el estruendo de una multitud. Subirá el que abre caminos delante de ellos; abrirán camino, pasarán la puerta y saldrán por ella. ¡Su rey pasará delante de ellos, y Jehová a su cabeza!</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Bosra en hebreo = el redil</span>
+              <span class="bullet-desc">La palabra "Bosra" es la palabra hebrea literal para el <span class="hl">redil de una oveja</span> y también es el nombre propio del pueblo actual de Petra. Miqueas nombra el lugar de protección de Israel describiendo su naturaleza como recinto protector.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El "Rompedor" es el Señor</span>
+              <span class="bullet-desc">La palabra hebrea para "el que abre caminos" (rompedor, breaker) significa alguien que destruye o rompe el recinto. Es el Señor mismo que libera a los que han estado detenidos, sacándolos como un pastor saca ovejas del corral al pasto.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Un éxodo tranquilo — como el Éxodo del Sinaí</span>
+              <span class="bullet-desc">Es un éxodo pacífico: ovejas siguiendo tranquilamente a su pastor. Como Moisés guiaba al pueblo de Israel por el Sinaí, Jesús ahora conduce a Su pueblo a través del desierto abierto de regreso a Jerusalén.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- XVII -->
+  <section class="section" id="toc-4">
+    <div class="section-header">
+      <div class="section-num">XVII</div>
+      <h3 class="section-title">El Señor Regresa de Bosra hacia Jerusalén: Isaías 63 — La Perspectiva del Profeta</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">La Escena: Isaías en los Muros de Jerusalén</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Isaías 63:1-2</span>
+          <span class="scripture-text">¿Quién es éste que viene de Edom, de Bosra, con vestidos rojos? ¿Éste, vestido con esplendidez, que marcha en la grandeza de su poder? Yo, el que hablo en justicia, grande para salvar. ¿Por qué es rojo tu vestido y tus ropas son como las de aquel que ha pisado en un lagar?</span>
+        </div>
+        <p style="margin-top:10px; font-size:16px; color:var(--text-dim);">Isaías escribe desde una perspectiva en primera persona: está de pie sobre los muros de Jerusalén durante el ataque del Anticristo. Mira hacia el este, hacia el Monte de los Olivos, y ve una figura majestuosa aproximándose <span class="hl">desde el este, desde Bosra</span>, con ropas ensangrentadas.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">La Respuesta del Señor: Isaías 63:3-6</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Isaías 63:3-6</span>
+          <span class="scripture-text">He pisado yo solo el lagar; de los pueblos nadie había conmigo; los aplasté con ira, los pisoteé con furor; su sangre salpicó mis vestidos y manché todas mis ropas. Porque el día de la venganza está en mi corazón; el año de mis redimidos ha llegado. Miré, y no había quien ayudara... Entonces me salvó mi propio brazo y mi ira me sostuvo.</span>
+        </div>
+        <ul class="bullets" style="margin-top:10px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El Señor peleó solo en Bosra</span>
+              <span class="bullet-desc">El mismo Señor confirma que se involucró en la batalla completamente solo. La sangre en su túnica proviene de la <span class="hl">batalla en Bosra</span> — no viene del cielo sino de la acción en tierra.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Primer destino confirmado: Bosra</span>
+              <span class="bullet-desc">Desde la perspectiva de Isaías, ve al Señor venir a Jerusalén <span class="hl">desde Bosra</span> con la túnica ya ensangrentada. Esto demuestra que Bosra fue el primer destino del regreso de Cristo.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Comparación: Apocalipsis 19 e Isaías 63 se Complementan</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Dos perspectivas del mismo evento</span>
+              <span class="bullet-desc">Juan describe la aparición de Jesús desde el cielo — túnica teñida en sangre, ojos llameantes, espada en la boca. Isaías lo describe desde la tierra — figura majestuosa con vestidos rojos viniendo del este.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Las dos descripciones coinciden exactamente</span>
+              <span class="bullet-desc">La descripción de Juan (Ap 19:12-15) y la descripción de Isaías (Is 63:1-6) se complementan perfectamente: esplendidez, color rojo, ira furiosa, el lagar de la ira de Dios.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">¿A Su Regreso Encontrará Jesús Fe en la Tierra?</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Lucas 18:7-8</span>
+          <span class="scripture-text">¿Y acaso Dios no hará justicia a sus escogidos, que claman a él día y noche? Os digo que pronto les hará justicia. Pero cuando venga el Hijo del hombre, ¿hallará fe en la tierra?</span>
+        </div>
+        <p style="margin-top:10px; font-size:16px; color:var(--text-dim);">El Señor predijo que a su regreso encontraría un mundo de <span class="hl">intensa e inamovible incredulidad y odio hacia Dios.</span> No regresa porque el mundo lo aclame en fe, sino regresa únicamente por sus elegidos. El lenguaje fuerte de Isaías 63 refleja la feroz ira de Dios contra la impiedad del mundo que Él encuentra a Su regreso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- XVIII -->
+  <section class="section" id="toc-5">
+    <div class="section-header">
+      <div class="section-num">XVIII</div>
+      <h3 class="section-title">El Trayecto de Bosra a Jerusalén: ¿Natural o Sobrenatural?</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">La Distancia y el Tiempo</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">75 millas en línea recta</span>
+              <span class="bullet-desc">Bosra (Petra) a Jerusalén son aproximadamente 75 millas en línea recta. La pregunta es cómo este grupo puede cruzar esa distancia en el tiempo disponible: todo el evento final dura solo tres días.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Traslado sobrenatural</span>
+              <span class="bullet-desc">Jesús tiene la capacidad de moverse sin limitación, y sus ejércitos pueden ir a donde Él vaya. Se asume que <span class="hl">Jesús mueve al remanente de forma sobrenatural</span>, transportándolos rápidamente a Jerusalén, similar al Éxodo pero sobre el desierto abierto.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Habacuc 3: El Señor Llega desde el Sur</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Habacuc 3:3-13 (selección)</span>
+          <span class="scripture-text">Dios viene de Temán; el Santo, desde el monte Parán... Su gloria cubrió los cielos, la tierra se llenó de su alabanza. Su resplandor es como la luz. Rayos brillantes salen de su mano... El sol y la luna se detienen en su lugar, a la luz de tus saetas... Con ira pisas la tierra, con furor pisoteas las naciones. Has salido para socorrer a tu pueblo, para socorrer a tu ungido.</span>
+        </div>
+        <ul class="bullets" style="margin-top:10px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Temán y el monte Parán = Edom = Bosra</span>
+              <span class="bullet-desc">Estas son referencias geográficas a los nombres antiguos de Edom, donde se encuentra Bosra. El Señor viene a Jerusalén <span class="hl">desde el sur</span>, confirmando que Bosra fue su primer destino.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La ira no era contra la creación</span>
+              <span class="bullet-desc">Habacuc pregunta retóricamente si la ira de Dios se dirigió a los ríos, montañas y mares. La respuesta (3:12-13): No — el Señor estaba furioso contra <span class="hl">los ejércitos y naciones del mundo,</span> no contra la creación misma.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- XIX -->
+  <section class="section" id="toc-6">
+    <div class="section-header">
+      <div class="section-num">XIX</div>
+      <h3 class="section-title">Etapa V de Armagedón: Jesús Llega al Monte de los Olivos y Defiende Jerusalén (Zacarías 14)</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">Zacarías 14:3-5 — La Batalla Final Paso a Paso</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Zacarías 14:3-5</span>
+          <span class="scripture-text">Después saldrá Jehová y peleará contra aquellas naciones, como peleó en el día de la batalla. En aquel día se afirmarán sus pies sobre el Monte de los Olivos, que está enfrente de Jerusalén, al oriente. El Monte de los Olivos se partirá por la mitad, de este a oeste, formando un valle muy grande; la mitad del monte se apartará hacia el norte, y la otra mitad hacia el sur. Y huiréis al valle de los montes... Y vendrá Jehová, mi Dios, y con él todos los santos.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">La Topografía del Lugar</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El Monte de los Olivos al este</span>
+              <span class="bullet-desc">Si el Señor se para en el Monte de los Olivos, tiene la perspectiva de toda la ciudad a través del Valle de Kidron, presenciando el ataque del Anticristo. Jesús se acerca desde el este (viene de Bosra) mientras el Anticristo ataca desde el oeste.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">"Se afirmarán sus pies" — no significa que descenderá allí inicialmente</span>
+              <span class="bullet-desc">Zacarías dice que Jesús <span class="hl">está allí ese día</span>. No implica que desciende directamente al Monte de los Olivos — Isaías confirma que llega allí viniendo desde Bosra.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Posición de los tres actores</span>
+              <span class="bullet-desc">Jesús al <span class="hl">este</span>, el Anticristo al <span class="hl">oeste</span>, y lo que queda de Jerusalén en el <span class="hl">medio</span>. El Señor no carga colina abajo peleando estilo kung fu — combate de forma remota, cambiando la topografía.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">La Partición del Monte — Un Canal de Escape</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">❶</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El Monte se parte en dos</span>
+              <span class="bullet-desc">Jesús ordena desde el Monte de los Olivos que la montaña se parta en dos, de este a oeste. Una mitad se va al norte y la otra al sur, creando un <span class="hl">canal o gran valle</span> que corre hacia el este desde la ciudad.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❷</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Protección completa dentro del canal</span>
+              <span class="bullet-desc">Recordar: el mundo no tiene montañas en este punto (destruidas por los juicios anteriores), excepto el monte sobre el que está Jerusalén y la cordillera que lo rodea. Al dividirse, crea un canal con protección completa.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❸</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Los judíos huyen por el canal hacia el este</span>
+              <span class="bullet-desc">El ataque viene del oeste (izquierda); la ruta de salida es hacia el este (derecha) a través del nuevo valle, en dirección <span class="hl">contraria al enemigo.</span> Recuerda al paso del Mar Rojo: Israel huyendo del Faraón de oeste a este a través de un valle de agua.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">❹</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Solo entonces Jesús entra a la ciudad</span>
+              <span class="bullet-desc">Zacarías dice que el Señor entra a la ciudad con todos sus santos detrás de Él. <span class="hl">Solo después de que los inocentes son apartados del medio de la batalla</span>, el Señor avanza en su ataque.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- XX -->
+  <section class="section" id="toc-7">
+    <div class="section-header">
+      <div class="section-num">XX</div>
+      <h3 class="section-title">La Muerte del Anticristo: La Espada de la Boca de Cristo (Habacuc 3 · 2 Tesalonicenses 2)</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Habacuc 3:13 — La Muerte del Líder del Mal</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Habacuc 3:13 (NKJV)</span>
+          <span class="scripture-text">Saliste por la salvación de tu pueblo, para salvación con tu ungido. Sacaste la cabeza de la casa del impío, al desnudarse desde la base hasta el cuello.</span>
+        </div>
+        <ul class="bullets" style="margin-top:10px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">"La cabeza de la casa del mal" = el Anticristo</span>
+              <span class="bullet-desc">El Anticristo es la cabeza del mundo y de todo lo malo. El golpe del Señor lo <span class="hl">abre literalmente de pies a cabeza</span> — descripción gráfica de la muerte del Anticristo por la espada de Cristo.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">2 Tesalonicenses 2:8 — Confirmación de Pablo</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">2 Tesalonicenses 2:8-9</span>
+          <span class="scripture-text">Y entonces se manifestará aquel impío, a quien el Señor matará con el espíritu de su boca y destruirá con el resplandor de su venida. El advenimiento de este impío, que es obra de Satanás, irá acompañado de hechos poderosos, señales y falsos milagros.</span>
+        </div>
+        <p style="margin-top:10px; font-size:16px; color:var(--text-dim);">La aparición del Señor resultará en el fin del Anticristo. Su fin viene <span class="hl">por el aliento de la boca de Cristo</span>. La palabra (o aliento) de Cristo se llama "espada" en las Escrituras.</span></p>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">El Poder de la Palabra de Cristo — La Fuerza que Sustenta el Universo</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Hebreos 4:12 · Hebreos 1:3</span>
+          <span class="scripture-text">La palabra de Dios es viva, eficaz y más cortante que toda espada de dos filos: penetra hasta partir el alma y el espíritu, las coyunturas y los tuétanos... Él, que es el resplandor de su gloria, la imagen misma de su sustancia y quien sustenta todas las cosas con la palabra de su poder...</span>
+        </div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Jesús lucha solo con su Palabra</span>
+              <span class="bullet-desc">La palabra del Señor es una fuerza propia — la única fuerza verdadera en el Universo que mantiene todo unido y lo sostiene todo. Tiene el poder de unir y mantener, como también de separar y destruir.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La Palabra es el "pegamento" del Universo</span>
+              <span class="bullet-desc">Hebreos 1:3 dice que Jesús "sustenta todas las cosas con la palabra de su poder." La palabra de Jesús es más que suficiente para destruir cualquier cosa, porque es lo único que mantiene todas las cosas unidas. A esa palabra, el cuerpo del Anticristo se abre, sus ejércitos mueren y <span class="hl">la batalla termina rápidamente.</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- XXI -->
+  <section class="section" id="toc-8">
+    <div class="section-header">
+      <div class="section-num">XXI</div>
+      <h3 class="section-title">Las Secuelas de la Batalla — El "Tsunami de Sangre" y la Gran Cena de Dios (Apocalipsis 19:17-21)</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Apocalipsis 14: La Vista Previa del Lagar</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Apocalipsis 14:18-20</span>
+          <span class="scripture-text">¡Mete tu hoz aguda y vendimia los racimos de la tierra, porque sus uvas están maduras! El ángel metió su hoz en la tierra, vendimió la viña de la tierra y echó las uvas en el gran lagar de la ira de Dios. El lagar fue pisado fuera de la ciudad, y del lagar salió sangre que llegó hasta los frenos de los caballos en una extensión de mil seiscientos estadios.</span>
+        </div>
+        <p style="margin-top:10px; font-size:16px; color:var(--text-dim);">Toda la sangre de miles (quizás millones) de seres humanos es liberada repentinamente, llenando el Valle de Kidron. <span class="hl">Un tsunami de sangre a la altura de los frenos de los caballos</span> fluyendo 200 millas (1,600 estadios) por el valle.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Apocalipsis 19:17-21 — La Gran Cena de Dios</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Apocalipsis 19:17-21</span>
+          <span class="scripture-text">Vi un ángel que estaba de pie en el sol, y clamó a gran voz diciendo a todas las aves que vuelan en medio del cielo: ¡Venid y congregaos a la gran cena de Dios! Para que comáis carnes de reyes y capitanes... La bestia fue apresada, y con ella el falso profeta que había hecho delante de ella las señales... Estos dos fueron lanzados vivos dentro de un lago de fuego que arde con azufre. Los demás fueron muertos con la espada que salía de la boca del que montaba el caballo, y todas las aves se saciaron de las carnes de ellos.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Dos Perspectivas que se Fusionan</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La perspectiva celestial de Juan</span>
+              <span class="bullet-desc">Juan describe los eventos desde su posición en el cielo — también donde los santos de la Iglesia serán testigos con gratitud. No parece que Juan vea la batalla misma, sino que se encuentra con las secuelas y ve los restos de la carnicería.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La perspectiva terrenal de los profetas</span>
+              <span class="bullet-desc">Los profetas del Antiguo Testamento dan la vista desde la tierra — ya sea en Bosra o Jerusalén. Habacuc y Juan coinciden: un final violento con muchos muertos.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">"Cielo-medio" donde están las aves</span>
+              <span class="bullet-desc">El ángel llama a las aves en el "cielo-medio" (griego original). Aunque ese término usualmente denota espacio exterior, aquí se entiende como el <span class="hl">cénit — el punto más alto del cielo visible</span>. Ezequiel 39 confirma que Dios usa aves y bestias para devorar cadáveres de guerra.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Fin de la Era: Lo que Termina con la Etapa V</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La Etapa V de la Guerra de Armagedón</span>
+              <span class="bullet-desc">La batalla final de la era humana llega a su conclusión.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La Era de los Gentiles</span>
+              <span class="bullet-desc">El período de gobierno gentil sobre Israel, que comenzó con Nabucodonosor, termina definitivamente.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La Tribulación de Siete Años</span>
+              <span class="bullet-desc">La Semana 70 de Daniel, que sirvió su propósito de llevar a Israel a la fe, llega a su fin.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La tierra está en reposo de la guerra</span>
+              <span class="bullet-desc">Por primera vez en siete años de devastación, el mundo entra en reposo. El reinado del terror del Anticristo ha cesado.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- XXII -->
+  <section class="section" id="toc-9">
+    <div class="section-header">
+      <div class="section-num">XXII</div>
+      <h3 class="section-title">Los Grupos Supervivientes al Final de la Guerra</h3>
+    </div>
+    <div class="cards">
+      <div class="card full">
+        <div class="card-title">¿Quiénes Quedaron Después de la Guerra?</div>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Grupo</th>
+              <th>Estado</th>
+              <th>Nota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="hl">El ejército enemigo</span></td>
+              <td>Destruido completamente</td>
+              <td>Todos los ejércitos del Anticristo han sido eliminados por la espada de la boca de Cristo.</td>
+            </tr>
+            <tr>
+              <td><span class="hl">Los judíos</span></td>
+              <td>Todos creyentes, todos salvos</td>
+              <td>Todos los judíos de la tierra son creyentes y han sido rescatados del ataque del Anticristo. Todo Israel fue salvo (Rom 11:26).</td>
+            </tr>
+            <tr>
+              <td><span class="hl">Gentiles creyentes de la Tribulación</span></td>
+              <td>Vivos</td>
+              <td>Gentiles que llegaron a la fe durante la Tribulación y evadieron la persecución del Anticristo. Continúan vivos al regreso de Jesús.</td>
+            </tr>
+            <tr>
+              <td><span class="hl">Gentiles incrédulos</span></td>
+              <td>Vivos</td>
+              <td>Gentiles que no estaban en el ejército del Anticristo y por lo tanto no son asesinados en la batalla final. Continúan vivos. Su destino se estudiará en la Parte siguiente (el juicio de las naciones).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- XXIII -->
+  <section class="section" id="toc-10">
+    <div class="section-header">
+      <div class="section-num">XXIII</div>
+      <h3 class="section-title">El Destino de los Instigadores: El Anticristo y el Falso Profeta</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Su Naturaleza y Condición</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Seres humanos habitados por el enemigo</span>
+              <span class="bullet-desc">Tanto el Anticristo como el Falso Profeta son seres humanos. Durante la segunda mitad de la Tribulación se convierten en instrumentos de Satanás: el Anticristo habitado por Satanás después de su resurrección a mediados de la Tribulación; el Falso Profeta probablemente habitado por uno o varios demonios poderosos.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Cuando el cuerpo muere, los espíritus son liberados</span>
+              <span class="bullet-desc">Sabemos que el Anticristo fue asesinado cuando Jesús regresó (Habacuc y Pablo lo confirman). Al morir los cuerpos, los espíritus son liberados: Satanás y sus demonios quedan libres (Jesús los tratará después) y las almas del Anticristo y el Falso Profeta descienden al Seol.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">El Viaje del Alma del Anticristo al Seol — Isaías 14</div>
+        <div class="scripture-box">
+          <span class="scripture-ref">Isaías 14:9-16 (selección)</span>
+          <span class="scripture-text">El Seol abajo se espantó de ti; despertó muertos que en tu venida saliesen a recibirte, hizo levantar de sus sillas a todos los príncipes de la tierra... Todos ellos darán voces, y te dirán: ¿Tú también te debilitaste como nosotros, y llegaste a ser como nosotros? Descendió al Seol tu soberbia... ¡Cómo caíste del cielo, oh Lucero, hijo de la mañana! Cortado fuiste por tierra...</span>
+        </div>
+        <ul class="bullets" style="margin-top:10px;">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Contexto: Israel ya restaurado</span>
+              <span class="bullet-desc">Esta escena de Isaías ocurre cuando la nación de Israel ya ha sido restaurada y Dios ha asentado a su pueblo en su tierra. "Babilonia" (el Reino de Satanás) ha terminado.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Recibimiento en el infierno</span>
+              <span class="bullet-desc">Los reyes y príncipes que lo precedieron en el Seol se levantan para recibirlo con burla: "¿Tú también te debilitaste como nosotros?" Están rodeados de los de su propia especie, con recuerdos el uno del otro y de la vida que dejaron atrás. <span class="hl">Esta es la recepción que reciben todos los grandes incrédulos.</span></span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">No se unirá a su pueblo en el entierro (v.20)</span>
+              <span class="bullet-desc">Su "pueblo" — las naciones que lo siguieron — fue al infierno en la Segunda Venida. Pero el Anticristo <span class="hl">no permanecerá con ellos</span>, pues será sacado del Seol casi de inmediato.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <div class="card-title">El Destino Final: El Lago de Fuego — Los Primeros en Llegar</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Arrojados vivos al Lago de Fuego (Apocalipsis 19:20)</span>
+              <span class="bullet-desc">El Anticristo y el Falso Profeta son sacados del Seol casi de inmediato y resucitados en nuevos cuerpos eternos. Son <span class="hl">arrojados directamente al Lago de Fuego</span> — siendo los primeros seres en ser enviados a ese lugar. Así como el Lago de Fuego los espera, a todos los incrédulos les espera igualmente, pero en el juicio posterior.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La falsa trinidad refleja a la verdadera incluso en la muerte</span>
+              <span class="bullet-desc">Satanás, el Anticristo y el Falso Profeta formaron una falsa trinidad copiando al Padre, al Hijo y al Espíritu Santo. Sin querer, <span class="hl">reflejan esa falsificación incluso en su muerte.</span></span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El Anticristo como "primicias" de la resurrección a la muerte eterna</span>
+              <span class="bullet-desc">Cristo es las primicias de la resurrección a la vida eterna — el primer ser humano que resucitó en un cuerpo eterno que nunca muere. De manera similar, el Anticristo será <span class="hl">la primicia de la resurrección entre los que van a la muerte eterna</span>: el primero en ser resucitado y arrojado al Lago de Fuego.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✦</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Todos los seres humanos resucitan</span>
+              <span class="bullet-desc">Todos los seres humanos son resucitados a nuevos cuerpos — tanto creyentes como no creyentes. La diferencia es <span class="hl">dónde pasan la eternidad viviendo.</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- XXIV -->
+  <section class="section" id="toc-11">
+    <div class="section-header">
+      <div class="section-num">XXIV</div>
+      <h3 class="section-title">Lo Que Viene a Continuación: El Intervalo de 75 Días y el Milenio</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Próximos pasos del estudio</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-period">Capítulo 20 — Primer paso</div>
+            <div class="timeline-desc">Aunque el estudio avanza al Capítulo 20, no avanza mucho al iniciar, porque primero se detiene en un <span class="hl">período poco conocido de la línea de tiempo de Dios</span>: el Intervalo de 75 Días.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">El Intervalo de 75 Días</div>
+            <div class="timeline-desc">Un período entre el fin de la Tribulación y el inicio del Reino Milenial. Su concepto y propósitos serán explicados en el próximo estudio.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">El Reino Milenial</div>
+            <div class="timeline-desc">Una vez cubierto el intervalo, se hará una introducción al período del Reino Milenial — y luego un estudio extenso del mismo, que incluye algunas de las profecías más fascinantes de toda la Biblia.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Lo que concluye en esta lección</div>
+        <ul class="bullets">
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">Las 70 Semanas de Daniel</span>
+              <span class="bullet-desc">Concluye el estudio completo de las 70 semanas de Daniel, incluyendo la Semana 70 (la Tribulación).</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La Tribulación de Siete Años</span>
+              <span class="bullet-desc">Su estudio llega a su fin. El período sirvió su propósito divino: llevar a Israel a la fe en su Mesías.</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">La Guerra de Armagedón — las 5 etapas</span>
+              <span class="bullet-desc">Completa el estudio de las cinco etapas: Etapa I (movilización desde Éufrates), Etapa II (destrucción de Babilonia), Etapa III (asedio de Jerusalén), Etapa IV (rescate en Bosra), Etapa V (liberación de Jerusalén y derrota del Anticristo).</span>
+            </div>
+          </li>
+          <li>
+            <span class="bullet-icon">✓</span>
+            <div class="bullet-body">
+              <span class="bullet-label">El destino del Anticristo y el Falso Profeta</span>
+              <span class="bullet-desc">Ambos muertos, enviados al Seol brevemente y luego arrojados vivos al Lago de Fuego — los primeros en ese lugar.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-sym">✦</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="summary-box">
+    <p>La Parte 10 completa la narración de la Segunda Venida de Cristo con una precisión geográfica y cronológica extraordinaria: Jesús desciende primero a Bosra, destruye solo a los ejércitos del Anticristo, rescata al remanente creyente como un Pastor abre el redil, y conduce a Su pueblo como en un nuevo Éxodo hacia Jerusalén. Allí parte el Monte de los Olivos para abrir un canal de escape, entra a la ciudad, y con el aliento de Su boca — la única fuerza que sostiene el Universo — destruye al Anticristo y sus ejércitos en un instante. La Era de los Gentiles termina, todo Israel es salvo, y la Tribulación cumple su propósito final. Los instigadores de la rebelión — el Anticristo y el Falso Profeta — son los primeros en ser arrojados al Lago de Fuego, preludio del juicio eterno. El escenario queda preparado para el Intervalo de 75 Días y el glorioso Reino Milenial.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    Basado en la enseñanza original de <a href="http://vbvmi.org" target="_blank">Verse By Verse Ministry International (VBVMI)</a><br>
+    Arte de Pat Marvenko Smith © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a>
+  </p>
+</footer>
+
+</div><!-- /.page-wrap -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

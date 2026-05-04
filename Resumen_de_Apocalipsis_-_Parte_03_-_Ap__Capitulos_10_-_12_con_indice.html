@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio del Libro de Apocalipsis · Parte 03 · Capítulos 10–12</title>
+<style>
+:root{--gold:#C9A84C;--gold-light:#E8C96A;--gold-dim:#8A6A2A;--crimson:#8B1A1A;--crimson-light:#C0392B;--deep:#0A0806;--dark:#120E09;--mid:#1E1710;--mid2:#2A2118;--panel:#160E08;--text:#E8DCC8;--text-dim:#A89878;--text-muted:#6A5840;--sky:#4A7FA8;--sky-light:#7AB0D4;--glow:rgba(201,168,76,0.15);--f-display:'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;--f-heading:'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;--f-body:'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background-color:var(--deep);color:var(--text);font-family:var(--f-body);font-size:19px;line-height:1.8;min-height:100vh;position:relative;overflow-x:hidden}
+.starfield{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(1px 1px at 11% 7%,rgba(201,168,76,.5) 0%,transparent 100%),radial-gradient(1px 1px at 27% 21%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 44% 4%,rgba(201,168,76,.3) 0%,transparent 100%),radial-gradient(1px 1px at 66% 17%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(1px 1px at 83% 8%,rgba(201,168,76,.6) 0%,transparent 100%),radial-gradient(1px 1px at 6% 44%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 92% 37%,rgba(201,168,76,.4) 0%,transparent 100%),radial-gradient(1px 1px at 54% 71%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 34% 87%,rgba(201,168,76,.4) 0%,transparent 100%),radial-gradient(1px 1px at 79% 94%,rgba(255,255,255,.5) 0%,transparent 100%)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.section{animation:fadeUp .7s ease both}
+.section:nth-child(1){animation-delay:.00s}.section:nth-child(2){animation-delay:.08s}.section:nth-child(3){animation-delay:.16s}.section:nth-child(4){animation-delay:.24s}.section:nth-child(5){animation-delay:.32s}.section:nth-child(6){animation-delay:.40s}.section:nth-child(7){animation-delay:.48s}.section:nth-child(8){animation-delay:.56s}.section:nth-child(9){animation-delay:.64s}.section:nth-child(10){animation-delay:.72s}.section:nth-child(11){animation-delay:.80s}.section:nth-child(12){animation-delay:.88s}.section:nth-child(13){animation-delay:.96s}
+header{position:relative;z-index:1;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(139,26,26,.35) 0%,rgba(10,8,6,0) 70%),linear-gradient(180deg,var(--dark) 0%,var(--deep) 100%);border-bottom:1px solid rgba(201,168,76,.2);padding:60px 40px 50px;text-align:center}
+.header-ornament{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:18px;font-family:var(--f-heading);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted)}
+.header-ornament::before,.header-ornament::after{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.header-ornament::after{background:linear-gradient(90deg,var(--gold-dim),transparent)}
+header h1{font-family:var(--f-display);font-size:clamp(28px,5vw,54px);font-weight:900;color:var(--gold-light);letter-spacing:-1px;line-height:1.1;margin-bottom:12px;text-shadow:0 2px 30px rgba(201,168,76,.25)}
+header h2{font-family:var(--f-heading);font-size:clamp(15px,2.5vw,21px);font-weight:400;text-transform:uppercase;letter-spacing:4px;color:var(--text-dim);margin-bottom:36px}
+.meta-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.meta-item{text-align:center}
+.meta-label{font-family:var(--f-heading);font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);display:block;margin-bottom:4px}
+.meta-value{font-family:var(--f-heading);font-size:15px;color:var(--gold);font-weight:600}
+main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:50px 32px 80px}
+.section{margin-bottom:56px}
+.section-header{display:flex;align-items:center;gap:16px;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid rgba(201,168,76,.12)}
+.section-number{border:1px solid var(--crimson);border-radius:50%;min-width:30px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--crimson-light);font-family:var(--f-heading);font-size:12px;flex-shrink:0}
+.section-title{font-family:var(--f-heading);font-size:clamp(17px,2.5vw,23px);font-weight:700;color:var(--gold-light);letter-spacing:.3px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start}
+@media(max-width:780px){.cards{grid-template-columns:1fr}header{padding:40px 20px 36px}main{padding:32px 16px 60px}.meta-row{gap:20px}}
+.card{background:linear-gradient(135deg,rgba(30,23,16,.95) 0%,rgba(22,14,8,.95) 100%);border:1px solid rgba(201,168,76,.15);border-left:3px solid var(--gold-dim);border-radius:4px;padding:20px 24px;transition:border-color .3s,transform .2s}
+.card:hover{border-left-color:var(--gold);transform:translateX(3px)}
+.card.full{grid-column:1/-1}
+.card-title{font-family:var(--f-heading);font-size:15px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:1.2px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,.1)}
+.bullet-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.bullet-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.1);border-radius:3px}
+.bullet-icon{font-size:15px;line-height:1.6;flex-shrink:0;color:var(--gold)}
+.bullet-label{font-family:var(--f-heading);font-size:14px;font-weight:700;color:var(--gold-light);display:block;margin-bottom:2px}
+.bullet-desc{font-size:16px;color:var(--text-dim);line-height:1.72}
+.scripture-box{position:relative;background:linear-gradient(135deg,rgba(139,26,26,.12) 0%,rgba(10,8,6,.8) 100%);border:1px solid rgba(139,26,26,.3);border-left:4px solid var(--crimson);border-radius:4px;padding:18px 22px 18px 32px;overflow:hidden;margin-bottom:0}
+.scripture-box::before{content:'\201C';position:absolute;top:-8px;left:10px;font-size:56px;color:rgba(139,26,26,.3);font-family:Georgia,serif;line-height:1}
+.scripture-ref{font-family:var(--f-heading);font-size:12px;text-transform:uppercase;color:var(--crimson-light);letter-spacing:1.5px;display:block;margin-bottom:8px}
+.scripture-text{font-style:italic;font-size:16px;color:var(--text);line-height:1.75}
+.timeline{position:relative;padding-left:24px;display:flex;flex-direction:column;gap:16px}
+.timeline::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--gold-dim),transparent)}
+.timeline-item{position:relative;padding:10px 14px;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.1);border-radius:3px}
+.timeline-item::before{content:'';position:absolute;left:-20px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.5)}
+.timeline-period{font-family:var(--f-heading);font-size:14px;color:var(--gold);font-weight:700;display:block;margin-bottom:3px}
+.timeline-desc{font-size:16px;color:var(--text-dim)}
+.info-panel{background:linear-gradient(135deg,rgba(74,127,168,.08) 0%,rgba(10,8,6,.9) 100%);border:1px solid rgba(74,127,168,.2);border-radius:4px;padding:16px 20px}
+.info-panel-title{font-family:var(--f-heading);font-size:12px;text-transform:uppercase;color:var(--sky-light);letter-spacing:1.5px;margin-bottom:10px;display:block}
+.styled-table{width:100%;border-collapse:collapse;margin-top:4px}
+.styled-table th{font-family:var(--f-heading);font-size:12px;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.05);padding:10px 14px;text-align:left;letter-spacing:1px;border-bottom:1px solid rgba(201,168,76,.15)}
+.styled-table td{font-size:16px;color:var(--text-dim);padding:10px 14px;border-bottom:1px solid rgba(201,168,76,.08);vertical-align:top}
+.styled-table tr:last-child td{border-bottom:none}
+.hl{color:var(--gold-light);font-weight:600}
+.divider{display:flex;align-items:center;gap:20px;margin:50px 0 40px;color:var(--gold-dim);font-size:18px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+.summary-box{background:linear-gradient(135deg,rgba(201,168,76,.07) 0%,rgba(10,8,6,.95) 100%);border:1px solid rgba(201,168,76,.25);border-radius:6px;padding:26px 30px;text-align:center}
+.summary-box p{font-size:18px;font-style:italic;color:var(--text);line-height:1.85}
+footer{position:relative;z-index:1;border-top:1px solid rgba(201,168,76,.1);padding:28px 40px;text-align:center;font-family:var(--f-heading);font-size:13px;color:var(--text-muted);line-height:1.9}
+footer a{color:var(--gold-dim);text-decoration:none}
+footer a:hover{color:var(--gold)}
+.mb14{margin-bottom:14px}
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+.toc-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.06);
+}
+.toc-item.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.1);
+}
+.toc-num {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: var(--f-heading);
+  color: var(--crimson-light);
+  padding-top: 1px;
+  min-width: 22px;
+}
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: none;
+  color: var(--gold);
+  border-radius: 0 6px 6px 0;
+  width: 22px;
+  height: 54px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+}
+
+/* PAGE WRAP — desplaza el contenido cuando el índice está abierto */
+.page-wrap {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-open .page-wrap {
+  margin-left: 270px;
+}
+body.toc-closed .page-wrap {
+  margin-left: 0;
+}
+@media (max-width: 900px) {
+  body.toc-open .page-wrap { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#sec-I" class="toc-item"><span class="toc-num">I</span><span class="toc-title">Situación Actual al Inicio del Mid-Trib</span></a>
+<a href="#sec-II" class="toc-item"><span class="toc-num">II</span><span class="toc-title">El Ángel con el Librito — Capítulo 10</span></a>
+<a href="#sec-III" class="toc-item"><span class="toc-num">III</span><span class="toc-title">Los 1,290 Días — El Punto Medio Definido con Precisión</span></a>
+<a href="#sec-IV" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">El Tercer Templo — Capítulo 11</span></a>
+<a href="#sec-V" class="toc-item"><span class="toc-num">V</span><span class="toc-title">Los Dos Testigos — Ministerio, Identidad y Propósito</span></a>
+<a href="#sec-VI" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">Muerte, Ignominia y Resurrección de los Dos Testigos</span></a>
+<a href="#sec-VII" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">La Séptima Trompeta — Proclamación de Victoria (Ap. 11:15–19)</span></a>
+<a href="#sec-VIII" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">La Mujer y el Dragón — Capítulo 12</span></a>
+<a href="#sec-IX" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">El Cuarto Imperio Evoluciona hacia la Cuarta Bestia — Daniel 7</span></a>
+<a href="#sec-X" class="toc-item"><span class="toc-num">X</span><span class="toc-title">La Batalla en el Cielo — Satanás Expulsado para Siempre</span></a>
+<a href="#sec-XI" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">El Remanente de Israel — Protección Sobrenatural en Petra</span></a>
+<a href="#sec-XII" class="toc-item"><span class="toc-num">XII</span><span class="toc-title">El Resto de la Descendencia — Los que Quedaron Atrás</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+<div class="page-wrap">
+<div class="starfield" aria-hidden="true"></div>
+
+<header>
+  <div class="header-ornament">Verse by Verse Ministry International</div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 03 · Capítulos 10 – 12</h2>
+  <div class="meta-row">
+    <div class="meta-item"><span class="meta-label">Capítulos cubiertos</span><span class="meta-value">Apocalipsis 10 – 12</span></div>
+    <div class="meta-item"><span class="meta-label">Período principal</span><span class="meta-value">La Mitad de la Tribulación (Mid-Trib)</span></div>
+    <div class="meta-item"><span class="meta-label">Temas centrales</span><span class="meta-value">El Librito · Los 2 Testigos · La Mujer y el Dragón</span></div>
+  </div>
+</header>
+
+<main>
+
+<!-- I -->
+<section class="section" id="sec-I">
+  <div class="section-header"><div class="section-number">I</div><h2 class="section-title">Situación Actual al Inicio del Mid-Trib</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Balance al Llegar al Mid-Trib</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">3½ años transcurridos</span><span class="bullet-desc">Primera parte de los 7 años completada.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">50% de la humanidad muerta</span><span class="bullet-desc">4 billones muertos, 4 billones vivos. Primero murió ¼ (sello 4) y después ⅓ (trompeta 6) de los restantes.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Tierra devastada</span><span class="bullet-desc">⅓ inhabitable, ⅓ del agua no potable, ⅓ de los mares innavegables.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Dos primeros Ayes completados</span><span class="bullet-desc">Lo peor está por venir con el tercer Ay: las 7 Copas de la ira de Dios (la Gran Tribulación).</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Todo el que se opone a Cristo</span><span class="bullet-desc">Es un anticristo. Detrás de todos ellos, de toda oposición a Cristo, está el espíritu del anticristo. El enfoque ahora se centra en esa persona específica.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Mid-Trib — Naturaleza y Estructura</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Un instante de transición</span><span class="bullet-desc">No es un período largo sino un pequeño punto que cubre ligeramente ambas mitades, preparando e iniciando todo para ejecutar el final de la Tribulación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">6 capítulos simultáneos</span><span class="bullet-desc">Los capítulos 10–15 describen eventos que suceden <span class="hl">simultáneamente, no secuencialmente</span> — como uno encima del otro. En un instante alteran el mundo fundamentalmente.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Marca de tiempo en cada capítulo</span><span class="bullet-desc">Cada capítulo (11–14) contiene: 3½ años / 42 meses / "tiempo, tiempos y mitad de un tiempo" — todos apuntan al mismo instante del mid-trib.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Cap. 10 → 11–14 → 15</span><span class="bullet-desc">Cap. 10: introducción del mid-trib. Cap. 11–14: los eventos simultáneos. Cap. 15: lo que viene en la 2ª parte de la Tribulación.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- II -->
+<section class="section" id="sec-II">
+  <div class="section-header"><div class="section-number">II</div><h2 class="section-title">El Ángel con el Librito — Capítulo 10</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Descripción del Ángel (Ap. 10:1–7)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 10:1–2</span>
+        <span class="scripture-text">Vi descender del cielo a otro ángel fuerte, envuelto en una nube, con el arco iris sobre su cabeza; y su rostro era como el sol, sus pies como columnas de fuego. Tenía en su mano un librito abierto; y puso su pie derecho sobre el mar, y el izquierdo sobre la tierra.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Ángel fuerte celestial</span><span class="bullet-desc">Similar al ángel del capítulo 7. Tan grande que puede pararse en el mar y la tierra al mismo tiempo. Lleva un pequeño libro ya abierto.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Los 7 truenos</span><span class="bullet-desc">El cielo responde con 7 truenos. A Juan se le reveló algo pero fue ordenado <span class="hl">no escribirlo</span> — guardarlo en secreto. Hay misterios de Dios que permanecen sellados.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El juramento solemne</span><span class="bullet-desc">"El tiempo no sería más" (v.6). Al sonido de la séptima trompeta, el misterio de Dios se consumará tal como fue anunciado a los profetas. No habrá más demora.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Conexión con Daniel 12 — La Profecía Sellada</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Daniel 12:4, 9</span>
+        <span class="scripture-text">Pero tú, Daniel, cierra las palabras y sella el libro hasta el tiempo del fin… Estas palabras están cerradas y selladas hasta el tiempo del fin.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Misma visión, diferente tiempo</span><span class="bullet-desc">En Daniel 12 un ángel fuerte aparece de manera similar sobre tierra y agua. Hay gran similitud entre Dan. 12 y Ap. 10 porque una es la continuación de la otra dentro de la misma visión profética.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Daniel: el primer ser humano que supo</span><span class="bullet-desc">A Daniel le fue revelado el detalle del final de la Tribulación (los últimos 3½ años), pero se le ordenó sellarlo. Fue el primero — y por mucho tiempo el único — que supo cómo sería todo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">¿Cuándo comenzaron los últimos días?</span><span class="bullet-desc">Hebreos y Santiago confirman que los últimos días comenzaron cuando el Mesías fue revelado. La profecía de Daniel se abre en los últimos días — en tiempos de Juan.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El ángel espera 600 años</span><span class="bullet-desc">El libro de Daniel fue guardado por el ángel ~600 años, y ahora es dado a Juan — porque a Juan es a quien se le revela en los últimos días lo que fue sellado en la época de Daniel.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Juan Come el Librito — La Analogía de Dulce y Amargo (Ap. 10:9–11)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 10:9–10</span>
+        <span class="scripture-text">Toma, y cómelo; y te amargará el vientre, pero en tu boca será dulce como la miel… y era dulce en mi boca como la miel, pero cuando lo hube comido, amargó mi vientre.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Dulce</span><span class="bullet-desc">Hay cierta dulzura en saber que los eventos venideros serán finalmente revelados. Esperamos el final de la era actual y el comienzo de una nueva: el Reino venidero con Cristo — lo que todos los creyentes anhelan.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Amargo</span><span class="bullet-desc">Al conocer la transición, hay cosas difíciles de pasar o de tragar. Esta generación no pasará al nuevo siglo sin que antes el juicio de la Gran Tribulación acontezca.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">¿Puede Dios evitar este juicio?</span><span class="bullet-desc">Literalmente billones de almas deben enfrentar juicio. Pedirle a Dios que solo cumpla las bendiciones pero no las maldiciones de la desobediencia sería pedirle que sea injusto e infiel. Si Dios no fuera fiel a sus promesas de juicio, ¿cómo confiar en su promesa de salvación?</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Necesario profetizar de nuevo</span><span class="bullet-desc">v.11 — Juan debe profetizar "sobre muchos pueblos, naciones, lenguas y reyes." El librito contiene la revelación que llenará los capítulos restantes de Apocalipsis.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- III -->
+<section class="section" id="sec-III">
+  <div class="section-header"><div class="section-number">III</div><h2 class="section-title">Los 1,290 Días — El Punto Medio Definido con Precisión</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Daniel 12 Confirma el Mid-Trib</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Daniel 12:11</span>
+        <span class="scripture-text">Y desde el tiempo que sea quitado el continuo sacrificio hasta la abominación desoladora, habrá mil doscientos noventa días.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El convenio marca el inicio y el medio</span><span class="bullet-desc">La Tribulación inicia con la firma del acuerdo (Daniel 9). Ese mismo convenio, al romperse a la mitad, marca el mid-trib con la abolición de los sacrificios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">1,260 días = 3½ años exactos</span><span class="bullet-desc">Tiempo, tiempos y medio tiempo = 1,260 días. Duración de la segunda parte de la Tribulación, confirmada por Daniel 12:7.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">30 días adicionales</span><span class="bullet-desc">Daniel 12:11 describe 30 días más hasta que la abominación desoladora sea completada y limpiada. Se verá en detalle en el cap. 19.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El intervalo de 75 días</span><span class="bullet-desc">Hay otros 45 días después de los 30 (30+45=75), antes de que el Milenio inicie. Se le llama "el intervalo de 75 días".</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Propósito Revelado de la Gran Tribulación</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Daniel 12:7 (NKJV)</span>
+        <span class="scripture-text">…cuando el poder del pueblo santo se haya destruido por completo, todas estas cosas se terminarán.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El objetivo final para Israel</span><span class="bullet-desc">La segunda parte de la Tribulación existe para <span class="hl">destruir por completo la resistencia de Israel hacia Dios y hacia Jesús específicamente</span>. El propósito: traer a Israel a la fe en Cristo y cumplir las promesas dadas a esa nación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La segunda parte "pone el plan en marcha"</span><span class="bullet-desc">Todos los eventos de los capítulos 11–15 suceden simultáneamente. Son un instante que altera el mundo fundamentalmente para ejecutar el final.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Daniel escribió primero</span><span class="bullet-desc">A Daniel le fue revelado el detalle de la segunda parte, aun cuando la primera parte todavía no había sido revelada. Prueba que Dios conoce el fin desde el principio.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- IV -->
+<section class="section" id="sec-IV">
+  <div class="section-header"><div class="section-number">IV</div><h2 class="section-title">El Tercer Templo — Capítulo 11</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Juan Mide el Templo (Ap. 11:1–2)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 11:1–2</span>
+        <span class="scripture-text">Levántate, y mide el templo de Dios, y el altar, y a los que adoran en él. Pero el patio que está fuera del templo déjalo aparte… porque ha sido entregado a los gentiles; y ellos hollarán la ciudad santa cuarenta y dos meses.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El Templo existe y funciona</span><span class="bullet-desc">Se confirma que el Templo Judío fue reconstruido — algo imposible en los últimos 2,000 años. Los sacrificios han sido reiniciados gracias al tratado firmado al inicio de los 7 años.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">En pie a pesar de todo</span><span class="bullet-desc">A pesar de guerras y calamidades sobrenaturales, el Templo está de pie. El Señor ha protegido a Israel. Concuerda con Ap. 6:6 "protege el vino y el aceite" — posible referencia a la preservación de Israel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La era de los gentiles no ha terminado</span><span class="bullet-desc">"Hollarán la ciudad santa 42 meses" — referencia clásica al mid-trib. La existencia del Templo no implica el fin del dominio gentil.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Cambios Fundamentales que Presenta el Capítulo 10–11</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Enfoque en el Medio Oriente</span><span class="bullet-desc">El mundo habitable ha sido reducido a una pequeña área. El resto es inhabitable y la mitad de la población ha muerto.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Mensaje para Israel</span><span class="bullet-desc">"Dios está de tu lado." Que el Templo esté en pie en medio de tanta devastación es un mensaje silencioso de la misericordia constante de Dios hacia Israel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Conexión Templo–Testigos</span><span class="bullet-desc">Ambos aparecen contiguos en el texto. Durante los mismos primeros 3½ años que opera el Templo, también operan los Dos Testigos desde él. Probablemente los Testigos son parte de la protección del Templo.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- V -->
+<section class="section" id="sec-V">
+  <div class="section-header"><div class="section-number">V</div><h2 class="section-title">Los Dos Testigos — Ministerio, Identidad y Propósito</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Descripción y Poderes (Ap. 11:3–6)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 11:3–6</span>
+        <span class="scripture-text">Y daré a mis dos testigos que profeticen por mil doscientos sesenta días, vestidos de cilicio… Si alguno quiere dañarlos, sale fuego de la boca de ellos… tienen poder para cerrar el cielo… y para herir la tierra con toda plaga, cuantas veces quieran.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">1,260 días — primera mitad</span><span class="bullet-desc">Operan durante la primera mitad de la Tribulación. Si hubieran operado en la segunda, su resurrección habría ocurrido después de la segunda venida de Cristo — lo cual no hace sentido.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Vestidos de cilicio</span><span class="bullet-desc">Vestidura áspera, tradicional de profetas en luto o sufrimiento — relacionada con su trabajo de testificar.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Los mismos poderes de Jesús</span><span class="bullet-desc">Fuego de su boca. Cerrar el cielo (sin lluvia). Convertir aguas en sangre. Plagas. Son las mismas intervenciones que Jesús ha estado haciendo desde el cielo — ahora visibles físicamente en la tierra por dos personas.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Por Qué Dos Testigos — Fundamento Legal</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Deuteronomio 19:15</span>
+        <span class="scripture-text">No se tomará en cuenta a un solo testigo contra ninguno en cualquier delito ni en cualquier pecado… Sólo por el testimonio de dos o tres testigos se mantendrá la acusación.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Estándar legal de Dios</span><span class="bullet-desc">Antes de condenar al mundo, el pecado debe ser comprobado con al menos dos testigos. Estos dos testifican el pecado desde el comienzo — testimonio de condenación sobre el mundo previo al juicio final.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Dos resultados posibles</span><span class="bullet-desc">El testimonio puede traer salvación (arrepentimiento) o condenación (exposición del pecado). Solo Dios conoce el resultado de cada persona.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Iglesia vs. Testigos</span><span class="bullet-desc">La Iglesia fue testigo <span class="hl">para salvación</span>. Estos dos son testigos principalmente <span class="hl">para condenación</span>, aunque la salvación sigue abierta.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Identidad — Los Dos Olivos de Zacarías 4</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Zacarías 4:14 / Apocalipsis 11:4</span>
+        <span class="scripture-text">Zac: "Estos son los dos ungidos que están delante del Señor de toda la tierra." — Ap: "Estos testigos son los dos olivos, y los dos candeleros que están en pie delante del Dios de la tierra."</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Zacarías 4 en su contexto histórico</span><span class="bullet-desc">Escrito durante la reconstrucción del segundo Templo bajo Zorobabel. El Señor prometió que Zorobabel terminaría el Templo, pero Zorobabel nunca lo hizo. La promesa quedó pendiente — apuntando a un cumplimiento futuro en la Tribulación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Los "hijos del aceite"</span><span class="bullet-desc">En hebreo no dice "los dos ungidos" sino <span class="hl">"los dos hijos del aceite"</span> — los dos ungidos de Dios para terminar su obra. La lámpara y el aceite = la obra de Dios a través de su Espíritu (no obra humana). Zacarías 4:14 no tendría sentido sin Apocalipsis 11.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Impacto sobre toda la tierra</span><span class="bullet-desc">Su ministerio impactará a cada persona que vive sobre la tierra. Poderes sobrenaturales y protección divina garantizan alcance mundial.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Especulaciones sobre su identidad</span><span class="bullet-desc">Han propuesto que son Moisés y Elías, Enoc y Elías, simbólicos, o incluso las Torres Gemelas del 9-11. El texto no lo aclara — lo que significa que <span class="hl">no es información importante</span>. Lo relevante es su significado y propósito.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">El Propósito Principal — ¿Para Qué se Necesitan Estos Dos?</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El problema central</span><span class="bullet-desc">Nadie puede ver lo que Jesús hace en el cielo. Los habitantes de la tierra solo ven lo que ocurre en la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La solución</span><span class="bullet-desc">Dos personas físicamente visibles producen los mismos eventos. El mundo los identifica como los autores de lo que viene de parte de Dios — conectando toda actividad sobrenatural con las explicaciones de Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Eliminan excusas</span><span class="bullet-desc">Nadie podrá culpar al calentamiento global, a extraterrestres, o a cualquier otra explicación. La causa sobrenatural queda inequívocamente identificada.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Chivos expiatorios — Scapegoats</span><span class="bullet-desc">Dios quiere que el mundo culpe a estos dos por todo lo que ha sucedido y se desquiten con ellos. Son el foco del odio mundial durante 3½ años. Al llegar al mid-trib, su tiempo termina.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Sin tecnología global</span><span class="bullet-desc">A mid-trib, no debe haber televisión ni internet a nivel mundial. Sus obras son conocidas no por medios de comunicación sino <span class="hl">experimentadas en carne propia</span> por cada persona en la tierra.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- VI -->
+<section class="section" id="sec-VI">
+  <div class="section-header"><div class="section-number">VI</div><h2 class="section-title">Muerte, Ignominia y Resurrección de los Dos Testigos</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Su Muerte en el Mid-Trib (Ap. 11:7–10)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 11:7–8</span>
+        <span class="scripture-text">Cuando hayan acabado su testimonio, la bestia que sube del abismo hará guerra contra ellos, y los vencerá y los matará. Y sus cadáveres estarán en la plaza de la grande ciudad que en sentido espiritual se llama Sodoma y Egipto, donde también nuestro Señor fue crucificado.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La bestia del abismo</span><span class="bullet-desc">Al matarlos gana enorme reconocimiento mundial. Es una breve introducción al personaje descrito en detalle en capítulos venideros.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Jerusalén = "Sodoma y Egipto"</span><span class="bullet-desc">Sodoma: depravación extrema (época de Lot). Egipto: donde por primera vez se introdujo la idolatría en Israel. A este punto, Jerusalén es espiritualmente tan corrompida como estas ciudades.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Sin enterrar · 3½ días</span><span class="bullet-desc">Visibles para deshonrarlos públicamente. <span class="hl">Primera fiesta global de la historia</span>: todos los habitantes de la tierra celebran y se envían regalos, porque estos dos les habían atormentado. Son odiados por el mundo entero.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Su Resurrección (Ap. 11:11–13)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 11:11–12</span>
+        <span class="scripture-text">Pero después de tres días y medio entró en ellos el espíritu de vida enviado por Dios, y se levantaron sobre sus pies, y cayó gran temor sobre los que los vieron. Y oyeron una gran voz del cielo, que les decía: Subid acá. Y subieron al cielo en una nube; y sus enemigos los vieron.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El terror de la resurrección</span><span class="bullet-desc">El mundo se aterroriza: la resurrección podría significar que regresan a su ministerio. Además, comprueba que son verdaderos enviados de Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El mensaje de Dios al mundo</span><span class="bullet-desc">Todo lo que dijeron e hicieron vino de Dios. El temor no se debe fundamentar en ellos mismos sino en quien está detrás: Dios. Igual que la resurrección de Jesús probó que fue enviado por Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El terremoto</span><span class="bullet-desc">La décima parte de Jerusalén se derrumba, 7,000 hombres mueren. Los demás se aterrorizan y dan gloria al Dios del cielo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Conexión con Zacarías 4</span><span class="bullet-desc">Zac. 4:14: "los dos ungidos que están delante del Señor de toda la tierra." Su resurrección cumple la promesa de que tendrían un ministerio de parte de Dios visto por toda la tierra.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Ubicación del Ministerio en la Línea de los Tres Ayes</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-period">1er Ay — Trompeta 5 (primera mitad)</span>
+          <span class="timeline-desc">Escorpiones demoníacos del abismo. Tormento de 5 meses sin poder morir. Los 144,000 y los creyentes protegidos.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">2do Ay — Trompeta 6 → lleva al mid-trib</span>
+          <span class="timeline-desc">200 millones de demonios matan ⅓ de los hombres. Este Ay nos lleva directamente al mid-trib. Justo aquí son asesinados los Dos Testigos y resucitados. Ap. 11:14: "El segundo ay pasó; he aquí, el tercer ay viene pronto."</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">3er Ay — Trompeta 7 (segunda mitad = Gran Tribulación)</span>
+          <span class="timeline-desc">Las 7 Copas de la ira de Dios. Culmina con la segunda venida de Cristo.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VII -->
+<section class="section" id="sec-VII">
+  <div class="section-header"><div class="section-number">VII</div><h2 class="section-title">La Séptima Trompeta — Proclamación de Victoria (Ap. 11:15–19)</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">El Cielo Proclama el Reinado de Cristo</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 11:15, 17–18</span>
+        <span class="scripture-text">Los reinos del mundo han venido a ser de nuestro Señor y de su Cristo; y él reinará por los siglos de los siglos… porque has tomado tu gran poder, y has reinado. Y se airaron las naciones, y tu ira ha venido, y el tiempo de juzgar a los muertos.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Corresponde a las 7 Copas</span><span class="bullet-desc">La Séptima Trompeta contiene los juicios de las 7 Copas, que en su culminación llevan a la segunda venida de Cristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Gran regocijo</span><span class="bullet-desc">Los 24 ancianos se postran dando gracias y gloria al que ha logrado la victoria. Es la proclamación anticipada del reinado eterno de Cristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El propósito del cuerpo glorificado</span><span class="bullet-desc">La posición de los santos resucitados es regresar a la tierra conquistada por Cristo. El cuerpo físico fue diseñado para la tierra, no para permanecer en el cielo.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Arca Real en el Cielo (Ap. 11:19)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 11:19</span>
+        <span class="scripture-text">Y el templo de Dios fue abierto en el cielo, y el arca de su pacto se veía en el templo. Y hubo relámpagos, voces, truenos, un terremoto y grande granizo.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El Arca verdadera</span><span class="bullet-desc">Realmente existe un Arca en el cielo, de la cual Moisés recibió una réplica. Se hace visible justo en el momento en que se van a desatar los desastres sobrenaturales más grandes sobre la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Preludio de los juicios finales</span><span class="bullet-desc">Relámpagos, voces, truenos, terremoto y granizo — el preludio característico que anuncia lo que viene en la segunda mitad.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- VIII -->
+<section class="section" id="sec-VIII">
+  <div class="section-header"><div class="section-number">VIII</div><h2 class="section-title">La Mujer y el Dragón — Capítulo 12</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Regla Hermenéutica: La Señal vs. el Hecho</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 12:1</span>
+        <span class="scripture-text">Apareció en el cielo una gran señal: una mujer vestida del sol, con la luna debajo de sus pies, y sobre su cabeza una corona de doce estrellas.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Una señal anuncia, no describe</span><span class="bullet-desc">Una señal es un signo de que algo se acerca — no de que ya estamos sobre lo que anuncia. Equivale a ver el letrero "San Antonio" y decir "ya estamos en la ciudad". Muchos errores de interpretación vienen de confundir señal con hecho.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El error de la Iglesia Católica</span><span class="bullet-desc">Interpretó la imagen como la Virgen María tomándola como algo real, no como una señal. Sería como interpretar la señal del niño como literalmente un infante sosteniendo una barra de hierro.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Proceso de interpretación correcto</span><span class="bullet-desc">(1) En el texto inmediato. (2) En el mismo libro / mismo autor. (3) Atrás en la Biblia.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">La Mujer = Israel · El Niño = el Mesías</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Génesis 37:9–10 — El sueño de José</span>
+        <span class="scripture-text">He aquí que el sol y la luna y once estrellas se inclinaban a mí… ¿Acaso vendremos yo y tu madre y tus hermanos a postrarnos en tierra ante ti?</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La mujer = Israel</span><span class="bullet-desc">El padre Jacob interpretó el sueño de José: Jacob = sol, su esposa = luna, los hermanos = estrellas. Por tanto, la mujer vestida del sol con 12 estrellas = la nación de Israel. (También confirmado en Jer. 3:8)</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El niño = el Mesías</span><span class="bullet-desc">La señal del niño arrebatado representa al Mesías, el Rey de Reyes que gobernará a todas las naciones con barra de hierro. (Sal. 2:7–9)</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La primera gran señal</span><span class="bullet-desc">Representa a Israel produciendo al Mesías — toda la historia bíblica resumida en una imagen visual.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Dragón = Satanás (La Segunda Señal)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 12:3–4</span>
+        <span class="scripture-text">He aquí un gran dragón escarlata, que tenía siete cabezas y diez cuernos, y en sus cabezas siete diademas; y su cola arrastraba la tercera parte de las estrellas del cielo, y las arrojó sobre la tierra.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Solo una señal — no una foto</span><span class="bullet-desc">Este verso no describe cómo luce Satanás físicamente. Es una señal de su poder. Las estrellas = ángeles demoníacos, su ejército.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">7 cabezas, 7 diademas, 10 cuernos</span><span class="bullet-desc">Relacionado con Daniel 7. Los 10 cuernos = 10 reyes al final de la era. De entre ellos surge el undécimo (el Anticristo) que derroca a 3. Resultado: 1 hombre gobernando, 7 reyes marioneta, 10 territorios controlados por Satanás.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Satanás: el dios de este mundo</span><span class="bullet-desc">2 Co. 4:4 — "el dios de este siglo cegó el entendimiento de los incrédulos." Satanás controla los siete reyes y los diez reinos. Esta estructura culmina en mid-trib.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Historia de la Oposición de Satanás al Plan de Salvación</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Génesis 3:15 — El resumen más corto de la Biblia</span>
+        <span class="scripture-text">Y pondré enemistad entre ti y la mujer, y entre tu simiente y la simiente suya; ésta te herirá en la cabeza, y tú le herirás en el calcañar.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Dos venidas en un verso</span><span class="bullet-desc">La herida en el calcañar = la cruz (primera venida). La herida mortal en la cabeza = derrota final de Satanás (segunda venida).</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Satanás no es omnisciente</span><span class="bullet-desc">No puede saber quién será el Mesías, por eso ataca todo flanco posible a lo largo de la historia: Caín mata a Abel, ángeles caídos corrompen la humanidad (Noé), intento de aniquilar a los judíos (Ester, 2ª GM), Herodes mata niños, controla a Judas.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Por encima de todo, nace el Mesías</span><span class="bullet-desc">Toda esta historia está resumida en Gén. 3:15: traer al Mesías mientras Satanás se opone. Es prácticamente toda la Biblia en un solo verso.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- IX -->
+<section class="section" id="sec-IX">
+  <div class="section-header"><div class="section-number">IX</div><h2 class="section-title">El Cuarto Imperio Evoluciona hacia la Cuarta Bestia — Daniel 7</h2></div>
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Del Imperio Romano al Sistema de 10 Reyes</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-period">El Imperio Romano original</span>
+          <span class="timeline-desc">El cuarto y más poderoso imperio de Daniel. Se divide en este y oeste (hierro y barro — Dan. 2).</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Transformación — Alianza imperialista</span>
+          <span class="timeline-desc">Los restos del Imperio Romano dan forma al mundo actual. Colectivamente, todos los países mantienen el reinado de los gentiles, evitando que Israel tenga su reino prometido.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Al final de la era — 10 reyes</span>
+          <span class="timeline-desc">El reino toma la forma final de 10 reyes dominando todo el planeta. Daniel 2: los 10 dedos de la estatua. Daniel 7: los 10 cuernos sobre la cabeza de la bestia.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">El undécimo — el Anticristo</span>
+          <span class="timeline-desc">Surge entre los 10 y derroca a 3. Resultado final: 1 hombre gobernando + 7 reyes marioneta + 10 territorios pertenecientes a Satanás. (Dan. 7:8, 24)</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Mid-Trib — referencia de Dan. 7:25</span>
+          <span class="timeline-desc">"Hablará palabras contra el Altísimo, y a los santos del Altísimo quebrantará… serán entregados en su mano hasta tiempo, y tiempos, y medio tiempo." Control total del mundo bajo Satanás a través de su estructura de poder.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- X -->
+<section class="section" id="sec-X">
+  <div class="section-header"><div class="section-number">X</div><h2 class="section-title">La Batalla en el Cielo — Satanás Expulsado para Siempre</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Miguel Expulsa a Satanás (Ap. 12:7–12)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 12:9–10, 12</span>
+        <span class="scripture-text">Fue lanzado fuera el gran dragón… el acusador de nuestros hermanos, el que los acusaba delante de nuestro Dios día y noche… ¡Ay de los moradores de la tierra y del mar! porque el diablo ha descendido a vosotros con gran ira, sabiendo que tiene poco tiempo.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">No es un recuento histórico</span><span class="bullet-desc">Esta guerra es diferente: Satanás pierde acceso al trono de Dios <span class="hl">para siempre</span>. Hasta este momento ha tenido acceso para acusar — como lo confirma Job 1:6 donde Satanás se presenta ante Dios.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El cielo se regocija</span><span class="bullet-desc">Satanás es vencido por la sangre del Cordero y el testimonio de los santos que no amaron sus vidas hasta la muerte.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Pero ¡ay de la tierra!</span><span class="bullet-desc">Al mismo tiempo que el cielo se regocija, la tierra entra en su período más oscuro. Satanás desciende con <span class="hl">gran ira</span>, sabiendo que le queda poco tiempo.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">El Pánico y la Ira de Satanás</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El ultimátum</span><span class="bullet-desc">Esta batalla pone a Satanás en aviso de que el tiempo está llegando. Lo que siempre temió se va a cumplir. Reacciona con gran miedo e ira sobre el único terreno que le queda: la tierra.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La tierra sufre como nunca</span><span class="bullet-desc">A un nivel nunca visto antes. Si esto hubiera sucedido antes en la historia, habría traído gran sufrimiento antes de tiempo — la sabiduría de Dios al permitirlo solo en este momento específico.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El primer objetivo</span><span class="bullet-desc">Se enfoca en los creyentes en Jesús y en los alineados con Dios en general. Estos se convierten en su objetivo principal.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El cambio fundamental del mid-trib</span><span class="bullet-desc">Antes, Satanás atacaba a los habitantes en general. Ahora, al ser expulsado del cielo, sus ataques se vuelcan con toda intensidad específicamente sobre Israel y los creyentes.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- XI -->
+<section class="section" id="sec-XI">
+  <div class="section-header"><div class="section-number">XI</div><h2 class="section-title">El Remanente de Israel — Protección Sobrenatural en Petra</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Huida al Desierto (Ap. 12:6, 14–16)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 12:14</span>
+        <span class="scripture-text">Y se le dieron a la mujer las dos alas de la gran águila, para que volase de delante de la serpiente al desierto, a su lugar, donde es sustentada por un tiempo, y tiempos, y la mitad de un tiempo.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Las alas del águila</span><span class="bullet-desc">Éxodo 19:4 provee la clave: "os tomé sobre alas de águilas, y os he traído a mí." Dios llevó a Israel sobrenaturalmente por el desierto — 200 millas, incluyendo ancianos, mujeres y niños, día y noche sin parar. Ahora lo repite.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">1,260 días de protección</span><span class="bullet-desc">El remanente permanece protegido durante toda la segunda mitad de la Tribulación, en el lugar preparado por Dios con alimento y agua garantizados.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El río — ataque fracasado</span><span class="bullet-desc">El enemigo arroja "agua como un río" para aniquilar a Israel. Pero la tierra abre su boca y traga el río sobrenaturalmente — como la salvación en el Mar Rojo ante el ejército del faraón.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Todo sucede en un instante</span><span class="bullet-desc">Satanás es echado del cielo, inmediatamente viene con gran ira a destruir al remanente, que al mismo tiempo es protegido por Dios. Todo simultáneo en mid-trib.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Petra — Bosra — La Fortaleza Inexpugnable</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Miqueas 2:12 / Isaías 33:16</span>
+        <span class="scripture-text">Mic: "…recogeré el remanente de Israel; lo reuniré como ovejas de Bosra…" — Is: "éste habitará en las alturas; fortaleza de rocas será su lugar de refugio; se le dará su pan, y sus aguas serán seguras."</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Petra cumple al pie de la letra</span><span class="bullet-desc">Ubicada en Jordania, desierto no lejos de Jerusalén. Lugar alto en las montañas. Ruinas del imperio árabe de los Nabateos (400–106 a.C.).</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">El Cañón Siq</span><span class="bullet-desc">Entrada a través de un cañón muy estrecho (famoso por Indiana Jones). Fácil de defender contra gente de a pie o de a caballo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Inundaciones repentinas</span><span class="bullet-desc">El área tiene cauces profundos propensos a inundaciones repentinas por tormentas de lluvia — amenaza natural para cualquier intruso. Actualmente hay avisos en el desierto sobre este peligro.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">3½ años de provisión divina</span><span class="bullet-desc">El Señor protege, alimenta y provee agua al remanente en esta fortaleza durante toda la Gran Tribulación, en presencia del enemigo que no puede alcanzarlos.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">El Remanente — Promesa Eterna de Dios a Israel</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Romanos 11:2–5</span>
+        <span class="scripture-text">No ha desechado Dios a su pueblo… Me he reservado siete mil hombres, que no han doblado la rodilla delante de Baal. Así también aun en este tiempo ha quedado un remanente escogido por gracia.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">¿Quiénes son el remanente?</span><span class="bullet-desc">Judíos creyentes en Jesús. Siempre ha habido un grupo en A.T. (Is. 37:31–32), en N.T. (Pablo mismo) y los habrá durante la Tribulación.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Por qué Dios debe protegerlos</span><span class="bullet-desc">Si Dios permitiera que Satanás elimine al remanente, iría contra su promesa eterna de conservarlo siempre. El Señor nunca permitirá que la fe cese dentro de Israel.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">¿Quiénes huyen concretamente?</span><span class="bullet-desc">Judíos principalmente en Jerusalén que creen el testimonio de Jesús en Mateo 24:16. Este vuelo es una <span class="hl">prueba de fe</span>: creen la Palabra de Dios y actúan. Los judíos no creyentes en Jesús no leen ni creen esta advertencia — y no huyen.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Rescatados vs. Castigados</span><span class="bullet-desc">Dios separa aquí a los judíos creyentes, llevándolos a Petra, y dejando en Jerusalén a los no creyentes. Un acto de misericordia soberana hacia los que tienen fe.</span></div></li>
+      </ul>
+    </div>
+    <div class="card full">
+      <div class="card-title">Mid-Trib según Jesús — Mateo 24:15–21</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Mateo 24:15–16, 21</span>
+        <span class="scripture-text">Por tanto, cuando veáis en el lugar santo la abominación desoladora de que habló el profeta Daniel (el que lee, entienda), entonces los que estén en Judea, huyan a los montes… porque habrá entonces gran tribulación, cual no la ha habido desde el principio del mundo hasta ahora, ni la habrá.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- XII -->
+<section class="section" id="sec-XII">
+  <div class="section-header"><div class="section-number">XII</div><h2 class="section-title">El Resto de la Descendencia — Los que Quedaron Atrás</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Dos Grupos Perseguidos (Ap. 12:17)</div>
+      <div class="scripture-box mb14">
+        <span class="scripture-ref">Apocalipsis 12:17</span>
+        <span class="scripture-text">Entonces el dragón se llenó de ira contra la mujer; y se fue a hacer guerra contra el resto de la descendencia de ella, los que guardan los mandamientos de Dios y tienen el testimonio de Jesucristo.</span>
+      </div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">¿Quiénes son "el resto"?</span><span class="bullet-desc">Los que NO están en Petra — dos grupos distintos: (1) Los que guardan los mandamientos de Dios, y (2) Los que tienen el testimonio de Jesucristo.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Grupo 1 — Judíos ortodoxos no creyentes</span><span class="bullet-desc">Devotos que guardan la ley de Moisés y conocen al verdadero Dios, pero no reconocen a Jesús como el Mesías. Por eso no leyeron ni creyeron la advertencia de Mateo 24. Serán perseguidos y muchos muertos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Grupo 2 — Gentiles convertidos en la Tribulación</span><span class="bullet-desc">Los que tienen el testimonio de Jesucristo — convertidos durante la Tribulación. No hay una promesa de Dios de preservar a un grupo remanente de gentiles creyentes. El plan de Dios para la segunda venida depende de judíos, no de gentiles.</span></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Una Distinción Importante — Mandamientos de Dios vs. Testimonio de Cristo</div>
+      <ul class="bullet-list">
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">No es usual llamar al cristiano así</span><span class="bullet-desc">En el N.T., los que siguen a Jesús guardan los mandamientos de Jesús, no los mandamientos de Dios del A.T. (la ley de Moisés). Esto sugiere que son dos grupos diferentes.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">La distinción marca comportamientos diferentes</span><span class="bullet-desc">Los fariseos: ayunar, apedrear a la adúltera, ojo por ojo. Los discípulos: dar la otra mejilla, perdonar 70×7, amar al enemigo. Son dos sistemas éticos distintos.</span></div></li>
+        <li><span class="bullet-icon">✦</span><div><span class="bullet-label">Gentiles no están en Petra</span><span class="bullet-desc">La mayoría de estos gentiles convertidos morirán como mártires durante la Gran Tribulación. Sin embargo, algunos llegan hasta el fin de la Tribulación.</span></div></li>
+      </ul>
+      <div class="info-panel" style="margin-top:12px">
+        <span class="info-panel-title">Grupos perseguidos durante la Tribulación</span>
+        <span class="bullet-desc">① Judíos creyentes — remanente <strong>protegido en Petra</strong>. ② Judíos ortodoxos no creyentes — perseguidos. ③ Gentiles creyentes convertidos en la Tribulación — perseguidos. ④ Otros (???). La Gran Tribulación se llama así por lo que Satanás hace durante este período — los juicios de las copas solo vienen al final.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>✦</span></div>
+
+<div class="summary-box">
+  <p>Los capítulos 10–12 describen el instante más crítico de la historia humana: el Mid-Trib. El librito de Daniel finalmente se abre, revelando lo que fue sellado por 600 años. Los Dos Testigos completan su ministerio como últimos testigos visibles de Dios ante el mundo, muriendo y resucitando para confirmar su autoridad divina. La batalla en el cielo expulsa a Satanás para siempre del trono de Dios, desatando su ira final sobre la tierra — pero el Señor ya tiene preparado el refugio en Petra para su remanente. <em>Todo cuanto ocurre está bajo el control soberano de Dios, quien protege a los suyos, cumple sus promesas eternas y avanza inexorablemente hacia la victoria final de Cristo.</em></p>
+</div>
+
+</main>
+
+<footer>
+  Basado en la enseñanza original de <strong>Verse By Verse Ministry International (VBVMI)</strong> · <a href="http://www.vbvmi.org" target="_blank">vbvmi.org</a><br>
+  Arte de <strong>Pat Marvenko Smith</strong> © 1992 · <a href="http://www.revelationillustrated.com" target="_blank">revelationillustrated.com</a><br>
+  <em>Documento de uso libre — puede copiarse y distribuirse en su forma original sin fines de lucro.</em>
+</footer>
+
+</div><!-- /.page-wrap -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

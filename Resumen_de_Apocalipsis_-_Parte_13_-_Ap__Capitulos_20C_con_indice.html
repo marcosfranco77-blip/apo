@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio de Apocalipsis – Parte 13 · Capítulo 20C</title>
+<style>
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A2A;
+  --crimson:      #8B1A1A;
+  --crimson-light:#C0392B;
+  --deep:         #0A0806;
+  --dark:         #120E09;
+  --mid:          #1E1710;
+  --mid2:         #2A2118;
+  --panel:        #160E08;
+  --text:         #E8DCC8;
+  --text-dim:     #A89878;
+  --text-muted:   #6A5840;
+  --sky:          #4A7FA8;
+  --sky-light:    #7AB0D4;
+  --glow:         rgba(201,168,76,0.15);
+
+  --f-display: 'Didot','Bodoni MT','Bodoni 72','Playfair Display','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --f-heading: 'Palatino Linotype','Palatino','Book Antiqua','Garamond',Georgia,serif;
+  --f-body:    'Garamond','Adobe Garamond Pro','EB Garamond','Palatino Linotype','Palatino',Georgia,serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Starfield */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 34% 72%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 58% 9%,  rgba(201,168,76,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 44%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 83%, rgba(201,168,76,.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5%  61%, rgba(255,255,255,.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 47% 37%, rgba(201,168,76,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 23% 90%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 25%, rgba(201,168,76,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 66%, rgba(255,255,255,.3) 0%, transparent 100%);
+}
+
+/* Layout */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* ── HEADER ── */
+header {
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,26,26,.55) 0%, rgba(10,8,6,0) 70%);
+  text-align: center;
+  padding: 60px 24px 48px;
+  position: relative;
+}
+
+.header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+.header-ornament::before,
+.header-ornament::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim));
+}
+.header-ornament::after { background: linear-gradient(90deg, var(--gold-dim), transparent); }
+
+header h1 {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -.5px;
+}
+
+header h2 {
+  font-family: var(--f-heading);
+  font-size: clamp(15px, 2.5vw, 21px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+}
+.meta-item {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  border: 1px solid rgba(201,168,76,.15);
+  padding: 6px 16px;
+  border-radius: 2px;
+}
+.meta-item span { color: var(--gold-dim); margin-right: 6px; }
+
+/* ── SECTIONS ── */
+.section {
+  margin: 52px 0 0;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp .6s ease forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.section-number {
+  border: 1px solid var(--crimson);
+  border-radius: 50%;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crimson-light);
+  font-size: 12px;
+  font-family: var(--f-heading);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--f-heading);
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.3;
+}
+
+/* ── CARDS GRID ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 780px) { .cards { grid-template-columns: 1fr; } }
+
+/* ── CARD ── */
+.card {
+  background: linear-gradient(135deg, rgba(30,23,16,.95) 0%, rgba(22,14,8,.95) 100%);
+  border: 1px solid rgba(201,168,76,.15);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 20px 24px;
+  transition: border-color .3s, transform .2s;
+}
+.card:hover {
+  border-left-color: var(--gold);
+  transform: translateX(3px);
+}
+.card.full { grid-column: 1 / -1; }
+
+.card-title {
+  font-family: var(--f-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+/* ── BULLET LIST ── */
+ul.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ul.bullet-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border: 1px solid rgba(201,168,76,.1);
+  border-radius: 3px;
+}
+.bullet-icon {
+  font-style: normal;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.bullet-label {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+.bullet-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.72;
+}
+.bullet-text { flex: 1; }
+
+/* ── SCRIPTURE BOX ── */
+.scripture-box {
+  background: linear-gradient(135deg, rgba(139,26,26,.12) 0%, rgba(10,8,6,.8) 100%);
+  border: 1px solid rgba(139,26,26,.3);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+  padding: 18px 22px 18px 28px;
+  position: relative;
+  margin: 10px 0;
+}
+.scripture-box::before {
+  content: '\201C';
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  font-size: 56px;
+  color: rgba(139,26,26,.3);
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.scripture-ref {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: block;
+}
+.scripture-text {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dim), transparent);
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -21px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,.5);
+}
+.timeline-period {
+  font-family: var(--f-heading);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.timeline-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ── INFO PANEL ── */
+.info-panel {
+  background: linear-gradient(135deg, rgba(74,127,168,.08) 0%, rgba(10,8,6,.9) 100%);
+  border: 1px solid rgba(74,127,168,.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.info-panel-title {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--sky-light);
+  margin-bottom: 10px;
+}
+
+/* ── TABLE ── */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.styled-table th {
+  font-family: var(--f-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 10px 14px;
+  text-align: left;
+}
+.styled-table td {
+  font-size: 16px;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,168,76,.08);
+  vertical-align: top;
+}
+.styled-table tr:last-child td { border-bottom: none; }
+
+/* ── TWO COL PANELS ── */
+.two-col-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 600px) { .two-col-panels { grid-template-columns: 1fr; } }
+
+/* ── HIGHLIGHT ── */
+.hl { color: var(--gold-light); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider {
+  text-align: center;
+  margin: 52px 0 0;
+  position: relative;
+}
+.divider::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  margin-bottom: -10px;
+}
+.divider-symbol {
+  display: inline-block;
+  background: var(--deep);
+  padding: 0 14px;
+  color: var(--gold-dim);
+  font-size: 18px;
+  position: relative;
+}
+
+/* ── SUMMARY BOX ── */
+.summary-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(10,8,6,.95) 100%);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 6px;
+  padding: 26px 30px;
+  text-align: center;
+  margin-top: 32px;
+}
+.summary-box p {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ── FOOTNOTE ── */
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(201,168,76,.1);
+  text-align: center;
+  font-family: var(--f-heading);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 2;
+}
+footer a { color: var(--gold-dim); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+/* Staggered animation delays */
+.section:nth-child(1)  { animation-delay: .05s; }
+.section:nth-child(2)  { animation-delay: .13s; }
+.section:nth-child(3)  { animation-delay: .21s; }
+.section:nth-child(4)  { animation-delay: .29s; }
+.section:nth-child(5)  { animation-delay: .37s; }
+.section:nth-child(6)  { animation-delay: .45s; }
+.section:nth-child(7)  { animation-delay: .53s; }
+.section:nth-child(8)  { animation-delay: .61s; }
+.section:nth-child(9)  { animation-delay: .69s; }
+.section:nth-child(10) { animation-delay: .77s; }
+
+/* ═══ SIDEBAR TOC ═══ */
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f0a06 0%, #1a1208 100%);
+  border-right: 1px solid rgba(201,168,76,.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 4px 0 32px rgba(0,0,0,.6);
+}
+#sidebar-toc.hidden { transform: translateX(-100%); }
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  flex-shrink: 0;
+}
+.toc-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+}
+.toc-label {
+  font-family: var(--f-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+.toc-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.2) transparent;
+}
+.toc-links::-webkit-scrollbar { width: 4px; }
+.toc-links::-webkit-scrollbar-thumb { background: rgba(201,168,76,.2); border-radius: 2px; }
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  transition: all .2s ease;
+}
+.toc-item:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.06);
+}
+.toc-item.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,.1);
+}
+.toc-num {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: var(--f-heading);
+  color: var(--crimson-light);
+  padding-top: 1px;
+  min-width: 22px;
+}
+.toc-title { flex: 1; }
+#toc-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.25);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+#toc-toggle:hover { background: rgba(201,168,76,.2); }
+#toc-show {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(10,8,6,.9);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: none;
+  color: var(--gold);
+  border-radius: 0 6px 6px 0;
+  width: 22px;
+  height: 54px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+#toc-show:hover { background: rgba(201,168,76,.15); }
+.page { transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
+body.toc-open .page-wrap, body.toc-open .page {
+  margin-left: 270px;
+  max-width: calc(1100px + 270px);
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+body.toc-closed .page-wrap, body.toc-closed .page {
+  margin-left: 0;
+  transition: margin-left .35s cubic-bezier(.4,0,.2,1);
+}
+@media (max-width: 900px) {
+  #sidebar-toc { width: 240px; }
+  body.toc-open .page-wrap, body.toc-open .page { margin-left: 240px; }
+}
+@media (max-width: 600px) {
+  body.toc-open .page-wrap, body.toc-open .page { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR TOC -->
+<nav id="sidebar-toc">
+  <div class="toc-header">
+    <div class="toc-ornament-line"></div>
+    <span class="toc-label">Índice</span>
+    <div class="toc-ornament-line"></div>
+  </div>
+  <div class="toc-links">
+    <a href="#sec-I" class="toc-item"><span class="toc-num">I</span><span class="toc-title">Resumen: La Creación, la Tierra y el Gobierno en el Reino</span></a>
+<a href="#sec-II" class="toc-item"><span class="toc-num">II</span><span class="toc-title">Los Cinco Grupos de Creyentes que Entran al Reino</span></a>
+<a href="#sec-III" class="toc-item"><span class="toc-num">III</span><span class="toc-title">El Pecado Contenido: Gobierno con Vara de Hierro</span></a>
+<a href="#sec-IV" class="toc-item"><span class="toc-num">IV</span><span class="toc-title">La Muerte en el Reino — Análisis de Isaías 65:20</span></a>
+<a href="#sec-V" class="toc-item"><span class="toc-num">V</span><span class="toc-title">¿Cómo es Posible la Incredulidad con Cristo Gobernando?</span></a>
+<a href="#sec-VI" class="toc-item"><span class="toc-num">VI</span><span class="toc-title">La Gloria Shekinah de Dios Regresa al Templo</span></a>
+<a href="#sec-VII" class="toc-item"><span class="toc-num">VII</span><span class="toc-title">La Fe: Único y Permanente Medio de Salvación</span></a>
+<a href="#sec-VIII" class="toc-item"><span class="toc-num">VIII</span><span class="toc-title">La Calidad de la Vida Diaria en el Reino</span></a>
+<a href="#sec-IX" class="toc-item"><span class="toc-num">IX</span><span class="toc-title">Jerusalén Cubierta por la Gloria: Isaías 4</span></a>
+<a href="#sec-X" class="toc-item"><span class="toc-num">X</span><span class="toc-title">La Vida y Función de los Gentiles en el Reino</span></a>
+<a href="#sec-XI" class="toc-item"><span class="toc-num">XI</span><span class="toc-title">Los Grandes Silencios — Lo que las Escrituras No Revelan</span></a>
+
+  </div>
+  <button id="toc-toggle" title="Ocultar índice">&#8249;</button>
+</nav>
+<button id="toc-show" title="Mostrar índice">&#8250;</button>
+
+<div class="starfield"></div>
+
+<div class="page">
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════ -->
+<header>
+  <div class="header-ornament">Verse by Verse Ministry International</div>
+  <h1>Estudio del Libro de Apocalipsis</h1>
+  <h2>Parte 13 · Capítulo 20 — C</h2>
+  <div class="meta-row">
+    <div class="meta-item"><span>📖</span>Capítulo cubierto: Apocalipsis 20C</div>
+    <div class="meta-item"><span>📄</span>Páginas cubiertas: 1–33</div>
+    <div class="meta-item"><span>🕰</span>Período: El Reino Milenial (1,000 años)</div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN I — RESUMEN SEMANA ANTERIOR
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-I">
+  <div class="section-header">
+    <div class="section-number">I</div>
+    <h2 class="section-title">Resumen: La Creación, la Tierra y el Gobierno en el Reino</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Cambios en el Mundo Natural</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Retorno al Edén</div>
+            <div class="bullet-desc">El mundo natural comenzará a regresar al estado que conocía <span class="hl">antes de la caída de Adán</span>, con una reversión parcial de las maldiciones pronunciadas sobre la tierra.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-label">Relación animal transformada</div>
+          <div class="bullet-text">
+            <div class="bullet-desc">Los reinos animales ya no experimentarán relación depredador-presa. Los humanos no estarán amenazados por los animales ni estos por nosotros. <span class="hl">Podremos tener pets de cualquier especie.</span></div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">⚠</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Excepción: la serpiente</div>
+            <div class="bullet-desc">La serpiente <em>no</em> será revertida y continuará arrastrándose por el suelo. Es un memorial permanente del engaño de Satanás, quien aunque atado, permanece por un tiempo.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Geografía e Israel</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Abundancia sin esfuerzo</div>
+            <div class="bullet-desc">La tierra de Israel producirá abundancia de cultivos sin esfuerzo, con montañas que tendrán arroyos en la cima, haciendo el agua abundante en todas partes.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Nuevo río del Templo</div>
+            <div class="bullet-desc">Desde el templo fluirá un nuevo río que se dividirá hacia el <span class="hl">Mar Mediterráneo y el Mar Muerto</span>. Al llegar al Mar Muerto, hará sus aguas frescas y producirá muchas variedades de peces.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Fronteras de Israel ampliadas</div>
+            <div class="bullet-desc">Israel regresará a su tierra con fronteras enormemente ampliadas, acercándose a los límites del tiempo de Salomón. Jerusalén será la <span class="hl">capital de gobierno mundial</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">El Gobierno del Reino</div>
+      <div class="two-col-panels">
+        <div class="info-panel">
+          <div class="info-panel-title">Gobierno Judío</div>
+          <ul class="bullet-list">
+            <li>
+              <span class="bullet-icon">✦</span>
+              <div class="bullet-text">
+                <div class="bullet-desc">La nación judía será gobernada por <span class="hl">David y los doce apóstoles</span>, junto con la nación glorificada de Israel.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">Gobierno Gentil</div>
+          <ul class="bullet-list">
+            <li>
+              <span class="bullet-icon">✦</span>
+              <div class="bullet-text">
+                <div class="bullet-desc">Las naciones gentiles serán gobernadas por los <span class="hl">santos glorificados de la iglesia</span> incluidos en el rapto, y los mártires de la tribulación, en una estructura aún desconocida.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="scripture-box" style="margin-top:14px;">
+        <span class="scripture-ref">Romanos 13:3–4</span>
+        <span class="scripture-text">«Los magistrados no están para infundir temor al que hace el bien, sino al malo... porque está al servicio de Dios para tu bien. Pero si haces lo malo, teme, porque no en vano lleva la espada, pues está al servicio de Dios para hacer justicia.»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:12px; font-size:16px; color:var(--text-dim);">Isaías declara que Jesús responderá instantáneamente a cualquier invocación desde cualquier lugar — una comunicación directa y perfecta con el Rey. El gobierno existe porque el pecado existe, y sin infractores no habría necesidad de autoridad.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN II — LOS CINCO GRUPOS EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-II">
+  <div class="section-header">
+    <div class="section-number">II</div>
+    <h2 class="section-title">Los Cinco Grupos de Creyentes que Entran al Reino</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Clasificación de los Grupos</div>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Grupo</th>
+            <th>Tipo de Cuerpo</th>
+            <th>Función en el Reino</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>① Santos glorificados de la Iglesia (rapto)</td>
+            <td>Glorificado, sin pecado, eterno</td>
+            <td>Gobernar naciones gentiles</td>
+          </tr>
+          <tr>
+            <td>② David + 12 Apóstoles + Israel glorificado</td>
+            <td>Glorificado, sin pecado, eterno</td>
+            <td>Gobernar la nación judía</td>
+          </tr>
+          <tr>
+            <td>③ Mártires de la Tribulación</td>
+            <td>Glorificado, sin pecado, eterno</td>
+            <td>Gobernar junto a Cristo</td>
+          </tr>
+          <tr>
+            <td>④ Judíos creyentes sobrevivientes (sin morir)</td>
+            <td>Natural / terrenal con pecado</td>
+            <td>Ser gobernados; casarse y reproducirse</td>
+          </tr>
+          <tr>
+            <td>⑤ Gentiles creyentes sobrevivientes (sin morir)</td>
+            <td>Natural / terrenal con pecado</td>
+            <td>Ser gobernados; casarse y reproducirse</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Cuerpos Glorificados</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sin pecado y eternos</div>
+            <div class="bullet-desc">Los tres primeros grupos entran en cuerpos glorificados. No tienen pecado, no necesitan ser gobernados y ejecutan la voluntad de Jesús perfectamente.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Gobierno con vara de hierro</div>
+            <div class="bullet-desc">Bajo la dirección de Cristo, estos gobernantes aseguran que el mundo sea gobernado con <span class="hl">vara de hierro en perfecta justicia</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Cuerpos Naturales</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Condición de entrada</div>
+            <div class="bullet-desc">Los grupos 4 y 5 nunca murieron durante la tribulación. Entran con cuerpos naturales heredados de Adán, poseyendo aún pecado. Son salvos por la fe pero no son impecables.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Matrimonio y reproducción</div>
+            <div class="bullet-desc">Estos dos grupos pueden unirse en matrimonio y reproducirse para crear <span class="hl">nuevas generaciones de humanidad</span> durante el Reino.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❸</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Los "verdaderos Millennials"</div>
+            <div class="bullet-desc">Las nuevas generaciones nacidas en el Reino poseerán también cuerpos naturales con naturaleza pecaminosa y, a diferencia de sus padres, <span class="hl">no nacerán creyendo</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN III — EL PECADO EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-III">
+  <div class="section-header">
+    <div class="section-number">III</div>
+    <h2 class="section-title">El Pecado Contenido: Gobierno con Vara de Hierro</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Pecado Existe pero No Reina</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Pecado controlado</div>
+            <div class="bullet-desc">Los descendientes nacidos en el Reino cometerán errores. Pero cuando intenten actuar sobre pensamientos pecaminosos, el gobierno intervendrá para <span class="hl">evitar que esos pensamientos pasen a mayores</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">El verdadero significado de "vara de hierro"</div>
+            <div class="bullet-desc">Ningún pecado tendrá oportunidad de crecer o producir daño porque será contenido rápida y perfectamente. El gobierno existe precisamente para esto.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Una Superclase Gobernante</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La clase glorificada</div>
+            <div class="bullet-desc">Durante 1,000 años el mundo estará regido por una clase de humanidad con <span class="hl">cuerpos glorificados que no muere, no puede pecar y no procrea</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La clase natural</div>
+            <div class="bullet-desc">Aquellos a quienes gobernemos vivirán en cuerpos naturales que pueden morir, poseen pecado y pueden reproducirse. Con el tiempo repoblarán toda la tierra.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN IV — LA MUERTE EN EL REINO (ISAÍAS 65:20)
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-IV">
+  <div class="section-header">
+    <div class="section-number">IV</div>
+    <h2 class="section-title">La Muerte en el Reino — Análisis de Isaías 65:20</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Cálculo Demográfico y la Necesidad del Control de la Muerte</div>
+      <div class="bullet-desc" style="margin-bottom:14px;">Si solo 10,000 personas entraran al Reino en cuerpos naturales y el 2% de las parejas tuviera un hijo por año sin mortalidad, después de 1,000 años <span class="hl">la población sería de 4 trillones</span>. Por ello Dios controla la muerte para gestionar la población.</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Isaías 65:20 (reorganizado según poesía hebrea)</span>
+        <span class="scripture-text">(1) No habrá más allí niño que muera de pocos días [sin mortalidad infantil]<br>
+        (3) porque el niño (joven) morirá de cien años [mínimo 100 años garantizados]<br>
+        (2) ni viejo que sus días no cumpla [los ancianos creyentes no morirán de vejez]<br>
+        (4) y el pecador de cien años será maldito [los incrédulos mueren al cumplir 100]</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Las Cuatro Reglas de la Muerte</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sin mortalidad infantil</div>
+            <div class="bullet-desc">No habrá niños que mueran jóvenes. No habrá enfermedades mortales ni tragedias fatales en los primeros años de vida. <span class="hl">Dios garantiza la vida de cada niño.</span></div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Mínimo 100 años para todos</div>
+            <div class="bullet-desc">El Señor garantiza que cada persona nacida en el Reino vivirá al menos 100 años. Morir a los 100 se considerará una <span class="hl">muerte temprana</span>, pues se considerará que murió joven.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❸</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Creyentes: vida indefinida</div>
+            <div class="bullet-desc">Los que crean en Jesús como Señor se vuelven inmunes a la muerte antes de los 100 años y pueden vivir cientos de años. La esperanza de vida regresa a la era del Génesis (Matusalén, 969 años; Adán, 930).</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❹</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Incrédulos: mueren exactamente a los 100</div>
+            <div class="bullet-desc">El cumpleaños número 100 es el <span class="hl">punto decisivo</span>. El pecador de 100 años es maldito — cae bajo juicio divino (juicio eterno en el infierno). Es una propuesta de todo o nada.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Dios Controla Vida y Muerte</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Control divino siempre presente</div>
+            <div class="bullet-desc">Como lo declara Job, el día de nacer y el día de morir fueron elegidos por Dios antes de nuestro nacimiento. Dios siempre ha tenido el control de la vida y la muerte.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La resurrección de los nacidos en el Reino</div>
+            <div class="bullet-desc">Los creyentes nacidos en el Reino deben recibir cuerpos nuevos en algún momento. La Biblia guarda silencio sobre cuándo exactamente. Las posibilidades especuladas son: <span class="hl">al cumplir 100 años</span>, en cualquier momento posterior, o al final del Reino.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">El Reino es para creyentes</div>
+            <div class="bullet-desc">La precisión y severidad de este juicio envía un mensaje claro: el Reino debe ser disfrutado por los creyentes. El estilo de gobierno de Jesús es consecuente: gobernar con vara de hierro.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN V — INCRÉDULOS EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-V">
+  <div class="section-header">
+    <div class="section-number">V</div>
+    <h2 class="section-title">¿Cómo es Posible la Incredulidad con Cristo Gobernando?</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card full">
+      <div class="card-title">Tres Razones por las que los Incrédulos Existirán en el Reino</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">❶</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Razón 1: Los milagros no producen fe salvadora</div>
+            <div class="bullet-desc">Jesús caminó por la tierra mostrando poder y grandes milagros, y aun así la gente no creyó. Israel en el desierto vio las plagas, el Mar Rojo y la presencia de Dios en el Sinaí, y aun así Hebreos los llama «generación de incrédulos». <span class="hl">La salvación se cree en el corazón, no solo con la mente.</span> Un corazón inconverso no puede discernir el mundo espiritual de Dios hasta que el Espíritu Santo lo abra por el nuevo nacimiento.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❷</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Razón 2: Sin evidencia del mundo anterior</div>
+            <div class="bullet-desc">Los incrédulos del Reino nacieron durante ese tiempo, no conocen otra era. No habrá evidencia física de las edades anteriores (ni de Adán, Noé, la crucifixión, la tribulación). La renovación de la tierra no dejó evidencia arqueológica. <span class="hl">Tomarán todo por sentado</span>, tal como hoy se niegan a creer en historias antiguas.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">❸</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Razón 3: Los incrédulos nunca verán a Jesús</div>
+            <div class="bullet-desc">Ezequiel 43 declara que el Señor habita en el <span class="hl">Lugar Santísimo del Templo sin interrupción</span> durante los 1,000 años completos. Los inconversos nunca verán a Jesús ni tendrán acceso a los atrios interiores. Solo sabrán por testimonio que el Señor reside en el templo, pero no tendrán prueba visible de ello.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN VI — LA GLORIA SHEKINAH Y EL TEMPLO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-VI">
+  <div class="section-header">
+    <div class="section-number">VI</div>
+    <h2 class="section-title">La Gloria Shekinah de Dios Regresa al Templo</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Historia de la Gloria Shekinah</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">Era del Éxodo</div>
+          <div class="timeline-desc">La gloria Shekinah de Dios se manifestó como nube y columna de fuego en el desierto, como nube sobre el monte Sinaí y cubriendo la tienda cuando Moisés hablaba con el Señor.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Partida — Antes de la invasión babilónica</div>
+          <div class="timeline-desc">Cuando el Señor entregó el dominio de las naciones a los gentiles, la gloria de Dios partió por la puerta oriental del templo, hacia el Monte de los Olivos y desapareció. <span class="hl">Desde entonces no ha regresado.</span></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Era de los Gentiles (actual)</div>
+          <div class="timeline-desc">La gloria Shekinah de Dios ha estado ausente durante toda la Era de los Gentiles. El templo actual carece de la presencia manifiesta de Dios.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Inicio del Reino Milenial</div>
+          <div class="timeline-desc">La misma gloria regresa al Templo de la misma manera que partió: por el lado oriental. Jesús no tendrá la apariencia que tuvo en los evangelios, sino Su apariencia de gloria Shekinah.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Durante los 1,000 años</div>
+          <div class="timeline-desc">El Señor habita en el Lugar Santísimo sin interrupción. La gloria solo es visible en ciertos momentos: <span class="hl">los sábados, las fiestas y las lunas nuevas</span>. El resto de los días la puerta a los atrios interiores está cerrada.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Acceso Diferenciado a la Gloria</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✓</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Creyentes: acceso permitido</div>
+            <div class="bullet-desc">Solo a los creyentes se les permite entrar a los atrios interiores y ver la gloria del Señor durante las fiestas designadas. En el pasado, los gentiles no podían entrar; en el Reino <span class="hl">esto cambia</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✗</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Incrédulos: sin acceso</div>
+            <div class="bullet-desc">A los inconversos nunca se les permitirá entrar a los atrios ni ver la gloria del Señor. Solo ven desde afuera que existe un templo en una montaña alta en Jerusalén y dependen del testimonio de otros.</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="scripture-box" style="margin-top:14px;">
+        <span class="scripture-ref">Ezequiel 43:4–7</span>
+        <span class="scripture-text">«La gloria de Jehová entró en la casa por la vía de la puerta que daba al oriente... La voz me dijo: Hijo de hombre, éste es el lugar de mi trono, el lugar donde posaré las plantas de mis pies, en el cual habitaré para siempre entre los hijos de Israel.»</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN VII — LA FE COMO ÚNICO MEDIO DE SALVACIÓN
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-VII">
+  <div class="section-header">
+    <div class="section-number">VII</div>
+    <h2 class="section-title">La Fe: Único y Permanente Medio de Salvación</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Por Qué Jesús No Es Visible en el Reino</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La salvación por "vista" anularía la fe</div>
+            <div class="bullet-desc">Si Jesús fuera visible en Su forma glorificada para el mundo incrédulo, todos lo reconocerían, pero ese reconocimiento no se basaría en fe. Sería una verdad evidente por sí misma y <span class="hl">no resultaría en salvación</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Toda rodilla se doblará — en el juicio</div>
+            <div class="bullet-desc">El día que Jesús sea visible a todos en toda Su gloria será el día del juicio final. En ese momento toda rodilla se doblará y toda lengua confesará — incluso los que están bajo la tierra — pero esa confesión no traerá salvación.</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="scripture-box" style="margin-top:14px;">
+        <span class="scripture-ref">Hebreos 11:1</span>
+        <span class="scripture-text">«Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve.»</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">La Apariencia de los Glorificados</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">No dramáticamente diferente</div>
+            <div class="bullet-desc">Nuestra construcción física debe reflejar la que tenemos ahora, aunque sin pecado, enfermedad, debilidad ni vejez. Debemos esperar que <span class="hl">nuestra apariencia no anule la fe</span> de los incrédulos.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Jesús vivió sin ser reconocido</div>
+            <div class="bullet-desc">Jesús vivió una vida sin pecado y, sin embargo, ninguno de los judíos, ni sus propios hermanos que vivieron en la misma casa, creyó en Sus afirmaciones. Si el Señor sin pecado pudo vivir al lado de incrédulos, también podemos nosotros.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Solo el Espíritu Santo convierte</div>
+            <div class="bullet-desc">Al final, los incrédulos solo serán movidos por el <span class="hl">Espíritu Santo para una conversión genuina</span>. Ninguna evidencia externa — ni milagros, ni presencia gloriosa, ni nuestra impecabilidad — sustituye la obra del Espíritu.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="scripture-box">
+        <span class="scripture-ref">Filipenses 2:9–11</span>
+        <span class="scripture-text">«Por eso Dios también lo exaltó sobre todas las cosas y le dio un nombre que es sobre todo nombre, para que en el nombre de Jesús se doble toda rodilla de los que están en los cielos, en la tierra y debajo de la tierra; y toda lengua confiese que Jesucristo es el Señor, para gloria de Dios Padre.»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:12px; font-size:16px; color:var(--text-dim);">
+        Pablo enumera tres ubicaciones: encima de la tierra, en la tierra, y <span class="hl">debajo de la tierra</span> — incluidas las almas en espera de juicio eterno. Incluso ellas confesarán a Cristo, pero permanecerán en juicio porque su confesión será reconocimiento evidente, no fe.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN VIII — VIDA DIARIA EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-VIII">
+  <div class="section-header">
+    <div class="section-number">VIII</div>
+    <h2 class="section-title">La Calidad de la Vida Diaria en el Reino</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Relaciones y Gozo Social</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Reunificación de relaciones</div>
+            <div class="bullet-desc">Los glorificados restablecerán relaciones con los que conocieron en la tierra y establecerán nuevas relaciones con creyentes de todas las edades.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sorpresas en el Reino</div>
+            <div class="bullet-desc">Jesús dice que nos <span class="hl">sorprenderán los que lleguen al Reino y los que no</span>. Algunos que vivieron vidas terribles creyeron al final; algunos con ministerios conocidos nunca conocieron al Señor personalmente.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">El turismo de 1,000 años</div>
+            <div class="bullet-desc">Tendremos 1,000 años para conocer a santos de la historia: tomar café con Noé, hablar con Moisés sobre la separación del Mar Rojo, preguntarle a Aarón qué pensaba al hacer el becerro de oro.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Una Vida de Satisfacción Plena</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Todo lo que nos gusta, nada de lo que no</div>
+            <div class="bullet-desc">Una vida llena de satisfacción en lugar de decepción. Con sentido y propósito. Con ritmo y estabilidad que elimina el miedo. Sin perspectiva de envejecer en decadencia.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Trabajo que se disfruta</div>
+            <div class="bullet-desc">Nuestros días estarán llenos de trabajo que disfrutamos, pasatiempos que no nos dañan ni dañan a otros, y posesiones que nunca se desvanecen.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Gracia para el incrédulo</div>
+            <div class="bullet-desc">Para el incrédulo, lo mismo será cierto por lo menos durante sus primeros 100 años. Habrá gracia para ellos en ese tiempo. Y en medio de ese mundo casi perfecto, se les dirá que deben creer en Jesús si quieren continuar.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">La Paradoja: la Prosperidad Dificulta la Fe</div>
+      <div class="two-col-panels">
+        <div class="info-panel">
+          <div class="info-panel-title">Lo que asumimos</div>
+          <div class="bullet-desc">Un mundo tan grandioso bajo el gobierno perfecto de Jesús debería <em>facilitar</em> la obtención de la fe. Con evidencias de bendición divina por doquier, todos deberían creer.</div>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">La realidad bíblica</div>
+          <div class="bullet-desc">La realidad será exactamente lo contraria. <span class="hl">Cuando el mundo experimenta tal dicha, la fe será más difícil.</span> Como hoy: cuando las personas se sienten cómodas, encuentran pocas razones para buscar el arrepentimiento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN IX — JERUSALÉN Y EL TEMPLO (ISAÍAS 4)
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-IX">
+  <div class="section-header">
+    <div class="section-number">IX</div>
+    <h2 class="section-title">Jerusalén Cubierta por la Gloria: Isaías 4</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">La Nube y el Fuego sobre el Monte de Sión</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Isaías 4:2–6</span>
+        <span class="scripture-text">«Y creará Jehová sobre toda la morada del monte Sión y sobre los lugares de sus asambleas, nube y oscuridad de día, y de noche resplandor de llamas de fuego... y habrá un resguardo de sombra contra el calor del día, y un refugio y escondedero contra la tempestad y el aguacero.»</span>
+      </div>
+      <ul class="bullet-list" style="margin-top:12px;">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Nube de día</div>
+            <div class="bullet-desc">Una nube persistente cubrirá el monte durante el día proporcionando sombra constante y manteniendo el área fresca.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Fuego de noche</div>
+            <div class="bullet-desc">Por la noche habrá fuego llameante en el cielo para proporcionar iluminación constante sobre el templo.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Protección contra tormentas</div>
+            <div class="bullet-desc">El efecto combinado evitará que tormentas o lluvias caigan sobre esta zona — como un <span class="hl">techo de protección sobrenatural</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Dimensiones del Monte Sagrado</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La gran planicie</div>
+            <div class="bullet-desc">El templo se halla en una gran montaña con una planicie plana en la cima de <span class="hl">50 millas cuadradas</span>, donde también se incluye Jerusalén.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">La ciudad de Jerusalén</div>
+            <div class="bullet-desc">Jerusalén también estará incluida en esa planicie, con <span class="hl">10 millas cuadradas</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">El templo mismo</div>
+            <div class="bullet-desc">El templo en sí tiene casi <span class="hl">1 milla cuadrada</span>. Es la cima del gobierno y la presencia de Dios en la tierra.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Santidad en Jerusalén</div>
+            <div class="bullet-desc">Todos los que queden en Sión serán llamados santos. No habrá incrédulos en Israel, aunque sí habrá judíos naturales no glorificados.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN X — LOS GENTILES EN EL REINO
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-X">
+  <div class="section-header">
+    <div class="section-number">X</div>
+    <h2 class="section-title">La Vida y Función de los Gentiles en el Reino</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Gentiles en el Templo (Isaías 56)</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Isaías 56:6–7</span>
+        <span class="scripture-text">«Y a los hijos de los extranjeros que sigan a Jehová para servirle... yo los llevaré a mi santo monte y los recrearé en mi casa de oración; sus holocaustos y sus sacrificios serán aceptados sobre mi altar, porque mi casa será llamada casa de oración para todos los pueblos.»</span>
+      </div>
+      <ul class="bullet-list" style="margin-top:12px;">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sacerdotes gentiles</div>
+            <div class="bullet-desc">Los gentiles creyentes se convertirán en trabajadores y probablemente sacerdotes en el templo, ofreciendo sacrificios ante el altar. Esto es nuevo: en tiempos anteriores solo los judíos podían ser sacerdotes.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Casa de oración para todos los pueblos</div>
+            <div class="bullet-desc">En el Reino, el templo será conocido como <span class="hl">casa de oración para todos los pueblos</span>. Los gentiles también servirán allí, marcando un cambio sin precedente en la historia del templo.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">El Regreso de Israel y el Rol Gentil (Isaías 66)</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Isaías 66:18–21</span>
+        <span class="scripture-text">«Pondré entre ellos una señal y enviaré a los sobrevivientes... Y traerán a todos vuestros hermanos de entre todas las naciones, como una ofrenda para Jehová... Y tomaré también de ellos para sacerdotes y levitas, dice Jehová.»</span>
+      </div>
+      <ul class="bullet-list" style="margin-top:12px;">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Los santos como señal</div>
+            <div class="bullet-desc">Los sobrevivientes glorificados enviados a gobernar las naciones serán una <span class="hl">señal para esas naciones</span> por su testimonio de justicia y fe.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Reversión de la Diáspora</div>
+            <div class="bullet-desc">Los gentiles creyentes llevarán a los judíos de regreso a su tierra en honor, revirtiendo las dispersiones anteriores. Donde antes las naciones expulsaban a Israel, ahora los llevan de regreso como ofrenda al Señor.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Sirvientes de Honor en Israel (Isaías 14:1–2)</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Isaías 14:1–2</span>
+        <span class="scripture-text">«A ellos se unirán extranjeros... Los pueblos los tomarán y los llevarán a su lugar, y la casa de Israel los poseerá como siervos y criadas en la tierra de Jehová.»</span>
+      </div>
+      <div class="bullet-desc" style="margin-top:10px; font-size:16px; color:var(--text-dim);">
+        Algunos gentiles se quedarán en la tierra de Israel como sirvientes de Israel. <span class="hl">No en posición de maltrato ni esclavitud</span>, sino en una posición de honor y privilegio que les da la oportunidad de servir directamente en el reino, en el mismo país donde reside Jesús con Su pueblo.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Consecuencia por Desobediencia — La Fiesta de los Tabernáculos</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Zacarías 14:16–18</span>
+        <span class="scripture-text">«Todos los que sobrevivan de las naciones... subirán de año en año para adorar al Rey... y para celebrar la fiesta de los Tabernáculos. Y acontecerá que si alguna familia de la tierra no sube... no habrá lluvia para ellos.»</span>
+      </div>
+      <ul class="bullet-list" style="margin-top:12px;">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Adoración anual obligatoria</div>
+            <div class="bullet-desc">Se requerirá que todas las naciones vengan al templo para la <span class="hl">Fiesta de los Tabernáculos</span> (la fiesta final del calendario judío) cada año.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sequía como juicio</div>
+            <div class="bullet-desc">La única respuesta del Señor a la desobediencia será una sequía. Dado que la tierra produce sin esfuerzo porque el agua es abundante (sin sistemas de riego necesarios), una sequía tendrá un efecto inmediato y devastador — un <span class="hl">elemento disuasorio eficaz</span>.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title">La Vida en el Reino según Isaías 65:21–23</div>
+      <div class="scripture-box">
+        <span class="scripture-ref">Isaías 65:21–23</span>
+        <span class="scripture-text">«Edificarán casas y morarán en ellas; plantarán viñas y comerán el fruto de ellas. No edificarán para que otro habite ni plantarán para que otro coma; porque según los días de los árboles serán los días de mi pueblo, y mis escogidos disfrutarán de la obra de sus manos. No trabajarán en vano ni darán a luz para maldición.»</span>
+      </div>
+      <div class="two-col-panels" style="margin-top:14px;">
+        <div class="info-panel">
+          <div class="info-panel-title">Seguridad de posesiones</div>
+          <div class="bullet-desc">Nadie asaltará la tierra ni quitará la casa o los frutos. Las posesiones serán de cada uno para conservar sin temor, dadas como herencia por el Señor. La cosecha nunca dejará de recibirse.</div>
+        </div>
+        <div class="info-panel">
+          <div class="info-panel-title">Longevidad y familia</div>
+          <div class="bullet-desc">Los días de vida serán como los de un árbol (algunos viven +2,000 años). No habrá mortalidad infantil. Los padres obtendrán la alegría de criar a sus hijos sin temor de perderlos. La esperanza de vida nunca terminará.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN XI — LO QUE AÚN NO SABEMOS
+     ══════════════════════════════════════════════ -->
+<section class="section" id="sec-XI">
+  <div class="section-header">
+    <div class="section-number">XI</div>
+    <h2 class="section-title">Los Grandes Silencios — Lo que las Escrituras No Revelan</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Preguntas sin Respuesta Escritural</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">?</span>
+          <div class="bullet-text">
+            <div class="bullet-label">¿Qué nivel de tecnología?</div>
+            <div class="bullet-desc">¿Disfrutaremos de las comodidades actuales? ¿Seremos rescatados de la agitada naturaleza de la vida y de la conexión constante de las redes sociales?</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">?</span>
+          <div class="bullet-text">
+            <div class="bullet-label">¿Habrá entretenimiento?</div>
+            <div class="bullet-desc">¿Habrá escritura de libros, deportes, arte? ¿Podemos mudarnos a nuevos países? ¿Habrá dinero y economía? Las Escrituras no lo cubren.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">?</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Resurrección de los nacidos en el Reino</div>
+            <div class="bullet-desc">Este es uno de los grandes silencios de la Biblia. No se ha hallado Escritura que aborde cuándo los creyentes nacidos en el Reino recibirán sus cuerpos glorificados.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">?</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Detalles del judaísmo en el Reino</div>
+            <div class="bullet-desc">Hay algo de misterio sobre si todos los hijos de los judíos creyentes llegarán siempre a la fe. Ezequiel menciona muerte entre las familias de los sacerdotes, lo que agrega complejidad.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">La Intención Divina del Misterio</div>
+      <ul class="bullet-list">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Sorpresas interminables</div>
+            <div class="bullet-desc">Tal vez el Señor ha dejado intencionalmente muchas cosas sin respuesta para que la vida del Reino sea una <span class="hl">serie interminable de sorpresas</span>.</div>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <div class="bullet-label">Próximos estudios</div>
+            <div class="bullet-desc">En la próxima clase se analizarán las operaciones del templo, el motivo por el que regresan los sacrificios, la adoración en el Reino y un recorrido al edificio del templo. Luego los eventos que ponen fin a los 1,000 años.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     DIVIDER
+     ══════════════════════════════════════════════ -->
+<div class="divider">
+  <span class="divider-symbol">✦</span>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SUMMARY BOX
+     ══════════════════════════════════════════════ -->
+<div class="summary-box">
+  <p>El Reino Milenial revela la perfecta sabiduría de Dios al diseñar un mundo donde el pecado existe pero no reina, donde la fe sigue siendo el único camino a la salvación, y donde la gloria de Cristo habita en el Lugar Santísimo aguardando el día del juicio final. La vida de los glorificados será de gozo, servicio y descubrimiento eterno — mientras que para los que aún viven en cuerpos naturales, 100 años de gracia ofrecen la invitación definitiva a creer. Todo lo que la Biblia describe del Reino nos confronta con esta verdad: este mundo es solo una pálida sombra de lo que el Señor ha preparado para aquellos que lo aman.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTNOTE
+     ══════════════════════════════════════════════ -->
+<footer>
+  Basado en la enseñanza original de Verse By Verse Ministry International (VBVMI) · <a href="http://vbvmi.org" target="_blank">vbvmi.org</a><br>
+  Arte de Pat Marvenko Smith © 1992 · <a href="http://revelationillustrated.com" target="_blank">revelationillustrated.com</a>
+</footer>
+
+</div><!-- /page -->
+
+<script>
+(function(){
+  const sidebar = document.getElementById('sidebar-toc');
+  const toggleBtn = document.getElementById('toc-toggle');
+  const showBtn = document.getElementById('toc-show');
+  function openToc() {
+    sidebar.classList.remove('hidden');
+    showBtn.style.display = 'none';
+    document.body.classList.add('toc-open');
+    document.body.classList.remove('toc-closed');
+  }
+  function closeToc() {
+    sidebar.classList.add('hidden');
+    showBtn.style.display = 'flex';
+    document.body.classList.remove('toc-open');
+    document.body.classList.add('toc-closed');
+  }
+  toggleBtn.addEventListener('click', closeToc);
+  showBtn.addEventListener('click', openToc);
+  openToc();
+  const items = document.querySelectorAll('.toc-item');
+  const sections = Array.from(items).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    let current = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+    });
+    items.forEach((a, i) => a.classList.toggle('active', i === current));
+    const active = items[current];
+    if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
