@@ -725,11 +725,7 @@ p.body-text {
 }
 body.toc-open .page-wrap  { margin-left: 270px; }
 body.toc-closed .page-wrap { margin-left: 0; }
-body.toc-open .header-ornament  { margin-left: 270px; }
-body.toc-closed .header-ornament { margin-left: 0; }
 .header-ornament { transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
-body.toc-open header  { margin-left: 270px; }
-body.toc-closed header { margin-left: 0; }
 header { transition: margin-left .35s cubic-bezier(.4,0,.2,1); }
 
 /* ── HAMBURGER BUTTON (mobile only) ── */
@@ -783,8 +779,6 @@ body.toc-open #hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 @media (max-width: 900px) {
   #sidebar-toc { width: 240px; }
   body.toc-open .page-wrap { margin-left: 240px; }
-  body.toc-open .header-ornament { margin-left: 240px; }
-  body.toc-open header { margin-left: 240px; }
 }
 
 /* ── MOBILE: hamburger takes over ── */
@@ -877,10 +871,10 @@ body.toc-open #hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 
 <!-- HEADER -->
 <header>
-  <div class="header-ornament">
-    <span class="line"></span>
-    <span>Verse by Verse Ministry International</span>
-    <span class="line right"></span>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    Estudio Bíblico
+    <div class="ornament-line"></div>
   </div>
   <h1>Estudio del Libro de Apocalipsis</h1>
   <h2>Parte 08 · Capítulo 19 — Primera Parte</h2>
@@ -1839,10 +1833,8 @@ body.toc-open #hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 
 <!-- FOOTNOTE -->
 <footer>
-  <p>
-    Basado en la enseñanza original de <strong>Verse By Verse Ministry International (VBVMI)</strong> · <a href="http://vbvmi.org" target="_blank">vbvmi.org</a><br>
-    Arte de Pat Marvenko Smith © 1992 · <a href="http://revelationillustrated.com" target="_blank">revelationillustrated.com</a>
-  </p>
+  <p>Basado en la enseñanza original de <strong>Verse By Verse Ministry International (VBVMI)</strong> · vbvmi.org</p>
+  <p>Las interpretaciones y conclusiones aquí presentadas se basan en la enseñanza de VBVMI, usada con autorización. Los puntos de vista del autor no representan necesariamente los de VBVMI.</p>
 </footer>
 </div><!-- /.page-wrap -->
 
